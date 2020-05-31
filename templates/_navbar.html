@@ -9,8 +9,8 @@
     <img src="{% static 'animeBUFF_logo.png' %}"  width="180" class="img-fluid">
   </a>
 
-  <form class="form-inline mt-2 mt-md-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+  <form class="form-inline mt-2 mt-md-0" methord="get" action="{% url 'search' %}">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search" id="search">
       <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit"><i class="icon-search text-dark">search</i></button>
   </form>
 

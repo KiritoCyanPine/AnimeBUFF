@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, HttpResponse
 from .models import AnimeTitle
+from django.contrib import messages
 
 # Create your views here.
 
@@ -29,3 +30,16 @@ def video(request, video_id):
     'video':video_id,
     }
     return render(request, "videoPlayer/index.html", context)
+
+def search(request):
+    querry = request.GET['search']
+    if len(querry) > 78 :
+        searchAnime = []
+    else:
+        searchAnime = AnimeTitle.objects.filter(title__icontains=querry)
+    context = {
+    'animes':searchAnime,
+    'querry':querry,
+    }
+    return render(request, "searchPage.html", context)
+    # return HttpResponse("A webpage")
