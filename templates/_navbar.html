@@ -1,0 +1,35 @@
+{% load static %}
+
+
+<header>
+<div class="collapse bg-dark" id="navbarHeader">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-md-7 py-4">
+      <h4 class="text-white">About</h4>
+      <p class="text-muted">Few words about my page.</p>
+    </div>
+    <div class="col-sm-4 offset-md-1 py-4">
+      <h4 class="text-white">CONTENT</h4>
+      <ul class="list-unstyled">
+        <li><a href="https://kissanime.ru/" class="text-white" target="_blank">kissanime</a></li>
+        <li><a href="https://animekayo.com/" class="text-white" target="_blank">animekayo</a></li>
+        <li><a href="https://animekaizoku.com/" class="text-white" target="_blank">animekaizoku</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+<div class="navbar navbar-light bg-light shadow-sm ">
+<div class="container d-flex justify-content-between">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a href="{% url 'main' %}" class="navbar-brand d-flex align-items-center">
+    <img src="{% static 'animeBUFF_logo.png' %}"  width="180" class="img-fluid">
+  </a>
+
+</div>
+</div>
+</header>
