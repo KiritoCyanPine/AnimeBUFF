@@ -73,25 +73,19 @@
 
 <main role="main">
 
-  <section class="jumbotron text-center bg-transparent text-light">
-    <div class="container bg-transparent darker">
-      <h1>Anime BUFF</h1>
-      <p class="lead"> <b>Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</b></p>
+  <section>
 
-      <p>
-        <a href="http://localhost:8000/admin/" class="btn btn-secondary my-2">Go to The Admin Page</a>
-        <a href="#" class="btn btn-secondary my-2">Go to the Blog Page</a><br >
-        <a href="#" class="btn btn-primary my-2">Mail Us</a>
-      </p>
-    </div>
-  </section>
+          <div class="container mt-3 pt-2 pb-2 bg-transparent text-center justify-content-center darker">
+            <h4  class="text-white">AnimeList</h4></div>
 
-  <div class="album py-5 bg-transparent darker col-md-10 text-center justify-content-center " style="margin: 0 auto">
+      </section>
+
+  <div class="album py-5 bg-transparent darker col-md-10 text-center justify-content-center mt-5" style="margin: 0 auto">
     <div class="container">
       <div class="row">
 
 
-<!-- LOOPING OVER THE JOBS I've GIVEN IN THE DATABASE -->
+<!-- LOOPING OVER THE ALL-ANIME-LIST I've GIVEN IN THE DATABASE -->
 
         {% for anime in animes.all %}
 
