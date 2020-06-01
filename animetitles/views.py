@@ -3,10 +3,19 @@ from .models import AnimeTitle
 from django.contrib import messages
 
 # Create your views here.
-
+#################################    TESTING PAGES    #################################
 def testing(request):
     return render(request, "testingPage.html")
 
+def testing2(request):
+    anime_list_item = AnimeTitle.objects
+    context = {
+    'animes':anime_list_item,
+    }
+    return render(request, "testingPage2.html", context)
+
+
+#################################    OFFICIALLY USEABLE PAGES    #################################
 def animeTitle(request,anime_id):
     Anime_object = get_object_or_404(AnimeTitle, pk=anime_id)
     return render(request,"animeTitle.html",{'Anime':Anime_object})

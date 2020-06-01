@@ -31,6 +31,12 @@ class AnimeTitle(models.Model):
     def __str__(self):
         return self.title
 
+    def shortSummery(self):
+        if len(self.summery) > 225 :
+            return self.summery[0:222]+"..."
+        else:
+            return self.summery
+
     def FileList(self):
         file_list = os.listdir(self.directory_address)
         print(file_list)
