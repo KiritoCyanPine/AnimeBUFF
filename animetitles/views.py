@@ -4,6 +4,9 @@ from django.contrib import messages
 
 # Create your views here.
 
+def testing(request):
+    return render(request, "testingPage.html")
+
 def animeTitle(request,anime_id):
     Anime_object = get_object_or_404(AnimeTitle, pk=anime_id)
     return render(request,"animeTitle.html",{'Anime':Anime_object})

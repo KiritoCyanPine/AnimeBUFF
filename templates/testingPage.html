@@ -25,8 +25,11 @@
 <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
 <meta name="theme-color" content="#563d7c">
 
+<link rel="stylesheet" href="{% static 'searchPageExtraCSS.css' %}">
 
-    <style>
+
+
+<style>
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -42,12 +45,9 @@
         }
       }
 
+/*    SEARCH PAGE FUNCTIONALITY BUTTONS FOR BETTER UI*/
       .darker {
-        background :linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-      }
-
-      .darkerL {
-        background :linear-gradient(rgba(0, 0, 100, 0.5), rgba(0, 0, 100, 0.5));
+        background :linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
       }
 
       .darkerY {
@@ -58,6 +58,12 @@
         background :linear-gradient(rgba(255, 0, 0, 0.5), rgba(255, 0, 0, 0.5));
       }
 
+      .darkerB {
+        background :linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+      }
+/*    SEARCH PAGE FUNCTIONALITY ENDED AND REMODIFIED              */
+
+/*   FOR BACKGROUND IMAGE OF THE WEBPAGE    */
       body {
         background: url({% static 'Anime Buff titlepick _ OPTION 2-BLUR.jpg'%}) no-repeat center center fixed;
         -webkit-background-size: cover;
@@ -66,8 +72,57 @@
         background-size: cover;
         margin: 0;
       }
+/*    ENDING OF THE BACKGROUND IMAGE TRANSFORMATION AND ALIGNMENT     */
 
-    </style>
+
+
+/*    FOR THE  CONSISTENCY IN THE LINK DECOR CHANGING     */
+            a:link {  text-decoration: none;  }
+            a:visited {  text-decoration: none;  }
+            a:hover {  text-decoration: none;   }
+            a:active {   text-decoration: none;   }
+/*     ENDING OF LINK DECORATION CHANGE                    */
+
+
+/*   FOR THE SELECTION HIGHTLIGHT OF THE ANIME LIST    */
+      .linker {
+        transition: transform 0.3s;
+      }
+
+      .linker:hover {
+        background :linear-gradient(rgba(150, 150, 150, 0.5), rgba(150, 150, 150, 0.5));
+        border: 0px;
+        border-radius: 8px;
+        transform: scale(1.09);
+      }
+/*   ENDING OF THE SELECTION PROGRAM    */
+
+
+/*    FOR THE ZOOMING IN OF THE HOVERED IMAGE ON THE MOUSE OVER EVENT */
+      .img-resize {
+        border: 2px solid grey;
+        transition: transform 0.3s;
+      }
+
+      .img-resize:hover {
+        border: 2px solid white;
+        border-radius: 4px;
+        transform:scale(2.75);
+      }
+/*     ENDING OF THE IMG ZOOM EVENT ___________    */
+
+
+
+/*   FOR THE HORIZONTAL LINE BETWEEN DIFFERENT OPTIONS     */
+      hr {
+        border: 1px solid red;
+        margin:7px 0px;
+      }
+
+</style>
+
+
+
     <!-- Custom styles for this template -->
     <link href="album.css" rel="stylesheet">
   </head>
@@ -88,7 +143,8 @@
   <section>
 
             <!--THIS WILL TOGGLE FOR SEARCH RESULTS FOUND AND FOR NOT FOUND-->
-            {% if animes|length == 0 %}
+
+            {% if animes|length > 0 %}
                 <div class="container mt-3 pt-2 pb-2 bg-transparent text-left darkerN">
                     <h4  class="text-light">Sorry, No Results Found...  :(</h4>
                 </div>
@@ -107,37 +163,76 @@
     </section>
 
 
-  <div class="album py-5 bg-transparent darker col-md-10 text-center justify-content-center mt-5" style="margin: 0 auto">
+  <div class="album py-5 bg-transparent col-md-10mt-5" style="margin: 0 auto">
     <div class="container">
       <div class="row">
 
+
+<!--
         {% if animes|length == 0 %}
           <p class="text-center text-white"> your search querry :  <b class="text-light"> "{{querry}}" </b> does not seem <br> to match any document... <br><br>
             <a href="http://localhost:8000/admin/">  Register</a> an Anime with this keyword...
           </p>
-        {% endif %}
+        {% endif %}                     -->
 
 
 <!-- LOOPING OVER THE ALL-ANIME-LIST I've GIVEN IN THE DATABASE -->
 
-        {% for anime in animes.all %}
 
 
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{anime.profile.url}}" alt="Thumbnail" />
-            <div class="card-body">
-              <p class="card-text">
-                <h5>
-                <a href="{% url 'animeTitle' anime.id %}">  {{anime.title}}  </a>
-                </h5>
-              </p>
-            </div>
+
+        <div class="container">
+          <a href="#">
+          <div class="darker linker">
+            <img class="img-fluid img-resize justify-content-start my-2 mx-5" src="{% static 'Anime Buff titlepick _ OPTION 2-BLUR.jpg'%}" alt="Thumbnail" width="100" >
+            <b class="mx-5 px-5 text-light" >anime.title w efw fe wiN IFWF  WNIUNWDV WE VNWEVNW VEWE VNOWNDN</b>
           </div>
+           </a>
+           <hr>
         </div>
 
 
-        {% endfor %}
+
+        <div class="container">
+          <a href="#">
+          <div class="darker linker">
+            <img class="img-fluid img-resize justify-content-start my-2 mx-5" src="{% static 'Anime Buff titlepick _ OPTION 2-BLUR.jpg'%}" alt="Thumbnail" width="100" >
+            <b class="mx-5 px-5 text-light" >anime.title w efw fe wiN IFWF  WNIUNWDV WE VNWEVNW VEWE VNOWNDN</b>
+          </div>
+           </a>
+           <hr>
+        </div>
+
+
+
+        <div class="container">
+          <a href="#">
+          <div class="darker linker">
+            <img class="img-fluid img-resize justify-content-start my-2 mx-5" src="{% static 'Anime Buff titlepick _ OPTION 2-BLUR.jpg'%}" alt="Thumbnail" width="100" >
+            <b class="mx-5 px-5 text-light" >anime.title w efw fe wiN IFWF  WNIUNWDV WE VNWEVNW VEWE VNOWNDN</b>
+          </div>
+           </a>
+           <hr>
+        </div>
+
+
+
+        <div class="container">
+          <a href="#">
+          <div class="darker linker">
+            <img class="img-fluid img-resize justify-content-start my-2 mx-5" src="{% static 'Anime Buff titlepick _ OPTION 2-BLUR.jpg'%}" alt="Thumbnail" width="100" >
+            <b class="mx-5 px-5 text-light" >anime.title w efw fe wiN IFWF  WNIUNWDV WE VNWEVNW VEWE VNOWNDN</b>
+          </div>
+           </a>
+           <hr>
+        </div>
+
+
+
+
+
+
+
 
 
 <!-- LOOPING OVER  -->
@@ -152,7 +247,6 @@
 
 
 {% include '_footer.html' %}
-
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

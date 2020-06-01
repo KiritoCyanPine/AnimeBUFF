@@ -26,5 +26,6 @@ urlpatterns = [
     path('animetitle/',animetitles.views.main , name="main"),
     path('', animetitles.views.start, name="start"),
     path('search/', animetitles.views.search, name="search"),
+    path('testing/', animetitles.views.testing, name="testing"),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

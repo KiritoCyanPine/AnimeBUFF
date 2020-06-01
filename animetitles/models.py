@@ -2,13 +2,14 @@ from django.db import models
 import os
 
 
-GLOBAL_server_root_Address = "http://localhost:8887/"
+GLOBAL_server_root_Address = "http://127.0.0.1:8887/"
 
 
 # Create your models here.
 class AnimeTitle(models.Model):
     title =  models.CharField(max_length=100)
     profile = models.ImageField(upload_to = "images/")
+    genres = models.CharField(max_length=200)
     summery =  models.TextField()
     trailer = models.CharField(max_length=170)
     # put blank=True within the brackets
@@ -97,4 +98,5 @@ class AnimeTitle(models.Model):
         global GLOBAL_server_root_Address
         for i in anime_episodes:
             anime_episodes_link.append(GLOBAL_server_root_Address+directory_link+i.replace(" ","%20"))
+        print(anime_episodes_link)
         return anime_episodes_link
