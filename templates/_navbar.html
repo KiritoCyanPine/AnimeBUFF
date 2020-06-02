@@ -29,8 +29,8 @@
         <div class="text-left mx-5">
             <h5  class="text-light">Search by Genres</h5><br>
         </div>
-        <form class="form-inline container" methord="get" action="{% url 'search' %}">
-            <input class="form-control col-10 mx-5 px-5" type="text" placeholder="Search" aria-label="Search" name="search" id="search">
+        <form class="form-inline container" methord="get" action="{% url 'searchGenre' %}">
+            <input class="form-control col-10 mx-5 px-5" type="text" placeholder="Type in the Genres" aria-label="Search" name="querry1" id="querry1">
             <br>
             <button class="btn btn-outline-secondary my-2 my-sm-0 bg-primary float-bottom" type="submit"><i class="icon-search text-dark">search</i></button>
         </form>

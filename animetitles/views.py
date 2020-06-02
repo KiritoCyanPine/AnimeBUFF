@@ -67,3 +67,18 @@ def search(request):
     }
     return render(request, "searchPage.html", context)
     # return HttpResponse("A webpage")
+
+def searchGenre(request):
+    querry = request.GET['querry1']
+    print(querry)
+    querrys = querry.split()
+    searchAnime = AnimeTitle.objects.filter(genres__icontains=querry)
+    for i in querrys:
+        searchAnime = searchAnime.union(AnimeTitle.objects.filter(genres__icontains=i))
+    print(querrys)
+    context = {
+    'animes':searchAnime,
+    'querry':querry,
+    }
+    return render(request, "searchPage.html", context)
+    # return HttpResponse("A webpage")
