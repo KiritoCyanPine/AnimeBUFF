@@ -152,66 +152,28 @@
 <main role="main">
 
   <section>
-
             <!--THIS WILL TOGGLE FOR SEARCH RESULTS FOUND AND FOR NOT FOUND-->
-            {% if animes|length == 0 %}
-                <div class="container mt-3 pt-2 pb-2 bg-transparent text-left darkerN">
-                    <h4  class="text-light">Sorry, No Results Found...  :(</h4>
+                <div class="container mt-3 pt-2 pb-2 bg-transparent text-left darker">
+                    <h4  class="text-light">Advanced Search Options</h4>
                 </div>
-            {% else %}
-                    <div class="container mt-3 pt-2 pb-2 bg-transparent text-left darkerY">
-                        {% if animes|length == 1 %}
-                            <h4  class="text-white">Search Result</h4>
-                        {% else %}
-                            <h4  class="text-white">Search Results</h4>
-                            search count : {{animes|length}}
-                        {% endif %}
-                    </div>
-            {% endif %}
+  </section>
 
 
-    </section>
-
-{% if animes|length == 0 %}
-  <div class="album py-5 bg-transparent darker mt-5 mx-5" style="margin: 0 auto">
-{% else %}
-  <div class="album py-5 bg-transparent" style="margin: 0 auto">
-{% endif %}
-        <div class="container">
-          <div class="row">
-
-              {% if animes|length == 0 %}
-
-                <p class="text-center text-white"> your search querry :  <b class="text-light"> "{{querry}}" </b> does not seem <br> to match any document... <br><br>
-                  <a class="text-warning-hover" href="http://localhost:8000/admin/">  Register </a> an Anime with this keyword...
-                </p>
-
-              {% endif %}
-
-
-      <!-- LOOPING OVER THE ALL-ANIME-LIST I've GIVEN IN THE DATABASE -->
-
-              {% for anime in animes.all %}
-
-                      <div class="container">
-                        <a href="{% url 'animeTitle' anime.id %}">
-                        <div class="darker linker">
-                          <img class="img-fluid img-resize justify-content-start my-2 mx-5" src="{{anime.profile.url}}" alt="Thumbnail" width="65" >
-                          <b class="mx-5 px-5 text-light" > {{anime.title}} </b>
-                        </div>
-                         </a>
-                         <hr>
-                      </div>
-
-              {% endfor %}
-
-
-      <!-- LOOPING OVER  -->
-
-
-          </div>
+      <div class="album py-5 bg-transparent darker my-5 mx-5" style="margin: 0 auto" height="200">
+        <div class="text-left mx-5">
+            <h5  class="text-light">Search by Genres</h5><br>
         </div>
-  </div>
+        <form class="form-inline container" methord="get" action="{% url 'search' %}">
+            <input class="form-control col-10 mx-5 px-5" type="text" placeholder="Search" aria-label="Search" name="search" id="search">
+            <br>
+            <button class="btn btn-outline-secondary my-2 my-sm-0 darker float-bottom" type="submit"><i class="icon-search text-dark">search</i></button>
+        </form>
+
+      </div>
+
+      <div class="album py-5 bg-transparent darker my-5 mx-5" style="margin: 0 auto" height="200">
+
+      </div>
 
 </main>
 

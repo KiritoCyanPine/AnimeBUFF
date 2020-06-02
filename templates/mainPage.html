@@ -85,12 +85,12 @@
     	/* When clicking outer capsule, make inner capsule becomes visible */
     	.clickToShowInfo:active .info {
          visibility: visible;
-         font-size: 80%;
+         font-size: 100%;
       }
     	/* And stays visible as long as mouse hovers over it */
     	.info:hover {
     		visibility: visible;
-        font-size: 80%;
+        font-size: 100%;
     	}
     	/* Initial settings for the inner capsule */
     	.info {
@@ -112,6 +112,15 @@
     	}
 /*_______________   ENDING OF THE POPUP SUMMERY CODE     __________________*/
 
+      .text-warning-hover {
+         transition: color 0.7s linear;
+         text-decoration: none;
+         color: #4292ed;
+       }
+      .text-warning-hover:hover {
+         text-decoration: none;
+         color: #42edae;
+       }
 
 </style>
 
@@ -155,7 +164,7 @@
             <img class="card-img-top" src="{{anime.profile.url}}" alt="Thumbnail" />
             <div class="card-body">
               <p class="card-text">
-                <a href="{% url 'animeTitle' anime.id %}">  {{anime.title}}  </a>
+                <a href="{% url 'animeTitle' anime.id %}" class="text-warning-hover">  {{anime.title}}  </a>
               </p>
             </div>
             <div class="info">

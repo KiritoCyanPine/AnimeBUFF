@@ -14,6 +14,18 @@ def testing2(request):
     }
     return render(request, "testingPage2.html", context)
 
+def testing3(request):
+    querry = request.GET['querry1']
+    if len(querry) > 78 :
+        searchAnime = []
+    else:
+        searchAnime = AnimeTitle.objects.filter(title__icontains=querry)
+    context = {
+    'animes':searchAnime,
+    'querry':querry,
+    }
+    return render(request, "testingPage3.html", context)
+
 
 #################################    OFFICIALLY USEABLE PAGES    #################################
 def animeTitle(request,anime_id):

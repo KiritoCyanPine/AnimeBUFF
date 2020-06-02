@@ -1,5 +1,6 @@
 from django.db import models
 import os
+import re
 
 
 GLOBAL_server_root_Address = "http://127.0.0.1:8887/"
@@ -39,6 +40,7 @@ class AnimeTitle(models.Model):
 
     def FileList(self):
         file_list = os.listdir(self.directory_address)
+        file_list.sort(key=natural_keys)
         print(file_list)
         return file_list
 
@@ -48,6 +50,7 @@ class AnimeTitle(models.Model):
         for i in file_list:
             if ".mp4" in i or ".mkv" in i:
                 vid_list.append(i)
+        vid_list.sort(key=natural_keys)
         return vid_list
 
 
@@ -61,6 +64,7 @@ class AnimeTitle(models.Model):
             anime_episodes = vid_list.remove("trailer.mp4")
         else :
             anime_episodes = vid_list
+        anime_episodes.sort(key=natural_keys)
         return anime_episodes
 
     def DirLink(self):
@@ -87,6 +91,7 @@ class AnimeTitle(models.Model):
             anime_episodes = vid_list.remove("trailer.mp4")
         else :
             anime_episodes = vid_list
+        anime_episodes.sort(key=natural_keys)
 
         diradd = self.directory_address
         p=""
@@ -104,5 +109,17 @@ class AnimeTitle(models.Model):
         global GLOBAL_server_root_Address
         for i in anime_episodes:
             anime_episodes_link.append(GLOBAL_server_root_Address+directory_link+i.replace(" ","%20"))
+        anime_episodes_link.sort(key=natural_keys)
         print(anime_episodes_link)
         return anime_episodes_link
+
+
+def atoi(text):
+    return int(text) if text.isdigit() else text
+
+def natural_keys(text):
+    return [ atoi(c) for c in re.split('(\d+)',text) ]
+
+'''    my_list =os.listdir()
+    my_list.sort(key=natural_keys)
+    print(my_list) '''
