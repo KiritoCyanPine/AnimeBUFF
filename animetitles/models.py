@@ -33,8 +33,8 @@ class AnimeTitle(models.Model):
         return self.title
 
     def shortSummery(self):
-        if len(self.summery) > 225 :
-            return self.summery[0:222]+"..."
+        if len(self.summery) > 330 :
+            return self.summery[0:327]+"..."
         else:
             return self.summery
 

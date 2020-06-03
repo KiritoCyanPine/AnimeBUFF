@@ -85,12 +85,12 @@
     	/* When clicking outer capsule, make inner capsule becomes visible */
     	.clickToShowInfo:active .info {
          visibility: visible;
-         font-size: 100%;
+         font-size: 80%;
       }
     	/* And stays visible as long as mouse hovers over it */
     	.info:hover {
     		visibility: visible;
-        font-size: 100%;
+        font-size: 80%;
     	}
     	/* Initial settings for the inner capsule */
     	.info {
@@ -159,8 +159,8 @@
         {% for anime in animes.all %}
 
 
-        <div class="col-md-3 my-5">
-          <div class="card mb-3 shadow-sm  linker clickToShowInfo h-100 px-1 pt-1">
+        <div class="col-md-2 my-2 mx-2">
+          <div class="card mb-2 shadow-sm  linker clickToShowInfo h-100">
             <img class="card-img-top" src="{{anime.profile.url}}" alt="Thumbnail" />
             <div class="card-body">
               <p class="card-text">
