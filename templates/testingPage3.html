@@ -26,8 +26,7 @@
 <meta name="theme-color" content="#563d7c">
 
 
-
-<style>
+    <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -43,25 +42,10 @@
         }
       }
 
-/*    SEARCH PAGE FUNCTIONALITY BUTTONS FOR BETTER UI*/
       .darker {
-        background :linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
-      }
-
-      .darkerY {
-        background :linear-gradient(rgba(0, 255, 0, 0.5), rgba(0, 255, 0, 0.5));
-      }
-
-      .darkerN {
-        background :linear-gradient(rgba(255, 0, 0, 0.5), rgba(255, 0, 0, 0.5));
-      }
-
-      .darkerB {
         background :linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
       }
-/*    SEARCH PAGE FUNCTIONALITY ENDED AND REMODIFIED              */
 
-/*   FOR BACKGROUND IMAGE OF THE WEBPAGE    */
       body {
         background: url({% static 'Anime Buff titlepick _ OPTION 2-BLUR.jpg'%}) no-repeat center center fixed;
         -webkit-background-size: cover;
@@ -70,117 +54,98 @@
         background-size: cover;
         margin: 0;
       }
-/*    ENDING OF THE BACKGROUND IMAGE TRANSFORMATION AND ALIGNMENT     */
 
-
-
-/*    FOR THE  CONSISTENCY IN THE LINK DECOR CHANGING     */
-            a:link {  text-decoration: none;  }
-            a:visited {  text-decoration: none;  }
-            a:hover {  text-decoration: none;   }
-            a:active {   text-decoration: none;   }
-/*     ENDING OF LINK DECORATION CHANGE                    */
-
-
-/*   FOR THE SELECTION HIGHTLIGHT OF THE ANIME LIST    */
-      .linker {
-        transition: transform 0.3s;
-      }
-
-      .linker:hover {
-        background :linear-gradient(rgba(150, 150, 150, 0.5), rgba(150, 150, 150, 0.5));
-        border: 0px;
-        border-radius: 8px;
-        transform: scale(1.09);
-      }
-/*   ENDING OF THE SELECTION PROGRAM    */
-
-
-/*    FOR THE ZOOMING IN OF THE HOVERED IMAGE ON THE MOUSE OVER EVENT */
-      .img-resize {
-        border: 2px solid grey;
-        transition: transform 0.3s;
-      }
-
-      .img-resize:hover {
-        border: 2px solid white;
-        border-radius: 4px;
-        transform:scale(3.1);
-      }
-/*     ENDING OF THE IMG ZOOM EVENT ___________    */
-
-
-
-/*   FOR THE HORIZONTAL LINE BETWEEN DIFFERENT OPTIONS     */
-      hr {
-        border: 1px solid red;
-        margin:7px 0px;
-      }
-/*   HORIZONTAL LINE BETWEEN DIFFERENT OPTIONS ENDS     */
-
-
-      .text-warning-hover {
-         transition: color 0.4s linear;
-         text-decoration: none;
-         color: #c9f731;
-       }
-      .text-warning-hover:hover {
-         text-decoration: none;
-         color: #31f7a8;
-       }
-
-</style>
-
-
-
-
+    </style>
     <!-- Custom styles for this template -->
     <link href="album.css" rel="stylesheet">
   </head>
   <body>
-  <!-- style="background-image: url({% static 'Anime Buff titlepick _ OPTION 2-BLUR.jpg'%});height = 100%;background-attachment: fixed;"-->
 
 
 
-
-    {% include '_navbar.html' %}
-
+  {% include '_navbar.html' %}
 
 
 
 
 <main role="main">
 
-  <section>
-            <!--THIS WILL TOGGLE FOR SEARCH RESULTS FOUND AND FOR NOT FOUND-->
-                <div class="container mt-3 pt-2 pb-2 bg-transparent text-left darker">
-                    <h4  class="text-light">Advanced Search Options</h4>
-                </div>
-  </section>
 
 
-      <div class="album py-5 bg-transparent darker my-5 mx-5" style="margin: 0 auto" height="200">
-        <div class="text-left mx-5">
-            <h5  class="text-light">Search by Genres</h5><br>
-        </div>
-        <form class="form-inline container" methord="get" action="{% url 'search' %}">
-            <input class="form-control col-10 mx-5 px-5" type="text" placeholder="Search" aria-label="Search" name="search" id="search">
-            <br>
-            <button class="btn btn-outline-secondary my-2 my-sm-0 darker float-bottom" type="submit"><i class="icon-search text-dark">search</i></button>
-        </form>
+  <div class="album py-5 bg-transparent darker col-md-10 my-5 justify-content-center text-alert" style="margin: 0 auto">
+    <div class="container">
+      <div class="row">
+            <div class="container text-light">
 
+              {{Anime.title}}
+                <img src="{{Anime.profile.url}}" class="img-fluid img-thumbnail bg-dark" width="400">
+                <br>
+                {{Anime.summery}}
+                <br>
+                {{Anime.directory_address}}
+                <br>
+                {{Anime.DirLink}}
+                <br>
+                {% for word in Anime.FileList %}
+
+                {{word}} ::
+                <!--this works just perfectly and silently as expected-->
+
+                {% endfor %}
+                <br>
+                {% for word in Anime.VidList %}
+
+                {{word}} :: ::
+                <!--this works just perfectly and silently as expected-->
+
+                {% endfor %}
+                <br>
+                {% for word in Anime.AnimeEpisodes %}
+
+                {{word}} ::
+                <!--this works just perfectly and silently as expected-->
+
+                {% endfor %}
+                <br><br><br>
+                {% for word in Anime.AnimeEpisodesLink %}
+                 $$$$
+                <a href="{% url 'video' word %}" target="_blank"> {{word}} </a>
+                <!--this works just perfectly and silently as expected-->
+
+                {% endfor %}
+
+                <iframe width="514" height="289" src="https://www.youtube.com/embed/MYkOQhHquVQ" frameborder="5"
+                allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen controls>
+              </iframe>
+
+
+                {% if Anime.extrapick_1 %}
+                    <img src="{{Anime.extrapick_1.url}}" class="img-fluid img-thumbnail bg-dark" width="400">
+                {% endif %}
+                {% if Anime.extrapick_2 %}
+                    <img src="{{Anime.extrapick_2.url}}" class="img-fluid img-thumbnail bg-dark" width="400">
+                {% endif %}
+                {% if Anime.extrapick_3 %}
+                    <img src="{{Anime.extrapick_3.url}}" class="img-fluid img-thumbnail bg-dark" width="400">
+                {% endif %}
+                {% if Anime.extrapick_4 %}
+                    <img src="{{Anime.extrapick_4.url}}" class="img-fluid img-thumbnail bg-dark" width="400">
+                {% endif %}
+                {% if Anime.extrapick_5 %}
+                    <img src="{{Anime.extrapick_5.url}}" class="img-fluid img-thumbnail bg-dark" width="400">
+                {% endif %}
+                {% if Anime.extrapick_6 %}
+                    <img src="{{Anime.extrapick_6.url}}" class="img-fluid img-thumbnail bg-dark" width="400">
+                {% endif %}
+            </div>
       </div>
-
-      <div class="album py-5 bg-transparent darker my-5 mx-5" style="margin: 0 auto" height="200">
-
-      </div>
+    </div>
+  </div>
 
 </main>
 
 
-
 {% include '_footer.html' %}
-
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

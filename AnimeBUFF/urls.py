@@ -31,6 +31,6 @@ urlpatterns = [
 ###################################################    TESTING PAGES URLS ##############################
     path('testing/', animetitles.views.testing, name="testing"),
     path('testing2/', animetitles.views.testing2, name="testing2"),
-    path('testing3/', animetitles.views.testing3, name="testing3"),
+    path('testing3/<int:anime_id>/', animetitles.views.testing3, name="testing3"),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

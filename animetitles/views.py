@@ -14,23 +14,21 @@ def testing2(request):
     }
     return render(request, "testingPage2.html", context)
 
-def testing3(request):
-    querry = request.GET['querry1']
-    if len(querry) > 78 :
-        searchAnime = []
-    else:
-        searchAnime = AnimeTitle.objects.filter(title__icontains=querry)
-    context = {
-    'animes':searchAnime,
-    'querry':querry,
-    }
-    return render(request, "testingPage3.html", context)
+def testing3(request,anime_id):
+    Anime_object = get_object_or_404(AnimeTitle, pk=anime_id)
+    return render(request,"animeTitle.html",{'Anime':Anime_object})
 
 
 #################################    OFFICIALLY USEABLE PAGES    #################################
 def animeTitle(request,anime_id):
     Anime_object = get_object_or_404(AnimeTitle, pk=anime_id)
-    return render(request,"animeTitle.html",{'Anime':Anime_object})
+    Ep_plus_Link = zip(Anime_object.AnimeEpisodes(),Anime_object.AnimeEpisodesLink())
+    context = {
+    'Anime':Anime_object,
+    'Ep_plus_Link':Ep_plus_Link
+
+    }
+    return render(request,"animeTitle.html",context)
 
 
 def start(request):
