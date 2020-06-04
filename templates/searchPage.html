@@ -61,13 +61,17 @@
       }
 
       .model-grad {
-        background: linear-gradient(210deg, rgba(27,151,2360.9) 6%, rgba(78,255,196,0.9) 51%, rgba(100,90,80,0.91081936192445727) 100%);
+        background: linear-gradient(210deg, rgba(27,151,236,0.9) 6%, rgba(78,255,196,0.9) 51%, rgba(100,90,80,0.91081936192445727) 100%);
+      }
+
+      .model-grad {
+        background: linear-gradient(210deg, rgba(27,151,236,0.15) 6%, rgba(78,255,196,0.15) 51%, rgba(100,90,80,0.15) 100%);
       }
 /*    SEARCH PAGE FUNCTIONALITY ENDED AND REMODIFIED              */
 
 /*   FOR BACKGROUND IMAGE OF THE WEBPAGE    */
       body {
-        background: url({% static 'Anime Buff titlepick _ OPTION 2-BLUR.jpg'%}) no-repeat center center fixed;
+        background:  linear-gradient(220deg, rgba(2,0,36,1) 0%, rgba(212,212,250,1) 55%, rgba(0,212,255,1) 100%) no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -103,6 +107,14 @@
         border-radius: 8px;
         transform: scale(1.09);
       }
+
+      tr{
+        transition: all 0.3s;
+      }
+      tr:hover{
+        background: linear-gradient(210deg, rgba(27,151,236,0.15) 6%, rgba(78,255,196,0.15) 51%, rgba(100,90,80,0.15) 100%);
+        transform: scale(1.02);
+      }
 /*   ENDING OF THE SELECTION PROGRAM    */
 
 
@@ -130,18 +142,18 @@
 
 
       .text-warning-hover {
-         transition: color 0.4s linear;
+         transition: color 0.01s linear;
          text-decoration: none;
          color: blue;
        }
       .text-warning-hover:hover {
          text-decoration: none;
-         color: lightgreen;
+         color: pink;
        }
 
        /* FOR STOPPING SHIFTING OF THE PAGE TO LEFT */
               .modal {
-                overflow-x: auto;
+                overflow-y: auto;
                }
 
                .modal-open {
@@ -174,7 +186,7 @@
 
 
 <main role="main">
-  <!--   <br><button onclick="switchView()" class="btn btn-secondary float-right mx-5 small-fonts">Switch btw <br> Index / Desktop View</button><br><br> -->
+     <br><button onclick="switchView()" class="btn btn-secondary mx-auto small-fonts">Switch btw Desktop / Index View</button><br><br>
 
   <section>
 
@@ -327,7 +339,14 @@
 
 {% include '_footer.html' %}
 
-
+<script type="text/javascript">
+    function switchView() {
+      var divClass1 = document.getElementById("desktopview");
+      var divClass2 = document.getElementById("mobileview");
+      divClass1.classList.toggle("collapse");
+      divClass2.classList.toggle("collapse");
+    }
+</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
