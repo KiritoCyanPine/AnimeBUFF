@@ -51,11 +51,18 @@
 
       body {
         background: linear-gradient(220deg, rgba(2,0,36,1) 0%, rgba(212,212,250,1) 55%, rgba(0,212,255,1) 100%) no-repeat center center fixed;
+        /*background: url("{{Anime.extrapick_1.url}}") no-repeat center center fixed;*/
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
         margin: 0;
+        /* this piece of code actually stopped shifting of page when models were opened*/
+        /**/                                                                         /**/
+        /**/                        padding-right:0px !important;                    /**/
+        /**/                        margin-right:0px !important;                     /**/
+        /**/                                                                         /**/
+        /* this piece of crap actually stopped shifting of page when models were opened*/
       }
 
       /*   FOR THE HORIZONTAL LINE BETWEEN DIFFERENT OPTIONS     */
@@ -125,6 +132,15 @@
       .fixedHeight{
         height: 90vh;
       }
+/* FOR STOPPING SHIFTING OF THE PAGE TO LEFT */
+             .modal {
+               overflow-x: auto;
+              }
+
+              .modal-open {
+               overflow: auto;
+              }
+/* STOPPING SHIFTING OF THE PAGE TO THE LEFT SIDE */
 
     </style>
 
@@ -143,7 +159,7 @@
 
 
 
-<main role="main" class="row">
+<main role="main">
 
 
   <div class="album py-5 bg-transparent my-2 justify-content-around row text-alert ml-5" style="margin: 0 auto">
@@ -249,7 +265,7 @@
   <div class="">
     <!-- Modals -- THE DATA_TARGET IN THE BUTTON WILL BE TRIGGERING THE MODEL'S "id" -->
     {% if Anime.extrapick_1 %}
-    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade modal-open" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -263,7 +279,7 @@
     </div>
     {% endif %}
     {% if Anime.extrapick_2 %}
-    <div class="modal fade" id="staticBackdrop1" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade modal-open" id="staticBackdrop1" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -279,7 +295,7 @@
     </div>
     {% endif %}
     {% if Anime.extrapick_3 %}
-    <div class="modal fade" id="staticBackdrop2" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade modal-open" id="staticBackdrop2" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -295,7 +311,7 @@
     </div>
     {% endif %}
     {% if Anime.extrapick_4 %}
-    <div class="modal fade" id="staticBackdrop3" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade modal-open" id="staticBackdrop3" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -311,7 +327,7 @@
     </div>
     {% endif %}
     {% if Anime.extrapick_5 %}
-    <div class="modal fade" id="staticBackdrop4" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade modal-open" id="staticBackdrop4" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -327,7 +343,7 @@
     </div>
     {% endif %}
     {% if Anime.extrapick_6 %}
-    <div class="modal fade" id="staticBackdrop5" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade modal-open" id="staticBackdrop5" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">

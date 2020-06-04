@@ -59,6 +59,10 @@
       .darkerB {
         background :linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
       }
+
+      .model-grad {
+        background: linear-gradient(210deg, rgba(27,151,2360.9) 6%, rgba(78,255,196,0.9) 51%, rgba(100,90,80,0.91081936192445727) 100%);
+      }
 /*    SEARCH PAGE FUNCTIONALITY ENDED AND REMODIFIED              */
 
 /*   FOR BACKGROUND IMAGE OF THE WEBPAGE    */
@@ -69,6 +73,12 @@
         -o-background-size: cover;
         background-size: cover;
         margin: 0;
+        /* this piece of code actually stopped shifting of page when models were opened*/
+        /**/                                                                         /**/
+        /**/                        padding-right:0px !important;                    /**/
+        /**/                        margin-right:0px !important;                     /**/
+        /**/                                                                         /**/
+        /* this piece of crap actually stopped shifting of page when models were opened*/
       }
 /*    ENDING OF THE BACKGROUND IMAGE TRANSFORMATION AND ALIGNMENT     */
 
@@ -122,11 +132,25 @@
       .text-warning-hover {
          transition: color 0.4s linear;
          text-decoration: none;
-         color: #c9f731;
+         color: blue;
        }
       .text-warning-hover:hover {
          text-decoration: none;
-         color: #31f7a8;
+         color: lightgreen;
+       }
+
+       /* FOR STOPPING SHIFTING OF THE PAGE TO LEFT */
+              .modal {
+                overflow-x: auto;
+               }
+
+               .modal-open {
+                overflow: auto;
+               }
+       /* STOPPING SHIFTING OF THE PAGE TO THE LEFT SIDE */
+
+       .small-fonts{
+         font-size: 90%;
        }
 
 </style>
@@ -150,6 +174,7 @@
 
 
 <main role="main">
+  <!--   <br><button onclick="switchView()" class="btn btn-secondary float-right mx-5 small-fonts">Switch btw <br> Index / Desktop View</button><br><br> -->
 
   <section>
 
@@ -173,9 +198,9 @@
     </section>
 
 {% if animes|length == 0 %}
-  <div class="album py-5 bg-transparent darker mt-5 mx-5" style="margin: 0 auto">
+  <div id="desktopview" class="album py-5 bg-transparent darker mt-5 mx-5 collapse" style="margin: 0 auto">
 {% else %}
-  <div class="album py-5 bg-transparent mx-3" style="margin: 0 auto">
+  <div id="desktopview" class="album py-5 bg-transparent mx-3 collapse" style="margin: 0 auto">
 {% endif %}
         <div class="container">
           <div class="row">
@@ -215,12 +240,92 @@
         </div>
   </div>
 
+
+  <!--____________________________________________________________________INDEX VIEW MODE__________________________________________________________________________-->
+
+
+      <div id="mobileview" class="album py-5 bg-transparent darker col-md-10 text-center justify-content-center mt-5" style="margin: 0 auto">
+        <div class="container">
+          <div class="row">
+
+
+                  <!-- LOOPING OVER THE ALL-ANIME-LIST I've GIVEN IN THE DATABASE -->
+
+                  <div class="card card-body">
+                    <table class="table table-sm table-striped table-bordered small-fonts">
+                        <thead>
+                          <th>Title</th>
+                          <th>Genres</th>
+                          <th>Episodes</th>
+                          <th>View</th>
+                        </thead>
+                        <tbody>
+                              {% for anime in animes.all %}
+                              <tr>
+                                <td><a href="{% url 'animeTitle' anime.id %}" class="text-warning-hover">  {{anime.title}}  </a></td>
+                                <td>{{anime.genres}}</td>
+                                <td>{{anime.noOfEPs}}</td>
+                    <!--THIS IS A BUTTON THAT IS BEING CREATED EVERYTIME A FOR LOOP IS COMPLETED EACH WITH A NEW DATA_TARGET ACESSING ITS SPECFIC MODELS-->
+                                <td>
+                                      <button type="button" class="btn" data-toggle="modal" data-target="#staticBackdrop{{anime.id}}" action="">
+                                        <svg class="bi bi-box-arrow-in-up-left" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                          <path fill-rule="evenodd" d="M1.5 3A1.5 1.5 0 0 1 3 1.5h10A1.5 1.5 0 0 1 14.5 3v5a.5.5 0 0 1-1 0V3a.5.5 0 0 0-.5-.5H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1H3A1.5 1.5 0 0 1 1.5 13V3z"/>
+                                          <path fill-rule="evenodd" d="M11.5 6a.5.5 0 0 0-.5-.5H6a.5.5 0 0 0-.5.5v5a.5.5 0 0 0 1 0V6.5H11a.5.5 0 0 0 .5-.5z"/>
+                                          <path fill-rule="evenodd" d="M5.646 5.646a.5.5 0 0 0 0 .708l8 8a.5.5 0 0 0 .708-.708l-8-8a.5.5 0 0 0-.708 0z"/>
+                                        </svg>
+                                      </button>
+                                </td>
+                              </tr>
+
+                    <!--THIS IS A MODEL THAT IS BEING CREATED EVERYTIME A FOR LOOP IS COMPLETED EACH WITH A NEW ID MAKING MANY MODELS-->
+                              <div class="modal fade col-sm-11 modal-open" id="staticBackdrop{{anime.id}}" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content model-grad">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">{{anime.title}}</h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="text-center justify-content-center">
+                                        <div class="row">
+                                              <div class="col"></div>
+                                              <div class="col-9">
+                                                  <img id="imageresource" src="{{anime.profile.url}}" class="img-fluid img-thumbnail bg-dark col-10 my-5">
+                                              </div>
+                                              <div class="col"></div>
+                                        </div>
+                                        <div class="col-12 text-light darkerL">
+                                          {{anime.shortSummery}}
+                                        </div>
+
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+
+
+                            </div>
+                              {% endfor %}
+                        </tbody>
+                    </table>
+
+
+
+                  <!-- LOOPING OVER  -->
+            </div>
+          </div>
+        </div>
+
+    <!--____________________________________________________________________INDEX ENDS__________________________________________________________________________-->
+
+
 </main>
 
 
 
 {% include '_footer.html' %}
-
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

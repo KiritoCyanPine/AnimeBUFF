@@ -3,7 +3,7 @@ import os
 import re
 
 
-GLOBAL_server_root_Address = "http://127.0.0.1:8887/"
+GLOBAL_server_root_Address = "http://192.168.137.1:8887/"
 
 
 # Create your models here.
