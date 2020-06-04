@@ -136,11 +136,9 @@
 
     {% include '_navbar.html' %}
 
-
-
-
-
 <main role="main">
+
+      <br><button onclick="switchView()" class="btn btn-dark float-right mx-5">Switch to Index-View</button><br><br>
 
   <section>
 
@@ -149,47 +147,95 @@
 
       </section>
 
-  <div class="album py-5 bg-transparent darker col-md-10 text-center justify-content-center mt-5" style="margin: 0 auto">
+<!--____________________________________________________________________DESKTOP VIEW MODE__________________________________________________________________________-->
+
+  <div id="desktopview" class="album py-5 bg-transparent darker col-md-10 text-center justify-content-center mt-5" style="margin: 0 auto">
     <div class="container">
-      <div class="row">
+      <div class="container">
+        <div class="row">
+
+          <!-- LOOPING OVER THE ALL-ANIME-LIST I've GIVEN IN THE DATABASE -->
+
+            {% for anime in animes.all %}
 
 
-<!-- LOOPING OVER THE ALL-ANIME-LIST I've GIVEN IN THE DATABASE -->
-
-        {% for anime in animes.all %}
-
-
-        <div class="col-md-3 my-5">
-          <div class="card mb-3 shadow-sm  linker clickToShowInfo h-100 px-1 pt-1">
-            <img class="card-img-top" src="{{anime.profile.url}}" alt="Thumbnail" />
-            <div class="card-body">
-              <p class="card-text">
-                <a href="{% url 'animeTitle' anime.id %}" class="text-warning-hover">  {{anime.title}}  </a>
-              </p>
+            <div class="col-md-3 my-5">
+              <div class="card mb-3 shadow-sm  linker clickToShowInfo h-100 px-1 pt-1">
+                <img class="card-img-top" src="{{anime.profile.url}}" alt="Thumbnail" />
+                <div class="card-body">
+                  <p class="card-text">
+                    <a href="{% url 'animeTitle' anime.id %}" class="text-warning-hover">  {{anime.title}}  </a>
+                  </p>
+                </div>
+                <div class="info">
+                	  {{anime.shortSummery}}
+              	</div>
+              </div>
             </div>
-            <div class="info">
-            	  {{anime.shortSummery}}
-          	</div>
-          </div>
+
+            {% endfor %}
+
+        <!-- LOOPING OVER  -->
+
         </div>
-
-
-        {% endfor %}
-
-
-<!-- LOOPING OVER  -->
-
-
       </div>
     </div>
   </div>
+  <!--____________________________________________________________________DESKTOP ENDS__________________________________________________________________________-->
+
+
+  <!--____________________________________________________________________INDEX VIEW MODE__________________________________________________________________________-->
+
+
+      <div id="mobileview" class="album py-5 bg-transparent darker col-md-10 text-center justify-content-center mt-5 collapse" style="margin: 0 auto">
+        <div class="container">
+          <div class="row">
+
+
+                  <!-- LOOPING OVER THE ALL-ANIME-LIST I've GIVEN IN THE DATABASE -->
+
+                  <div class="card card-body">
+                    <table class="table table-sm table-striped table-bordered">
+                        <thead>
+                          <th>Title</th>
+                          <th>Genres</th>
+                          <th>Episodes</th>
+                        </thead>
+                        <tbody>
+                              {% for anime in animes.all %}
+                              <tr>
+                                <td><a href="{% url 'animeTitle' anime.id %}" class="text-warning-hover">  {{anime.title}}  </a></td>
+                                <td>{{anime.genres}}</td>
+                                <td>{{anime.noOfEPs}}</td>
+                              </tr>
+                              {% endfor %}
+                        </tbody>
+                    </table>
+                  </div>
+
+
+                  <!-- LOOPING OVER  -->
+            </div>
+          </div>
+        </div>
+    <!--____________________________________________________________________INDEX ENDS__________________________________________________________________________-->
+
+
 <main>
 
 
 {% include '_footer.html' %}
 
 
-
+<script type="text/javascript">
+    function switchView() {
+      var divClass1 = document.getElementById("desktopview");
+      var divClass2 = document.getElementById("mobileview");
+      divClass1.classList.toggle("collapse");
+      divClass2.classList.toggle("collapse");
+    }
+</script>
+</body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>

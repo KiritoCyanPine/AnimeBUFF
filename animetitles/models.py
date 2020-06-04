@@ -67,6 +67,19 @@ class AnimeTitle(models.Model):
         anime_episodes.sort(key=natural_keys)
         return anime_episodes
 
+    def noOfEPs(self):
+        file_list = os.listdir(self.directory_address)
+        vid_list = []
+        for i in file_list:
+            if ".mp4" in i or ".mkv" in i:
+                vid_list.append(i)
+        if "trailer.mp4" in vid_list:
+            anime_episodes = vid_list.remove("trailer.mp4")
+        else :
+            anime_episodes = vid_list
+        number = str(len(anime_episodes))
+        return number
+
     def DirLink(self):
         diradd = self.directory_address
         p=""

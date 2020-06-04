@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, HttpResponse
 from .models import AnimeTitle
 from django.contrib import messages
+from .filters import indexFilter
 
 # Create your views here.
 #################################    TESTING PAGES    #################################
@@ -48,6 +49,15 @@ def animeIndexes(request):
     'animes':anime_list_item,
     }
     return render(request, "animeIndexPage.html" , context)
+
+def animeIndexesfilter(request):
+    querry = request.GET['shortlist']
+    searchAnime = AnimeTitle.objects.filter(genres__icontains=querry)
+    context = {
+    'animes':searchAnime,
+    'querry':querry,
+    }
+    return render(request, "animeIndexPage.html", context)
 
 
 

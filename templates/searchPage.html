@@ -155,11 +155,11 @@
 
             <!--THIS WILL TOGGLE FOR SEARCH RESULTS FOUND AND FOR NOT FOUND-->
             {% if animes|length == 0 %}
-                <div class="container mt-3 pt-2 pb-2 bg-transparent text-left darkerN">
+                <div class="container mt-3 pt-2 pb-2 bg-transparent text-left darkerN mx-3">
                     <h4  class="text-light">Sorry, No Results Found...  :(</h4>
                 </div>
             {% else %}
-                    <div class="container mt-3 pt-2 pb-2 bg-transparent text-left darkerY">
+                    <div class="container mt-3 pt-2 pb-2 bg-transparent text-left darkerY mx-3">
                         {% if animes|length == 1 %}
                             <h4  class="text-white">Search Result</h4>
                         {% else %}
@@ -175,7 +175,7 @@
 {% if animes|length == 0 %}
   <div class="album py-5 bg-transparent darker mt-5 mx-5" style="margin: 0 auto">
 {% else %}
-  <div class="album py-5 bg-transparent" style="margin: 0 auto">
+  <div class="album py-5 bg-transparent mx-3" style="margin: 0 auto">
 {% endif %}
         <div class="container">
           <div class="row">
@@ -195,9 +195,11 @@
 
                       <div class="container">
                         <a href="{% url 'animeTitle' anime.id %}">
-                        <div class="darker linker">
-                          <img class="img-fluid img-resize justify-content-start my-2 mx-5" src="{{anime.profile.url}}" alt="Thumbnail" width="65" >
-                          <b class="mx-5 px-5 text-light" > {{anime.title}} </b>
+                        <div class="darker linker row">
+                            <img class="img-fluid img-resize justify-content-start my-2 mx-5" src="{{anime.profile.url}}" alt="Thumbnail" width="65" >
+                          <div class="col text-justify">
+                            <b class="mx-5 px-5 text-light" > {{anime.title}} </b>
+                          </div>
                         </div>
                          </a>
                          <hr>
