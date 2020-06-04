@@ -43,23 +43,6 @@ def main(request):
     }
     return render(request, "mainPage.html" , context)
 
-def animeIndexes(request):
-    anime_list_item = AnimeTitle.objects
-    context = {
-    'animes':anime_list_item,
-    }
-    return render(request, "animeIndexPage.html" , context)
-
-def animeIndexesfilter(request):
-    querry = request.GET['shortlist']
-    searchAnime = AnimeTitle.objects.filter(genres__icontains=querry)
-    context = {
-    'animes':searchAnime,
-    'querry':querry,
-    }
-    return render(request, "animeIndexPage.html", context)
-
-
 
 def start(request):
     return render(request, "startPage.html")
