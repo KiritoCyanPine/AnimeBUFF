@@ -52,7 +52,7 @@ def video(request, video_id):
     context = {
     'video':video_id,
     }
-    return render(request, "videoPlayer/index.html", context)
+    return render(request, "videoPlayer/videoPlayer.html", context)
 
 def search(request):
     querry = request.GET['search']
