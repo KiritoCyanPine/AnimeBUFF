@@ -50,17 +50,24 @@
         background :linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
       }
       .model-grad {
-        background: linear-gradient(210deg, rgba(27,151,2360.9) 6%, rgba(78,255,196,0.9) 51%, rgba(100,90,80,0.91081936192445727) 100%);
+        background: linear-gradient(110deg, rgba(27,151,2360.9) 6%, rgba(78,255,196,0.9) 51%, rgba(100,90,80,0.91081936192445727) 100%);
       }
 
-
+/*----------------------- TABLE ROW DEAORATION IN IDLE & IN HOVERING -----------------------------------------------*/
       tr{
         transition: all 0.3s;
       }
+      tr:hover a{
+        color: white;
+      }
       tr:hover{
-        background: linear-gradient(210deg, rgba(27,151,236,0.15) 6%, rgba(78,255,196,0.15) 51%, rgba(100,90,80,0.15) 100%);
+        /*background: linear-gradient(210deg, rgba(27,151,236,0.15) 6%, rgba(78,255,196,0.15) 51%, rgba(100,90,80,0.15) 100%);*/
+        background: linear-gradient(90deg, rgba(61,98,231,1) 0%, rgba(206,161,240,0.7458333675266982) 51%, rgba(0,212,255,0.23322832550989148) 100%);
+        color: white;
         transform: scale(1.02);
       }
+/*----------------------- TABLE ROW DEAORATION ENDS -----------------------------------------------*/
+
 
 
 /*___________________    FOR THE  CONSISTENCY IN THE LINK DECOR CHANGING     ___________________*/
@@ -92,29 +99,42 @@
       }
 
       .linker:hover {
-        background :linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
+        background :linear-gradient(210deg, rgba(61,98,231,1) 0%, rgba(206,161,240,0.7458333675266982) 51%, rgba(0,212,255,0.23322832550989148) 100%);
+        color:white;
         border: 0px;
         border-radius: 8px;
-        transform: scale(1.1);
+        transform: scale(1.2);
+      }
+
+      .linker:hover a{
+        color: white;
+      }
+
+      .linker a:hover{
+        color: darkblue;
       }
 /*___________________   ENDING OF THE SELECTION PROGRAM    ___________________*/
 
 /*__________    FOR THE SELECTION POPUP OF THE ANIME SUMMERY    ______________*/
       .clickToShowInfo {
+        color: black;
     		position: relative;
     	}
     	/* When clicking outer capsule, make inner capsule becomes visible */
     	.clickToShowInfo:active .info {
+        color: black;
          visibility: visible;
          font-size: 100%;
       }
     	/* And stays visible as long as mouse hovers over it */
     	.info:hover {
+        color: black;
     		visibility: visible;
         font-size: 100%;
     	}
     	/* Initial settings for the inner capsule */
     	.info {
+        color: black;
     		position: absolute;  /* relative to the capsule */
     		visibility: hidden;  /* should not be visible on load */
     		z-index: 100;
@@ -125,6 +145,7 @@
     	}
     	/* If we want clicking on the popup to close, use this */
     	.info:active {
+        color: black;
     		visibility: hidden;	/* in addition to collapse also hide the content */
     		height: 0px;        /* when the content is clicked again the window should collapse */
     		width: 0px;         /* when the content is clicked again the window should collapse */
@@ -133,15 +154,29 @@
     	}
 /*_______________   ENDING OF THE POPUP SUMMERY CODE     __________________*/
 
+
+/*-------------------- SPECFIC ELEMENT HOVERING EFFECTS ------------------------------------*/
       .text-warning-hover {
-         transition: color 0.7s linear;
+         transition: color 0.3s linear;
          text-decoration: none;
-         color: #4292ed;
        }
       .text-warning-hover:hover {
          text-decoration: none;
-         color: #42edae;
+         color: #fae;
        }
+/*-------------------- SPECFIC ELEMENT HOVERING EFFECTS ENDS ------------------------------------*/
+
+/*-------------------- "2" SPECFIC ELEMENT HOVERING EFFECTS ------------------------------------*/
+      .text-warning-hover2 {
+         transition: color 0.3s linear;
+         text-decoration: none;
+       }
+      .text-warning-hover2:hover {
+         text-decoration: none;
+         color: violet;
+       }
+/*-------------------- "2" SPECFIC ELEMENT HOVERING EFFECTS ENDS ------------------------------------*/
+
 
        .small-fonts{
          font-size: 90%;
@@ -173,7 +208,7 @@
 
 <main role="main">
 
-      <br><button onclick="switchView()" class="btn btn-secondary float-right mx-5 small-fonts">Switch btw <br> Index / Desktop View</button><br><br>
+
 
   <section>
 
@@ -184,7 +219,10 @@
 
 <!--____________________________________________________________________DESKTOP VIEW MODE__________________________________________________________________________-->
 
-  <div id="desktopview" class="album py-5 bg-transparent darker col-md-10 text-center justify-content-center mt-5" style="margin: 0 auto">
+  <div id="desktopview" class="album py-2 bg-transparent darker col-md-10 text-center justify-content-center mt-5" style="margin: 0 auto">
+
+    <button onclick="switchView()" class="btn btn-secondary mx-auto small-fonts">Switch to Index View</button><br><hr>
+
     <div class="container">
       <div class="container">
         <div class="row">
@@ -199,7 +237,7 @@
                 <img class="card-img-top" src="{{anime.profile.url}}" alt="Thumbnail" />
                 <div class="card-body">
                   <p class="card-text">
-                    <a href="{% url 'animeTitle' anime.id %}" class="text-warning-hover">  {{anime.title}}  </a>
+                    <a href="{% url 'animeTitle' anime.id %}" class="text-warning-hover2">  {{anime.title}}  </a>
                   </p>
                 </div>
                 <div class="info">
@@ -222,7 +260,10 @@
   <!--____________________________________________________________________INDEX VIEW MODE__________________________________________________________________________-->
 
 
-      <div id="mobileview" class="album py-5 bg-transparent darker col-md-10 text-center justify-content-center mt-5 collapse" style="margin: 0 auto">
+      <div id="mobileview" class="album py-2 bg-transparent darker col-md-10 text-center justify-content-center mt-5 collapse" style="margin: 0 auto">
+
+        <button onclick="switchView()" class="btn btn-secondary mx-auto small-fonts">Switch to Desktop View</button><br><hr>
+
         <div class="container">
           <div class="row">
 
