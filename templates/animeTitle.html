@@ -43,15 +43,15 @@
       }
 
       .darker {
-        background :linear-gradient(rgba(0, 0, 0, 0.27), rgba(0, 0, 0, 0.27));
+        background :linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
       }
       .darkerL {
         background :linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
       }
 
       body {
-        background: linear-gradient(220deg, rgba(2,0,36,1) 0%, rgba(212,212,250,1) 55%, rgba(0,212,255,1) 100%) no-repeat center center fixed;
-        /*background: url("{{Anime.extrapick_1.url}}") no-repeat center center fixed;*/
+        /*background: linear-gradient(220deg, rgba(2,0,36,1) 0%, rgba(212,212,250,1) 55%, rgba(0,212,255,1) 100%) no-repeat center center fixed;*/
+        background: url("{{Anime.extrapick_1.url}}") no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -122,6 +122,10 @@
             }
       /*     ENDING OF THE IMG ZOOM EVENT ___________    */
 
+      .small-fonts{
+        font-size: 90%;
+      }
+
       .scrollable{
 
         height: 75vh;
@@ -130,7 +134,11 @@
         padding: 20px;
       }
       .fixedHeight{
-        height: 90vh;
+        height: 100vh;
+      }
+
+      .max-width{
+        width: 100%;
       }
 /* FOR STOPPING SHIFTING OF THE PAGE TO LEFT */
              .modal {
@@ -160,6 +168,10 @@
 
 
 <main role="main">
+    <div class="darker text-light py-2 mt-4 px-5 mx-5 rounded">
+        <h2>{{Anime.title}}</h2>
+    </div>
+
 
 
   <div class="album py-5 bg-transparent my-2 justify-content-around row text-alert ml-5" style="margin: 0 auto">
@@ -170,24 +182,43 @@
 
             <img src="{{Anime.profile.url}}" class="img-fluid img-thumbnail rounded mx-auto d-block bg-dark col-10 my-3 ">
             <hr>
-            <div class="row">
+            <div class="row small-fonts">
+              <div class="col-3 mx-auto d-block px-2 my-2">
+                <span class="align-middle text-white"><u>_Other Names_</u></span>
+              </div>
+              <div class="col-8 darkerL mx-auto d-block text-light">
+                {{Anime.otherNames}}
+              </div>
+            </div>
+            <hr>
+
+            <div class="row small-fonts">
               <div class="col-3 mx-auto d-block px-2 my-2">
                 <span class="align-middle text-white"><u>_Genre_</u></span>
               </div>
-              <div class="col-8 darkerL mx-auto d-block ">
+              <div class="col-8 darkerL mx-auto d-block text-light">
                 {{Anime.genres}}
               </div>
             </div>
             <hr>
-            <br>
-            <div class="mx-1 my-2 px-1 py-1 darkerL">
-                <h6 class="text-white"><u>_Trailer_</u></h6>
-                <div class="embed-responsive embed-responsive-16by9 mt-5 mb-2 border rounded-right border-dark">
-                    <iframe class="embed-responsive-item"  src="{{Anime.trailer}}" frameborder="5"
-                    allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen controls>
-                    </iframe>
+
+            {% if Anime.TrailerVideo %}
+            <div class="form-group text-info">
+                make sure you are connected to Internet...
+                <a for="collapseOne" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="btn btn-warning mx-auto small-fonts max-width text-light">Traier  <svg class="bi bi-arrow-down-up" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M11 3.5a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z"/>
+                      <path fill-rule="evenodd" d="M10.646 2.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L11 3.707 8.354 6.354a.5.5 0 1 1-.708-.708l3-3zm-9 7a.5.5 0 0 1 .708 0L5 12.293l2.646-2.647a.5.5 0 1 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z"/>
+                      <path fill-rule="evenodd" d="M5 2.5a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-1 0V3a.5.5 0 0 1 .5-.5z"/>
+                    </svg></a>
+                <div id="collapseOne" class="collapse embed-responsive embed-responsive-16by9 mt-5 mb-2 border rounded-right border-dark text-light">
+                  <iframe width="956" height="538" src="{{Anime.TrailerVideo}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
+
+
+
+
+            {% endif %}
 
       </div>
 
@@ -365,6 +396,7 @@
 
 
 {% include '_footer.html' %}
+
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

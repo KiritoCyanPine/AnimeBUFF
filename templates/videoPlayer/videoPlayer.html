@@ -63,39 +63,10 @@
         background: linear-gradient(90deg, rgba(58,79,180,0.8830882694874825) 0%, rgba(253,29,71,0.7234244039412641) 50%, rgba(252,176,69,0.7654412106639531) 100%);
       }
 
-
-      tr{
-        transition: all 0.3s;
+      .videoSIZE{
+        height:450px;
+        width:800px;
       }
-      tr:hover{
-        background: linear-gradient(210deg, rgba(27,151,236,0.15) 6%, rgba(78,255,196,0.15) 51%, rgba(100,90,80,0.15) 100%);
-        transform: scale(1.02);
-      }
-
-
-/*___________________    FOR THE  CONSISTENCY IN THE LINK DECOR CHANGING     ___________________*/
-                  a:link {  text-decoration: none;  }
-                  a:visited {  text-decoration: none;  }
-                  a:hover {  text-decoration: none;   }
-                  a:active {   text-decoration: none;   }
-/*___________________     ENDING OF LINK DECORATION CHANGE                    ___________________*/
-
-      body {
-        background:  linear-gradient(220deg, rgba(2,0,36,1) 0%, rgba(212,212,250,1) 55%, rgba(0,212,255,1) 100%) no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-        margin: 0;
-        /* this piece of code actually stopped shifting of page when models were opened*/
-        /**/                                                                         /**/
-        /**/                        padding-right:0px !important;                    /**/
-        /**/                        margin-right:0px !important;                     /**/
-        /**/                                                                         /**/
-        /* this piece of crap actually stopped shifting of page when models were opened*/
-      }
-
-
 
 </style>
 
@@ -127,16 +98,16 @@
 
 
 
-      <!--____________________________________________________________________DESKTOP VIEW MODE__________________________________________________________________________-->
+      <!--____________________________________________________________________CUSTOM PLAYER__________________________________________________________________________-->
 
 
       <div id="CustomPlayer" class="justify-content-center mx-auto">
 
-        <br><button onclick="switchView()" class="btn btn-warning mx-auto small-fonts">Switch to HTML5 Player</button><br><br>
+        <br><button onclick="switchToHtml()" class="btn btn-warning mx-auto small-fonts">Switch to HTML5 Player</button><br><br>
 
             <div class="container mt-5 mb-5">
-              <div class="row">
-                      <video id="video_player" controls="true" preload="0">
+                <div class="row">
+                      <video id="video_player" height="506.25" width="900" controls="true" preload="0">
 
                             <source src="{{video}}" type="video/mp4">
                             <source src="{{video}}" type="video/x-matroska;">
@@ -147,27 +118,27 @@
                             <source src="{{video}}" type="video/webm">
                             <source src="{{video}}" type='video/mp4; codecs="avc1"'>
                       </video>
-              </div>
+                 </div>
             </div>
 
             <button id="togglePipButton">Toggle Picture-in-Picture Mode!</button>
       </div>
 
 
-        <!--____________________________________________________________________DESKTOP ENDS__________________________________________________________________________-->
+        <!--____________________________________________________________________CUSTOM PLAYER ENDS__________________________________________________________________________-->
 
 
-        <!--____________________________________________________________________INDEX VIEW MODE__________________________________________________________________________-->
+        <!--____________________________________________________________________HTML5 PLAYER MODE__________________________________________________________________________-->
 
       <div id="defaultHtmlPlayer" class="collapse justify-content-center mx-auto">
 
-                <br><button onclick="switchView()" class="btn btn-warning mx-auto small-fonts">Switch to Custom Player</button><br><br>
+                <br><button onclick="switchToCustom()" class="btn btn-warning mx-auto small-fonts">Switch to Custom Player</button><br><br>
 
 
 
               <div class="container mt-5 mb-5">
                 <div class="row">
-                        <video  controls="true" preload="0">
+                        <video class="videoSIZE" height="506.25" width="990" controls="true" preload="0">
 
                               <source src="{{video}}" type="video/mp4">
                               <source src="{{video}}" type="video/x-matroska;">
@@ -183,7 +154,7 @@
 
       </div>
 
-          <!--____________________________________________________________________INDEX ENDS__________________________________________________________________________-->
+          <!--____________________________________________________________________HTML5 PLAYER ENDS__________________________________________________________________________-->
 
         </div>
       </div>
@@ -209,6 +180,8 @@
 <script src="{% static 'plugins/picture-in-picture/picture-in-picture.js' %}"></script>
 
 <script>
+
+
   $('#video_player').mediaelementplayer({
       features: ['playpause', 'jumpforward', 'skipback', 'current', 'progress', 'duration', 'volume', 'tracks', 'speed', 'fullscreen', 'pictureinpicture'],
       speeds: [
@@ -228,9 +201,18 @@
 
 
 <script type="text/javascript">
-    function switchView() {
+    function switchToHtml() {
       var divClass1 = document.getElementById("CustomPlayer");
       var divClass2 = document.getElementById("defaultHtmlPlayer");
+      alert("You are about to switch to default HTML5 PLAYER");
+      divClass1.classList.toggle("collapse");
+      divClass2.classList.toggle("collapse");
+    }
+
+    function switchToCustom() {
+      var divClass1 = document.getElementById("CustomPlayer");
+      var divClass2 = document.getElementById("defaultHtmlPlayer");
+      alert("You are about to switch to Customised Web PLAYER");
       divClass1.classList.toggle("collapse");
       divClass2.classList.toggle("collapse");
     }
