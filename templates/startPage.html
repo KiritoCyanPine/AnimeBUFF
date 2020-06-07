@@ -1,0 +1,422 @@
+
+<!doctype html>
+<html lang="en">
+{% load static %}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.0.1">
+    <title>AnimeBUFF</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/4.5/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/4.5/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+<link rel="icon" href="/docs/4.5/assets/img/favicons/favicon.ico">
+<meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#563d7c">
+
+
+<style>
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .darker {
+        background :linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
+      }
+      .darkerL {
+        background :linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+      }
+      .model-grad {
+        background: linear-gradient(45deg, rgba(27,151,236,0.9) 6%, rgba(78,255,196,0.9) 51%, rgba(220,100,100,0.91081936192445727) 100%);
+      }
+      .model-grad-rev {
+        background: linear-gradient(225deg, rgba(225,225,225,0.9) 6%, rgba(78,255,196,0.9) 51%, rgba(225225,225225,100,0.91081936192445727) 100%);
+      }
+
+/*----------------------- TABLE ROW DEAORATION IN IDLE & IN HOVERING -----------------------------------------------*/
+      tr{
+        transition: all 0.3s;
+      }
+      tr:hover a{
+        color: white;
+      }
+      tr:hover{
+        /*background: linear-gradient(210deg, rgba(27,151,236,0.15) 6%, rgba(78,255,196,0.15) 51%, rgba(100,90,80,0.15) 100%);*/
+        background: linear-gradient(90deg, rgba(61,98,231,1) 0%, rgba(206,161,240,0.7458333675266982) 51%, rgba(0,212,255,0.23322832550989148) 100%);
+        color: white;
+        transform: scale(1.02);
+      }
+/*----------------------- TABLE ROW DEAORATION ENDS -----------------------------------------------*/
+
+
+
+/*___________________    FOR THE  CONSISTENCY IN THE LINK DECOR CHANGING     ___________________*/
+                  a:link {  text-decoration: none;  }
+                  a:visited {  text-decoration: none;  }
+                  a:hover {  text-decoration: none;   }
+                  a:active {   text-decoration: none;   }
+/*___________________     ENDING OF LINK DECORATION CHANGE                    ___________________*/
+
+      body {
+        background:  linear-gradient(220deg, rgba(2,0,36,1) 0%, rgba(212,212,250,1) 55%, rgba(0,212,255,1) 100%) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        margin: 0;
+        /* this piece of code actually stopped shifting of page when models were opened*/
+        /**/                                                                         /**/
+        /**/                        padding-right:0px !important;                    /**/
+        /**/                        margin-right:0px !important;                     /**/
+        /**/                                                                         /**/
+        /* this piece of crap actually stopped shifting of page when models were opened*/
+      }
+
+/*___________________   FOR THE SELECTION HIGHTLIGHT OF THE ANIME LIST    ___________________*/
+      .linker {
+        background :linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85));
+        transition: transform 0.25s;
+      }
+
+      .linker:hover {
+        background :linear-gradient(210deg, rgba(225,225,225,1) 0%, rgba(220,220,220,1) 51%, rgba(2,212,255,1220) 100%);
+        color:white;
+        border: 0px;
+        border-radius: 8px;
+        transform: scale(1.14);
+      }
+
+      .linker:hover a{
+        color: white;
+      }
+
+      .linker a:hover{
+        color: #007bff;
+      }
+/*___________________   ENDING OF THE SELECTION PROGRAM    ___________________*/
+
+/*__________    FOR THE SELECTION POPUP OF THE ANIME SUMMERY    ______________*/
+      .clickToShowInfo {
+        color: black;
+    		position: relative;
+    	}
+    	/* When clicking outer capsule, make inner capsule becomes visible */
+    	.clickToShowInfo:active .info {
+        color: black;
+         visibility: visible;
+         font-size: 100%;
+      }
+    	/* And stays visible as long as mouse hovers over it */
+    	.info:hover {
+        color: black;
+    		visibility: visible;
+        font-size: 100%;
+    	}
+    	/* Initial settings for the inner capsule */
+    	.info {
+        color: black;
+    		position: absolute;  /* relative to the capsule */
+    		visibility: hidden;  /* should not be visible on load */
+    		z-index: 100;
+    		background :linear-gradient(rgba(255, 255, 255, 0.71), rgba(255, 255, 255, 0.71));
+    		border: inherit;
+        border-radius: 4px;
+    		padding: 8px;
+    	}
+    	/* If we want clicking on the popup to close, use this */
+    	.info:active {
+        color: black;
+    		visibility: hidden;	/* in addition to collapse also hide the content */
+    		height: 0px;        /* when the content is clicked again the window should collapse */
+    		width: 0px;         /* when the content is clicked again the window should collapse */
+    		left: -1000px;      /* collapse operation must happen far away from the webpage sight */
+    		top: -1000px;       /* collapse operation must happen far away from the webpage sight */
+    	}
+/*_______________   ENDING OF THE POPUP SUMMERY CODE     __________________*/
+
+
+/*-------------------- SPECFIC ELEMENT HOVERING EFFECTS ------------------------------------*/
+      .text-warning-hover {
+         transition: color 0.3s linear;
+         text-decoration: none;
+       }
+      .text-warning-hover:hover {
+         text-decoration: none;
+         color: #fae;
+       }
+/*-------------------- SPECFIC ELEMENT HOVERING EFFECTS ENDS ------------------------------------*/
+
+/*-------------------- "2" SPECFIC ELEMENT HOVERING EFFECTS ------------------------------------*/
+      .text-warning-hover2 {
+         transition: color 0.3s linear;
+         text-decoration: none;
+       }
+      .text-warning-hover2:hover {
+         text-decoration: none;
+         color: violet;
+       }
+/*-------------------- "2" SPECFIC ELEMENT HOVERING EFFECTS ENDS ------------------------------------*/
+
+
+       .small-fonts{
+         font-size: 90%;
+       }
+
+/* FOR STOPPING SHIFTING OF THE PAGE TO LEFT */
+       .modal {
+         overflow-x: auto;
+        }
+
+        .modal-open {
+         overflow: auto;
+        }
+
+        .WEBSITE_EXAMPLE {
+          transition: all 0.3s;
+        }
+        .WEBSITE_EXAMPLE:hover {
+          transform: scale(1.2);
+        }
+/* STOPPING SHIFTING OF THE PAGE TO THE LEFT SIDE */
+
+</style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="album.css" rel="stylesheet">
+  </head>
+  <body>
+  <!-- style="background-image: url({% static 'Anime Buff titlepick _ OPTION 2-BLUR.jpg'%});height = 100%;background-attachment: fixed;"-->
+
+
+
+
+    {% include '_navbar.html' %}
+
+<main role="main">
+
+
+
+  <section>
+
+          <div class="container mt-3 pt-2 pb-2 bg-transparent text-center justify-content-center darker rounded  model-grad">
+            <h3  class="text-white">Anime BUFF</h3></div>
+
+      </section>
+
+          <!--____________________________________________________________________DISCOVER FROM YOUR DRIVE VIEW MODE__________________________________________________________________________-->
+
+            <div id="desktopview" class="album py-2 bg-transparent darker col-md-10 px-4 mt-4 rounded model-grad-rev text-info" style="margin: 0 auto">
+              <h4>DISCOVER FROM YOUR DRIVE</h4>
+            </div>
+            <div id="desktopview" class="album py-2 bg-transparent darker col-md-10 text-center justify-content-center mt-4 rounded model-grad" style="margin: 0 auto">
+
+                <div class="card my-3 mx-3">
+
+                  <div class="col-11" style="background:red;">
+                    <h4 class="float-left px-3">ANIME_TITLE</h4>
+                  </div>
+
+                  <hr>
+
+                  <div class="row justify-content-around">
+
+                    <div class="collapse col-5 my-3 container row justify-content-around" style="background:pink;">
+                      <img src="" alt="COVER_PICTURE" class="col-4" style="background:orange;">
+
+                      <div class="col-7" style="background:orange;">
+                        ANIME_CONTENT
+                      </div>
+                    </div>
+
+                    <div class="col-5 my-3 container row justify-content-around" style="background:pink; height:300px;">
+                      <img src="" alt="COVER_PICTURE" class="col-10" style="background:orange;">
+                    </div>
+
+                    <div class="col-5 my-3" style="background:pink;">
+                      <div class="container row justify-content-between">
+                        <div class="col-5 mx-1 my-1" style="background:lightblue;">
+                          ANIME_EXTRA PICTURE
+                        </div>
+                        <div class="col-5 mx-1 my-1" style="background:lightblue;">
+                          ANIME_EXTRA PICTURE
+                        </div>
+                        <div class="col-5 mx-1 my-1" style="background:lightblue;">
+                          ANIME_EXTRA PICTURE
+                        </div>
+                        <div class="col-5 mx-1 my-1" style="background:lightblue;">
+                          ICON FOR CONTENT
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+            </div>
+            <!--____________________________________________________________________DISCOVER FROM YOUR DRIVE ENDS__________________________________________________________________________-->
+
+            <br><hr>
+            <!--____________________________________________________________________NEW ANIME MODE__________________________________________________________________________-->
+
+            <div id="desktopview" class="album py-2 bg-transparent darker col-md-10 px-4 mt-4 rounded model-grad-rev text-info" style="margin: 0 auto">
+              <h4>NEW CONTENT</h4>
+            </div>
+
+              <div id="desktopview" class="album py-2 bg-transparent darker col-md-10 text-center justify-content-center mt-3 rounded model-grad" style="margin: 0 auto">
+
+                  <div class="card my-3 mx-3">
+
+                    <div class="row mx-2 justify-content-center">
+
+                      <div class="collapse col-5 my-3 container row justify-content-around" style="background:pink;">
+                        <img src="" alt="COVER_PICTURE" class="col-4" style="background:orange;">
+
+                        <div class="col-7" style="background:orange;">
+                          ANIME_CONTENT
+                        </div>
+                      </div>
+
+
+                      <!--   <img src="" alt="COVER_PICTURE" class="col-10" style="background:orange;">   -->
+
+                      <div class="col-6 my-3">
+                        ANIME_TITLE_1
+                        <hr>
+                        <div class="row  justify-content-around "  style="height:270px;"">
+                          <div class="col-4"  style="background:lightgreen;">
+                            Anime_Cover_1
+                          </div>
+                          <div class="col-7"  style="background:lightgreen;">
+                            Anime_Content_1
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-6 my-3">
+                        ANIME_TITLE_1
+                        <hr>
+                        <div class="row  justify-content-around "  style="height:270px;"">
+                          <div class="col-4"  style="background:lightgreen;">
+                            Anime_Cover_2
+                          </div>
+                          <div class="col-7"  style="background:lightgreen;">
+                            Anime_Content_2
+                          </div>
+                        </div>
+                      </div>
+
+
+                    </div>
+
+                  </div>
+
+              </div>
+              <!--____________________________________________________________________NEW ANIME ENDS__________________________________________________________________________-->
+              <br><hr>
+              <!--____________________________________________________________________POPULAR WEBSITES MODE__________________________________________________________________________-->
+
+              <div id="desktopview" class="album py-2 bg-transparent darker col-md-10 px-4 mt-4 rounded model-grad-rev text-info" style="margin: 0 auto">
+                <h4>SEE WHATS POPULAR IN THE WEB...</h4>
+              </div>
+
+                <div id="desktopview" class="album py-2 bg-transparent darker col-md-10 text-center justify-content-center mt-3 rounded model-grad" style="margin: 0 auto">
+                  <div class="container">
+                    <div class="row justify-content-around">
+
+                        <div class="WEBSITE_EXAMPLE col-3 mx-1 my-2 px-0">
+                          <a href="#" class="btn btn-light" style="width:100%;">
+                          WEBSITE_EXAMPLE
+                          </a>
+                        </div>
+                        <div class="WEBSITE_EXAMPLE col-3 mx-1 my-2 px-0">
+                          <a href="#" class="btn btn-light" style="width:100%;">
+                          WEBSITE_EXAMPLE
+                          </a>
+                        </div>
+                        <div class="WEBSITE_EXAMPLE col-3 mx-1 my-2 px-0">
+                          <a href="#" class="btn btn-light" style="width:100%;">
+                          WEBSITE_EXAMPLE
+                          </a>
+                        </div>
+                        <div class="WEBSITE_EXAMPLE col-3 mx-1 my-2 px-0">
+                          <a href="#" class="btn btn-light" style="width:100%;">
+                          WEBSITE_EXAMPLE
+                          </a>
+                        </div>
+                        <div class="WEBSITE_EXAMPLE col-3 mx-1 my-2 px-0">
+                          <a href="#" class="btn btn-light" style="width:100%;">
+                          WEBSITE_EXAMPLE
+                          </a>
+                        </div>
+                        <div class="WEBSITE_EXAMPLE col-3 mx-1 my-2 px-0">
+                          <a href="#" class="btn btn-light" style="width:100%;">
+                          WEBSITE_EXAMPLE
+                          </a>
+                        </div>
+                        <div class="WEBSITE_EXAMPLE col-3 mx-1 my-2 px-0">
+                          <a href="#" class="btn btn-light" style="width:100%;">
+                          WEBSITE_EXAMPLE
+                          </a>
+                        </div>
+                        <div class="WEBSITE_EXAMPLE col-3 mx-1 my-2 px-0">
+                          <a href="#" class="btn btn-light" style="width:100%;">
+                          WEBSITE_EXAMPLE
+                          </a>
+                        </div>
+                    </div>
+
+                  </div>
+                </div>
+                <!--____________________________________________________________________POPULAR WEBSITES ENDS__________________________________________________________________________-->
+
+
+
+</main>
+
+
+{% include '_footer.html' %}
+
+
+
+
+<script type="text/javascript">
+    function switchView() {
+      var divClass1 = document.getElementById("desktopview");
+      var divClass2 = document.getElementById("mobileview");
+      divClass1.classList.toggle("collapse");
+      divClass2.classList.toggle("collapse");
+    }
+
+
+    $(function() {
+        $("#featuretoggle").trigger("click");
+    });
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</html>

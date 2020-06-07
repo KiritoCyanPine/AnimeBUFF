@@ -14,37 +14,40 @@
 
         <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit"><i class="icon-search text-dark">search</i></button>
 
-        <button class="navbar-toggler mx-3" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-          <svg class="bi bi-chevron-compact-down" width="0.5em" height="1em" viewBox="0 0 16 16" fill="blue" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67z"/>
-          </svg>
-      </button>
+
     </form>
   </div>
   <br>
   <div class="col-sm-10 mx-auto">
     <div class="container d-flex justify-content-between row">
 
-      <a href="{% url 'start' %}" class=" justify-content-center btn btn-light" style="width:25%;">
+      <a href="{% url 'start' %}" class=" justify-content-center btn btn-light border-right" style="width:20%;">
         Home
       </a>
 
-      <a href="{% url 'main' %}" class=" justify-content-center btn btn-light" style="width:25%;">
+      <a href="{% url 'main' %}" class=" justify-content-center btn btn-light border-right  border-left" style="width:20%;">
         Anime List
       </a>
 
-      <a href="http://localhost:8000/admin/animetitles/animetitle/" class=" justify-content-center btn btn-light" style="width:25%;">
+      <a href="{% url 'randomise' %}" class=" justify-content-center  btn btn-light border-right border-left" style="width:20%;">
+        Select Random
+      </a>
+
+      <a class=" justify-content-center  btn btn-light border-right border-left" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation" style="width:20%;">
+        Advanced search <svg class="bi bi-chevron-compact-down" width="0.5em" height="1em" viewBox="0 0 16 16" fill="blue" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67z"/>
+        </svg>
+      </a>
+
+      <a href="http://localhost:8000/admin/animetitles/animetitle/" class=" justify-content-center btn btn-light border-left" style="width:20%;">
         Register
       </a>
 
-      <a href="{% url 'randomise' %}" class=" justify-content-center  btn btn-light" style="width:25%;">
-        Select Random
-      </a>
     </div>
   </div>
 </div>
 
-<div class=" bg-dark" id="navbarHeader"> <!--collapse here-->
+<div class=" bg-dark collapse" id="navbarHeader"> <!--collapse here-->
     <div class="">
       <div class="album bg-transparent darker py-3" style="margin: 0 auto" height="200">
         <div class="text-left mx-5">
