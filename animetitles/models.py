@@ -42,6 +42,11 @@ class AnimeTitle(models.Model):
         else:
             return self.summery
 
+    def OTHER_NAMES(self):
+        if len(self.otherNames) > 100 :
+            return self.otherNames[0:97]+"..."
+        return self.otherNames
+
     def FileList(self):
         file_list = os.listdir(self.directory_address)
         file_list.sort(key=natural_keys)

@@ -223,6 +223,8 @@
 
               <button onclick="switchView()" class="btn btn-secondary mx-auto small-fonts">Switch to Index View</button><br><hr>
 
+              <a href="{% url 'randomise' %}" class="btn btn-primary float-right">randomise</a>
+
               <div class="container">
                 <div class="container">
                   <div class="row">
@@ -263,6 +265,7 @@
                 <div id="mobileview" class="album py-2 bg-transparent darker col-md-10 text-center justify-content-center mt-5 collapse" style="margin: 0 auto">
 
                   <button onclick="switchView()" class="btn btn-secondary mx-auto small-fonts">Switch to Desktop View</button><br><hr>
+
 
                   <div class="container">
                     <div class="row">
@@ -353,6 +356,11 @@
       divClass1.classList.toggle("collapse");
       divClass2.classList.toggle("collapse");
     }
+
+
+    $(function() {
+        $("#featuretoggle").trigger("click");
+    });
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

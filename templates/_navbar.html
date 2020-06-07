@@ -5,7 +5,7 @@
 
 <div class="navbar navbar-light bg-light shadow-sm">
   <div class="container d-flex justify-content-between">
-    <a href="{% url 'main' %}" class="navbar-brand d-flex align-items-center pl-5">
+    <a href="{% url 'start' %}" class="navbar-brand d-flex align-items-center pl-5">
       <img src="{% static 'animeBUFF_logo.png' %}"  width="180" class="img-fluid">
     </a>
 
@@ -20,10 +20,31 @@
           </svg>
       </button>
     </form>
+  </div>
+  <br>
+  <div class="col-sm-10 mx-auto">
+    <div class="container d-flex justify-content-between row">
 
+      <a href="{% url 'start' %}" class=" justify-content-center btn btn-light" style="width:25%;">
+        Home
+      </a>
+
+      <a href="{% url 'main' %}" class=" justify-content-center btn btn-light" style="width:25%;">
+        Anime List
+      </a>
+
+      <a href="http://localhost:8000/admin/animetitles/animetitle/" class=" justify-content-center btn btn-light" style="width:25%;">
+        Register
+      </a>
+
+      <a href="{% url 'randomise' %}" class=" justify-content-center  btn btn-light" style="width:25%;">
+        Select Random
+      </a>
+    </div>
   </div>
 </div>
-<div class="collapse bg-dark" id="navbarHeader">
+
+<div class=" bg-dark" id="navbarHeader"> <!--collapse here-->
     <div class="">
       <div class="album bg-transparent darker py-3" style="margin: 0 auto" height="200">
         <div class="text-left mx-5">
@@ -43,6 +64,6 @@
 
 
 
-<div class="fixed-bottom mb-3 ml-2">
+<div class="fixed-bottom mb-3 ml-2 col-1">
   <a href="#"><img class="img-fluid" src="{% static '53738-200.png'%}" alt="" width="60"></a>
 </div>

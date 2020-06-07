@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, HttpResponse
 from .models import AnimeTitle
 from django.contrib import messages
 from .filters import indexFilter
+from random import shuffle
+
 
 # Create your views here.
 #################################    TESTING PAGES    #################################
@@ -37,7 +39,7 @@ def start(request):
 
 
 def main(request):
-    anime_list_item = AnimeTitle.objects
+    anime_list_item = AnimeTitle.objects.order_by('title')
     context = {
     'animes':anime_list_item,
     }
@@ -59,13 +61,22 @@ def search(request):
     if len(querry) > 78 :
         searchAnime = []
     else:
-        searchAnime = AnimeTitle.objects.filter(title__icontains=querry)
+        searchAnimeNAME = AnimeTitle.objects.filter(title__icontains=querry)
+        searchAnimeOTHER_NAMES = AnimeTitle.objects.filter(otherNames__icontains=querry)
+        searchAnime = searchAnimeNAME.union(searchAnimeOTHER_NAMES)
     context = {
     'animes':searchAnime,
     'querry':querry,
     }
     return render(request, "searchPage.html", context)
     # return HttpResponse("A webpage")
+
+def randomise(request):
+    anime_list_item = AnimeTitle.objects.order_by('?')
+    context = {
+    'animes':anime_list_item,
+    }
+    return render(request, "mainPage.html" , context)
 
 def searchGenre(request):
     querry = request.GET['querry1']
