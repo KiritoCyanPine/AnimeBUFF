@@ -59,16 +59,30 @@ def start(request):
     courasel_3 = AnimeTitle.objects.filter(id=RandomAnimeList[2])
     LatestAnimeIndex = lastInsertedAnimeId
     ListOfLatestAnimes = []
-    while len(ListOfLatestAnimes) < 6:
+    while len(ListOfLatestAnimes) < 20:
         if AnimeTitle.objects.filter(id=LatestAnimeIndex).exists():
             ListOfLatestAnimes.append(LatestAnimeIndex)
         LatestAnimeIndex-=1
-    Latest_1 = AnimeTitle.objects.filter(id=ListOfLatestAnimes[0])
-    Latest_2 = AnimeTitle.objects.filter(id=ListOfLatestAnimes[1])
-    Latest_3 = AnimeTitle.objects.filter(id=ListOfLatestAnimes[2])
-    Latest_4 = AnimeTitle.objects.filter(id=ListOfLatestAnimes[3])
-    Latest_5 = AnimeTitle.objects.filter(id=ListOfLatestAnimes[4])
-    Latest_6 = AnimeTitle.objects.filter(id=ListOfLatestAnimes[5])
+    Latest_1 = get_object_or_404(AnimeTitle, pk=ListOfLatestAnimes[0])
+    Latest_2 = get_object_or_404(AnimeTitle, pk=ListOfLatestAnimes[1])
+    Latest_3 = get_object_or_404(AnimeTitle, pk=ListOfLatestAnimes[2])
+    Latest_4 = get_object_or_404(AnimeTitle, pk=ListOfLatestAnimes[3])
+    Latest_5 = get_object_or_404(AnimeTitle, pk=ListOfLatestAnimes[4])
+    Latest_6 = get_object_or_404(AnimeTitle, pk=ListOfLatestAnimes[5])
+    Latest_7 = get_object_or_404(AnimeTitle, pk=ListOfLatestAnimes[6])
+    Latest_8 = get_object_or_404(AnimeTitle, pk=ListOfLatestAnimes[7])
+    Latest_9 = get_object_or_404(AnimeTitle, pk=ListOfLatestAnimes[8])
+    Latest_10 = get_object_or_404(AnimeTitle, pk=ListOfLatestAnimes[9])
+    Latest_11 = get_object_or_404(AnimeTitle, pk=ListOfLatestAnimes[10])
+    Latest_12 = get_object_or_404(AnimeTitle, pk=ListOfLatestAnimes[11])
+    Latest_13 = get_object_or_404(AnimeTitle, pk=ListOfLatestAnimes[12])
+    Latest_14 = get_object_or_404(AnimeTitle, pk=ListOfLatestAnimes[13])
+    Latest_15 = get_object_or_404(AnimeTitle, pk=ListOfLatestAnimes[14])
+    Latest_16 = get_object_or_404(AnimeTitle, pk=ListOfLatestAnimes[15])
+    Latest_17 = get_object_or_404(AnimeTitle, pk=ListOfLatestAnimes[16])
+    Latest_18 = get_object_or_404(AnimeTitle, pk=ListOfLatestAnimes[17])
+    Latest_19 = get_object_or_404(AnimeTitle, pk=ListOfLatestAnimes[18])
+    Latest_20 = get_object_or_404(AnimeTitle, pk=ListOfLatestAnimes[19])
     context = {
     'courasel_1':courasel_1,
     'courasel_2':courasel_2,
@@ -79,6 +93,20 @@ def start(request):
     'Latest_4':Latest_4,
     'Latest_5':Latest_5,
     'Latest_6':Latest_6,
+    'Latest_7':Latest_7,
+    'Latest_8':Latest_8,
+    'Latest_9':Latest_9,
+    'Latest_10':Latest_10,
+    'Latest_11':Latest_11,
+    'Latest_12':Latest_12,
+    'Latest_13':Latest_13,
+    'Latest_14':Latest_14,
+    'Latest_15':Latest_15,
+    'Latest_16':Latest_16,
+    'Latest_17':Latest_17,
+    'Latest_18':Latest_18,
+    'Latest_19':Latest_19,
+    'Latest_20':Latest_20,
     }
     print("ALL INDIVIDUAL OBJECTS")
     return render(request, "startPage.html", context)
