@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, HttpResponse
 from .models import AnimeTitle
 from django.contrib import messages
 from .filters import indexFilter
-from random import shuffle
+import random
 
 
 # Create your views here.
@@ -47,7 +47,40 @@ def main(request):
 
 
 def start(request):
-    return render(request, "startPage.html")
+    lastInsertedAnimeId = AnimeTitle.objects.last().id
+    RandomAnimeList = []
+    while(len(RandomAnimeList) < 3):
+        k = random.randrange(1,int(lastInsertedAnimeId))
+        if AnimeTitle.objects.filter(id=k).exists():
+            if k not in RandomAnimeList:
+                RandomAnimeList.append(k)
+    courasel_1 = AnimeTitle.objects.filter(id=RandomAnimeList[0])
+    courasel_2 = AnimeTitle.objects.filter(id=RandomAnimeList[1])
+    courasel_3 = AnimeTitle.objects.filter(id=RandomAnimeList[2])
+    LatestAnimeIndex = lastInsertedAnimeId
+    ListOfLatestAnimes = []
+    while len(ListOfLatestAnimes) < 6:
+        if AnimeTitle.objects.filter(id=LatestAnimeIndex).exists():
+            ListOfLatestAnimes.append(LatestAnimeIndex)
+        LatestAnimeIndex-=1
+    Latest_1 = AnimeTitle.objects.filter(id=ListOfLatestAnimes[0])
+    Latest_2 = AnimeTitle.objects.filter(id=ListOfLatestAnimes[1])
+    Latest_3 = AnimeTitle.objects.filter(id=ListOfLatestAnimes[2])
+    Latest_4 = AnimeTitle.objects.filter(id=ListOfLatestAnimes[3])
+    Latest_5 = AnimeTitle.objects.filter(id=ListOfLatestAnimes[4])
+    Latest_6 = AnimeTitle.objects.filter(id=ListOfLatestAnimes[5])
+    context = {
+    'courasel_1':courasel_1,
+    'courasel_2':courasel_2,
+    'courasel_3':courasel_3,
+    'Latest_1':Latest_1,
+    'Latest_2':Latest_2,
+    'Latest_3':Latest_3,
+    'Latest_4':Latest_4,
+    'Latest_5':Latest_5,
+    'Latest_6':Latest_6,
+    }
+    return render(request, "startPage.html", context)
 
 
 def video(request, video_id):
