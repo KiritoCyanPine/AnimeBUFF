@@ -80,6 +80,7 @@ def start(request):
     'Latest_5':Latest_5,
     'Latest_6':Latest_6,
     }
+    print("ALL INDIVIDUAL OBJECTS")
     return render(request, "startPage.html", context)
 
 
