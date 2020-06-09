@@ -43,13 +43,9 @@
         }
       }
 
-      .darker {
-        transition: background 0.3s;
-        background:linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
-      }
-      .darker:hover {
-        transition: background 0.3s;
-        background :linear-gradient(rgba(0, 0, 0, 0.1), rgba(50, 50, 100, 0.5));
+
+      .darker{
+        background :linear-gradient(45deg, rgba(27,151,236,0.8) 6%, rgba(78,150,196,0.8) 51%, rgba(220,100,100,0.8) 100%);
       }
       .darkerL {
         background :linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
@@ -200,10 +196,16 @@
         }
 
         .WEBSITE_EXAMPLE {
+          background: white;
+          border-radius: 5px;
           transition: all 0.3s;
         }
         .WEBSITE_EXAMPLE:hover {
+          background: black;
           transform: scale(1.2);
+        }
+        .WEBSITE_EXAMPLE:hover a{
+          color:lightblue;
         }
 
         .CARD_HEIGHT {
@@ -237,20 +239,21 @@
           }
 
           .cropNEW {
-              width: 100%;
-              height: 45vh;
-              overflow: hidden;
+            width: 100%;
+            height: 310px;
+            overflow: hidden;
+
           }
 
           .cropNEW img {
-              width: auto;
-              height: auto;
-              position: center;
+            width: auto;
+            height: auto;
+            position: center;
           }
 
           .cropNEWINNER {
               width: 100%;
-              height: 22.5vh;
+              height: 160px;
               overflow: hidden;
           }
 
@@ -289,9 +292,11 @@
   <section>
 
           <div class="container mt-3 pt-2 pb-2 bg-transparent text-center justify-content-center rounded  model-grad">
-            <h3  class="text-white">Anime BUFF</h3></div>
+            <h3  class="text-dark"><b>Anime BUFF</b></h3></div>
 
       </section>
+      <br>
+      <br>
 
           <!--____________________________________________________________________DISCOVER FROM YOUR DRIVE VIEW MODE__________________________________________________________________________-->
 
@@ -301,7 +306,7 @@
             <div id="desktopview" class="album py-2 bg-transparent col-md-10 text-center justify-content-center mt-4 rounded model-grad" style="margin: 0 auto">
 
 
-              <div id="carouselExampleIndicators" class="carousel slide visi" data-ride="carousel" data-interval="3500">
+              <div id="carouselExampleIndicators" class="carousel slide visi" data-ride="carousel" data-interval="5000">
                 <ol class="carousel-indicators">
                   <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active bg-dark"></li>
                   <li data-target="#carouselExampleIndicators" data-slide-to="1" class=" bg-dark"></li>
@@ -432,12 +437,12 @@
                   {% endfor %}
                   <!--                SLIDESHOW DATA_ITEM_3           -->
                 </div>
-                <a id="changer" class="carousel-control-prev h-25 align-middle my-auto" href="#carouselExampleIndicators" role="button" data-slide="prev" style="width:60px;">
+                <a id="changer" class="carousel-control-prev h-25 align-middle my-auto" href="#carouselExampleIndicators" role="button" data-slide="prev" style="width:60px;font-size:150%;">
                   <svg class="bi-caret-left-fill bg-primary" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path d="M3.86 8.753l5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
                   </svg>
                 </a>
-                <a id="changer" class="carousel-control-next h-25 align-middle my-auto" href="#carouselExampleIndicators" role="button" data-slide="next" style="width:60px;">
+                <a id="changer" class="carousel-control-next h-25 align-middle my-auto" href="#carouselExampleIndicators" role="button" data-slide="next" style="width:60px;font-size:150%;">
                   <svg class="bi bi-caret-right-fill bg-primary" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
                   </svg>
@@ -445,171 +450,185 @@
               </div>
             </div>
             <!--____________________________________________________________________DISCOVER FROM YOUR DRIVE ENDS__________________________________________________________________________-->
-<br><br><br><br>
-
-
-<br><br><br><br><br>
-            <br><hr>
+<br><br>
+            <br><hr><br
             <!--____________________________________________________________________NEW ANIME MODE__________________________________________________________________________-->
 
             <div id="desktopview" class="album py-2 bg-transparent col-md-10 px-4 mt-4 rounded model-grad-rev text-info" style="margin: 0 auto">
               <h4>NEW CONTENT</h4>
             </div>
 
-              <div id="desktopview" class="album py-2 bg-transparent col-md-10 text-center mt-3 rounded model-grad visi" style="margin: 0 auto">
+              <div id="desktopview" class="album py-2 bg-transparent col-md-10 text-center mt-3 rounded visi" style="margin: 0 auto">
 
-                <div id="carouselExampleIndicators1" class="carousel slide justify-content-between" data-ride="carousel" data-interval="3500">
-                  <div class="carousel-inner">
+                <div id="carouselExampleIndicators1" class="carousel slide justify-content-between container" data-ride="carousel" data-interval="5000">
+                  <div class="carousel-inner container">
                     <!--                SLIDESHOW DATA_ITEM_1           -->
-                    {% for i in courasel_1 %}
                     <div class="carousel-item active ">
-                      <div class=" row justify-content-center mx-auto">
+                      <div class=" row mx-auto my-auto">
 
                         <!--  <div class="col-6 my-1">
-                            <img src="{% static 'Anime Buff titlepick _ OPTION 2.jpg' %}" class="cropNEW border border-primary mx-0" style="margin: 0 auto">
+                            <img src="{% static 'Anime Buff titlepick _ OPTION 2.jpg' %}" class="cropNEW border border-danger mx-0" style="margin: 0 auto">
                           </div>  -->
 
-                          <div class="col-6 my-1" style="z-index: 1;">
-                            <img src="{% static 'Anime Buff titlepick _ OPTION 2.jpg' %}" class="cropNEW border border-primary mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">OVERLAY</span>
-                            <div class="darker"  style="position: relative;margin: 0 auto; z-index: 3;height: 94%;width:100%; top:-100%;"></div>
+                          <div class="col-6" style="z-index: 1;">
+                            <a href="{% url 'animeTitle' Latest_1.id %}" class="text-warning-hover">
+                            <img src="{{Latest_1.extrapick_2.url}}" class="cropNEW  border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            <span class="text-light darker px-3" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">{{Latest_1.title}}</span>
+                            </a>
                           </div>
 
-                          <div class="col-6 my-1" style="z-index: 1;">
-                            <img src="{% static 'Anime Buff titlepick _ OPTION 2.jpg' %}" class="cropNEW border border-primary mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">OVERLAY</span>
-                            <div class="darker"  style="position: relative;margin: 0 auto; z-index: 3;height: 94%;width:100%; top:-100%;"></div>
+                          <div class="col-6" style="z-index: 1;">
+                            <a href="{% url 'animeTitle' Latest_2.id %}" class="text-warning-hover">
+                            <img src="{{Latest_2.extrapick_1.url}}" class="cropNEW border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            <span class="text-light darker px-3" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">{{Latest_2.title}}</span>
+                            </a>
                           </div>
 
-                          <div class="col-3 my-1 mx-0  my-1" style="z-index: 1;">
-                            <img src="{% static 'Anime Buff titlepick _ OPTION 2.jpg' %}" class="cropNEWINNER img-fluid border border-primary mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">OVERLAY</span>
-                            <div class="darker"  style="position: relative;margin: 0 auto; z-index: 3;height: 89%;width:100%; top:-100%;"></div>
+                          <div class="col-3  mx-0 " style="z-index: 1;">
+                            <a href="{% url 'animeTitle' Latest_3.id %}" class="text-warning-hover">
+                            <img src="{{Latest_3.extrapick_3.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_3.title}}</span>
+                            </a>
                           </div>
 
-                          <div class="col-3 my-1 mx-0  my-1" style="z-index: 1;">
-                            <img src="{% static 'Anime Buff titlepick _ OPTION 2.jpg' %}" class="cropNEWINNER img-fluid border border-primary mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">OVERLAY</span>
-                            <div class="darker"  style="position: relative;margin: 0 auto; z-index: 3;height: 89%;width:100%; top:-100%;"></div>
+                          <div class="col-3  mx-0 " style="z-index: 1;">
+                            <a href="{% url 'animeTitle' Latest_4.id %}" class="text-warning-hover">
+                            <img src="{{Latest_4.extrapick_4.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_4.title}}</span>
+                            </a>
                           </div>
 
-                          <div class="col-3 my-1 mx-0  my-1" style="z-index: 1;">
-                            <img src="{% static 'Anime Buff titlepick _ OPTION 2.jpg' %}" class="cropNEWINNER img-fluid border border-primary mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">OVERLAY</span>
-                            <div class="darker"  style="position: relative;margin: 0 auto; z-index: 3;height: 89%;width:100%; top:-100%;"></div>
+                          <div class="col-3  mx-0 " style="z-index: 1;">
+                            <a href="{% url 'animeTitle' Latest_5.id %}" class="text-warning-hover">
+                            <img src="{{Latest_5.extrapick_2.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_5.title}}</span>
+                            </a>
                           </div>
 
-                          <div class="col-3 my-1 mx-0  my-1" style="z-index: 1;">
-                            <img src="{% static 'Anime Buff titlepick _ OPTION 2.jpg' %}" class="cropNEWINNER img-fluid border border-primary mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">OVERLAY</span>
-                            <div class="darker"  style="position: relative;margin: 0 auto; z-index: 3;height: 89%;width:100%; top:-100%;"></div>
+                          <div class="col-3  mx-0 " style="z-index: 1;">
+                            <a href="{% url 'animeTitle' Latest_6.id %}" class="text-warning-hover">
+                            <img src="{{Latest_6.extrapick_1.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_6.title}}</span>
+                            </a>
                           </div>
 
-                          <div class="col-3 my-1 mx-0  my-1" style="z-index: 1;">
-                            <img src="{% static 'Anime Buff titlepick _ OPTION 2.jpg' %}" class="cropNEWINNER img-fluid border border-primary mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">OVERLAY</span>
-                            <div class="darker"  style="position: relative;margin: 0 auto; z-index: 3;height: 89%;width:100%; top:-100%;"></div>
+                          <div class="col-3  mx-0 " style="z-index: 1;">
+                            <a href="{% url 'animeTitle' Latest_7.id %}" class="text-warning-hover">
+                            <img src="{{Latest_7.extrapick_2.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_7.title}}</span>
+                            </a>
                           </div>
 
-                          <div class="col-3 my-1 mx-0  my-1" style="z-index: 1;">
-                            <img src="{% static 'Anime Buff titlepick _ OPTION 2.jpg' %}" class="cropNEWINNER img-fluid border border-primary mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">OVERLAY</span>
-                            <div class="darker"  style="position: relative;margin: 0 auto; z-index: 3;height: 89%;width:100%; top:-100%;"></div>
+                          <div class="col-3  mx-0 " style="z-index: 1;">
+                            <a href="{% url 'animeTitle' Latest_8.id %}" class="text-warning-hover">
+                            <img src="{{Latest_8.extrapick_2.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_8.title}}</span>
+                            </a>
                           </div>
 
-                          <div class="col-3 my-1 mx-0  my-1" style="z-index: 1;">
-                            <img src="{% static 'Anime Buff titlepick _ OPTION 2.jpg' %}" class="cropNEWINNER img-fluid border border-primary mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">OVERLAY</span>
-                            <div class="darker"  style="position: relative;margin: 0 auto; z-index: 3;height: 89%;width:100%; top:-100%;"></div>
+                          <div class="col-3  mx-0 " style="z-index: 1;">
+                            <a href="{% url 'animeTitle' Latest_9.id %}" class="text-warning-hover">
+                            <img src="{{Latest_9.extrapick_4.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_9.title}}</span>
+                            </a>
                           </div>
 
-                          <div class="col-3 my-1 mx-0  my-1" style="z-index: 1;">
-                            <img src="{% static 'Anime Buff titlepick _ OPTION 2.jpg' %}" class="cropNEWINNER img-fluid border border-primary mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">OVERLAY</span>
-                            <div class="darker"  style="position: relative;margin: 0 auto; z-index: 3;height: 89%;width:100%; top:-100%;"></div>
+                          <div class="col-3  mx-0 " style="z-index: 1;">
+                            <a href="{% url 'animeTitle' Latest_10.id %}" class="text-warning-hover">
+                            <img src="{{Latest_10.extrapick_4.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_10.title}}</span>
+                            </a>
                           </div>
                       </div>
                     </div>
-                    {% endfor %}
                     <!--                SLIDESHOW DATA_ITEM_1           -->
                     <!--                SLIDESHOW DATA_ITEM_2           -->
-                    {% for i in courasel_1 %}
                     <div class="carousel-item ">
-                      <div class=" row justify-content-center mx-auto">
+                      <div class=" row mx-auto my-auto">
 
                         <!--  <div class="col-6 my-1">
-                            <img src="{% static 'Anime Buff titlepick _ OPTION 2.jpg' %}" class="cropNEW border border-primary mx-0" style="margin: 0 auto">
+                            <img src="{% static 'Anime Buff titlepick _ OPTION 2.jpg' %}" class="cropNEW border border-danger mx-0" style="margin: 0 auto">
                           </div>  -->
 
-                          <div class="col-6 my-1" style="z-index: 1;">
-                            <img src="{% static 'Anime Buff titlepick _ OPTION 2.jpg' %}" class="cropNEW border border-primary mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">OVERLAY</span>
-                            <div class="darker"  style="position: relative;margin: 0 auto; z-index: 3;height: 94%;width:100%; top:-100%;"></div>
+                          <div class="col-6 " style="z-index: 1;">
+                            <a href="{% url 'animeTitle' Latest_11.id %}" class="text-warning-hover">
+                            <img src="{{Latest_11.extrapick_1.url}}" class="cropNEW border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            <span class="text-light darker px-3" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">{{Latest_11.title}}</span>
+                            </a>
                           </div>
 
-                          <div class="col-6 my-1" style="z-index: 1;">
-                            <img src="{% static 'Anime Buff titlepick _ OPTION 2.jpg' %}" class="cropNEW border border-primary mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">OVERLAY</span>
-                            <div class="darker"  style="position: relative;margin: 0 auto; z-index: 3;height: 94%;width:100%; top:-100%;"></div>
+                          <div class="col-6 " style="z-index: 1;">
+                            <a href="{% url 'animeTitle' Latest_12.id %}" class="text-warning-hover">
+                            <img src="{{Latest_12.extrapick_1.url}}" class="cropNEW border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            <span class="text-light darker px-3" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">{{Latest_12.title}}</span>
+                            </a>
                           </div>
 
-                          <div class="col-3 my-1 mx-0  my-1" style="z-index: 1;">
-                            <img src="{% static 'Anime Buff titlepick _ OPTION 2.jpg' %}" class="cropNEWINNER img-fluid border border-primary mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">OVERLAY</span>
-                            <div class="darker"  style="position: relative;margin: 0 auto; z-index: 3;height: 89%;width:100%; top:-100%;"></div>
+                          <div class="col-3  mx-0 " style="z-index: 1;">
+                            <a href="{% url 'animeTitle' Latest_13.id %}" class="text-warning-hover">
+                            <img src="{{Latest_13.extrapick_2.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_13.title}}</span>
+                            </a>
                           </div>
 
-                          <div class="col-3 my-1 mx-0  my-1" style="z-index: 1;">
-                            <img src="{% static 'Anime Buff titlepick _ OPTION 2.jpg' %}" class="cropNEWINNER img-fluid border border-primary mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">OVERLAY</span>
-                            <div class="darker"  style="position: relative;margin: 0 auto; z-index: 3;height: 89%;width:100%; top:-100%;"></div>
+                          <div class="col-3  mx-0 " style="z-index: 1;">
+                            <a href="{% url 'animeTitle' Latest_14.id %}" class="text-warning-hover">
+                            <img src="{{Latest_14.extrapick_1.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_14.title}}</span>
+                            </a>
                           </div>
 
-                          <div class="col-3 my-1 mx-0  my-1" style="z-index: 1;">
-                            <img src="{% static 'Anime Buff titlepick _ OPTION 2.jpg' %}" class="cropNEWINNER img-fluid border border-primary mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">OVERLAY</span>
-                            <div class="darker"  style="position: relative;margin: 0 auto; z-index: 3;height: 89%;width:100%; top:-100%;"></div>
+                          <div class="col-3  mx-0 " style="z-index: 1;">
+                            <a href="{% url 'animeTitle' Latest_15.id %}" class="text-warning-hover">
+                            <img src="{{Latest_15.extrapick_2.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_15.title}}</span>
+                            </a>
                           </div>
 
-                          <div class="col-3 my-1 mx-0  my-1" style="z-index: 1;">
-                            <img src="{% static 'Anime Buff titlepick _ OPTION 2.jpg' %}" class="cropNEWINNER img-fluid border border-primary mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">OVERLAY</span>
-                            <div class="darker"  style="position: relative;margin: 0 auto; z-index: 3;height: 89%;width:100%; top:-100%;"></div>
+                          <div class="col-3  mx-0 " style="z-index: 1;">
+                            <a href="{% url 'animeTitle' Latest_16.id %}" class="text-warning-hover">
+                            <img src="{{Latest_16.extrapick_3.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_16.title}}</span>
+                            </a>
                           </div>
 
-                          <div class="col-3 my-1 mx-0  my-1" style="z-index: 1;">
-                            <img src="{% static 'Anime Buff titlepick _ OPTION 2.jpg' %}" class="cropNEWINNER img-fluid border border-primary mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">OVERLAY</span>
-                            <div class="darker"  style="position: relative;margin: 0 auto; z-index: 3;height: 89%;width:100%; top:-100%;"></div>
+                          <div class="col-3  mx-0 " style="z-index: 1;">
+                            <a href="{% url 'animeTitle' Latest_17.id %}" class="text-warning-hover">
+                            <img src="{{Latest_17.extrapick_2.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_17.title}}</span>
+                            </a>
                           </div>
 
-                          <div class="col-3 my-1 mx-0  my-1" style="z-index: 1;">
-                            <img src="{% static 'Anime Buff titlepick _ OPTION 2.jpg' %}" class="cropNEWINNER img-fluid border border-primary mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">OVERLAY</span>
-                            <div class="darker"  style="position: relative;margin: 0 auto; z-index: 3;height: 89%;width:100%; top:-100%;"></div>
+                          <div class="col-3  mx-0 " style="z-index: 1;">
+                            <a href="{% url 'animeTitle' Latest_18.id %}" class="text-warning-hover">
+                            <img src="{{Latest_18.extrapick_4.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_18.title}}</span>
+                            </a>
                           </div>
 
-                          <div class="col-3 my-1 mx-0  my-1" style="z-index: 1;">
-                            <img src="{% static 'Anime Buff titlepick _ OPTION 2.jpg' %}" class="cropNEWINNER img-fluid border border-primary mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">OVERLAY</span>
-                            <div class="darker"  style="position: relative;margin: 0 auto; z-index: 3;height: 89%;width:100%; top:-100%;"></div>
+                          <div class="col-3  mx-0 " style="z-index: 1;">
+                            <a href="{% url 'animeTitle' Latest_19.id %}" class="text-warning-hover">
+                            <img src="{{Latest_19.extrapick_2.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_19.title}}</span>
+                            </a>
                           </div>
 
-                          <div class="col-3 my-1 mx-0  my-1" style="z-index: 1;">
-                            <img src="{% static 'Anime Buff titlepick _ OPTION 2.jpg' %}" class="cropNEWINNER img-fluid border border-primary mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">OVERLAY</span>
-                            <div class="darker"  style="position: relative;margin: 0 auto; z-index: 3;height: 89%;width:100%; top:-100%;"></div>
+                          <div class="col-3 mx-0 " style="z-index: 1;">
+                            <a href="{% url 'animeTitle' Latest_20.id %}" class="text-warning-hover">
+                            <img src="{{Latest_20.extrapick_3.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_20.title}}</span>
+                            </a>
                           </div>
                       </div>
                     </div>
-                    {% endfor %}
-                    <!--                SLIDESHOW DATA_ITEM_2           -->                  </div>
-                  <a id="changer" class="carousel-control-prev h-25 align-middle my-auto visiA" href="#carouselExampleIndicators1" role="button" data-slide="prev" style="width:60px;">
+                  </div>
+                    <!--                SLIDESHOW DATA_ITEM_2           -->
+                  <a id="changer" class="carousel-control-prev h-25 align-middle my-auto visiA" href="#carouselExampleIndicators1" role="button" data-slide="prev" style="width:60px;font-size:150%;">
                     <svg class="bi-caret-left-fill bg-primary" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                       <path d="M3.86 8.753l5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
                     </svg>
                   </a>
-                  <a id="changer" class="carousel-control-next h-25 align-middle my-auto visiA" href="#carouselExampleIndicators1" role="button" data-slide="next" style="width:60px;">
+                  <a id="changer" class="carousel-control-next h-25 align-middle my-auto visiA" href="#carouselExampleIndicators1" role="button" data-slide="next" style="width:60px;font-size:150%;">
                     <svg class="bi bi-caret-right-fill bg-primary" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                       <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
                     </svg>
@@ -620,7 +639,7 @@
                     <img src="{% static 'Anime Buff titlepick _ OPTION 2.jpg' %}" class="col-12">    -->
               </div>
               <!--____________________________________________________________________NEW ANIME ENDS__________________________________________________________________________-->
-              <br><hr>
+<hr><br><br>
               <!--____________________________________________________________________POPULAR WEBSITES MODE__________________________________________________________________________-->
 
               <div id="desktopview" class="album py-2 bg-transparent col-md-10 px-4 mt-4 rounded model-grad-rev text-info" style="margin: 0 auto">
@@ -632,43 +651,43 @@
                     <div class="row justify-content-around">
 
                         <div class="WEBSITE_EXAMPLE col-3 mx-1 my-2 px-0">
-                          <a href="#" class="btn btn-light" style="width:100%;">
-                          WEBSITE_EXAMPLE
+                          <a href="https://animekayo.com/" class="btn rounded" style="width:100%;" target="_blank">
+                          ANIMEKAYO
                           </a>
                         </div>
                         <div class="WEBSITE_EXAMPLE col-3 mx-1 my-2 px-0">
-                          <a href="#" class="btn btn-light" style="width:100%;">
-                          WEBSITE_EXAMPLE
+                          <a href="https://animekaizoku.com/" class="btn rounded" style="width:100%;" target="_blank">
+                          ANIMEKAIZOKU
                           </a>
                         </div>
                         <div class="WEBSITE_EXAMPLE col-3 mx-1 my-2 px-0">
-                          <a href="#" class="btn btn-light" style="width:100%;">
-                          WEBSITE_EXAMPLE
+                          <a href="https://kissanime.ru/AnimeList/MostPopular" class="btn rounded" style="width:100%;" target="_blank">
+                          KISSANIME
                           </a>
                         </div>
                         <div class="WEBSITE_EXAMPLE col-3 mx-1 my-2 px-0">
-                          <a href="#" class="btn btn-light" style="width:100%;">
-                          WEBSITE_EXAMPLE
+                          <a href="https://9anime-tv.com/" class="btn rounded" style="width:100%;" target="_blank">
+                          9ANIME
                           </a>
                         </div>
                         <div class="WEBSITE_EXAMPLE col-3 mx-1 my-2 px-0">
-                          <a href="#" class="btn btn-light" style="width:100%;">
-                          WEBSITE_EXAMPLE
+                          <a href="http://www.chia-anime.me/" class="btn rounded" style="width:100%;" target="_blank">
+                          CHIA-ANIME
                           </a>
                         </div>
                         <div class="WEBSITE_EXAMPLE col-3 mx-1 my-2 px-0">
-                          <a href="#" class="btn btn-light" style="width:100%;">
-                          WEBSITE_EXAMPLE
+                          <a href="https://animeheaven.ru/" class="btn rounded" style="width:100%;" target="_blank">
+                          ANIMEHEAVEN
                           </a>
                         </div>
                         <div class="WEBSITE_EXAMPLE col-3 mx-1 my-2 px-0">
-                          <a href="#" class="btn btn-light" style="width:100%;">
-                          WEBSITE_EXAMPLE
+                          <a href="https://animedao.com/" class="btn rounded" style="width:100%;" target="_blank">
+                          ANIMEDAO
                           </a>
                         </div>
                         <div class="WEBSITE_EXAMPLE col-3 mx-1 my-2 px-0">
-                          <a href="#" class="btn btn-light" style="width:100%;">
-                          WEBSITE_EXAMPLE
+                          <a href="https://www.animefreak.tv/" class="btn rounded" style="width:100%;" target="_blank">
+                          ANIMEFREAK
                           </a>
                         </div>
                     </div>
