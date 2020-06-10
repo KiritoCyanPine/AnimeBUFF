@@ -76,6 +76,10 @@ def testing4(request):
 
 
 #################################    OFFICIALLY USEABLE PAGES    #################################
+
+def welcomePage(request):
+    return render(request, "DatabaseEmpty.html")
+
 def animeTitle(request,anime_id):
     Anime_object = get_object_or_404(AnimeTitle, pk=anime_id)
     Ep_plus_Link = zip(Anime_object.AnimeEpisodes(),Anime_object.AnimeEpisodesLink())
@@ -100,14 +104,18 @@ def main(request):
 
 
 def start(request):
-    try:
+    if AnimeTitle.objects.exists():
         lastInsertedAnimeId = AnimeTitle.objects.last().id
         RandomAnimeList = []
         while(len(RandomAnimeList) < 3):
-            k = random.randrange(1,int(lastInsertedAnimeId))
+            k = random.randrange(0,int(lastInsertedAnimeId)+1)
             if AnimeTitle.objects.filter(id=k).exists():
+                print("print the index    :",k)
                 if k not in RandomAnimeList:
                     RandomAnimeList.append(k)
+            if len(AnimeTitle.objects.all()) < 3:
+                return render(request, "DatabaseEmpty.html")
+        print("RandomAnimeList    :",RandomAnimeList)
         courasel_1 = AnimeTitle.objects.filter(id=RandomAnimeList[0])
         courasel_2 = AnimeTitle.objects.filter(id=RandomAnimeList[1])
         courasel_3 = AnimeTitle.objects.filter(id=RandomAnimeList[2])
@@ -119,12 +127,13 @@ def start(request):
                 break
             if AnimeTitle.objects.filter(id=LatestAnimeIndex).exists():
                 ListOfLatestAnimes.append(LatestAnimeIndex)
+                print("LatestAnimeIndex    :",LatestAnimeIndex)
             LatestAnimeIndex-=1
         for i in range(0,20):
             if i in range(0,len(ListOfLatestAnimes)):
                 LatestObjests.append(get_object_or_404(AnimeTitle, pk=ListOfLatestAnimes[i]))
             else:
-                LatestObjests.append(AnimeTitle(title="Add More Anime to fillspace",summery="",profile="asd",extrapick_1="asd"))
+                LatestObjests.append(AnimeTitle(id="0",title="Add More Anime to fillspace",summery="",profile="asd",extrapick_1="asd",extrapick_2="asd",extrapick_3="asd",extrapick_4="asd"))
         context = {
         'courasel_1':courasel_1,
         'courasel_2':courasel_2,
@@ -153,7 +162,7 @@ def start(request):
         print("ALL INDIVIDUAL OBJECTS")
         #return render(request, "DatabaseEmpty.html")
         return render(request, "startPage.html", context)
-    except:
+    else:
         return render(request, "DatabaseEmpty.html")
 
 

@@ -28,6 +28,7 @@ urlpatterns = [
     path('search/', animetitles.views.search, name="search"),
     path('searchByGenre/', animetitles.views.searchGenre, name="searchGenre"),
     path('animetitle/randomise/', animetitles.views.randomise, name="randomise"),
+    path('welcomePage/', animetitles.views.welcomePage),
 
 ###################################################    TESTING PAGES URLS ##############################
     path('testing/', animetitles.views.testing, name="testing"),
