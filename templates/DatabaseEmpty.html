@@ -197,9 +197,13 @@
         }
         .enlarge:hover{
           color: pink;
-          font-size:105%;
-          /* STOPPING SHIFTING OF THE PAGE TO THE LEFT SIDE */
+          font-size:101%;
+        }
 </style>
+
+
+
+
 <script>
 function startTime() {
   var today = new Date();
@@ -252,9 +256,9 @@ function startTime() {
       <p>You are just about to finish... All you have to do is to register some Anime in the
         <span class="text-info enlarge">"<a href="{% url 'admin:index' %}" class="enlarge" target="_blank">register some Anime in the Admin Page</a>"</span>...</p>
         <br><br>
-        Read the Documentation for correct way of registering ...
+        Read the Documentation for correct way of registering ...<a href="{% static 'animeREGISTERf.pdf' %}" class="text-info" target="_blank">here</a>
         <br><br>For the webapp to work you need to register atleast 3 Animes...<br>
-        Otherwise , what is the point of using this webapp anywhere ...?
+        Otherwise , what is the point of using this webapp anyway ...?
         <br><br><br><hr>
           <p>P.S. &emsp; : &emsp;  Hi... fellas, just saw you commin down the path to stream the anime from your local computer . And I'm glad you decided to ...
           I take a real good pride on this application as it was my Fist webScaper Project. And the best part "I did it in One go"..</p>
@@ -280,7 +284,7 @@ function startTime() {
            If you do find some errors that are bugging you (or) not lettin you take rest ... please do report them via Mail.[scroll down to the end of the Page]<br><br>
 
            I'm not a good web designer ... so if you find my pages dissappointing ... Please do not report them ... <br>
-           if you know Programming usin Django ... feel free to download my project from git and alter it as you wish...<br>
+           if you know Programming & usin Django ... feel free to download my project from git and alter it as you wish...<br>
 
            if you need to replicate your current DataBase into the project you are altering ...  those instrustions are also given in the documentation I've provided
            so dont hold back doin so...
