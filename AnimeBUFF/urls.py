@@ -34,6 +34,6 @@ urlpatterns = [
     path('testing/', animetitles.views.testing, name="testing"),
     path('testing2/', animetitles.views.testing2, name="testing2"),
     path('testing3/<int:anime_id>/', animetitles.views.testing3, name="testing3"),
-    path('testing4/', animetitles.views.testing4, name="testing4"),
+    path('testing4/<path:video_id>', animetitles.views.testing4, name="testing4"),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
