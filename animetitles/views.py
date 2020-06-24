@@ -44,10 +44,6 @@ def animeTitle(request,anime_id):
     return render(request,"animeTitle.html",context)
 
 
-def start(request):
-    return render(request, "startPage.html")
-
-
 def main(request):
     anime_list_item = AnimeTitle.objects.order_by('title')
     context = {
@@ -86,11 +82,13 @@ def start(request):
             if i in range(0,len(ListOfLatestAnimes)):
                 LatestObjests.append(get_object_or_404(AnimeTitle, pk=ListOfLatestAnimes[i]))
             else:
-                LatestObjests.append(AnimeTitle(id="0",title="Add More Anime to fillspace",summery="",profile="asd",extrapick_1="asd",extrapick_2="asd",extrapick_3="asd",extrapick_4="asd"))
+                LatestObjests.append(AnimeTitle(id="0",title="Add More Anime to fillspace",summery="",profile="asd"
+                ,extrapick_1="asd",extrapick_2="asd",extrapick_3="asd",extrapick_4="asd"))
         context = {
         'courasel_1':courasel_1,
         'courasel_2':courasel_2,
         'courasel_3':courasel_3,
+
         'Latest_1':LatestObjests[0],
         'Latest_2':LatestObjests[1],
         'Latest_3':LatestObjests[2],

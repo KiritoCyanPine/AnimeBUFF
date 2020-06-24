@@ -3,12 +3,12 @@
 <html lang="en">
 {% load static %}
   <head>
+    <title>{{Anime.title}}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.0.1">
-    <title>Album example · Bootstrap</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
 
@@ -237,7 +237,7 @@
                 {% for word ,link  in Ep_plus_Link %}
 
             <!--    <a href="{% url 'video' link %}" target="_blank"> {{word}} </a> <br>  -->
-                <a href="{% url 'video' link %}" target="_blank">
+                <a href="{% url 'video' link %}">
                   <div class="darker linker py-1 mb-1">
                     <p class="mx-5 px-5 text-light" > {{word}} </p>
                   </div>
@@ -292,7 +292,7 @@
     </div>
   </div>
   <div class="">
-    <!-- Modals -- THE DATA_TARGET IN THE BUTTON WILL BE TRIGGERING THE MODEL'S "id" -->
+    <!-- Modals - THE DATA_TARGET IN THE BUTTON WILL BE TRIGGERING THE MODEL'S "id" -->
     {% if Anime.extrapick_1 %}
     <div class="modal fade modal-open" id="staticBackdrop"  tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
