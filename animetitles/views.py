@@ -117,8 +117,9 @@ def start(request):
         return render(request, "DatabaseEmpty.html")
 
 
-def video(request, video_id):
+def video(request, video_id, EP_name):
     context = {
+    'EP_name':EP_name,
     'video':video_id,
     }
     return render(request, "videoPlayer/videoPlayer.html", context)

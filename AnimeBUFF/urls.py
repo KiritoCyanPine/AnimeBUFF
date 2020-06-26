@@ -22,7 +22,7 @@ import animetitles.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('animetitle/<int:anime_id>/', animetitles.views.animeTitle, name="animeTitle"),
-    path('video/<path:video_id>', animetitles.views.video, name="video"),
+    path('video/<str:EP_name>/<path:video_id>', animetitles.views.video, name="video"),
     path('animetitle/',animetitles.views.main , name="main"),
     path('', animetitles.views.start, name="start"),
     path('search/', animetitles.views.search, name="search"),
