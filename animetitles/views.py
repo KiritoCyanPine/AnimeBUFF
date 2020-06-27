@@ -35,7 +35,11 @@ def welcomePage(request):
 
 def animeTitle(request,anime_id):
     Anime_object = get_object_or_404(AnimeTitle, pk=anime_id)
-    Ep_plus_Link = zip(Anime_object.AnimeEpisodes(),Anime_object.AnimeEpisodesLink())
+    epList=Anime_object.AnimeEpisodes()
+    epListRange = []
+    for i in range(0,len(epList)):
+        epListRange.append(i)
+    Ep_plus_Link = zip(epList,epListRange)
     context = {
     'Anime':Anime_object,
     'Ep_plus_Link':Ep_plus_Link
@@ -117,10 +121,25 @@ def start(request):
         return render(request, "DatabaseEmpty.html")
 
 
-def video(request, video_id, EP_name):
+def video(request, Anime_id, video_id):
+    Anime_object = get_object_or_404(AnimeTitle, pk=Anime_id)
+    video_urls = Anime_object.AnimeEpisodesLink()
+    video_url = video_urls[video_id]
+    if video_id == 0:
+        prev = -1
+    if video_id > 0 :
+        prev = video_id - 1
+    if video_id == (int(Anime_object.noOfEPs())-1):
+        next = -1
+    if video_id < (int(Anime_object.noOfEPs())-1):
+        next = video_id + 1
+    video_NAME = Anime_object.AnimeEpisodes()[video_id]
     context = {
-    'EP_name':EP_name,
-    'video':video_id,
+    'EP_name': video_NAME,
+    'Anime_id': Anime_id,
+    'video':video_url,
+    'prev' : prev,
+    'next' : next,
     }
     return render(request, "videoPlayer/videoPlayer.html", context)
 

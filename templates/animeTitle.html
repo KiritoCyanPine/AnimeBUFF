@@ -236,8 +236,8 @@
                 <h6 class="text-white"><u>_Episode List :_</u></h6>
                 {% for word ,link  in Ep_plus_Link %}
 
-            <!--    <a href="{% url 'video' word link %}" target="_blank"> {{word}} </a> <br>  -->
-                <a href="{% url 'video' word link %}">
+            <!--    <a href="{% url 'video' Anime.id link %}" target="_blank"> {{word}} </a> <br>  -->
+                <a href="{% url 'video' Anime.id link %}">
                   <div class="darker linker py-1 mb-1">
                     <p class="mx-5 px-5 text-light" > {{word}} </p>
                   </div>

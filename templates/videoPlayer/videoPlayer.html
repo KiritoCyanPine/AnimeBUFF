@@ -83,6 +83,7 @@
         width:800px;
       }
 
+
 </style>
 
 
@@ -101,12 +102,43 @@
 
   <section>
 
+
+
           <div class="container mt-3 pt-2 pb-2 bg-transparent text-center justify-content-center darker">
             <h4  class="text-white">{{EP_name}}</h4>
             </div>
 
-      </section>
-      <div id="mobileview" class="album py-5 bg-transparent model-grad col-md-10 text-center justify-content-between mt-5" style="margin: 0 auto">
+
+  </section>
+
+
+    <div class="d-flex mx-auto container row justify-content-between mt-3">
+      {% if prev is -1 %}
+      <div class="col-2">
+        <span class="btn btn-danger" style="visibility:hidden;"><<< prev</span>
+      </div>
+
+      {% else %}
+      <div class="col-2">
+        <a href="{% url 'video' Anime_id prev %}" class="btn btn-primary text-light "><<< prev</a>
+      </div>
+      {% endif %}
+      {% if next is -1 %}
+
+      <div class="col-2">
+        <span class="btn btn-danger" style="visibility:hidden;">next >>></span>
+      </div>
+      {% else %}
+      <div class="col-2">
+        <a href="{% url 'video' Anime_id next %}" class="btn btn-primary text-light">next >>></a>
+      </div>
+      {% endif %}
+
+    </div>
+
+
+
+      <div id="mobileview" class="album py-5 bg-transparent model-grad col-md-10 text-center justify-content-between mt-3" style="margin: 0 auto">
         <div class="container">
           <div class="row">
 
