@@ -123,6 +123,11 @@
         <a href="{% url 'video' Anime_id prev %}" class="btn btn-primary text-light "><<< prev</a>
       </div>
       {% endif %}
+
+      <div class="col-2">
+        <a href="{% url 'animeTitle' Anime_id %}" class="btn btn-info text-light ">Go To Episode List</a>
+      </div>
+
       {% if next is -1 %}
 
       <div class="col-2">
