@@ -51,12 +51,12 @@
     <div class="">
       <div class="album bg-transparent darker py-3" style="margin: 0 auto" height="200">
         <div class="text-left mx-5">
-            <h5  class="text-light">Search by Genres</h5><br>
+            <h5  class="text-light"><b>S</b>earch by <b>G</b>enres</h5><br>
         </div>
         <form class="form-inline container" methord="get" action="{% url 'searchGenre' %}">
-            <input class="form-control col-10 mx-5 px-5" type="text" placeholder="Type in the Genres" aria-label="Search" name="querry1" id="querry1">
+            <input class="form-control col-9 mx-5 px-3" type="text" placeholder="Type in the Genres : like Action , Comedy , Adventure , Horror , Romantic ... " aria-label="Search" name="querry1" id="querry1">
             <br>
-            <button class="btn btn-outline-secondary my-2 my-sm-0 bg-primary float-bottom" type="submit"><i class="icon-search text-dark">search</i></button>
+            <button class="btn btn-outline-light my-sm-0 bg-primary float-bottom text-light px-5" type="submit">search</button>
         </form>
 
       </div>
