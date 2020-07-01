@@ -76,7 +76,7 @@ class AnimeTitle(models.Model):
         vid_list = []
         for i in file_list:
             if ".mp4" in i or ".mkv" in i:
-                vid_list.append(i)
+                vid_list.append(i[:-4])
         if "trailer.mp4" in vid_list:
             anime_episodes = vid_list.remove("trailer.mp4")
         else :
