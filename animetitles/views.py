@@ -40,7 +40,10 @@ def animeTitle(request,anime_id):
     for i in range(0,len(epList)):
         epListRange.append(i)
     Ep_plus_Link = zip(epList,epListRange)
+    #Anime_object_summary = Anime_object.summery
+    #Anime_object_summary = Anime_object_summary.replace("\n","")
     context = {
+    #'Anime_object_summary':Anime_object_summary,
     'Anime':Anime_object,
     'Ep_plus_Link':Ep_plus_Link
 
