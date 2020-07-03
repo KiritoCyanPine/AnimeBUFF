@@ -46,6 +46,9 @@
       .darker {
         background :linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
       }
+      .darker:hover {
+        background :linear-gradient(rgba(90, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
+      }
       .darkerL {
         background :linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
       }
@@ -233,17 +236,31 @@
 
                       {% for anime in animes.all %}
 
+                      {% if anime.noOfEPs == "Dir Deleted" %}
+                      <div class="col-sm-3 my-5">
+                        <div class="card sm-3 shadow-sm bg-secondary">
+                          <img class="card-img-top" src="{{anime.profile.url}}" alt="Thumbnail" style="filter:blur(1.5px);"/>
+                          <div class="card-body">
+                            <p class="card-text">
 
+                              <a href="{% url 'admin:index' %}animetitles/animetitle/{{anime.id}}/change/" class="text-warning" target="_blank">[ {{anime.title}} ]-Deleted Dir  </a>
+
+                            </p>
+                          </div>
+                          <div class="info">
+                          	  {{anime.shortSummery}}
+                        	</div>
+                        </div>
+                      </div>
+                      {% else %}
                       <div class="col-sm-3 my-5">
                         <div class="card sm-3 shadow-sm  linker clickToShowInfo h-100 px-1 pt-1">
                           <img class="card-img-top" src="{{anime.profile.url}}" alt="Thumbnail" />
                           <div class="card-body">
                             <p class="card-text">
-                              {% if anime.noOfEPs == "Dir Deleted" %}
-                              <a href="{% url 'admin:index' %}animetitles/animetitle/{{anime.id}}/change/" class="text-warning">[ {{anime.title}} ]-Deleted Dir  </a>
-                              {% else %}
+
                               <a href="{% url 'animeTitle' anime.id %}" class="text-warning-hover2">  {{anime.title}}  </a>
-                              {% endif %}
+
                             </p>
                           </div>
                           <div class="info">
@@ -252,6 +269,7 @@
                         </div>
                       </div>
 
+                      {% endif %}
                       {% endfor %}
 
                   <!-- LOOPING OVER  -->
@@ -287,8 +305,16 @@
                                   </thead>
                                   <tbody>
                                         {% for anime in animes.all %}
+                                        {% if anime.noOfEPs == "Dir Deleted" %}
+                                        <tr class="darker">
+                                        {% else %}
                                         <tr>
+                                        {% endif %}
+                                          {% if anime.noOfEPs == "Dir Deleted" %}
+                                          <td><a href="{% url 'admin:index' %}animetitles/animetitle/{{anime.id}}/change/" class="text-danger" target="_blank">[ {{anime.title}} ]-Deleted Dir</a></td>
+                                          {% else %}
                                           <td><a href="{% url 'animeTitle' anime.id %}" class="text-warning-hover">  {{anime.title}}  </a></td>
+                                          {% endif %}
                                           <td>{{anime.genres}}</td>
                                           <td>{{anime.noOfEPs}}</td>
                               <!--THIS IS A BUTTON THAT IS BEING CREATED EVERYTIME A FOR LOOP IS COMPLETED EACH WITH A NEW DATA_TARGET ACESSING ITS SPECFIC MODELS-->

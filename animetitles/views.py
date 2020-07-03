@@ -123,7 +123,6 @@ def start(request):
         }
         print("ALL INDIVIDUAL OBJECTS")
         #return render(request, "DatabaseEmpty.html")
-        notify()
         return render(request, "startPage.html", context)
     else:
         return render(request, "DatabaseEmpty.html")
@@ -187,7 +186,7 @@ def searchGenre(request):
     }
     return render(request, "searchPage.html", context)
     # return HttpResponse("A webpage")
-def notify():
+def notify(request):
     allDirs = os.listdir("D:/videos/ANIME")
     allDirs.remove("CloningJutsu.exe")
     Registered = []
@@ -203,10 +202,15 @@ def notify():
     Deleted_Anime = []
     for j in AnimeTitle.objects.all():
         if j.noOfEPs() == 0:
-            Deleted_Anime.append(j.title)
+            Deleted_Anime.append(j.id)
         if j.noOfEPs() == "Dir Deleted":
-            Deleted_Anime.append(j.title)
+            Deleted_Anime.append(j.id)
     print("Deleted_Anime   -   ",Deleted_Anime)
     print("Registered   -   ",Registered)
     print("Unregistered   -   ",Unregistered)
-    print("AllDirs   -   ",allDirs)
+    context = {
+    'Deleted_Anime':Deleted_Anime,
+    'Unregistered':Unregistered,
+    }
+    #return HttpResponse(f"The info here includes <br><br> Registered Anime  _  -  _  {Registered}<br><br> Unregistered Anime  _  -  _  {Unregistered} <br><br> Deleted Anime  _  -  _  {Deleted_Anime}")
+    return render(request, "notifyPage.html", context)
