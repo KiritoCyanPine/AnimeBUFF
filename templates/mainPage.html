@@ -239,7 +239,11 @@
                           <img class="card-img-top" src="{{anime.profile.url}}" alt="Thumbnail" />
                           <div class="card-body">
                             <p class="card-text">
+                              {% if anime.noOfEPs == "Dir Deleted" %}
+                              <a href="{% url 'admin:index' %}animetitles/animetitle/{{anime.id}}/change/" class="text-warning">[ {{anime.title}} ]-Deleted Dir  </a>
+                              {% else %}
                               <a href="{% url 'animeTitle' anime.id %}" class="text-warning-hover2">  {{anime.title}}  </a>
+                              {% endif %}
                             </p>
                           </div>
                           <div class="info">

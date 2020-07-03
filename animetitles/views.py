@@ -3,6 +3,7 @@ from .models import AnimeTitle
 from django.contrib import messages
 from .filters import indexFilter
 import random
+import os
 
 
 # Create your views here.
@@ -27,7 +28,6 @@ def testing4(request, video_id):
     }
     return render(request, "testingPage4.html", context)
 
-
 #################################    OFFICIALLY USEABLE PAGES    #################################
 
 def welcomePage(request):
@@ -35,6 +35,10 @@ def welcomePage(request):
 
 def animeTitle(request,anime_id):
     Anime_object = get_object_or_404(AnimeTitle, pk=anime_id)
+    if Anime_object.noOfEPs() == "Dir Deleted":
+
+        return HttpResponse("This anime Directory Doesnot exist in the Computer _ Enter correct path and try Again")
+
     epList=Anime_object.AnimeEpisodes()
     epListRange = []
     for i in range(0,len(epList)):
@@ -119,6 +123,7 @@ def start(request):
         }
         print("ALL INDIVIDUAL OBJECTS")
         #return render(request, "DatabaseEmpty.html")
+        notify()
         return render(request, "startPage.html", context)
     else:
         return render(request, "DatabaseEmpty.html")
@@ -182,3 +187,26 @@ def searchGenre(request):
     }
     return render(request, "searchPage.html", context)
     # return HttpResponse("A webpage")
+def notify():
+    allDirs = os.listdir("D:/videos/ANIME")
+    allDirs.remove("CloningJutsu.exe")
+    Registered = []
+    for i in allDirs:
+        for j in AnimeTitle.objects.all():
+            #print(f"Checkin for {i} in Object {j}")
+            if i in j.directory_address:
+                Registered.append(i)
+                break
+    Unregistered = set(allDirs) - set(Registered)
+    Unregistered = list(Unregistered)
+    Unregistered.sort()
+    Deleted_Anime = []
+    for j in AnimeTitle.objects.all():
+        if j.noOfEPs() == 0:
+            Deleted_Anime.append(j.title)
+        if j.noOfEPs() == "Dir Deleted":
+            Deleted_Anime.append(j.title)
+    print("Deleted_Anime   -   ",Deleted_Anime)
+    print("Registered   -   ",Registered)
+    print("Unregistered   -   ",Unregistered)
+    print("AllDirs   -   ",allDirs)

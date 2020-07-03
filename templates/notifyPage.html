@@ -1,0 +1,290 @@
+
+<!doctype html>
+<html lang="en">
+{% load static %}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.0.1">
+    <title>AnimeBUFF Welcome</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/4.5/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/4.5/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+<link rel="icon" href="/docs/4.5/assets/img/favicons/favicon.ico">
+<meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#563d7c">
+
+
+<style>
+
+          .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+          }
+
+          @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+              font-size: 3.5rem;
+            }
+          }
+
+          .darker {
+            background :linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
+          }
+          .darkerL {
+            background :linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+          }
+          .model-grad {
+            background: linear-gradient(110deg, rgba(27,151,2360.9) 6%, rgba(78,255,196,0.9) 51%, rgba(100,90,80,0.91081936192445727) 100%);
+          }
+
+    /*----------------------- TABLE ROW DEAORATION IN IDLE & IN HOVERING -----------------------------------------------*/
+          tr{
+            transition: all 0.3s;
+          }
+          tr:hover a{
+            color: white;
+          }
+          tr:hover{
+            /*background: linear-gradient(210deg, rgba(27,151,236,0.15) 6%, rgba(78,255,196,0.15) 51%, rgba(100,90,80,0.15) 100%);*/
+            background: linear-gradient(90deg, rgba(61,98,231,1) 0%, rgba(206,161,240,0.7458333675266982) 51%, rgba(0,212,255,0.23322832550989148) 100%);
+            color: white;
+            transform: scale(1.02);
+          }
+    /*----------------------- TABLE ROW DEAORATION ENDS -----------------------------------------------*/
+
+
+
+    /*___________________    FOR THE  CONSISTENCY IN THE LINK DECOR CHANGING     ___________________*/
+                      a:link {  text-decoration: none;  }
+                      a:visited {  text-decoration: none;  }
+                      a:hover {  text-decoration: none;   }
+                      a:active {   text-decoration: none;   }
+    /*___________________     ENDING OF LINK DECORATION CHANGE                    ___________________*/
+
+      body {
+        background:  linear-gradient(220deg, rgba(2,0,36,1) 0%, rgba(212,212,250,1) 55%, rgba(0,212,255,1) 100%) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        margin: 0;
+        /* this piece of code actually stopped shifting of page when models were opened*/
+        /**/                                                                         /**/
+        /**/                        padding-right:0px !important;                    /**/
+        /**/                        margin-right:0px !important;                     /**/
+        /**/                                                                         /**/
+        /* this piece of crap actually stopped shifting of page when models were opened*/
+      }
+
+      /*___________________   FOR THE SELECTION HIGHTLIGHT OF THE ANIME LIST    ___________________*/
+      .linker {
+        background :linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85));
+        transition: transform 0.25s;
+      }
+
+      .linker:hover {
+        background :linear-gradient(210deg, rgba(225,225,225,1) 0%, rgba(220,220,220,1) 51%, rgba(2,212,255,1220) 100%);
+        color:white;
+        border: 0px;
+        border-radius: 8px;
+        transform: scale(1.14);
+      }
+
+      .linker:hover a{
+        color: white;
+      }
+
+      .linker a:hover{
+        color: #007bff;
+      }
+      /*___________________   ENDING OF THE SELECTION PROGRAM    ___________________*/
+
+  /*__________    FOR THE SELECTION POPUP OF THE ANIME SUMMERY    ______________*/
+      .clickToShowInfo {
+        color: black;
+    		position: relative;
+    	}
+    	/* When clicking outer capsule, make inner capsule becomes visible */
+    	.clickToShowInfo:active .info {
+        color: black;
+         visibility: visible;
+         font-size: 100%;
+      }
+    	/* And stays visible as long as mouse hovers over it */
+    	.info:hover {
+        color: black;
+    		visibility: visible;
+        font-size: 100%;
+    	}
+    	/* Initial settings for the inner capsule */
+    	.info {
+        color: black;
+    		position: absolute;  /* relative to the capsule */
+    		visibility: hidden;  /* should not be visible on load */
+    		z-index: 100;
+    		background :linear-gradient(rgba(255, 255, 255, 0.71), rgba(255, 255, 255, 0.71));
+    		border: inherit;
+        border-radius: 4px;
+    		padding: 8px;
+    	}
+    	/* If we want clicking on the popup to close, use this */
+    	.info:active {
+        color: black;
+    		visibility: hidden;	/* in addition to collapse also hide the content */
+    		height: 0px;        /* when the content is clicked again the window should collapse */
+    		width: 0px;         /* when the content is clicked again the window should collapse */
+    		left: -1000px;      /* collapse operation must happen far away from the webpage sight */
+    		top: -1000px;       /* collapse operation must happen far away from the webpage sight */
+    	}
+      /*_______________   ENDING OF THE POPUP SUMMERY CODE     __________________*/
+
+
+      /*-------------------- SPECFIC ELEMENT HOVERING EFFECTS ------------------------------------*/
+      .text-warning-hover {
+         transition: color 0.3s linear;
+         text-decoration: none;
+       }
+      .text-warning-hover:hover {
+         text-decoration: none;
+         color: #fae;
+       }
+       /*-------------------- SPECFIC ELEMENT HOVERING EFFECTS ENDS ------------------------------------*/
+
+       /*-------------------- "2" SPECFIC ELEMENT HOVERING EFFECTS ------------------------------------*/
+      .text-warning-hover2 {
+         transition: color 0.3s linear;
+         text-decoration: none;
+       }
+      .text-warning-hover2:hover {
+         text-decoration: none;
+         color: violet;
+       }
+       /*-------------------- "2" SPECFIC ELEMENT HOVERING EFFECTS ENDS ------------------------------------*/
+
+
+       .small-fonts{
+         font-size: 90%;
+       }
+
+       /* FOR STOPPING SHIFTING OF THE PAGE TO LEFT */
+       .modal {
+         overflow-x: auto;
+        }
+
+        .modal-open {
+         overflow: auto;
+        }
+
+        .enlarge{
+          color: pink;
+          transition: all 0.3s linear;
+        }
+        .enlarge:hover{
+          color: pink;
+          font-size:101%;
+        }
+</style>
+
+
+
+    <!-- Custom styles for this template -->
+    <link href="album.css" rel="stylesheet">
+  </head>
+<body onload="startTime()">
+  <!-- style="background-image: url({% static 'Anime Buff titlepick _ OPTION 2-BLUR.jpg'%});height = 100%;background-attachment: fixed;"-->
+
+
+    {% include '_navbar.html' %}
+
+
+
+<main role="main">
+
+
+
+  <section>
+
+    <div class="container mt-3 pt-2 pb-2 bg-transparent text-center justify-content-center darker">
+    <h4  class="text-white"> notification </h4>
+    </div>
+
+  </section>
+
+          <!--____________________________________________________________________DESKTOP VIEW MODE__________________________________________________________________________-->
+
+  <div id="desktopview" class="album py-2 bg-transparent darker col-md-8 text-center justify-content-center mt-5" style="margin: 0 auto">
+    <div class="container text-white px-5 py-5">
+
+      <p>You are just about to finish... All you have to do is to register some Anime in the
+        <span class="text-info enlarge">"<a href="{% url 'admin:index' %}" class="enlarge" target="_blank">register some Anime in the Admin Page</a>"</span>...</p>
+        <br><br>
+        Read the Documentation for correct way of registering ...<a href="{% static 'registeringAnime.pdf' %}" class="text-info" target="_blank">here</a>
+        <br><br>For the webapp to work you need to register atleast 3 Animes...<br>
+        Otherwise , what is the point of using this webapp anyway ...?
+        <br><br><br><hr>
+          <p>P.S. &emsp; : &emsp;  Hi... fellas, just saw you commin down the path to stream the anime from your local computer . And I'm glad you decided to ...
+          I take a real good pride on this application as it was my Fist webScaper Project. And the best part "I did it in One go"..</p>
+
+          <br><br>
+          <p>
+          Well, This is a newly created application, made by me an unknown guy nobody knows about...
+          you might not even get any tutorials in youtube on how to register anime, troubleshoot the application or how to stream the anime...
+          Heck, The internet might not even know if this application exists...</p> <br><br>
+
+          So, the documentation provided might be the your only way around ...  This is an opensource project, so if you know Django and python quite a bit
+          you are welcome to do your own changes and Export the your new Project as your own ... <p>Permissions Granted</p><br><br>
+
+          If you need my SRS document, design Document or blueprints ... you might need to mail me...<br><hr>
+
+
+          <br><br>
+
+          <p>It sure has some rough edges and needs some finishing ... Some of you guys might also find it totally wrong when you consider an
+           Anime Steaming website and compare them... But I assure you, I did my very best job that i could by making it at least useable as a real world application
+           Do remember I'm not a team of dveloper... I'm a Engineering student whos just atarted coding and did his best to make his visualised content true.<br><br>
+
+           If you do find some errors that are bugging you (or) not lettin you take rest ... please do report them via Mail.[scroll down to the end of the Page]<br><br>
+
+           I'm not a good web designer ... so if you find my pages dissappointing ... Please do not report them ... <br>
+           if you know Programming & usin Django ... feel free to download my project from git and alter it as you wish...<br>
+
+           if you need to replicate your current DataBase into the project you are altering ...  those instrustions are also given in the documentation I've provided
+           so dont hold back doin so...
+
+         </p><br>
+        <p>
+           ... Have a nice time Streamin...<br>
+           Thank you
+         </p>
+
+
+
+    </div>
+  </div>
+
+
+</main>
+
+
+{% include '_footer.html' %}
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</html>
