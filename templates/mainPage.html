@@ -47,10 +47,10 @@
         background :linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
       }
       .darker:hover {
-        background :linear-gradient(rgba(90, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
+        background :linear-gradient(rgba(110, 0, 0, 0.25), rgba(110, 0, 0, 0.25));
       }
       .darkerL {
-        background :linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+        background :linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
       }
       .model-grad {
         background: linear-gradient(110deg, rgba(27,151,2360.9) 6%, rgba(78,255,196,0.9) 51%, rgba(100,90,80,0.91081936192445727) 100%);
@@ -117,6 +117,14 @@
         color: #007bff;
       }
 /*___________________   ENDING OF THE SELECTION PROGRAM    ___________________*/
+
+.notificationPanel{
+  background: rgb(44,226,255);
+  background: -moz-linear-gradient(54deg, rgba(44,226,255,1) 0%, rgba(69,233,195,1) 49%, rgba(210,95,255,1) 100%);
+  background: -webkit-linear-gradient(54deg, rgba(44,226,255,1) 0%, rgba(69,233,195,1) 49%, rgba(210,95,255,1) 100%);
+  background: linear-gradient(54deg, rgba(44,226,255,1) 0%, rgba(69,233,195,1) 49%, rgba(210,95,255,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2ce2ff",endColorstr="#d25fff",GradientType=1);
+}
 
 /*__________    FOR THE SELECTION POPUP OF THE ANIME SUMMERY    ______________*/
       .clickToShowInfo {
@@ -215,18 +223,18 @@
 
   <section>
 
-          <div class="container mt-3 pt-2 pb-2 bg-transparent text-center justify-content-center darker">
+          <div class="container mt-3 pt-2 pb-2 bg-transparent text-center justify-content-center notificationPanel">
             <h4  class="text-white">Anime List</h4></div>
 
       </section>
 
           <!--____________________________________________________________________DESKTOP VIEW MODE__________________________________________________________________________-->
 
-            <div id="desktopview" class="album py-2 bg-transparent darker col-md-10 text-center justify-content-center mt-5" style="margin: 0 auto">
+            <div id="desktopview" class="album py-2 bg-transparent darkerL col-md-10 text-center justify-content-center mt-5" style="margin: 0 auto">
 
-              <button onclick="switchView()" class="btn btn-secondary mx-auto small-fonts">Switch to Index View</button><br><hr>
+              <button onclick="switchView()" class="btn btn-primary mx-auto small-fonts">Switch to Index View</button><br><hr>
 
-              <a href="{% url 'randomise' %}" class="btn btn-primary float-right">randomise</a>
+              <a href="{% url 'randomise' %}" class="btn btn-secondary float-right">randomise</a>
 
               <div class="container">
                 <div class="container">
@@ -284,9 +292,9 @@
             <!--____________________________________________________________________INDEX VIEW MODE__________________________________________________________________________-->
 
 
-                <div id="mobileview" class="album py-2 bg-transparent darker col-md-10 text-center justify-content-center mt-5 collapse" style="margin: 0 auto">
+                <div id="mobileview" class="album py-2 bg-transparent darkerL col-md-10 text-center justify-content-center mt-5 collapse" style="margin: 0 auto">
 
-                  <button onclick="switchView()" class="btn btn-secondary mx-auto small-fonts">Switch to Desktop View</button><br><hr>
+                  <button onclick="switchView()" class="btn btn-primary mx-auto small-fonts">Switch to Desktop View</button><br><hr>
 
 
                   <div class="container">

@@ -188,10 +188,8 @@ def searchGenre(request):
     # return HttpResponse("A webpage")
 def notify(request):
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    print("BASE_DIR _  _ ", BASE_DIR)
     fileOpen = open(BASE_DIR+"\\AnimeLocation.txt",'r')
     Anime_dir = fileOpen.readline()
-    print(Anime_dir)
     fileOpen.close()
     AllDirs = os.listdir(Anime_dir)
     allDirs = [ name for name in os.listdir(Anime_dir) if os.path.isdir(os.path.join(Anime_dir, name)) ]
@@ -213,9 +211,6 @@ def notify(request):
             Deleted_Anime.append(get_object_or_404(AnimeTitle, pk=j.id))
         if j.noOfEPs() == "Dir Deleted":
             Deleted_Anime.append(get_object_or_404(AnimeTitle, pk=j.id))
-    print("Deleted_Anime   -   ",Deleted_Anime)
-    print("Registered   -   ",Registered)
-    print("Unregistered   -   ",Unregistered_links)
     context = {
     'Deleted_Anime':Deleted_Anime,
     'Unregistered':Unregistered,

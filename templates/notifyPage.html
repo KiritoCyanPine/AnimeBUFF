@@ -124,7 +124,13 @@
         color: #007bff;
       }
       /*___________________   ENDING OF THE SELECTION PROGRAM    ___________________*/
-
+      .notificationPanel{
+        background: rgb(44,226,255);
+        background: -moz-linear-gradient(54deg, rgba(44,226,255,1) 0%, rgba(69,233,195,1) 49%, rgba(210,95,255,1) 100%);
+        background: -webkit-linear-gradient(54deg, rgba(44,226,255,1) 0%, rgba(69,233,195,1) 49%, rgba(210,95,255,1) 100%);
+        background: linear-gradient(54deg, rgba(44,226,255,1) 0%, rgba(69,233,195,1) 49%, rgba(210,95,255,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2ce2ff",endColorstr="#d25fff",GradientType=1);
+      }
 
 
        .small-fonts{
@@ -169,7 +175,7 @@
 
   <section>
 
-    <div class="container mt-3 pt-2 pb-2 bg-transparent text-center justify-content-center darker">
+    <div class="container mt-3 pt-2 pb-2 bg-transparent text-center justify-content-center notificationPanel">
     <h4  class="text-white"> notification </h4>
     </div>
 
@@ -177,8 +183,8 @@
 
           <!--____________________________________________________________________DESKTOP VIEW MODE__________________________________________________________________________-->
 
-  <div id="desktopview" class="py-2 bg-transparent darker col-md-8 mt-5 container " style="margin: 0 auto">
-    <h4 class="text-center text-light">Untracked Anime</h4>
+  <div id="desktopview" class="py-2 bg-transparent darker col-md-8 mt-5 container" style="margin: 0 auto">
+    <h4 class="text-center text-light pb-2">Untracked Anime</h4>
     {% if Deleted_Anime|length == 0 %}
     <div class="card text-primary px-5 py-5 justify-content-around row mt-1">
       <div>
@@ -202,8 +208,8 @@
 
   </div>
 
-  <div id="desktopview" class="py-2 bg-transparent darker col-md-8 mt-5 container " style="margin: 0 auto">
-    <h4 class="text-center text-light">Un-Registered Anime</h4>
+  <div id="desktopview" class="py-2 bg-transparent darker col-md-8 mt-5 container" style="margin: 0 auto">
+    <h4 class="text-center text-light pb-2">Un-Registered Anime</h4>
     {% if Unregistered|length == 0 %}
     <div class="card text-primary px-5 py-5 justify-content-around row mt-1">
       <div>

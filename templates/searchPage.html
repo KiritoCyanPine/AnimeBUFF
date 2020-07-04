@@ -47,7 +47,7 @@
       .darkerL {
         background :linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
       }
-      
+
       .darker {
         background :linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
       }
@@ -360,12 +360,12 @@
                             <tr class="darker" href="{% url 'animeTitle' anime.id %}">
 
                               <td class="mx-auto">
-                                <img id="imageresource" src="{{anime.profile.url}}" class="img-fluid img-thumbnail bg-dark my-1" width="80">
+                                <img id="imageresource" src="{{anime.profile.url}}" class="img-fluid img-thumbnail bg-dark my-1" width="80" style="filter:blur(1.5px);">
                               </td>
                               <td class="text-center align-middle">
                                   <a href="{% url 'admin:index' %}animetitles/animetitle/{{anime.id}}/change/">
-                                    <div class="td-a hht pt-4">
-                                      {{anime.title}}
+                                    <div class="td-a hht pt-4 text-danger">
+                                      [ {{anime.title}} ] - Anime moved
                                     </div>
                                   </a>
                               </td>
