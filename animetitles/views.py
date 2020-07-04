@@ -187,8 +187,14 @@ def searchGenre(request):
     return render(request, "searchPage.html", context)
     # return HttpResponse("A webpage")
 def notify(request):
-    AllDirs = os.listdir("D:/videos/ANIME")
-    allDirs = [ name for name in os.listdir("D:/videos/ANIME") if os.path.isdir(os.path.join("D:/videos/ANIME", name)) ]
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    print("BASE_DIR _  _ ", BASE_DIR)
+    fileOpen = open(BASE_DIR+"\\AnimeLocation.txt",'r')
+    Anime_dir = fileOpen.readline()
+    print(Anime_dir)
+    fileOpen.close()
+    AllDirs = os.listdir(Anime_dir)
+    allDirs = [ name for name in os.listdir(Anime_dir) if os.path.isdir(os.path.join(Anime_dir, name)) ]
     Registered = []
     for i in allDirs:
         for j in AnimeTitle.objects.all():
@@ -199,6 +205,8 @@ def notify(request):
     Unregistered = set(allDirs) - set(Registered)
     Unregistered = list(Unregistered)
     Unregistered.sort()
+    Unregistered_add = [Anime_dir+i for i in Unregistered ]
+    Unregistered_links = zip(Unregistered,Unregistered_add)
     Deleted_Anime = []
     for j in AnimeTitle.objects.all():
         if j.noOfEPs() == 0:
@@ -207,11 +215,11 @@ def notify(request):
             Deleted_Anime.append(get_object_or_404(AnimeTitle, pk=j.id))
     print("Deleted_Anime   -   ",Deleted_Anime)
     print("Registered   -   ",Registered)
-    print("Unregistered   -   ",Unregistered)
-    Unregistered.sort()
+    print("Unregistered   -   ",Unregistered_links)
     context = {
     'Deleted_Anime':Deleted_Anime,
     'Unregistered':Unregistered,
+    'Unregistered_links':Unregistered_links,
     }
     #return HttpResponse(f"The info here includes <br><br> Registered Anime  _  -  _  {Registered}<br><br> Unregistered Anime  _  -  _  {Unregistered} <br><br> Deleted Anime  _  -  _  {Deleted_Anime}")
     return render(request, "notifyPage.html", context)

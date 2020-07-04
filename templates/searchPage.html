@@ -44,8 +44,18 @@
       }
 
 /*    SEARCH PAGE FUNCTIONALITY BUTTONS FOR BETTER UI*/
+      .darkerL {
+        background :linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
+      }
+      
       .darker {
         background :linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
+      }
+      .darker:hover {
+        background :linear-gradient(rgba(100, 0, 0, 0.25), rgba(100, 0, 0, 0.25));
+      }
+      .darker:hover a{
+        color:red;
       }
 
       .darkerY {
@@ -239,7 +249,7 @@
 
   <!--____________________________________________________________________INDEX VIEW MODE__________________________________________________________________________-->
 
-  <div id="desktopview" class="album py-2 bg-transparent darker col-md-10 text-center justify-content-center mt-3 collapse" style="margin: 0 auto">
+  <div id="desktopview" class="album py-2 bg-transparent darkerL col-md-10 text-center justify-content-center mt-3 collapse" style="margin: 0 auto">
 
             <div class="container">
 
@@ -260,10 +270,23 @@
                       <tbody>
                             {% for anime in animes.all %}
                             <tr>
+                              {% if anime.noOfEPs == "Dir Deleted" %}
+                              <td class="text-warning">[ {{anime.title}} ] - Anime moved</td>
+                              {% else %}
                               <td><a href="{% url 'animeTitle' anime.id %}" class="text-warning-hover">  {{anime.title}}  </a></td>
+                              {% endif %}
                               <td>{{anime.genres}}</td>
                               <td>{{anime.noOfEPs}}</td>
                   <!--THIS IS A BUTTON THAT IS BEING CREATED EVERYTIME A FOR LOOP IS COMPLETED EACH WITH A NEW DATA_TARGET ACESSING ITS SPECFIC MODELS-->
+                              {% if anime.noOfEPs == "Dir Deleted" %}
+                              <td>
+                                <a href="{% url 'admin:index' %}animetitles/animetitle/{{anime.id}}/change/">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                  <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+                                </svg>
+                                </a>
+                              </td>
+                              {% else %}
                               <td>
                                     <button type="button" class="btn" data-toggle="modal" data-target="#staticBackdrop{{anime.id}}" action="">
                                       <svg class="bi bi-box-arrow-in-up-left" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -273,6 +296,7 @@
                                       </svg>
                                     </button>
                               </td>
+                              {% endif %}
                             </tr>
 
                   <!--THIS IS A MODEL THAT IS BEING CREATED EVERYTIME A FOR LOOP IS COMPLETED EACH WITH A NEW ID MAKING MANY MODELS-->
@@ -316,7 +340,7 @@
 
   <!--____________________________________________________________________DESKTOP VIEW MODE__________________________________________________________________________-->
 
-  <div id="mobileview" class="album py-2 bg-transparent darker col-md-10 text-center justify-content-center mt-3" style="margin: 0 auto">
+  <div id="mobileview" class="album py-2 bg-transparent darkerL col-md-10 text-center justify-content-center mt-3" style="margin: 0 auto">
 
     <div class="container">
 
@@ -332,7 +356,28 @@
                     <tbody>
 
                       {% for anime in animes.all %}
+                            {% if anime.noOfEPs == "Dir Deleted" %}
+                            <tr class="darker" href="{% url 'animeTitle' anime.id %}">
 
+                              <td class="mx-auto">
+                                <img id="imageresource" src="{{anime.profile.url}}" class="img-fluid img-thumbnail bg-dark my-1" width="80">
+                              </td>
+                              <td class="text-center align-middle">
+                                  <a href="{% url 'admin:index' %}animetitles/animetitle/{{anime.id}}/change/">
+                                    <div class="td-a hht pt-4">
+                                      {{anime.title}}
+                                    </div>
+                                  </a>
+                              </td>
+                              <td class="text-center align-middle">
+                                  <a href="{% url 'animeTitle' anime.id %}">
+                                    <div class="td-a hht pt-4">
+                                      {{anime.noOfEPs}}
+                                    </div>
+                                  </a>
+                              </td>
+                            </tr>
+                            {% else %}
                               <tr class="linker clickable-row" href="{% url 'animeTitle' anime.id %}">
 
                                 <td class="mx-auto">
@@ -353,6 +398,7 @@
                                     </a>
                                 </td>
                               </tr>
+                            {% endif %}
 
                           {% endfor %}
                     </tbody>

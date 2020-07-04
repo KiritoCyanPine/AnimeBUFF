@@ -73,7 +73,7 @@
     /*___________________    FOR THE  CONSISTENCY IN THE LINK DECOR CHANGING     ___________________*/
                       a:link {  text-decoration: none; color:white;  }
                       a:visited {  text-decoration: none;  }
-                      a:hover {  text-decoration: none; color:white;   }
+                      a:hover {  text-decoration: none;; color:white;  }
                       a:active {   text-decoration: none;   }
     /*___________________     ENDING OF LINK DECORATION CHANGE                    ___________________*/
 
@@ -96,6 +96,13 @@
       .linker {
         background :linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85));
         transition: transform 0.2s;
+      }
+
+      .addToDB a {
+        color: yellow;
+      }
+      .addToDB a:hover {
+        color: white;
       }
 
       .linker:hover {
@@ -187,7 +194,7 @@
         </div>
         <div class="col-2 py-4">
           <a href="{% url 'admin:index' %}animetitles/animetitle/{{i.id}}/change/" class="btn-primary rounded px-1 py-1">Change</a>
-          <a href="{% url 'admin:index' %}animetitles/animetitle/{{i.id}}/change/" class="btn-danger rounded px-1 py-1">Delete</a>
+          <a href="{% url 'admin:index' %}animetitles/animetitle/{{i.id}}/delete/" class="btn-danger rounded px-1 py-1">Delete</a>
         </div>
       </div>
       {% endfor %}
@@ -205,13 +212,13 @@
       <p>You can just have fun ...</p><p> We will keep track of your content and notify you.</p>
     </div>
     {% else %}
-      {% for i in Unregistered %}
+      {% for i,j in Unregistered_links %}
       <div class="card text-primary px-5 py-2 justify-content-around row mt-1 linker" style="height:9vh">
         <div class="col-8">
-         <span class="text-muted"> You havent added </span>{{i}}<span class="text-muted"> to your Database yet.. </span>
+         <span class="text-muted"> You haven't added </span>{{i}}<span class="text-muted"> to your Database yet... </span>
         </div>
         <div class="col-2 py-4">
-          <a href="{% url 'admin:index' %}animetitles/animetitle/add/" class="btn-primary rounded px-1 py-1">Add it Now</a>
+          <a href="{% url 'admin:index' %}animetitles/animetitle/add?directory_address={{j}}&title={{i}}"  class="btn-primary rounded px-3 py-1" style="color:#ffffff;">Add it Now</a>
         </div>
       </div>
       {% endfor %}
@@ -224,7 +231,11 @@
 
 
 {% include '_footer.html' %}
-
+<script>
+function myFunction() {
+  setTimeout(function(){ alert("Hello"); }, 2000);
+}
+</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
