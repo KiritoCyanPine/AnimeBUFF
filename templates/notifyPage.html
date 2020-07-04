@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.0.1">
-    <title>AnimeBUFF Welcome</title>
+    <title>AnimeBUFF Notification</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
 
@@ -71,9 +71,9 @@
 
 
     /*___________________    FOR THE  CONSISTENCY IN THE LINK DECOR CHANGING     ___________________*/
-                      a:link {  text-decoration: none;  }
+                      a:link {  text-decoration: none; color:white;  }
                       a:visited {  text-decoration: none;  }
-                      a:hover {  text-decoration: none;   }
+                      a:hover {  text-decoration: none; color:white;   }
                       a:active {   text-decoration: none;   }
     /*___________________     ENDING OF LINK DECORATION CHANGE                    ___________________*/
 
@@ -95,15 +95,18 @@
       /*___________________   FOR THE SELECTION HIGHTLIGHT OF THE ANIME LIST    ___________________*/
       .linker {
         background :linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85));
-        transition: transform 0.25s;
+        transition: transform 0.2s;
       }
 
       .linker:hover {
-        background :linear-gradient(210deg, rgba(225,225,225,1) 0%, rgba(220,220,220,1) 51%, rgba(2,212,255,1220) 100%);
+        background: -moz-linear-gradient(42deg, rgba(0,255,183,1) 0%, rgba(133,240,255,1) 57%, rgba(0,130,255,1) 100%);
+        background: -webkit-linear-gradient(42deg, rgba(0,255,183,1) 0%, rgba(133,240,255,1) 57%, rgba(0,130,255,1) 100%);
+        background: linear-gradient(42deg, rgba(0,255,183,1) 0%, rgba(133,240,255,1) 57%, rgba(0,130,255,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffb7",endColorstr="#0082ff",GradientType=1);
         color:white;
         border: 0px;
         border-radius: 8px;
-        transform: scale(1.14);
+        transform: scale(1.01);
       }
 
       .linker:hover a{
@@ -115,67 +118,6 @@
       }
       /*___________________   ENDING OF THE SELECTION PROGRAM    ___________________*/
 
-  /*__________    FOR THE SELECTION POPUP OF THE ANIME SUMMERY    ______________*/
-      .clickToShowInfo {
-        color: black;
-    		position: relative;
-    	}
-    	/* When clicking outer capsule, make inner capsule becomes visible */
-    	.clickToShowInfo:active .info {
-        color: black;
-         visibility: visible;
-         font-size: 100%;
-      }
-    	/* And stays visible as long as mouse hovers over it */
-    	.info:hover {
-        color: black;
-    		visibility: visible;
-        font-size: 100%;
-    	}
-    	/* Initial settings for the inner capsule */
-    	.info {
-        color: black;
-    		position: absolute;  /* relative to the capsule */
-    		visibility: hidden;  /* should not be visible on load */
-    		z-index: 100;
-    		background :linear-gradient(rgba(255, 255, 255, 0.71), rgba(255, 255, 255, 0.71));
-    		border: inherit;
-        border-radius: 4px;
-    		padding: 8px;
-    	}
-    	/* If we want clicking on the popup to close, use this */
-    	.info:active {
-        color: black;
-    		visibility: hidden;	/* in addition to collapse also hide the content */
-    		height: 0px;        /* when the content is clicked again the window should collapse */
-    		width: 0px;         /* when the content is clicked again the window should collapse */
-    		left: -1000px;      /* collapse operation must happen far away from the webpage sight */
-    		top: -1000px;       /* collapse operation must happen far away from the webpage sight */
-    	}
-      /*_______________   ENDING OF THE POPUP SUMMERY CODE     __________________*/
-
-
-      /*-------------------- SPECFIC ELEMENT HOVERING EFFECTS ------------------------------------*/
-      .text-warning-hover {
-         transition: color 0.3s linear;
-         text-decoration: none;
-       }
-      .text-warning-hover:hover {
-         text-decoration: none;
-         color: #fae;
-       }
-       /*-------------------- SPECFIC ELEMENT HOVERING EFFECTS ENDS ------------------------------------*/
-
-       /*-------------------- "2" SPECFIC ELEMENT HOVERING EFFECTS ------------------------------------*/
-      .text-warning-hover2 {
-         transition: color 0.3s linear;
-         text-decoration: none;
-       }
-      .text-warning-hover2:hover {
-         text-decoration: none;
-         color: violet;
-       }
-       /*-------------------- "2" SPECFIC ELEMENT HOVERING EFFECTS ENDS ------------------------------------*/
 
 
        .small-fonts{
@@ -228,54 +170,53 @@
 
           <!--____________________________________________________________________DESKTOP VIEW MODE__________________________________________________________________________-->
 
-  <div id="desktopview" class="album py-2 bg-transparent darker col-md-8 text-center justify-content-center mt-5" style="margin: 0 auto">
-    <div class="container text-white px-5 py-5">
-
-      <p>You are just about to finish... All you have to do is to register some Anime in the
-        <span class="text-info enlarge">"<a href="{% url 'admin:index' %}" class="enlarge" target="_blank">register some Anime in the Admin Page</a>"</span>...</p>
-        <br><br>
-        Read the Documentation for correct way of registering ...<a href="{% static 'registeringAnime.pdf' %}" class="text-info" target="_blank">here</a>
-        <br><br>For the webapp to work you need to register atleast 3 Animes...<br>
-        Otherwise , what is the point of using this webapp anyway ...?
-        <br><br><br><hr>
-          <p>P.S. &emsp; : &emsp;  Hi... fellas, just saw you commin down the path to stream the anime from your local computer . And I'm glad you decided to ...
-          I take a real good pride on this application as it was my Fist webScaper Project. And the best part "I did it in One go"..</p>
-
-          <br><br>
-          <p>
-          Well, This is a newly created application, made by me an unknown guy nobody knows about...
-          you might not even get any tutorials in youtube on how to register anime, troubleshoot the application or how to stream the anime...
-          Heck, The internet might not even know if this application exists...</p> <br><br>
-
-          So, the documentation provided might be the your only way around ...  This is an opensource project, so if you know Django and python quite a bit
-          you are welcome to do your own changes and Export the your new Project as your own ... <p>Permissions Granted</p><br><br>
-
-          If you need my SRS document, design Document or blueprints ... you might need to mail me...<br><hr>
-
-
-          <br><br>
-
-          <p>It sure has some rough edges and needs some finishing ... Some of you guys might also find it totally wrong when you consider an
-           Anime Steaming website and compare them... But I assure you, I did my very best job that i could by making it at least useable as a real world application
-           Do remember I'm not a team of dveloper... I'm a Engineering student whos just atarted coding and did his best to make his visualised content true.<br><br>
-
-           If you do find some errors that are bugging you (or) not lettin you take rest ... please do report them via Mail.[scroll down to the end of the Page]<br><br>
-
-           I'm not a good web designer ... so if you find my pages dissappointing ... Please do not report them ... <br>
-           if you know Programming & usin Django ... feel free to download my project from git and alter it as you wish...<br>
-
-           if you need to replicate your current DataBase into the project you are altering ...  those instrustions are also given in the documentation I've provided
-           so dont hold back doin so...
-
-         </p><br>
-        <p>
-           ... Have a nice time Streamin...<br>
-           Thank you
-         </p>
-
-
-
+  <div id="desktopview" class="py-2 bg-transparent darker col-md-8 mt-5 container " style="margin: 0 auto">
+    <h4 class="text-center text-light">Untracked Anime</h4>
+    {% if Deleted_Anime|length == 0 %}
+    <div class="card text-primary px-5 py-5 justify-content-around row mt-1">
+      <div>
+      Everything looks Alright... （￣︶￣）👍
+      </div>
+      <p>You can just have fun ...</p><p> We will keep track of your content and notify you.</p>
     </div>
+    {% else %}
+      {% for i in Deleted_Anime %}
+      <div class="card text-primary px-5 py-2 justify-content-around row mt-1 linker" style="height:9vh">
+        <div class="col-8">
+        {{i.title}} <span class="text-muted"> has been moved to a different directory or has been deleted.</span>
+        </div>
+        <div class="col-2 py-4">
+          <a href="{% url 'admin:index' %}animetitles/animetitle/{{i.id}}/change/" class="btn-primary rounded px-1 py-1">Change</a>
+          <a href="{% url 'admin:index' %}animetitles/animetitle/{{i.id}}/change/" class="btn-danger rounded px-1 py-1">Delete</a>
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+
+  </div>
+
+  <div id="desktopview" class="py-2 bg-transparent darker col-md-8 mt-5 container " style="margin: 0 auto">
+    <h4 class="text-center text-light">Un-Registered Anime</h4>
+    {% if Unregistered|length == 0 %}
+    <div class="card text-primary px-5 py-5 justify-content-around row mt-1">
+      <div>
+      Everything looks Alright... （￣︶￣）👍
+      </div>
+      <p>You can just have fun ...</p><p> We will keep track of your content and notify you.</p>
+    </div>
+    {% else %}
+      {% for i in Unregistered %}
+      <div class="card text-primary px-5 py-2 justify-content-around row mt-1 linker" style="height:9vh">
+        <div class="col-8">
+         <span class="text-muted"> You havent added </span>{{i}}<span class="text-muted"> to your Database yet.. </span>
+        </div>
+        <div class="col-2 py-4">
+          <a href="{% url 'admin:index' %}animetitles/animetitle/add/" class="btn-primary rounded px-1 py-1">Add it Now</a>
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+
   </div>
 
 

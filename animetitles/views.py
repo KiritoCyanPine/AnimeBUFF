@@ -187,8 +187,8 @@ def searchGenre(request):
     return render(request, "searchPage.html", context)
     # return HttpResponse("A webpage")
 def notify(request):
-    allDirs = os.listdir("D:/videos/ANIME")
-    allDirs.remove("CloningJutsu.exe")
+    AllDirs = os.listdir("D:/videos/ANIME")
+    allDirs = [ name for name in os.listdir("D:/videos/ANIME") if os.path.isdir(os.path.join("D:/videos/ANIME", name)) ]
     Registered = []
     for i in allDirs:
         for j in AnimeTitle.objects.all():
@@ -202,12 +202,13 @@ def notify(request):
     Deleted_Anime = []
     for j in AnimeTitle.objects.all():
         if j.noOfEPs() == 0:
-            Deleted_Anime.append(j.id)
+            Deleted_Anime.append(get_object_or_404(AnimeTitle, pk=j.id))
         if j.noOfEPs() == "Dir Deleted":
-            Deleted_Anime.append(j.id)
+            Deleted_Anime.append(get_object_or_404(AnimeTitle, pk=j.id))
     print("Deleted_Anime   -   ",Deleted_Anime)
     print("Registered   -   ",Registered)
     print("Unregistered   -   ",Unregistered)
+    Unregistered.sort()
     context = {
     'Deleted_Anime':Deleted_Anime,
     'Unregistered':Unregistered,
