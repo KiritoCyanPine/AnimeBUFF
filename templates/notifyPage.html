@@ -219,16 +219,55 @@
     </div>
     {% else %}
       {% for i,j in Unregistered_links %}
-      <div class="card text-primary px-5 py-2 justify-content-around row mt-1 linker" style="height:9vh">
+      <div class="card text-primary px-3 py-2 justify-content-around row mt-1 linker" style="height:9vh">
         <div class="col-8">
          <span class="text-muted"> You haven't added </span>{{i}}<span class="text-muted"> to your Database yet... </span>
         </div>
-        <div class="col-2 py-4">
-          <a href="{% url 'admin:index' %}animetitles/animetitle/add?directory_address={{j}}&title={{i}}"  class="btn-primary rounded px-3 py-1" style="color:#ffffff;">Add it Now</a>
+        <div class="col-3 py-4 container">
+          <div class="row">
+            <a href="{% url 'admin:index' %}animetitles/animetitle/add?directory_address={{j}}&title={{i}}"  class=" btn-primary rounded px-3 py-1 mx-1" style="color:#ffffff;">Add it Now</a>
+            <a href="{% url 'notify_para' i %}"  class=" btn-danger rounded px-3 py-1 mx-1" style="color:#ffffff;">Avoid</a>
+          </div>
+
         </div>
       </div>
       {% endfor %}
     {% endif %}
+
+  </div>
+
+  <div id="desktopview" class="py-2 bg-transparent darker col-md-8 mt-5" style="margin: 0 auto">
+    <h4 class="text-center text-light pb-2">Avoid List</h4>
+
+    <div class="card text-primary px-5 py-5 d-flex mx-auto row mt-1 container">
+      <div id="AvoidFileEditor" class="collapse text-center">
+            <a onclick="switchView()" class="btn btn-danger text-white px-5">
+               collapse and revert changes &emsp;
+               <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-back" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M0 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2z"/>
+                </svg>
+              </a> <br><br>
+        <form id="#thisPlace" class="row text-left" action="{% url 'notify' %}" method="get">
+          <div class="col-8">
+            <textarea rows="10" cols="80" name="avoidList" id="avoidList" aria-label="avoidList">{{Avoid_folder}}</textarea>
+          </div>
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary mt-5">save changes</button>
+            <a href="{% url 'notify' %}openAFileInNotepad" class="btn btn-info mt-2">Open the file in Notepad</a>
+            <a href="{% url 'notify' %}clearTheWholeFrikinStuff_IwantItClean" class="btn btn-warning mt-2">Clear All Avoid Dirs</a>
+          </div>
+        </form>
+    </div>
+      <div id="FileEditorHide" class="FileEditorHide text-center">
+        <a onclick="switchView()" class="btn btn-danger text-white px-5">
+          Edit This File Only if You a Sure &emsp;
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
 
   </div>
 
@@ -237,9 +276,12 @@
 
 
 {% include '_footer.html' %}
-<script>
-function myFunction() {
-  setTimeout(function(){ alert("Hello"); }, 2000);
+<script type="text/javascript">
+function switchView() {
+  var divClass1 = document.getElementById("FileEditorHide");
+  var divClass2 = document.getElementById("AvoidFileEditor");
+  divClass1.classList.toggle("collapse");
+  divClass2.classList.toggle("collapse");
 }
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

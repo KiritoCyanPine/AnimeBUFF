@@ -4,6 +4,7 @@ from django.contrib import messages
 from .filters import indexFilter
 import random
 import os
+import subprocess
 
 
 # Create your views here.
@@ -186,8 +187,20 @@ def searchGenre(request):
     }
     return render(request, "searchPage.html", context)
     # return HttpResponse("A webpage")
-def notify(request):
+
+def notify(request,optional_parameter=''):
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    ###  NEED TO LEARN THIS FORM BELOW #####
+    querry = request.GET.get('avoidList', False)
+    if querry is not False:
+
+        sN = open(BASE_DIR+"\\Dir_Avoid.qaw",'w')
+        sN.write(str(querry).replace("\r\n",","))
+        sN.close()
+
+    if optional_parameter == "openAFileInNotepad":
+        subprocess.Popen(["notepad.exe",BASE_DIR+"\\Dir_Avoid.qaw"])
+
     fileOpen = open(BASE_DIR+"\\AnimeLocation.txt",'r')
     Anime_dir = fileOpen.readline()
     fileOpen.close()
@@ -200,21 +213,70 @@ def notify(request):
             if i in j.directory_address:
                 Registered.append(i)
                 break
+
+    Deleted_Anime = []
+
+    Avoid_folder = []
+    csv_reader = ""
+    try:
+        with open(BASE_DIR+"\\Dir_Avoid.qaw", 'r') as csv_file:
+            csv_reader = csv_file.read()
+            Avoid_folder = csv_reader.split(",")
+            if "album.css" in Avoid_folder:
+                Avoid_folder = Avoid_folder.remove("album.css")
+    except:
+        c = open(BASE_DIR+"\\Dir_Avoid.qaw", 'w')
+        c.close()
+        with open(BASE_DIR+"\\Dir_Avoid.qaw", 'r') as csv_file:
+            csv_reader = csv_file.read()
+            Avoid_folder = csv_reader.split(",")
+            if "album.css" in Avoid_folder:
+                Avoid_folder = Avoid_folder.remove("album.css")
+    print(Avoid_folder)
+    if optional_parameter == '':
+        print("DoinNothin")
+    elif optional_parameter == 'openAFileInNotepad':
+        print("DoinNothin")
+    elif optional_parameter == 'clearTheWholeFrikinStuff_IwantItClean':
+        fileOpen = open(BASE_DIR+"\\Dir_Avoid.qaw",'w')
+        fileOpen.close()
+    elif optional_parameter in Avoid_folder:
+        print("DoinNothin")
+    elif optional_parameter == "album.css":
+        print("DoinNothin")
+    else:
+        print("=======",optional_parameter)
+        fileOpen = open(BASE_DIR+"\\Dir_Avoid.qaw",'a')
+        fileOpen.write(optional_parameter+",")
+        fileOpen.close()
+        Avoid_folder.append(optional_parameter)
+    with open(BASE_DIR+"\\Dir_Avoid.qaw", 'r') as csv_file:
+        csv_reader = csv_file.read()
+        Avoid_folder = csv_reader.split(",")
+        if "album.css" in Avoid_folder:
+            Avoid_folder = Avoid_folder.remove("album.css")
+    print("AVOID FOLDER _____  ",Avoid_folder)
     Unregistered = set(allDirs) - set(Registered)
+    Unregistered = set(Unregistered) - set(Avoid_folder)
     Unregistered = list(Unregistered)
     Unregistered.sort()
     Unregistered_add = [Anime_dir+i for i in Unregistered ]
     Unregistered_links = zip(Unregistered,Unregistered_add)
-    Deleted_Anime = []
+
     for j in AnimeTitle.objects.all():
         if j.noOfEPs() == 0:
             Deleted_Anime.append(get_object_or_404(AnimeTitle, pk=j.id))
         if j.noOfEPs() == "Dir Deleted":
             Deleted_Anime.append(get_object_or_404(AnimeTitle, pk=j.id))
+    with open(BASE_DIR+"\\Dir_Avoid.qaw", 'r') as csv_file:
+        csv_reader = csv_file.read()
+    csv_reader = csv_reader.replace(",","\n")
     context = {
     'Deleted_Anime':Deleted_Anime,
     'Unregistered':Unregistered,
     'Unregistered_links':Unregistered_links,
+    'Avoid_folder':csv_reader,
+    'AvoidFile':BASE_DIR+"\\Dir_Avoid.qaw",
     }
     #return HttpResponse(f"The info here includes <br><br> Registered Anime  _  -  _  {Registered}<br><br> Unregistered Anime  _  -  _  {Unregistered} <br><br> Deleted Anime  _  -  _  {Deleted_Anime}")
     return render(request, "notifyPage.html", context)

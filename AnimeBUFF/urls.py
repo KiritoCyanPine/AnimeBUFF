@@ -29,6 +29,7 @@ urlpatterns = [
     path('searchByGenre/', animetitles.views.searchGenre, name="searchGenre"),
     path('animetitle/randomise/', animetitles.views.randomise, name="randomise"),
     path('animetitle/notify/', animetitles.views.notify, name="notify"),
+    path('animetitle/notify/<str:optional_parameter>', animetitles.views.notify, name="notify_para"),
     path('welcomePage/', animetitles.views.welcomePage),
 
 ###################################################    TESTING PAGES URLS ##############################
