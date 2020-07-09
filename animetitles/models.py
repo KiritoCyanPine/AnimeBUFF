@@ -63,7 +63,7 @@ class AnimeTitle(models.Model):
         return vid_list
 
     def TrailerVideo(self):
-        if self.trailer is "":
+        if self.trailer == "":
             Trailer = False
         else:
             if "watch?v=" in self.trailer:

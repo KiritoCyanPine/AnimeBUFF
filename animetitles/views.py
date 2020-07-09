@@ -142,10 +142,14 @@ def video(request, Anime_id, video_id):
     if video_id < (int(Anime_object.noOfEPs())-1):
         next = video_id + 1
     video_NAME = Anime_object.AnimeEpisodes()[video_id]
+    video_Public_Url = str(video_url)
+    video_Public_Url = "http://192.168.43.57"+video_Public_Url[16:]
+    print("video_Public_Url +++++ ",video_Public_Url)
     context = {
     'EP_name': video_NAME,
     'Anime_id': Anime_id,
     'video':video_url,
+    'video_Public_Url':video_Public_Url,
     'prev' : prev,
     'next' : next,
     }

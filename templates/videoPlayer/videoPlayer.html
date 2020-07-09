@@ -35,7 +35,6 @@
 <link href="{% static 'plugins/picture-in-picture/picture-in-picture.css' %}" rel="stylesheet" />
 
 
-
 <style>
 
       .bd-placeholder-img {
@@ -159,7 +158,7 @@
 
             <div class="container mt-5 mb-5">
                 <div class="row">
-                      <video id="video_player" height="506.25" width="900" controls="true" preload="0">
+                      <video id="video_player" preload="auto" height="506.25" width="900" controls="true" preload="0">
 
                             <source src="{{video}}" type="video/mp4">
                             <source src="{{video}}" type="video/x-matroska;">
@@ -169,6 +168,14 @@
                             <source src="{{video}}" type='video/mp4; codecs="hvc1"'>
                             <source src="{{video}}" type="video/webm">
                             <source src="{{video}}" type='video/mp4; codecs="avc1"'>
+                            <source src="{{video_Public_Url}}" type="video/mp4">
+                            <source src="{{video_Public_Url}}" type="video/x-matroska;">
+                            <source src="{{video_Public_Url}}" type='video/x-matroska; codecs="theora, vorbis"'>
+                            <source src="{{video_Public_Url}}" type="video/ogg">
+                            <source src="{{video_Public_Url}}" type="video/mkv">
+                            <source src="{{video_Public_Url}}" type='video/mp4; codecs="hvc1"'>
+                            <source src="{{video_Public_Url}}" type="video/webm">
+                            <source src="{{video_Public_Url}}" type='video/mp4; codecs="avc1"'>
                       </video>
                  </div>
             </div>
@@ -190,7 +197,7 @@
 
               <div class="container mt-5 mb-5">
                 <div class="row">
-                        <video class="videoSIZE" height="506.25" width="990" controls="true" preload="0">
+                        <video class="videoSIZE" preload="auto" height="506.25" width="990" controls="true" preload="0">
 
                               <source src="{{video}}" type="video/mp4">
                               <source src="{{video}}" type="video/x-matroska;">
@@ -200,6 +207,14 @@
                               <source src="{{video}}" type='video/mp4; codecs="hvc1"'>
                               <source src="{{video}}" type="video/webm">
                               <source src="{{video}}" type='video/mp4; codecs="avc1"'>
+                              <source src="{{video_Public_Url}}" type="video/mp4">
+                              <source src="{{video_Public_Url}}" type="video/x-matroska;">
+                              <source src="{{video_Public_Url}}" type='video/x-matroska; codecs="theora, vorbis"'>
+                              <source src="{{video_Public_Url}}" type="video/ogg">
+                              <source src="{{video_Public_Url}}" type="video/mkv">
+                              <source src="{{video_Public_Url}}" type='video/mp4; codecs="hvc1"'>
+                              <source src="{{video_Public_Url}}" type="video/webm">
+                              <source src="{{video_Public_Url}}" type='video/mp4; codecs="avc1"'>
                         </video>
                 </div>
               </div>
@@ -230,6 +245,8 @@
 <script src="{% static 'plugins/jump-forward/jump-forward.min.js' %}"></script>
 <script src="{% static 'plugins/skip-back/skip-back.min.js' %}"></script>
 <script src="{% static 'plugins/picture-in-picture/picture-in-picture.js' %}"></script>
+
+
 
 <script>
 
