@@ -278,6 +278,7 @@ def notify(request,optional_parameter=''):
     context = {
     'Deleted_Anime':Deleted_Anime,
     'Unregistered':Unregistered,
+    'Registered':Registered,
     'Unregistered_links':Unregistered_links,
     'Avoid_folder':csv_reader,
     'AvoidFile':BASE_DIR+"\\Dir_Avoid.qaw",

@@ -43,6 +43,14 @@
             }
           }
 
+
+                @media screen and (prefers-reduced-motion: no-preference) {
+                  html,
+                  body {
+                    scroll-behavior: smooth;
+                  }
+                }
+
           .darker {
             background :linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
           }
@@ -176,7 +184,7 @@
   <section>
 
     <div class="container mt-3 pt-2 pb-2 bg-transparent text-center justify-content-center notificationPanel">
-    <h4  class="text-white"> notification </h4>
+    <h4  class="text-white text-center col-12"><span class="float-left small-fonts text-danger" style="visibility:hidden;">Registered -  <b>{{Registered|length}}</b></span> notification <span class="float-right small-fonts text-dark" style="overflow:visible;">Registered -  <b>{{Registered|length}}</b></span> </h4>
     </div>
 
   </section>
@@ -209,7 +217,7 @@
   </div>
 
   <div id="desktopview" class="py-2 bg-transparent darker col-md-8 mt-5 container" style="margin: 0 auto">
-    <h4 class="text-center text-light pb-2">Un-Registered Anime</h4>
+    <h4 class="text-center text-light pb-2">Un-Registered Anime   <span class="float-right small-fonts text-warning"> <b>{{Unregistered|length}}</b></span></h4>
     {% if Unregistered|length == 0 %}
     <div class="card text-primary px-5 py-5 justify-content-around row mt-1">
       <div>

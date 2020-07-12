@@ -52,6 +52,14 @@
         }
       }
 
+
+            @media screen and (prefers-reduced-motion: no-preference) {
+              html,
+              body {
+                scroll-behavior: smooth;
+              }
+            }
+
       body {
         background:  linear-gradient(220deg, rgba(2,0,36,1) 0%, rgba(212,212,250,1) 55%, rgba(0,212,255,1) 100%) no-repeat center center fixed;
         -webkit-background-size: cover;

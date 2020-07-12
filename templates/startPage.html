@@ -43,6 +43,13 @@
         }
       }
 
+      @media screen and (prefers-reduced-motion: no-preference) {
+        html,
+        body {
+          scroll-behavior: smooth;
+        }
+      }
+
 
       .darker{
         background :linear-gradient(45deg, rgba(27,151,236,0.8) 6%, rgba(78,150,196,0.8) 51%, rgba(220,100,100,0.8) 100%);
@@ -170,6 +177,11 @@
        }
 /*-------------------- SPECFIC ELEMENT HOVERING EFFECTS ENDS ------------------------------------*/
 
+      .carousel-SIZE{
+        transform: scale(1.05);
+        top : 40px;
+      }
+
 /*-------------------- "2" SPECFIC ELEMENT HOVERING EFFECTS ------------------------------------*/
       .text-warning-hover2 {
          transition: color 0.3s linear;
@@ -183,7 +195,7 @@
 
 
        .small-fonts{
-         font-size: 90%;
+         font-size: 85%;
        }
 
 /* FOR STOPPING SHIFTING OF THE PAGE TO LEFT */
@@ -240,27 +252,43 @@
 
           .cropNEW {
             width: 100%;
-            height: 310px;
+            height: 290px;
             overflow: hidden;
 
           }
 
           .cropNEW img {
-            width: auto;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transform: scale(1.1);
+            transition: all 0.5s;
+          }
+
+          .cropNEW img:hover {
             height: auto;
             position: center;
+            transform: scale(1.25);
           }
 
           .cropNEWINNER {
-              width: 100%;
-              height: 160px;
+              width: inherit/2;
+              height: 140px;
               overflow: hidden;
           }
 
           .cropNEWINNER img {
-              width: auto;
+              width: 100%;
+              height: auto;
+              object-fit: cover;
+              transform: scale(1.1);
+              transition: all 0.5s;
+          }
+
+          .cropNEWINNER img:hover {
               height: auto;
               position: center;
+              transform: scale(1.25);
           }
 
           .visi #changer{
@@ -501,9 +529,13 @@
               <div id="desktopview" class="album py-2 bg-transparent col-md-10 text-center mt-3 rounded visi" style="margin: 0 auto">
 
                 <div id="carouselExampleIndicators1" class="carousel slide justify-content-between container" data-ride="carousel" data-interval="5000">
-                  <div class="carousel-inner container">
+                  <ol class="carousel-indicators" style="bottom: -59px;">
+                    <li data-target="#carouselExampleIndicators1" data-slide-to="0" class="active bg-primary" style="transform: scaleY(1.5);width:10%;"></li>
+                    <li data-target="#carouselExampleIndicators1" data-slide-to="1" class=" bg-info" style="transform: scaleY(1.5);width:10%;"></li>
+                  </ol>
+                  <div class="carousel-inner container carousel-SIZE">
                     <!--                SLIDESHOW DATA_ITEM_1           -->
-                    <div class="carousel-item active ">
+                    <div class="carousel-item container active ">
                       <div class=" row mx-auto my-auto">
 
                         <!--  <div class="col-6 my-1">
@@ -512,70 +544,90 @@
 
                           <div class="col-6" style="z-index: 1;">
                             <a href="{% url 'animeTitle' Latest_1.id %}" class="text-warning-hover">
-                            <img src="{{Latest_1.extrapick_2.url}}" class="cropNEW  border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              <div class="cropNEW">
+                                <img src="{{Latest_1.extrapick_1.url}}" class="  border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              </div>
                             <span class="text-light darker px-3" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">{{Latest_1.title}}</span>
                             </a>
                           </div>
 
                           <div class="col-6" style="z-index: 1;">
                             <a href="{% url 'animeTitle' Latest_2.id %}" class="text-warning-hover">
-                            <img src="{{Latest_2.extrapick_1.url}}" class="cropNEW border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              <div class="cropNEW">
+                                <img src="{{Latest_2.extrapick_1.url}}" class=" border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              </div>
                             <span class="text-light darker px-3" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">{{Latest_2.title}}</span>
                             </a>
                           </div>
-
+<!-- _______________________________________________________________________________________________________________________________________________________________________________________-->
                           <div class="col-3  mx-0 " style="z-index: 1;">
                             <a href="{% url 'animeTitle' Latest_3.id %}" class="text-warning-hover">
-                            <img src="{{Latest_3.extrapick_3.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              <div class="cropNEWINNER">
+                                <img src="{{Latest_3.extrapick_3.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              </div>
                             <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_3.title}}</span>
                             </a>
                           </div>
 
                           <div class="col-3  mx-0 " style="z-index: 1;">
                             <a href="{% url 'animeTitle' Latest_4.id %}" class="text-warning-hover">
-                            <img src="{{Latest_4.extrapick_4.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              <div class="cropNEWINNER">
+                                <img src="{{Latest_4.extrapick_4.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              </div>
                             <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_4.title}}</span>
                             </a>
                           </div>
 
                           <div class="col-3  mx-0 " style="z-index: 1;">
                             <a href="{% url 'animeTitle' Latest_5.id %}" class="text-warning-hover">
-                            <img src="{{Latest_5.extrapick_2.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              <div class="cropNEWINNER">
+                                <img src="{{Latest_5.extrapick_2.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              </div>
                             <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_5.title}}</span>
                             </a>
                           </div>
 
                           <div class="col-3  mx-0 " style="z-index: 1;">
                             <a href="{% url 'animeTitle' Latest_6.id %}" class="text-warning-hover">
-                            <img src="{{Latest_6.extrapick_1.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              <div class="cropNEWINNER">
+                                <img src="{{Latest_6.extrapick_1.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              </div>
                             <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_6.title}}</span>
                             </a>
                           </div>
 
                           <div class="col-3  mx-0 " style="z-index: 1;">
                             <a href="{% url 'animeTitle' Latest_7.id %}" class="text-warning-hover">
-                            <img src="{{Latest_7.extrapick_2.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              <div class="cropNEWINNER">
+                                <img src="{{Latest_7.extrapick_2.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              </div>
                             <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_7.title}}</span>
                             </a>
                           </div>
 
                           <div class="col-3  mx-0 " style="z-index: 1;">
                             <a href="{% url 'animeTitle' Latest_8.id %}" class="text-warning-hover">
-                            <img src="{{Latest_8.extrapick_2.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              <div class="cropNEWINNER">
+                                <img src="{{Latest_8.extrapick_2.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              </div>
                             <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_8.title}}</span>
                             </a>
                           </div>
 
                           <div class="col-3  mx-0 " style="z-index: 1;">
                             <a href="{% url 'animeTitle' Latest_9.id %}" class="text-warning-hover">
-                            <img src="{{Latest_9.extrapick_4.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              <div class="cropNEWINNER">
+                                <img src="{{Latest_9.extrapick_4.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              </div>
                             <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_9.title}}</span>
                             </a>
                           </div>
 
                           <div class="col-3  mx-0 " style="z-index: 1;">
                             <a href="{% url 'animeTitle' Latest_10.id %}" class="text-warning-hover">
-                            <img src="{{Latest_10.extrapick_4.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              <div class="cropNEWINNER">
+                                <img src="{{Latest_10.extrapick_4.url}}" class=" img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              </div>
                             <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_10.title}}</span>
                             </a>
                           </div>
@@ -583,7 +635,7 @@
                     </div>
                     <!--                SLIDESHOW DATA_ITEM_1           -->
                     <!--                SLIDESHOW DATA_ITEM_2           -->
-                    <div class="carousel-item ">
+                    <div class="carousel-item container">
                       <div class=" row mx-auto my-auto">
 
                         <!--  <div class="col-6 my-1">
@@ -592,83 +644,103 @@
 
                           <div class="col-6 " style="z-index: 1;">
                             <a href="{% url 'animeTitle' Latest_11.id %}" class="text-warning-hover">
-                            <img src="{{Latest_11.extrapick_1.url}}" class="cropNEW border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              <div class="cropNEW">
+                                <img src="{{Latest_11.extrapick_1.url}}" class=" border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              </div>
                             <span class="text-light darker px-3" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">{{Latest_11.title}}</span>
                             </a>
                           </div>
 
                           <div class="col-6 " style="z-index: 1;">
                             <a href="{% url 'animeTitle' Latest_12.id %}" class="text-warning-hover">
-                            <img src="{{Latest_12.extrapick_1.url}}" class="cropNEW border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              <div class="cropNEW">
+                                <img src="{{Latest_12.extrapick_1.url}}" class=" border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              </div>
                             <span class="text-light darker px-3" id="overlay_text" style="position: relative;top: -40px; z-index: 4;">{{Latest_12.title}}</span>
                             </a>
                           </div>
 
                           <div class="col-3  mx-0 " style="z-index: 1;">
                             <a href="{% url 'animeTitle' Latest_13.id %}" class="text-warning-hover">
-                            <img src="{{Latest_13.extrapick_2.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_13.title}}</span>
+                              <div class="cropNEWINNER">
+                              <img src="{{Latest_13.extrapick_2.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              </div>
+                            <span class="text-light darker small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_13.title}}</span>
                             </a>
                           </div>
 
                           <div class="col-3  mx-0 " style="z-index: 1;">
                             <a href="{% url 'animeTitle' Latest_14.id %}" class="text-warning-hover">
-                            <img src="{{Latest_14.extrapick_1.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_14.title}}</span>
+                              <div class="cropNEWINNER">
+                              <img src="{{Latest_14.extrapick_1.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              </div>
+                            <span class="text-light darker small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_14.title}}</span>
                             </a>
                           </div>
 
                           <div class="col-3  mx-0 " style="z-index: 1;">
                             <a href="{% url 'animeTitle' Latest_15.id %}" class="text-warning-hover">
-                            <img src="{{Latest_15.extrapick_2.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_15.title}}</span>
+                              <div class="cropNEWINNER">
+                              <img src="{{Latest_15.extrapick_2.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              </div>
+                            <span class="text-light darker small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_15.title}}</span>
                             </a>
                           </div>
 
                           <div class="col-3  mx-0 " style="z-index: 1;">
                             <a href="{% url 'animeTitle' Latest_16.id %}" class="text-warning-hover">
-                            <img src="{{Latest_16.extrapick_3.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_16.title}}</span>
+                              <div class="cropNEWINNER">
+                              <img src="{{Latest_16.extrapick_3.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              </div>
+                            <span class="text-light darker small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_16.title}}</span>
                             </a>
                           </div>
 
                           <div class="col-3  mx-0 " style="z-index: 1;">
                             <a href="{% url 'animeTitle' Latest_17.id %}" class="text-warning-hover">
-                            <img src="{{Latest_17.extrapick_2.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_17.title}}</span>
+                              <div class="cropNEWINNER">
+                              <img src="{{Latest_17.extrapick_2.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              </div>
+                            <span class="text-light darker small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_17.title}}</span>
                             </a>
                           </div>
 
                           <div class="col-3  mx-0 " style="z-index: 1;">
                             <a href="{% url 'animeTitle' Latest_18.id %}" class="text-warning-hover">
-                            <img src="{{Latest_18.extrapick_4.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_18.title}}</span>
+                              <div class="cropNEWINNER">
+                              <img src="{{Latest_18.extrapick_4.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              </div>
+                            <span class="text-light darker small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_18.title}}</span>
                             </a>
                           </div>
 
                           <div class="col-3  mx-0 " style="z-index: 1;">
                             <a href="{% url 'animeTitle' Latest_19.id %}" class="text-warning-hover">
-                            <img src="{{Latest_19.extrapick_2.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_19.title}}</span>
+                              <div class="cropNEWINNER">
+                              <img src="{{Latest_19.extrapick_2.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              </div>
+                            <span class="text-light darker small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_19.title}}</span>
                             </a>
                           </div>
 
                           <div class="col-3 mx-0 " style="z-index: 1;">
                             <a href="{% url 'animeTitle' Latest_20.id %}" class="text-warning-hover">
-                            <img src="{{Latest_20.extrapick_3.url}}" class="cropNEWINNER img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
-                            <span class="text-light darker px-3 small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_20.title}}</span>
+                              <div class="cropNEWINNER">
+                              <img src="{{Latest_20.extrapick_3.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              </div>
+                            <span class="text-light darker small-fonts" id="overlay_text" style="position: relative;top: -50px; z-index: 4;">{{Latest_20.title}}</span>
                             </a>
                           </div>
                       </div>
                     </div>
                   </div>
                     <!--                SLIDESHOW DATA_ITEM_2           -->
-                  <a id="changer" class="carousel-control-prev h-25 align-middle my-auto visiA" href="#carouselExampleIndicators1" role="button" data-slide="prev" style="width:60px;font-size:150%;">
+                  <a id="changer" class="carousel-control-prev align-middle my-auto visiA" href="#carouselExampleIndicators1" role="button" data-slide="prev" style="width:60px;height: 50px;font-size:170%;left:-40px;">
                     <svg class="bi-caret-left-fill bg-primary" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                       <path d="M3.86 8.753l5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
                     </svg>
                   </a>
-                  <a id="changer" class="carousel-control-next h-25 align-middle my-auto visiA" href="#carouselExampleIndicators1" role="button" data-slide="next" style="width:60px;font-size:150%;">
+                  <a id="changer" class="carousel-control-next align-middle my-auto visiA" href="#carouselExampleIndicators1" role="button" data-slide="next" style="width:60px;height: 50px;font-size:170%;right:-40px;">
                     <svg class="bi bi-caret-right-fill bg-primary" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                       <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
                     </svg>
@@ -679,7 +751,7 @@
                     <img src="{% static 'Anime Buff titlepick _ OPTION 2.jpg' %}" class="col-12">    -->
               </div>
               <!--____________________________________________________________________NEW ANIME ENDS__________________________________________________________________________-->
-<hr><br><br>
+      <br><br><br> <hr><br><br>
               <!--____________________________________________________________________POPULAR WEBSITES MODE__________________________________________________________________________-->
 
               <div id="desktopview" class="album py-2 bg-transparent col-md-10 px-4 mt-4 rounded model-grad-rev text-info" style="margin: 0 auto">
