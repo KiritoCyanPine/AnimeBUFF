@@ -145,29 +145,34 @@
     	.clickToShowInfo:active .info {
         color: black;
          visibility: visible;
-         font-size: 100%;
+         overflow: hidden;
+         font-size: 95%;
+         z-index: 0;
       }
     	/* And stays visible as long as mouse hovers over it */
     	.info:hover {
         color: black;
     		visibility: hidden;
-        font-size: 100%;
+        font-size: 95%;
     	}
     	/* Initial settings for the inner capsule */
     	.info {
         color: black;
     		position: absolute;  /* relative to the capsule */
     		visibility: hidden;  /* should not be visible on load */
-    		z-index: 100;
+    		z-index: 1;
     		background :linear-gradient(rgba(255, 255, 255, 0.71), rgba(255, 255, 255, 0.71));
     		border: inherit;
         border-radius: 4px;
     		padding: 8px;
+        top: 0px;
+        overflow: hidden;
     	}
     	/* If we want clicking on the popup to close, use this */
     	.info:active {
         color: black;
     		visibility: hidden;	/* in addition to collapse also hide the content */
+        overflow: hidden;
     		height: 0px;        /* when the content is clicked again the window should collapse */
     		width: 0px;         /* when the content is clicked again the window should collapse */
     		left: -1000px;      /* collapse operation must happen far away from the webpage sight */
@@ -201,6 +206,10 @@
 
        .small-fonts{
          font-size: 90%;
+       }
+
+       .Verysmall-fonts{
+         font-size: 80%;
        }
 
 /* FOR STOPPING SHIFTING OF THE PAGE TO LEFT */
@@ -265,25 +274,29 @@
 
                             </p>
                           </div>
-                          <div class="info">
+                          <div class="info small-fonts">
                           	  {{anime.shortSummery}}
                         	</div>
                         </div>
                       </div>
                       {% else %}
                       <div class="col-sm-3 my-5">
-                        <div class="card sm-3 shadow-sm  linker clickToShowInfo h-100 px-1 pt-1">
-                          <img class="card-img-top" src="{{anime.profile.url}}" alt="Thumbnail" />
+                        <div class="card sm-3 shadow-sm  linker h-100 px-1 pt-1">
+                          <div class="clickToShowInfo">
+                            <img class="card-img-top" src="{{anime.profile.url}}" alt="Thumbnail" />
+                            <div class="info small-fonts">
+                            	  {{anime.shortSummery}}
+                          	</div>
+                          </div>
+
                           <div class="card-body">
-                            <p class="card-text">
+                            <p class="card-text align-middle">
 
                               <a href="{% url 'animeTitle' anime.id %}" class="text-warning-hover2">  {{anime.title}}  </a>
 
                             </p>
                           </div>
-                          <div class="info">
-                          	  {{anime.shortSummery}}
-                        	</div>
+
                         </div>
                       </div>
 
