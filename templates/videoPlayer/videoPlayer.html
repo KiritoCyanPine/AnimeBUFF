@@ -75,6 +75,10 @@
         /* this piece of crap actually stopped shifting of page when models were opened*/
       }
 
+      .lights-off {
+          background:  linear-gradient(rgba(40,40,40,1), rgba(0, 0, 0, 0.75)) no-repeat center center fixed;
+      }
+
       .darker {
         background :linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
       }
@@ -97,7 +101,7 @@
     <!-- Custom styles for this template -->
     <link href="album.css" rel="stylesheet">
   </head>
-  <body>
+  <body id='pageID'>
   <!-- style="background-image: url({% static 'Anime Buff titlepick _ OPTION 2-BLUR.jpg'%});height = 100%;background-attachment: fixed;"-->
 
 
@@ -111,7 +115,7 @@
 
 
 
-          <div class="container mt-3 pt-2 pb-2 bg-transparent text-center justify-content-center darker">
+          <div class="container mt-3 pt-2 pb-2   text-center justify-content-center darker">
             <h4  class="text-white">{{EP_name}}</h4>
             </div>
 
@@ -150,7 +154,7 @@
 
 
 
-      <div id="mobileview" class="album py-5 bg-transparent model-grad col-md-10 text-center justify-content-between mt-3" style="margin: 0 auto">
+      <div id="mobileview" class="album py-5   model-grad col-md-10 text-center justify-content-between mt-3" style="margin: 0 auto">
         <div class="container">
           <div class="row">
 
@@ -162,7 +166,7 @@
 
       <div id="CustomPlayer" class="justify-content-center mx-auto">
 
-        <br><button onclick="switchToHtml()" class="btn btn-warning mx-auto small-fonts">Switch to HTML5 Player</button><br><br>
+        <br><button id="btnColorChange" onclick="switchToHtml()" class="btn btn-warning mx-auto small-fonts">Switch to HTML5 Player</button><br><br>
 
             <div class="container mt-5 mb-5">
                 <div class="row">
@@ -187,8 +191,8 @@
                       </video>
                  </div>
             </div>
-
-            <button id="togglePipButton">Toggle Picture-in-Picture Mode!</button>
+            <button onclick="LightsToggle()" class="btn btn-dark mx-auto small-fonts">Switch Lights</button>
+            <button id="togglePipButton" class="btn btn-dark mx-auto small-fonts">Toggle Picture-in-Picture Mode!</button>
       </div>
 
 
@@ -199,7 +203,7 @@
 
       <div id="defaultHtmlPlayer" class="collapse justify-content-center mx-auto">
 
-                <br><button onclick="switchToCustom()" class="btn btn-warning mx-auto small-fonts">Switch to Custom Player</button><br><br>
+                <br><button id="btnColorChange2" onclick="switchToCustom()" class="btn btn-warning mx-auto small-fonts">Switch to Custom Player</button><br><br>
 
 
 
@@ -226,10 +230,11 @@
                         </video>
                 </div>
               </div>
-
+              <button onclick="LightsToggle()" class="btn btn-dark mx-auto small-fonts">Switch Lights</button>
       </div>
 
           <!--____________________________________________________________________HTML5 PLAYER ENDS__________________________________________________________________________-->
+
 
         </div>
       </div>
@@ -292,6 +297,20 @@
       alert("You are about to switch to Customised Web PLAYER");
       divClass1.classList.toggle("collapse");
       divClass2.classList.toggle("collapse");
+    }
+
+    function LightsToggle() {
+      var bodyID = document.getElementById("pageID");
+      var bodycol = document.getElementById("mobileview");
+      var button = document.getElementById("btnColorChange");
+      var button2 = document.getElementById("btnColorChange2");
+      button.classList.toggle("btn-dark");
+      button.classList.toggle("btn-warning");
+      button2.classList.toggle("btn-dark");
+      button2.classList.toggle("btn-warning");
+      bodyID.classList.toggle("lights-off");
+      bodycol.classList.toggle("lights-off");
+      bodycol.classList.toggle("model-grad");
     }
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
