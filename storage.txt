@@ -153,3 +153,19 @@
 
 
       <br><button onclick="switchView()" class="btn btn-secondary mx-auto small-fonts">Switch to List View</button><br><br>
+
+
+
+
+
+
+
+
+
+
+      <div id="desktopview" class="album py-2 bg-transparent col-md-10 px-4 mt-4 rounded model-grad-rev text-info" style="margin: 0 auto">
+        <h4>XXXXXXXXXXXXXXXXXX</h4>
+      </div>
+      <div id="desktopview" class="album py-2 bg-transparent col-md-10 text-center justify-content-center mt-4 rounded model-grad" style="margin: 0 auto">
+        erg
+      </div>
