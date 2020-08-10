@@ -195,28 +195,47 @@ def searchGenre(request):
 def notify(request,optional_parameter=''):
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     ###  NEED TO LEARN THIS FORM BELOW #####
+    ### If the user tries to Change the Avoid LIst in the Below section
     querry = request.GET.get('avoidList', False)
     if querry is not False:
 
         sN = open(BASE_DIR+"\\Dir_Avoid.qaw",'w')
         sN.write(str(querry).replace("\r\n",","))
         sN.close()
-
+    #If User tries to change the File manually by opening the notepad
     if optional_parameter == "openAFileInNotepad":
         subprocess.Popen(["notepad.exe",BASE_DIR+"\\Dir_Avoid.qaw"])
 
+    # Reading the file that stores the location of the Anime Folders
     fileOpen = open(BASE_DIR+"\\AnimeLocation.txt",'r')
     Anime_dir = fileOpen.readline()
     fileOpen.close()
-    AllDirs = os.listdir(Anime_dir)
+    # making list of all ITEMS in the folder   -- >  AllDirs = os.listdir(Anime_dir)
+    #
+    # making list of all DIRECTORY in theat folder
     allDirs = [ name for name in os.listdir(Anime_dir) if os.path.isdir(os.path.join(Anime_dir, name)) ]
+
+    ###### The Former way of Utracking the REGESTERDED Anime -->  SLOW O(i*(j^2))
+    ###
+    ###    print(registeredDirectoryAddresses)
+    ###    for i in allDirs:
+    ###        for j in AnimeTitle.objects.all():
+    ###            #print(f"Checkin for {i} in Object {j}")
+    ###            if i in j.directory_address:
+    ###                Registered.append(i)
+    ###                break
+    ###
+    ###
+
+    ##### NEW way of tracking REGISTERED Anime  --> Faster  O(i*j)
+
+    # LIST of all the anime that are registered ....
+    registeredDirectoryAddresses = [j.directory_address for j in AnimeTitle.objects.all()]
     Registered = []
     for i in allDirs:
-        for j in AnimeTitle.objects.all():
-            #print(f"Checkin for {i} in Object {j}")
-            if i in j.directory_address:
-                Registered.append(i)
-                break
+        print("if DIr name  :",Anime_dir+i)
+        if Anime_dir+i in registeredDirectoryAddresses:
+            Registered.append(i)
 
     Deleted_Anime = []
 
