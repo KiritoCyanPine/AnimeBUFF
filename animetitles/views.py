@@ -19,12 +19,12 @@ def testing2(request):
         while(len(RandomAnimeList) < 3):
             k = random.randrange(0,int(lastInsertedAnimeId)+1)
             if AnimeTitle.objects.filter(id=k).exists():
-                print("print the index    :",k)
+                #print("#print the index    :",k)
                 if k not in RandomAnimeList:
                     RandomAnimeList.append(k)
             if len(AnimeTitle.objects.all()) < 3:
                 return render(request, "DatabaseEmpty.html")
-        print("RandomAnimeList    :",RandomAnimeList)
+        #print("RandomAnimeList    :",RandomAnimeList)
         courasel_1 = AnimeTitle.objects.filter(id=RandomAnimeList[0])
         courasel_2 = AnimeTitle.objects.filter(id=RandomAnimeList[1])
         courasel_3 = AnimeTitle.objects.filter(id=RandomAnimeList[2])
@@ -36,7 +36,7 @@ def testing2(request):
                 break
             if AnimeTitle.objects.filter(id=LatestAnimeIndex).exists():
                 ListOfLatestAnimes.append(LatestAnimeIndex)
-                print("LatestAnimeIndex    :",LatestAnimeIndex)
+                #print("LatestAnimeIndex    :",LatestAnimeIndex)
             LatestAnimeIndex-=1
         for i in range(0,20):
             if i in range(0,len(ListOfLatestAnimes)):
@@ -70,7 +70,7 @@ def testing2(request):
         'Latest_19':LatestObjests[18],
         'Latest_20':LatestObjests[19],
         }
-        print("ALL INDIVIDUAL OBJECTS")
+        #print("ALL INDIVIDUAL OBJECTS")
         #return render(request, "DatabaseEmpty.html")
         return render(request, "testingpage2.html", context)
     else:
@@ -128,12 +128,12 @@ def start(request):
         while(len(RandomAnimeList) < 3):
             k = random.randrange(0,int(lastInsertedAnimeId)+1)
             if AnimeTitle.objects.filter(id=k).exists():
-                print("print the index    :",k)
+                ##print("#print the index    :",k)
                 if k not in RandomAnimeList:
                     RandomAnimeList.append(k)
             if len(AnimeTitle.objects.all()) < 3:
                 return render(request, "DatabaseEmpty.html")
-        print("RandomAnimeList    :",RandomAnimeList)
+        ##print("RandomAnimeList    :",RandomAnimeList)
         courasel_1 = AnimeTitle.objects.filter(id=RandomAnimeList[0])
         courasel_2 = AnimeTitle.objects.filter(id=RandomAnimeList[1])
         courasel_3 = AnimeTitle.objects.filter(id=RandomAnimeList[2])
@@ -145,7 +145,7 @@ def start(request):
                 break
             if AnimeTitle.objects.filter(id=LatestAnimeIndex).exists():
                 ListOfLatestAnimes.append(LatestAnimeIndex)
-                print("LatestAnimeIndex    :",LatestAnimeIndex)
+                ##print("LatestAnimeIndex    :",LatestAnimeIndex)
             LatestAnimeIndex-=1
         for i in range(0,20):
             if i in range(0,len(ListOfLatestAnimes)):
@@ -179,7 +179,7 @@ def start(request):
         'Latest_19':LatestObjests[18],
         'Latest_20':LatestObjests[19],
         }
-        print("ALL INDIVIDUAL OBJECTS")
+        #print("ALL INDIVIDUAL OBJECTS")
         #return render(request, "DatabaseEmpty.html")
         return render(request, "startPage.html", context)
     else:
@@ -201,7 +201,7 @@ def video(request, Anime_id, video_id):
     video_NAME = Anime_object.AnimeEpisodes()[video_id]
     video_Public_Url = str(video_url)
     video_Public_Url = "http://192.168.43.57"+video_Public_Url[16:]
-    print("video_Public_Url +++++ ",video_Public_Url)
+    #print("video_Public_Url +++++ ",video_Public_Url)
     context = {
     'EP_name': video_NAME,
     'Anime_id': Anime_id,
@@ -236,12 +236,12 @@ def randomise(request):
 
 def searchGenre(request):
     querry = request.GET['querry1']
-    print(querry)
+    #print(querry)
     querrys = querry.split()
     searchAnime = AnimeTitle.objects.filter(genres__icontains=querry)
     for i in querrys:
         searchAnime = searchAnime.union(AnimeTitle.objects.filter(genres__icontains=i))
-    print(querrys)
+    #print(querrys)
     context = {
     'animes':searchAnime,
     'querry':querry,
@@ -274,10 +274,10 @@ def notify(request,optional_parameter=''):
 
     ###### The Former way of Utracking the REGESTERDED Anime -->  SLOW O(i*(j^2))
     ###
-    ###    print(registeredDirectoryAddresses)
+    ###    #print(registeredDirectoryAddresses)
     ###    for i in allDirs:
     ###        for j in AnimeTitle.objects.all():
-    ###            #print(f"Checkin for {i} in Object {j}")
+    ###            ##print(f"Checkin for {i} in Object {j}")
     ###            if i in j.directory_address:
     ###                Registered.append(i)
     ###                break
@@ -290,7 +290,7 @@ def notify(request,optional_parameter=''):
     registeredDirectoryAddresses = [j.directory_address for j in AnimeTitle.objects.all()]
     Registered = []
     for i in allDirs:
-        print("if DIr name  :",Anime_dir+i)
+        #print("if DIr name  :",Anime_dir+i)
         if Anime_dir+i in registeredDirectoryAddresses:
             Registered.append(i)
 
@@ -312,20 +312,24 @@ def notify(request,optional_parameter=''):
             Avoid_folder = csv_reader.split(",")
             if "album.css" in Avoid_folder:
                 Avoid_folder = Avoid_folder.remove("album.css")
-    print(Avoid_folder)
+    #print(Avoid_folder)
     if optional_parameter == '':
-        print("DoinNothin")
+        pass
+        #print("DoinNothin")
     elif optional_parameter == 'openAFileInNotepad':
-        print("DoinNothin")
+        pass
+        #print("DoinNothin")
     elif optional_parameter == 'clearTheWholeFrikinStuff_IwantItClean':
         fileOpen = open(BASE_DIR+"\\Dir_Avoid.qaw",'w')
         fileOpen.close()
     elif optional_parameter in Avoid_folder:
-        print("DoinNothin")
+        pass
+        #print("DoinNothin")
     elif optional_parameter == "album.css":
-        print("DoinNothin")
+        pass
+        #print("DoinNothin")
     else:
-        print("=======",optional_parameter)
+        #print("=======",optional_parameter)
         fileOpen = open(BASE_DIR+"\\Dir_Avoid.qaw",'a')
         fileOpen.write(optional_parameter+",")
         fileOpen.close()
@@ -335,7 +339,7 @@ def notify(request,optional_parameter=''):
         Avoid_folder = csv_reader.split(",")
         if "album.css" in Avoid_folder:
             Avoid_folder = Avoid_folder.remove("album.css")
-    print("AVOID FOLDER _____  ",Avoid_folder)
+    #print("AVOID FOLDER _____  ",Avoid_folder)
     Unregistered = set(allDirs) - set(Registered)
     Unregistered = set(Unregistered) - set(Avoid_folder)
     Unregistered = list(Unregistered)

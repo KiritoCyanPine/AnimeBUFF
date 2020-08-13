@@ -117,6 +117,7 @@ USE_L10N = True
 USE_TZ = True
 
 
+
 # Where to Search for the static Files
 
 STATICFILES_DIRS = [
