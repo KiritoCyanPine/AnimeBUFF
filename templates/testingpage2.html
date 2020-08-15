@@ -300,7 +300,7 @@
 
           .cropNEW2 {
             width: 100%;
-            height: 320px;
+            height: 330px;
             overflow: hidden;
 
           }
@@ -318,8 +318,47 @@
             position: center;
             transform: scale(1.25);
           }
+
+          .car{
+            position: relative;
+            text-align: center;
+            background-color: rgba(100, 100, 100, 0.71);
+            -webkit-transition: background-color 250ms ease-out 1s;
+            -moz-transition: background-color 250ms ease-out 1s;
+            -o-transition: background-color 250ms ease-out 1s;
+            transition: background-color 0.25s;
+          }
+          .car a{
+            color: #FFF;
+
+            transition: all 0.25s;
+          }
           .car:hover{
-            background: linear-gradient(rgba(255, 255, 255, 0.71), rgba(255, 255, 255, 0.71));
+            background-color: rgba(20, 20, 20, 0.71);
+          }
+          .car:hover a{
+            color: lightblue;
+          }
+          .car-text {
+            position: absolute;
+            top: 8px;
+            line-height: 170%;
+            left: 16px;
+            border: 5px;
+            border-color:#FFF;
+            background-color: rgba(100, 100, 100, 0.71);
+            border-radius: 100%;
+            transition: all 0.25s;
+          }
+          .car:hover .car-text{
+            background-color: rgba(100, 100, 200, 0.71);
+            transform: scale(1.25);
+          }
+          .car img{
+            filter: grayscale(5);
+          }
+          .car:hover img{
+            filter: grayscale(0);
           }
 
 
@@ -784,50 +823,123 @@
 
 
                     <div class="col-6 h-100 px-1" >
-                          <div class="car" style="height:50vh;font-size:90%;">
-                            <a href="#">
+                          <div class="car my-2" style="height:53vh;font-size:90%;">
+                            <a href="{% url 'animeTitle' recent_1.id %}">
                             <div class="cropNEW2">
-                              <img src="{{Latest_14.extrapick_1.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                              <img src="{{recent_1.extrapick_1.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
                             </div>
-                            {{Latest_14.title}}
+                            <div class="car-text">
+                              &nbsp;&nbsp;1&nbsp;&nbsp;
+                            </div>
+                            {{recent_1.title|truncatechars:90}}
+                            </a>
+                          </div>
+
+                          <div class="car my-2" style="height:53vh;font-size:90%;">
+                            <a href="{% url 'animeTitle' recent_2.id %}">
+                            <div class="cropNEW2">
+                              <img src="{{recent_2.extrapick_1.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            </div>
+                            <div class="car-text">
+                              &nbsp;&nbsp;2&nbsp;&nbsp;
+                            </div>
+                            {{recent_2.title|truncatechars:90}}
                             </a>
                           </div>
                     </div>
 
                     <div class="col-3 h-100 px-1 " >
-                          <div class="car" style="height:25vh;font-size:90%;">
-                            <a href="#">
+                          <div class="car my-2" style="height:26vh;font-size:90%;">
+                            <a href="{% url 'animeTitle' recent_3.id %}">
                             <div class="cropNEWINNER mb-2">
-                            <img src="{{Latest_17.extrapick_4.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            <img src="{{recent_3.extrapick_4.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
                             </div>
-                            {{Latest_17.title}}
+                            <div class="car-text">
+                              &nbsp;&nbsp;3&nbsp;&nbsp;
+                            </div>
+                            {{recent_3.title|truncatechars:76}}
                             </a>
                           </div>
-                          <div class="car" style="height:25vh;font-size:90%;">
-                            <a href="#">
-                            <div class="cropNEWINNER  mt-1">
-                            <img src="{{Latest_11.extrapick_2.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                          <div class="car my-2" style="height:26vh;font-size:90%;">
+                            <a href="{% url 'animeTitle' recent_4.id %}">
+                            <div class="cropNEWINNER  mt-2">
+                            <img src="{{recent_4.extrapick_2.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
                             </div>
-                            {{Latest_11.title}}
+                            <div class="car-text">
+                              &nbsp;&nbsp;4&nbsp;&nbsp;
+                            </div>
+                            {{recent_4.title|truncatechars:76}}
+                            </a>
+                          </div>
+
+                          <div class="car my-2" style="height:26vh;font-size:90%;">
+                            <a href="{% url 'animeTitle' recent_5.id %}">
+                            <div class="cropNEWINNER mb-2">
+                            <img src="{{recent_5.extrapick_4.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            </div>
+                            <div class="car-text">
+                              &nbsp;&nbsp;5&nbsp;&nbsp;
+                            </div>
+                            {{recent_5.title|truncatechars:76}}
+                            </a>
+                          </div>
+                          <div class="car my-2" style="height:26vh;font-size:90%;">
+                            <a href="{% url 'animeTitle' recent_6.id %}">
+                            <div class="cropNEWINNER  mt-2">
+                            <img src="{{recent_6.extrapick_2.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            </div>
+                            <div class="car-text">
+                              &nbsp;&nbsp;6&nbsp;&nbsp;
+                            </div>
+                            {{recent_6.title|truncatechars:76}}
                             </a>
                           </div>
                     </div>
 
                     <div class="col-3 h-100 px-1" >
-                          <div class="car" style="height:25vh;font-size:90%;">
-                            <a href="#">
+                          <div class="car my-2" style="height:26vh;font-size:90%;">
+                            <a href="{% url 'animeTitle' recent_7.id %}">
                             <div class="cropNEWINNER  mb-2">
-                            <img src="{{Latest_13.extrapick_3.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            <img src="{{recent_7.extrapick_3.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
                             </div>
-                            {{Latest_13.title}}
+                            <div class="car-text">
+                              &nbsp;&nbsp;7&nbsp;&nbsp;
+                            </div>
+                            {{recent_7.title|truncatechars:76}}
                             </a>
                           </div>
-                          <div class="car" style="height:25vh;font-size:90%;">
-                            <a href="#">
-                            <div class="cropNEWINNER  mt-1">
-                            <img src="{{Latest_19.extrapick_2.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                          <div class="car my-2" style="height:26vh;font-size:90%;">
+                            <a href="{% url 'animeTitle' recent_8.id %}">
+                            <div class="cropNEWINNER  mt-2">
+                            <img src="{{recent_8.extrapick_2.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
                             </div>
-                            {{Latest_19.title}}
+                            <div class="car-text">
+                              &nbsp;&nbsp;8&nbsp;&nbsp;
+                            </div>
+                            {{recent_8.title|truncatechars:76}}
+                            </a>
+                          </div>
+
+                          <div class="car my-2" style="height:26vh;font-size:90%;">
+                            <a href="{% url 'animeTitle' recent_9.id %}">
+                            <div class="cropNEWINNER  mb-2">
+                            <img src="{{recent_9.extrapick_3.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            </div>
+                            <div class="car-text">
+                              &nbsp;&nbsp;9&nbsp;&nbsp;
+                            </div>
+                            {{recent_9.title|truncatechars:76}}
+                            </a>
+                          </div>
+                          <div class="car my-2" style="height:26vh;font-size:90%;">
+                            <a href="{% url 'animeTitle' recent_10.id %}">
+                            <div class="cropNEWINNER  mt-2">
+                            <img src="{{recent_10.extrapick_2.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            </div>
+                            <div class="car-text">
+                              &nbsp;10&nbsp;
+                            </div>
+                            {{recent_10.title|truncatechars:76}}
                             </a>
                           </div>
                     </div>

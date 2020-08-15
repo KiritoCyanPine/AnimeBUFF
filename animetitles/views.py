@@ -13,6 +13,7 @@ def testing(request):
     return render(request, "testingPage.html")
 
 def testing2(request):
+
     if AnimeTitle.objects.exists():
         lastInsertedAnimeId = AnimeTitle.objects.last().id
         RandomAnimeList = []
@@ -25,6 +26,7 @@ def testing2(request):
             if len(AnimeTitle.objects.all()) < 3:
                 return render(request, "DatabaseEmpty.html")
         #print("RandomAnimeList    :",RandomAnimeList)
+
         courasel_1 = AnimeTitle.objects.filter(id=RandomAnimeList[0])
         courasel_2 = AnimeTitle.objects.filter(id=RandomAnimeList[1])
         courasel_3 = AnimeTitle.objects.filter(id=RandomAnimeList[2])
@@ -44,6 +46,18 @@ def testing2(request):
             else:
                 LatestObjests.append(AnimeTitle(id="0",title="Add More Anime to fillspace",summery="",profile="asd"
                 ,extrapick_1="asd",extrapick_2="asd",extrapick_3="asd",extrapick_4="asd"))
+
+        BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        sN = open(BASE_DIR+"\\recentlyWatched.qaw",'r')
+        recently_watched = sN.readline()
+        sN.close()
+        recently_watched = list(list(map(int, recently_watched.split())))
+        #print(recently_watched)
+        recent_Anime = []
+        for i in recently_watched:
+            recent_Anime.append(get_object_or_404(AnimeTitle, pk=i))
+        #print(recent_Anime)
+
         context = {
         'courasel_1':courasel_1,
         'courasel_2':courasel_2,
@@ -69,6 +83,17 @@ def testing2(request):
         'Latest_18':LatestObjests[17],
         'Latest_19':LatestObjests[18],
         'Latest_20':LatestObjests[19],
+
+        'recent_1':recent_Anime[0],
+        'recent_2':recent_Anime[1],
+        'recent_3':recent_Anime[2],
+        'recent_4':recent_Anime[3],
+        'recent_5':recent_Anime[4],
+        'recent_6':recent_Anime[5],
+        'recent_7':recent_Anime[6],
+        'recent_8':recent_Anime[7],
+        'recent_9':recent_Anime[8],
+        'recent_10':recent_Anime[9],
         }
         #print("ALL INDIVIDUAL OBJECTS")
         #return render(request, "DatabaseEmpty.html")
@@ -201,6 +226,21 @@ def video(request, Anime_id, video_id):
     video_NAME = Anime_object.AnimeEpisodes()[video_id]
     video_Public_Url = str(video_url)
     video_Public_Url = "http://192.168.43.57"+video_Public_Url[16:]
+
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    sN = open(BASE_DIR+"\\recentlyWatched.qaw",'r')
+    recently_watched = sN.readline()
+    sN.close()
+    recently_watched = list(list(map(int, recently_watched.split())))
+    if Anime_id not in recently_watched:
+        popped = recently_watched.pop()
+        recently_watched.insert(0,Anime_id)
+        test_list = [str(i) for i in recently_watched]
+        convert_to_str = ' '.join(test_list)
+        sN = open(BASE_DIR+"\\recentlyWatched.qaw",'w')
+        sN.write(convert_to_str)
+        sN.close()
+
     #print("video_Public_Url +++++ ",video_Public_Url)
     context = {
     'EP_name': video_NAME,
