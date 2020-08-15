@@ -298,6 +298,31 @@
             visibility:visible;
           }
 
+          .cropNEW2 {
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+
+          }
+
+          .cropNEW2 img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transform: scale(1.1);
+            transition: all 0.5s;
+          }
+
+          .cropNEW2 img:hover {
+            height: auto;
+            position: center;
+            transform: scale(1.25);
+          }
+          .car:hover{
+            background: linear-gradient(rgba(255, 255, 255, 0.71), rgba(255, 255, 255, 0.71));
+          }
+
+
     /*    ________________________   Cropping FOR DISCOVER complementory IMAGE           ends ___________________*/
 
     /*TOOLTIPS visibility TOGGLE*/
@@ -752,10 +777,62 @@
               <!--____________________________________________________________________Ajax ANIME __________________________________________________________________________-->
 
               <div id="desktopview" class="album py-2 bg-transparent col-md-10 px-4 mt-4 rounded model-grad-rev text-info" style="margin: 0 auto">
-                <h4>XXXXXXXXXXXXXXXXXX</h4>
+                <h4>Recently Watched Anime ... </h4>
               </div>
-              <div id="desktopview" class="album py-2 bg-transparent col-md-10 text-center justify-content-center mt-4 rounded model-grad" style="margin: 0 auto">
-                erg
+              <div id="desktopview" class="album  container py-2 col-md-10 text-center justify-content-center mt-4 rounded model-grad" style="margin: 0 auto">
+                  <div class="row px-2 py-2">
+
+
+                    <div class="col-6 h-100 px-1" >
+                          <div class="car" style="height:50vh;font-size:90%;">
+                            <a href="#">
+                            <div class="cropNEW2">
+                              <img src="{{Latest_14.extrapick_1.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            </div>
+                            {{Latest_14.title}}
+                            </a>
+                          </div>
+                    </div>
+
+                    <div class="col-3 h-100 px-1 " >
+                          <div class="car" style="height:25vh;font-size:90%;">
+                            <a href="#">
+                            <div class="cropNEWINNER mb-2">
+                            <img src="{{Latest_17.extrapick_4.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            </div>
+                            {{Latest_17.title}}
+                            </a>
+                          </div>
+                          <div class="car" style="height:25vh;font-size:90%;">
+                            <a href="#">
+                            <div class="cropNEWINNER  mt-1">
+                            <img src="{{Latest_11.extrapick_2.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            </div>
+                            {{Latest_11.title}}
+                            </a>
+                          </div>
+                    </div>
+
+                    <div class="col-3 h-100 px-1" >
+                          <div class="car" style="height:25vh;font-size:90%;">
+                            <a href="#">
+                            <div class="cropNEWINNER  mb-2">
+                            <img src="{{Latest_13.extrapick_3.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            </div>
+                            {{Latest_13.title}}
+                            </a>
+                          </div>
+                          <div class="car" style="height:25vh;font-size:90%;">
+                            <a href="#">
+                            <div class="cropNEWINNER  mt-1">
+                            <img src="{{Latest_19.extrapick_2.url}}" class="img-fluid border border-danger mx-0" style="margin: 0 auto; z-index: 2;">
+                            </div>
+                            {{Latest_19.title}}
+                            </a>
+                          </div>
+                    </div>
+
+                  </div>
               </div>
 
               <!--____________________________________________________________________Ajax ANIME ENDS__________________________________________________________________________-->

@@ -131,12 +131,12 @@
 
       {% else %}
       <div class="col-2">
-        <a href="{% url 'video' Anime_id prev %}" class="btn btn-primary text-light "><<< prev</a>
+        <a id="prev" href="{% url 'video' Anime_id prev %}" class="btn btn-primary text-light "><<< prev</a>
       </div>
       {% endif %}
 
       <div class="col-2">
-        <a href="{% url 'animeTitle' Anime_id %}" class="btn btn-info text-light ">Go To Episode List</a>
+        <a id="gte" href="{% url 'animeTitle' Anime_id %}" class="btn btn-info text-light ">Go To Episode List</a>
       </div>
 
       {% if next is -1 %}
@@ -146,7 +146,7 @@
       </div>
       {% else %}
       <div class="col-2">
-        <a href="{% url 'video' Anime_id next %}" class="btn btn-primary text-light">next >>></a>
+        <a id="next" href="{% url 'video' Anime_id next %}" class="btn btn-primary text-light">next >>></a>
       </div>
       {% endif %}
 
@@ -304,6 +304,9 @@
       var bodycol = document.getElementById("mobileview");
       var button = document.getElementById("btnColorChange");
       var button2 = document.getElementById("btnColorChange2");
+      var prev =  document.getElementById("prev");
+      var next =  document.getElementById("next");
+      var gte =  document.getElementById("gte");
       button.classList.toggle("btn-dark");
       button.classList.toggle("btn-warning");
       button2.classList.toggle("btn-dark");
@@ -311,6 +314,12 @@
       bodyID.classList.toggle("lights-off");
       bodycol.classList.toggle("lights-off");
       bodycol.classList.toggle("model-grad");
+      prev.classList.toggle("btn-dark");
+      prev.classList.toggle("btn-primary");
+      next.classList.toggle("btn-dark");
+      next.classList.toggle("btn-primary");
+      gte.classList.toggle("btn-dark");
+      gte.classList.toggle("btn-info");
     }
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
