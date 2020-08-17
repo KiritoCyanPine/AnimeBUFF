@@ -264,6 +264,14 @@ def video(request, Anime_id, video_id):
         sN = open(BASE_DIR+"\\recentlyWatched.qaw",'w')
         sN.write(convert_to_str)
         sN.close()
+    else:
+        recently_watched.remove(Anime_id)
+        recently_watched.insert(0,Anime_id)
+        test_list = [str(i) for i in recently_watched]
+        convert_to_str = ' '.join(test_list)
+        sN = open(BASE_DIR+"\\recentlyWatched.qaw",'w')
+        sN.write(convert_to_str)
+        sN.close()
 
     #print("video_Public_Url +++++ ",video_Public_Url)
     context = {
