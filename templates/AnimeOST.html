@@ -1,0 +1,300 @@
+
+<!doctype html>
+<html lang="en">
+{% load static %}
+  <head>
+    <title>{{Anime.title}}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.0.1">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/4.5/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/4.5/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+<link rel="icon" href="/docs/4.5/assets/img/favicons/favicon.ico">
+<meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#563d7c">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+
+            @media screen and (prefers-reduced-motion: no-preference) {
+              html,
+              body {
+                scroll-behavior: smooth;
+              }
+            }
+
+      .darker {
+        background :linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+      }
+      .darkerL {
+        background :linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+      }
+
+      body {
+        /*background: linear-gradient(220deg, rgba(2,0,36,1) 0%, rgba(212,212,250,1) 55%, rgba(0,212,255,1) 100%) no-repeat center center fixed;*/
+        background: url("{{Anime.extrapick_1.url}}") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        margin: 0;
+        /* this piece of code actually stopped shifting of page when models were opened*/
+        /**/                                                                         /**/
+        /**/                        padding-right:0px !important;                    /**/
+        /**/                        margin-right:0px !important;                     /**/
+        /**/                                                                         /**/
+        /* this piece of crap actually stopped shifting of page when models were opened*/
+      }
+
+      /*   FOR THE HORIZONTAL LINE BETWEEN DIFFERENT OPTIONS     */
+            hr {
+              border: 1px solid white;
+              margin:7px 0px;
+            }
+      /*   HORIZONTAL LINE BETWEEN DIFFERENT OPTIONS ENDS     */
+
+      /*    FOR THE ZOOMING IN OF THE HOVERED IMAGE ON THE MOUSE OVER EVENT */
+            .img-resize {
+              border: 2px solid grey;
+              transition: transform 0.3s;
+            }
+
+            .img-resize:hover {
+              border: 2px solid white;
+              border-radius: 4px;
+              transform:scale(3.1);
+            }
+      /*     ENDING OF THE IMG ZOOM EVENT ___________    */
+
+
+
+      /*    FOR THE  CONSISTENCY IN THE LINK DECOR CHANGING     */
+                  a:link {  text-decoration: none;  }
+                  a:visited {  text-decoration: none;  }
+                  a:hover {  text-decoration: none;   }
+                  a:active {   text-decoration: none;   }
+      /*     ENDING OF LINK DECORATION CHANGE                    */
+
+
+      /*   FOR THE SELECTION HIGHTLIGHT OF THE ANIME LIST    */
+            .linker p{
+              transition: all 0.3s;
+            }
+            .linker:hover{
+              background: linear-gradient(90deg, rgba(61,98,231,1) 0%, rgba(206,161,240,0.7458333675266982) 51%, rgba(0,212,255,0.23322832550989148) 100%);
+              border: 0px;
+              border-radius: 8px;
+            }
+            .linker:hover p{
+              transform: scale(1.09);
+            }
+            .model-grad {
+              background: linear-gradient(45deg, rgba(27,151,236,0.9) 6%, rgba(78,255,196,0.9) 51%, rgba(220,100,100,0.91081936192445727) 100%);
+            }
+      /*   ENDING OF THE SELECTION PROGRAM    */
+
+      /*    FOR THE ZOOMING IN OF THE HOVERED IMAGE ON THE MOUSE OVER EVENT */
+            .img-resize {
+              border: 2px solid grey;
+              transition: transform 0.3s;
+            }
+
+            .img-resize:active {
+              border: 2px solid white;
+              border-radius: 4px;
+              transform:scale(3.1);
+            }
+      /*     ENDING OF THE IMG ZOOM EVENT ___________    */
+
+      .small-fonts{
+        font-size: 90%;
+      }
+
+      .scrollable{
+
+        height: 75vh;
+        overflow: auto;
+        text-align: justify;
+        padding: 20px;
+      }
+      .fixedHeight{
+        height: 110vh;
+      }
+
+      .max-width{
+        width: 100%;
+      }
+/* FOR STOPPING SHIFTING OF THE PAGE TO LEFT */
+             .modal {
+               overflow-x: auto;
+              }
+
+              .modal-open {
+               overflow: auto;
+              }
+/* STOPPING SHIFTING OF THE PAGE TO THE LEFT SIDE */
+
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="album.css" rel="stylesheet">
+
+
+  </head>
+<body>
+
+
+
+  {% include '_navbar.html' %}
+
+
+
+
+<main role="main">
+    <div class="darker text-light py-2 mt-4 px-5 mx-5 rounded">
+        <h2>Anime OST's And MUSIC</h2>
+    </div>
+
+  <div class="album py-5 bg-transparent my-2 row text-alert mx-5" style="margin: 0 auto">
+
+
+
+
+    <!-- THE BLOCK CONTAINING DESCRIPTION AND ANIME_VIDEO_LIST-->
+      <div class="col-12 darker mx-auto rounded">
+            <hr>
+            <div class=" justify-content-around">
+              <div class="d-flex mx-auto my-2 px-1 py-1 row justify-content-around">
+                  {% for word ,video,num  in Ep_plus_Link %}
+                     <button type="button" class="card darker linker py-1 mb-1 mx-2 my-2 col-2" data-toggle="modal" data-target="#staticBackdrop{{num}}" action="">
+                      <div class="" style="height:20vh;">
+                            {{word|truncatechars:60}}
+                      </div>
+                     </button>
+                      <!--this works just perfectly and silently as expected-->
+                      <div class="modal fade modal-open " id="staticBackdrop{{num}}" data-backdrop="static"  tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true" style="left:-20vh;">
+                        <div class="modal-dialog">
+                          <div class="modal-content model-grad"  style="height:80vh;width:120vh;">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">{{word}}</h5>
+                              <button type="button" class="close btn-danger rounded" data-dismiss="modal" aria-label="Close" onclick="javascript:document.getElementById('myVideo{{num}}').pause();">
+                                <span aria-hidden="true" style="top:13px;">&times;</span>
+                              </button>
+                            </div>
+                            <div class="text-center ">
+                                <div class="justify-content-around">
+                                      <div class="justify-content-center"  style="height:60vh;width:119.7vh;">
+                                                  <video id="myVideo{{num}}" class="videoSIZE" preload="auto" height="100%" width="100%"  preload="0">
+                                                        <source src="{{video}}" type="video/mp4">
+                                                        <source src="{{video}}" type="video/x-matroska;">
+                                                        <source src="{{video}}" type='video/x-matroska; codecs="theora, vorbis"'>
+                                                        <source src="{{video}}" type="video/ogg">
+                                                        <source src="{{video}}" type="video/mkv">
+                                                        <source src="{{video}}" type='video/mp4; codecs="hvc1"'>
+                                                        <source src="{{video}}" type="video/webm">
+                                                        <source src="{{video}}" type='video/mp4; codecs="avc1"'>
+                                                  </video>
+                                      </div>
+                                      <br>
+                                      <div class="row justify-content-center">
+                                        <div id="Play{{num}}" class="">
+                                          <button type="button" class="btn btn-primary rounded mx-1" onclick="javascript:document.getElementById('myVideo{{num}}').play();document.getElementById('Play{{num}}').classList.toggle('collapse');document.getElementById('Pause{{num}}').classList.toggle('collapse')">
+                                            <span aria-hidden="true" style="top:13px;"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-play-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/></svg></span>
+                                          </button>
+                                        </div>
+                                        <div id="Pause{{num}}" class="collapse">
+                                          <button type="button" class="btn btn-primary rounded mx-1" onclick="javascript:document.getElementById('myVideo{{num}}').pause();document.getElementById('Play{{num}}').classList.toggle('collapse');document.getElementById('Pause{{num}}').classList.toggle('collapse')">
+                                            <span aria-hidden="true" style="top:13px;"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pause-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z"/></svg></span>
+                                          </button>
+                                        </div>
+                                        <button id="Stop" type="button" class="btn btn-danger rounded mx-1" onclick="javascript:document.getElementById('myVideo{{num}}').pause();document.getElementById('myVideo{{num}}').currentTime = 0">
+                                          <span aria-hidden="true" style="top:13px;"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-stop-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M5 3.5h6A1.5 1.5 0 0 1 12.5 5v6a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 11V5A1.5 1.5 0 0 1 5 3.5z"/></svg></span>
+                                        </button>
+                                        <button type="button" class="btn btn-warning rounded mx-1" onclick="javascript:document.getElementById('myVideo{{num}}').currentTime -= 5">
+                                          <span aria-hidden="true" style="top:13px;"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-skip-backward-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M.5 3.5A.5.5 0 0 0 0 4v8a.5.5 0 0 0 1 0V4a.5.5 0 0 0-.5-.5z"/><path d="M.904 8.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V4.308c0-.63-.692-1.01-1.233-.696L.904 7.304a.802.802 0 0 0 0 1.393z"/><path d="M8.404 8.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V4.308c0-.63-.693-1.01-1.233-.696L8.404 7.304a.802.802 0 0 0 0 1.393z"/></svg></span>
+                                        </button>
+                                        <button type="button" class="btn btn-warning rounded mx-1" onclick="javascript:document.getElementById('myVideo{{num}}').currentTime += 5">
+                                          <span aria-hidden="true" style="top:13px;"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-skip-forward-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M15.5 3.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z"/><path d="M7.596 8.697l-6.363 3.692C.693 12.702 0 12.322 0 11.692V4.308c0-.63.693-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/><path d="M15.096 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.693-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/></svg></span>
+                                        </button>
+                                        <button type="button" class="btn btn-light rounded mx-1" onclick="javascript:document.getElementById('myVideo{{num}}').requestFullscreen()">
+                                          <span aria-hidden="true" style="top:13px;"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrows-fullscreen" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M1.464 10.536a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3.5a.5.5 0 0 1-.5-.5v-3.5a.5.5 0 0 1 .5-.5z"/><path fill-rule="evenodd" d="M5.964 10a.5.5 0 0 1 0 .707l-4.146 4.147a.5.5 0 0 1-.707-.708L5.257 10a.5.5 0 0 1 .707 0zm8.854-8.854a.5.5 0 0 1 0 .708L10.672 6a.5.5 0 0 1-.708-.707l4.147-4.147a.5.5 0 0 1 .707 0z"/><path fill-rule="evenodd" d="M10.5 1.5A.5.5 0 0 1 11 1h3.5a.5.5 0 0 1 .5.5V5a.5.5 0 0 1-1 0V2h-3a.5.5 0 0 1-.5-.5zm4 9a.5.5 0 0 0-.5.5v3h-3a.5.5 0 0 0 0 1h3.5a.5.5 0 0 0 .5-.5V11a.5.5 0 0 0-.5-.5z"/><path fill-rule="evenodd" d="M10 9.964a.5.5 0 0 0 0 .708l4.146 4.146a.5.5 0 0 0 .708-.707l-4.147-4.147a.5.5 0 0 0-.707 0zM1.182 1.146a.5.5 0 0 0 0 .708L5.328 6a.5.5 0 0 0 .708-.707L1.889 1.146a.5.5 0 0 0-.707 0z"<path fill-rule="evenodd" d="M5.5 1.5A.5.5 0 0 0 5 1H1.5a.5.5 0 0 0-.5.5V5a.5.5 0 0 0 1 0V2h3a.5.5 0 0 0 .5-.5z"/></svg></span>
+                                        </button>
+                                      </div>
+
+                                </div>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                  {% endfor %}
+
+              </div>
+            </div>
+
+      </div>
+  </div>
+
+</main>
+<script type="text/javascript">
+
+
+    function pauseVid() {
+      {% for i,j,k in Ep_plus_Link %}
+        var vid{{k}} = document.getElementById("myVideo{{k}}");
+        vid{{k}}.pause();
+      {% endfor %}
+        }
+
+</script>
+{% include '_footer.html' %}
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script>
+
+      $(document).ready(function() {
+      $('.template-article img').each(function() {
+      var currentImage = $(this);
+      currentImage.wrap("<a class='image-link' href='" + currentImage.attr("src") + "'</a>");
+      });
+      $('.image-link').magnificPopup({type:'image'});
+      });
+      $(function() {
+          $("#featuretoggle").trigger("click");
+      });
+
+</script>
+</html>

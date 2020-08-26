@@ -5,14 +5,47 @@ from .filters import indexFilter
 import random
 import os
 import subprocess
+import threading
 
+
+def AnimeFileLocation():
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    try:
+        fileOpen = open(BASE_DIR+"\\AnimeLocation.txt",'r')
+        Anime_dir = fileOpen.readline()
+        fileOpen.close()
+    except:
+        fileOpen = open(BASE_DIR+"\\AnimeLocation.txt",'r')
+        Anime_dir = fileOpen.readline()
+        fileOpen.close()
+    return Anime_dir
+
+
+def collectOST():
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    anime_dir = AnimeFileLocation()
+    osts_dir = anime_dir+"[]Anime_OST"
+    ost_list = [i for i in os.listdir(osts_dir)]
+    #print(ost_list)
+    file = open(BASE_DIR+"\\Ost_list.qwa",'w',encoding='utf-8')
+    file.close()
+    file = open(BASE_DIR+"\\Ost_list.qwa",'a',encoding='utf-8')
+    for i in ost_list:
+        file.write(i+"\n")
+    file.close()
 
 # Create your views here.
 #################################    TESTING PAGES    #################################
 def testing(request):
     return render(request, "testingPage.html")
 
+
 def testing2(request):
+    try:
+        t1 = threading.Thread(target=collectOST)
+        t1.start()
+    except:
+        print("THear is some problem in OST_LIST creation")
 
     if AnimeTitle.objects.exists():
         lastInsertedAnimeId = AnimeTitle.objects.last().id
@@ -115,6 +148,33 @@ def testing4(request, video_id):
 
 def welcomePage(request):
     return render(request, "DatabaseEmpty.html")
+
+
+def AnimeOST(request):
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    anime_dir = AnimeFileLocation()
+    listOfVids = []
+    listOfVidsLink = []
+    count = 0
+    numbers = []
+    with open(BASE_DIR+"\\Ost_list.qwa", 'r' , encoding="utf-8") as target:
+        for line in target:
+            currentPlace = line[:-1]
+            if ".mp4" in currentPlace or ".mkv" in currentPlace:
+                name=currentPlace[:-4]
+                listOfVids.append(name)
+            elif ".webm" in currentPlace:
+                name=currentPlace[:-5]
+                listOfVids.append(name)
+            listOfVidsLink.append("http://127.0.0.1:11111/[]Anime_OST/"+currentPlace)
+            numbers.append(count)
+            count+=1
+    Ep_plus_Link = zip(listOfVids,listOfVidsLink,numbers)
+    context = {
+        'Ep_plus_Link':Ep_plus_Link,
+    }
+    return render(request, "AnimeOST.html", context)
+
 
 def animeTitle(request,anime_id):
     Anime_object = get_object_or_404(AnimeTitle, pk=anime_id)
