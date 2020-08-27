@@ -31,7 +31,7 @@ urlpatterns = [
     path('animetitle/notify/', animetitles.views.notify, name="notify"),
     path('animetitle/notify/<str:optional_parameter>', animetitles.views.notify, name="notify_para"),
     path('welcomePage/', animetitles.views.welcomePage),
-    path('OST/', animetitles.views.AnimeOST),
+    path('OST/', animetitles.views.AnimeOST , name="OST"),
 
 ###################################################    TESTING PAGES URLS ##############################
     path('testing/', animetitles.views.testing, name="testing"),

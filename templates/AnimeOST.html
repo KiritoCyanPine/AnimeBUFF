@@ -51,15 +51,27 @@
             }
 
       .darker {
-        background :linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+        background :linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));text-align: center;vertical-align: middle;
       }
+
       .darkerL {
-        background :linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+        background :linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));text-align: center;vertical-align: middle;
+      }
+
+      .darkerL:hover {
+        background: linear-gradient(16deg, rgba(255,44,44,0.6) 0%, rgba(69,233,198,0.6) 50%, rgba(210,95,255,0.6) 100%);
+      }
+      .darkerT {
+        background :linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));text-align: center;vertical-align: middle;
+      }
+
+      .darkerT:hover {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
       }
 
       body {
         /*background: linear-gradient(220deg, rgba(2,0,36,1) 0%, rgba(212,212,250,1) 55%, rgba(0,212,255,1) 100%) no-repeat center center fixed;*/
-        background: url("{{Anime.extrapick_1.url}}") no-repeat center center fixed;
+        background: linear-gradient(220deg, rgba(255,44,44,0.6) 0%, rgba(69,233,198,0.6) 50%, rgba(210,95,255,0.6) 100%) no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -117,6 +129,10 @@
             }
             .model-grad {
               background: linear-gradient(45deg, rgba(27,151,236,0.9) 6%, rgba(78,255,196,0.9) 51%, rgba(220,100,100,0.91081936192445727) 100%);
+            }
+
+            .headerback{
+              background: linear-gradient(16deg, rgba(255,44,44,0.6) 0%, rgba(69,233,198,0.6) 50%, rgba(210,95,255,0.6) 100%);
             }
       /*   ENDING OF THE SELECTION PROGRAM    */
 
@@ -179,7 +195,7 @@
 
 
 <main role="main">
-    <div class="darker text-light py-2 mt-4 px-5 mx-5 rounded">
+    <div class="headerback text-light py-2 mt-4 px-5 mx-5 rounded">
         <h2>Anime OST's And MUSIC</h2>
     </div>
 
@@ -194,9 +210,22 @@
             <div class=" justify-content-around">
               <div class="d-flex mx-auto my-2 px-1 py-1 row justify-content-around">
                   {% for word ,video,num  in Ep_plus_Link %}
-                     <button type="button" class="card darker linker py-1 mb-1 mx-2 my-2 col-2" data-toggle="modal" data-target="#staticBackdrop{{num}}" action="">
-                      <div class="" style="height:20vh;">
+                     <button type="button" class="card darkerL py-1 mb-1 mx-2 my-2 col-2" data-toggle="modal" data-target="#staticBackdrop{{num}}" action="">
+                      <div class="" style="height:20vh; z-index:2;">
+
+                          <video id="myVideoPre{{num}}" class="videoSIZE" height="100%" width="100%"  currentTime="10">
+                                <source src="{{video}}" type="video/mp4">
+                                <source src="{{video}}" type="video/x-matroska;">
+                                <source src="{{video}}" type='video/x-matroska; codecs="theora, vorbis"'>
+                                <source src="{{video}}" type="video/ogg">
+                                <source src="{{video}}" type="video/mkv">
+                                <source src="{{video}}" type='video/mp4; codecs="hvc1"'>
+                                <source src="{{video}}" type="video/webm">
+                                <source src="{{video}}" type='video/mp4; codecs="avc1"'>
+                          </video>
+                          <div class="align-center darkerT  text-light" style="height:18vh;width:101%;top:-100%;z-index:0; position:relative;">
                             {{word|truncatechars:60}}
+                          </div>
                       </div>
                      </button>
                       <!--this works just perfectly and silently as expected-->
@@ -212,7 +241,7 @@
                             <div class="text-center ">
                                 <div class="justify-content-around">
                                       <div class="justify-content-center"  style="height:60vh;width:119.7vh;">
-                                                  <video id="myVideo{{num}}" class="videoSIZE" preload="auto" height="100%" width="100%"  preload="0">
+                                                  <video id="myVideo{{num}}" class="videoSIZE" preload="0" height="100%" width="100%" >
                                                         <source src="{{video}}" type="video/mp4">
                                                         <source src="{{video}}" type="video/x-matroska;">
                                                         <source src="{{video}}" type='video/x-matroska; codecs="theora, vorbis"'>
