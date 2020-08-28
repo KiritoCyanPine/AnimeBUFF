@@ -210,18 +210,21 @@
             <div class=" justify-content-around">
               <div class="d-flex mx-auto my-2 px-1 py-1 row justify-content-around">
                   {% for word ,video,num  in Ep_plus_Link %}
-                     <button type="button" class="card darkerL py-1 mb-1 mx-2 my-2 col-2" data-toggle="modal" data-target="#staticBackdrop{{num}}" action="">
+                     <button type="button" class="card darkerL py-1 mb-1 mx-2 my-2 col-2" data-toggle="modal" data-target="#staticBackdrop{{num}}"  >
+                       <!-- onmouseover="javascript:document.getElementById('myVideoPre{{num}}').play();document.getElementById('myVideoPre{{num}}').currentTime +=2;document.getElementById('myVideoPre{{num}}').pause(); if(document.getElementById('myVideoPre{{num}}').currentTime >= document.getElementById('myVideoPre{{num}}').duration){document.getElementById('myVideoPre{{num}}').currentTime=0;} " -->
+                       <!-- if the above code is used we can use it to perform video-prequel on the page ,, but it takes ot alot of time and processing speed -->
                       <div class="" style="height:20vh; z-index:2;">
+                        <!--style onload="javascript:document.getElementById('myVideoPre{{num}}').play();document.getElementById('myVideoPre{{num}}').currentTime =20;document.getElementById('myVideoPre{{num}}').pause();" style="visibility:hidden;"></style-->
 
-                          <video id="myVideoPre{{num}}" class="videoSIZE" height="100%" width="100%"  currentTime="10">
-                                <source src="{{video}}" type="video/mp4">
-                                <source src="{{video}}" type="video/x-matroska;">
-                                <source src="{{video}}" type='video/x-matroska; codecs="theora, vorbis"'>
-                                <source src="{{video}}" type="video/ogg">
-                                <source src="{{video}}" type="video/mkv">
-                                <source src="{{video}}" type='video/mp4; codecs="hvc1"'>
-                                <source src="{{video}}" type="video/webm">
-                                <source src="{{video}}" type='video/mp4; codecs="avc1"'>
+                          <video id="myVideoPre{{num}}" class="videoSIZE" height="100%" width="100%" preload="auto">
+                                <source src="{{video}}#t=10" type="video/mp4">
+                                <source src="{{video}}#t=10" type="video/x-matroska;">
+                                <source src="{{video}}#t=10" type='video/x-matroska; codecs="theora, vorbis"'>
+                                <source src="{{video}}#t=10" type="video/ogg">
+                                <source src="{{video}}#t=10" type="video/mkv">
+                                <source src="{{video}}#t=10" type='video/mp4; codecs="hvc1"'>
+                                <source src="{{video}}#t=10" type="video/webm">
+                                <source src="{{video}}#t=10" type='video/mp4; codecs="avc1"'>
                           </video>
                           <div class="align-center darkerT  text-light" style="height:18vh;width:101%;top:-100%;z-index:0; position:relative;">
                             {{word|truncatechars:60}}
@@ -241,7 +244,7 @@
                             <div class="text-center ">
                                 <div class="justify-content-around">
                                       <div class="justify-content-center"  style="height:60vh;width:119.7vh;">
-                                                  <video id="myVideo{{num}}" class="videoSIZE" preload="0" height="100%" width="100%" >
+                                                  <video id="myVideo{{num}}" class="videoSIZE" preload="none" height="100%" width="100%" >
                                                         <source src="{{video}}" type="video/mp4">
                                                         <source src="{{video}}" type="video/x-matroska;">
                                                         <source src="{{video}}" type='video/x-matroska; codecs="theora, vorbis"'>
@@ -294,17 +297,7 @@
   </div>
 
 </main>
-<script type="text/javascript">
 
-
-    function pauseVid() {
-      {% for i,j,k in Ep_plus_Link %}
-        var vid{{k}} = document.getElementById("myVideo{{k}}");
-        vid{{k}}.pause();
-      {% endfor %}
-        }
-
-</script>
 {% include '_footer.html' %}
 
 
@@ -324,6 +317,14 @@
       $(function() {
           $("#featuretoggle").trigger("click");
       });
+      //  window.onload=function()  //executes when the page finishes loading
+      //  {
+      //    var i =0
+      //    for (i = 0; i < {{count}}; i++) {
+      //      setTimeout('', 500);
+      //      document.getElementById('myVideoPre'+i.toString()).play();document.getElementById('myVideoPre'+i.toString()).currentTime = 30;document.getElementById('myVideoPre'+i.toString()).pause();
+      //    }
+      //  };
 
 </script>
 </html>

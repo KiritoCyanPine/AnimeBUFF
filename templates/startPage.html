@@ -55,7 +55,10 @@
         background :linear-gradient(45deg, rgba(27,151,236,0.8) 6%, rgba(78,150,196,0.8) 51%, rgba(220,100,100,0.8) 100%);
       }
       .darkerL {
-        background :linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+        background :linear-gradient(0deg,rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0) );
+      }
+      .OSTbutton {
+        background :linear-gradient(0deg,rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1));
       }
       .model-grad {
         background: linear-gradient(45deg, rgba(27,151,236,0.9) 6%, rgba(78,255,196,0.9) 51%, rgba(220,100,100,0.91081936192445727) 100%);
@@ -388,6 +391,9 @@
       visibility: visible;
     }
     /*TOOLTIPS visibility TOGGLE*/
+    .OSTcard:hover {
+      cursor: pointer;
+    }
 /* STOPPING SHIFTING OF THE PAGE TO THE LEFT SIDE */
 
 </style>
@@ -949,6 +955,27 @@
 
               <!--____________________________________________________________________Ajax ANIME ENDS__________________________________________________________________________-->
       <br><br><br> <hr><br><br>
+<!--____________________________________________________________________ANIME OST STARTS__________________________________________________________________________-->
+
+    <div id="desktopview" class="album py-2 bg-transparent col-md-10 px-4 mt-4 rounded model-grad-rev text-info" style="margin: 0 auto">
+      <h4>Listen TO Anime OST's</h4>
+    </div>
+    <div id="desktopview" class="album  container py-2 col-md-10 text-center justify-content-center mt-4 rounded model-grad" style="margin: 0 auto">
+        <div class="row px-2 py-2">
+            <div class="card mx-4 my-4 OSTcard model-grad-rev rounded py-3 px-3 " onclick="window.location.href={% url 'OST' %};" style="z-index:0;">
+                <img src="{% static 'OST_Picture.jpg' %}"  class="rounded" style="width:100%;height:auto;">
+                <span class="text-light bg-danger rounded w-50 px-3" style="position:relative;top:-50%;height:0;z-index:1;">
+                  <h1 class="OSTbutton pb-1 rounded"> Go to Page <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.793 8l-2.647-2.646a.5.5 0 0 1 0-.708z"/><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5H13a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8z"/></svg></h1>
+                  <span style="background-color:rgba(0, 0, 0, 0.5);"></span>
+                </span>
+            </div>
+
+        </div>
+    </div>
+<!--____________________________________________________________________ANIME OST ENDS__________________________________________________________________________-->
+      <br><br><br> <hr><br><br>
+
+
               <!--____________________________________________________________________POPULAR WEBSITES MODE__________________________________________________________________________-->
 
               <div id="desktopview" class="album py-2 bg-transparent col-md-10 px-4 mt-4 rounded model-grad-rev text-info" style="margin: 0 auto">

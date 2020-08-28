@@ -172,6 +172,7 @@ def AnimeOST(request):
     Ep_plus_Link = zip(listOfVids,listOfVidsLink,numbers)
     context = {
         'Ep_plus_Link':Ep_plus_Link,
+        'count':count,
     }
     return render(request, "AnimeOST.html", context)
 
