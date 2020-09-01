@@ -25,7 +25,7 @@ def collectOST():
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     anime_dir = AnimeFileLocation()
     osts_dir = anime_dir+"[]Anime_OST"
-    ost_list = [i for i in os.listdir(osts_dir)]
+    ost_list = [i for i in os.listdir(osts_dir) if  ".mkv" in i or ".mp4" in i or".webm" in i or ".avi" in i ]
     #print(ost_list)
     file = open(BASE_DIR+"\\Ost_list.qwa",'w',encoding='utf-8')
     file.close()
@@ -186,6 +186,8 @@ def animeTitle(request,anime_id):
     epList=Anime_object.AnimeEpisodes()
     epListRange = []
     for i in range(0,len(epList)):
+        if i == Anime_object.watchCurrEp:
+            currentEpName = epList[i]
         epListRange.append(i)
     Ep_plus_Link = zip(epList,epListRange)
     #Anime_object_summary = Anime_object.summery
@@ -193,6 +195,7 @@ def animeTitle(request,anime_id):
     context = {
     #'Anime_object_summary':Anime_object_summary,
     'Anime':Anime_object,
+    'currentEpName':currentEpName,
     'Ep_plus_Link':Ep_plus_Link
 
     }
@@ -208,6 +211,11 @@ def main(request):
 
 
 def start(request):
+    try:
+        t1 = threading.Thread(target=collectOST)
+        t1.start()
+    except:
+        print("THear is some problem in OST_LIST creation")
 
     if AnimeTitle.objects.exists():
         lastInsertedAnimeId = AnimeTitle.objects.last().id
@@ -311,7 +319,6 @@ def video(request, Anime_id, video_id):
     video_NAME = Anime_object.AnimeEpisodes()[video_id]
     video_Public_Url = str(video_url)
     video_Public_Url = "http://192.168.43.57"+video_Public_Url[16:]
-
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     sN = open(BASE_DIR+"\\recentlyWatched.qaw",'r')
     recently_watched = sN.readline()
@@ -333,6 +340,8 @@ def video(request, Anime_id, video_id):
         sN = open(BASE_DIR+"\\recentlyWatched.qaw",'w')
         sN.write(convert_to_str)
         sN.close()
+    Anime_object.watchCurrEp = video_id
+    Anime_object.save()
 
     #print("video_Public_Url +++++ ",video_Public_Url)
     context = {

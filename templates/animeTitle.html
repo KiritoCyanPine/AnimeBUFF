@@ -234,9 +234,12 @@
               <div class="col-1 mx-auto d-block px-2 my-2">
                 <span class="align-middle text-light"><h6><u>_Description_</u></h6></span>
               </div>
-              <div class="col-10 mx-auto my-5 d-block text-white">
+              <div class="col-10 mx-auto mt-5 d-block text-white">
                   {{Anime.summery|linebreaks}}
                   <!--"""LINE BREAKES ONLY APPEAR IF AND ONLY IF WE MENTION '|linebreaks' """ -->
+              </div>
+              <div class="col-10 mx-auto mt-3 my-2 d-block text-white">
+                  <a href="{% url 'video' Anime.id Anime.watchCurrEp %}" class="btn btn-primary ml-5"> watch : 	&nbsp;&nbsp; {{currentEpName}}</a>
               </div>
             </div>
             <hr>

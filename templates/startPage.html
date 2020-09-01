@@ -376,7 +376,7 @@
     .tooltipText{
       visibility: hidden;
       width: 380px;
-      background:linear-gradient(rgba(0, 0, 0, 0.71), rgba(0, 0, 0, 0.71));;
+      background:linear-gradient(rgba(0, 0, 0, 0.71), rgba(0, 0, 0, 0.71));
       color: #fff;
       text-align: center;
       border-radius: 6px;
@@ -391,9 +391,26 @@
       visibility: visible;
     }
     /*TOOLTIPS visibility TOGGLE*/
+    .OSTcard{
+      background-color: red ;//linear-gradient(225deg, rgba(225,225,225,0.9) 6%, rgba(78,255,196,0.9) 51%, rgba(225225,225225,100,0.91081936192445727) 100%);
+      transition: all 0.25s;
+    }
     .OSTcard:hover {
       cursor: pointer;
+      background-color: lightgreen;//linear-gradient(16deg, rgba(255,0,0,1) 0%, rgba(249,7,130,1) 50%, rgba(31,0,43,1) 100%);
+      transform: scale(1.02);
+      transition: all 0.25s;
     }
+    .OSTcard:hover .OSTbutton {
+      cursor: pointer;
+      background: linear-gradient(0deg,rgba(255, 20, 20, 0.1), rgba(255, 20, 20, 0.6), rgba(255, 20, 20, 0.1));
+      color: black;
+      transform: scale(1.02);
+      transition: all 0.25s;
+    }
+
+
+
 /* STOPPING SHIFTING OF THE PAGE TO THE LEFT SIDE */
 
 </style>
@@ -962,7 +979,7 @@
     </div>
     <div id="desktopview" class="album  container py-2 col-md-10 text-center justify-content-center mt-4 rounded model-grad" style="margin: 0 auto">
         <div class="row px-2 py-2">
-            <div class="card mx-4 my-4 OSTcard model-grad-rev rounded py-3 px-3 " onclick="window.location.href={% url 'OST' %};" style="z-index:0;">
+            <div class="card mx-4 my-4 OSTcard rounded py-3 px-3 " onclick="window.location.href={% url 'OST' %};" style="z-index:0;">
                 <img src="{% static 'OST_Picture.jpg' %}"  class="rounded" style="width:100%;height:auto;">
                 <span class="text-light bg-danger rounded w-50 px-3" style="position:relative;top:-50%;height:0;z-index:1;">
                   <h1 class="OSTbutton pb-1 rounded"> Go to Page <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.793 8l-2.647-2.646a.5.5 0 0 1 0-.708z"/><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5H13a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8z"/></svg></h1>

@@ -1,3 +1,4 @@
+from django import forms
 from django.db import models
 import os
 import re
@@ -32,6 +33,7 @@ class AnimeTitle(models.Model):
                     blank = True)
 
     directory_address =  models.CharField(max_length=175)
+    watchCurrEp = models.IntegerField(blank = True ,default = 0)
 
     def __str__(self):
         return self.title
