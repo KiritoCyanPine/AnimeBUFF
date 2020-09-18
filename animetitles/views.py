@@ -155,6 +155,7 @@ def AnimeOST(request):
     anime_dir = AnimeFileLocation()
     listOfVids = []
     listOfVidsLink = []
+    listOfVidsThumbnail = []
     count = 0
     numbers = []
     with open(BASE_DIR+"\\Ost_list.qwa", 'r' , encoding="utf-8") as target:
@@ -167,9 +168,10 @@ def AnimeOST(request):
                 name=currentPlace[:-5]
                 listOfVids.append(name)
             listOfVidsLink.append("http://127.0.0.1:11111/[]Anime_OST/"+currentPlace)
+            listOfVidsThumbnail.append("http://127.0.0.1:11111/[]Anime_OST/"+"thumbnail/"+currentPlace+".jpg")
             numbers.append(count)
             count+=1
-    Ep_plus_Link = zip(listOfVids,listOfVidsLink,numbers)
+    Ep_plus_Link = zip(listOfVids,listOfVidsLink,numbers,listOfVidsThumbnail)
     context = {
         'Ep_plus_Link':Ep_plus_Link,
         'count':count,
