@@ -260,7 +260,16 @@ def start(request):
         #print(recently_watched)
         recent_Anime = []
         for i in recently_watched:
-            recent_Anime.append(get_object_or_404(AnimeTitle, pk=i))
+            try:
+                recent_Anime.append(get_object_or_404(AnimeTitle, pk=i))
+            except:
+                print("A recently watched anime was deleted replacing with next anime",recently_watched[recently_watched.index(i)+1] )
+                try:
+                    #recent_Anime.append(get_object_or_404(AnimeTitle, pk=recently_watched[recently_watched.index(i)+1]))
+                    recent_Anime.append(AnimeTitle(id= 0 , title="This Anime Has Been Removed from your device"))
+                except:
+                    print("A recently watched anime was deleted replacing with previous anime",recently_watched[recently_watched.index(i)-2])
+                    recent_Anime.append(get_object_or_404(AnimeTitle, pk=recently_watched[recently_watched.index(i)-2]))
         #print(recent_Anime)
 
         context = {
