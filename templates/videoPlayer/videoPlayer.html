@@ -53,6 +53,7 @@
       }
 
 
+
             @media screen and (prefers-reduced-motion: no-preference) {
               html,
               body {
@@ -92,6 +93,9 @@
       .videoSIZE{
         height:450px;
         width:800px;
+      }
+      ::cue(video){
+        font-size: 400%;
       }
 
 
@@ -188,6 +192,9 @@
                             <source src="{{video_Public_Url}}" type='video/mp4; codecs="hvc1"'>
                             <source src="{{video_Public_Url}}" type="video/webm">
                             <source src="{{video_Public_Url}}" type='video/mp4; codecs="avc1"'>
+                            {% if subtitle_present %}
+                            <track src="{% static 'SubtitlesForAnime.vtt' %}" kind="captions" srclang="en" label="English" default>
+                            {% endif %}
                       </video>
                  </div>
             </div>
@@ -227,6 +234,10 @@
                               <source src="{{video_Public_Url}}" type='video/mp4; codecs="hvc1"'>
                               <source src="{{video_Public_Url}}" type="video/webm">
                               <source src="{{video_Public_Url}}" type='video/mp4; codecs="avc1"'>
+                              {% if subtitle_present %}
+                              <track src="{% static 'SubtitlesForAnime.vtt' %}" kind="subtitles" srclang="en" label="English" default>
+                              {% endif %}
+
                         </video>
                 </div>
               </div>

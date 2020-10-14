@@ -59,7 +59,7 @@ class AnimeTitle(models.Model):
         file_list = os.listdir(self.directory_address)
         vid_list = []
         for i in file_list:
-            if ".mp4" in i or ".mkv" in i:
+            if ".mp4" in i or ".mkv" in i  and ".vtt" not in i:
                 vid_list.append(i)
         vid_list.sort(key=natural_keys)
         return vid_list
@@ -77,7 +77,7 @@ class AnimeTitle(models.Model):
         file_list = os.listdir(self.directory_address)
         vid_list = []
         for i in file_list:
-            if ".mp4" in i or ".mkv" in i:
+            if ".mp4" in i or ".mkv" in i and ".vtt" not in i:
                 vid_list.append(i[:-4])
         if "trailer.mp4" in vid_list:
             anime_episodes = vid_list.remove("trailer.mp4")
@@ -91,7 +91,7 @@ class AnimeTitle(models.Model):
             file_list = os.listdir(self.directory_address)
             vid_list = []
             for i in file_list:
-                if ".mp4" in i or ".mkv" in i:
+                if ".mp4" in i or ".mkv" in i and ".vtt" not in i:
                     vid_list.append(i)
             if "trailer.mp4" in vid_list:
                 anime_episodes = vid_list.remove("trailer.mp4")
@@ -120,7 +120,7 @@ class AnimeTitle(models.Model):
         file_list = os.listdir(self.directory_address)
         vid_list = []
         for i in file_list:
-            if ".mp4" in i or ".mkv" in i:
+            if ".mp4" in i or ".mkv" in i and ".vtt" not in i:
                 vid_list.append(i)
         vid_list.sort(key=natural_keys)
         if "trailer.mp4" in vid_list:

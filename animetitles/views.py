@@ -4,6 +4,7 @@ from django.contrib import messages
 from .filters import indexFilter
 import random
 import os
+import re
 import subprocess
 import threading
 
@@ -33,6 +34,37 @@ def collectOST():
     for i in ost_list:
         file.write(i+"\n")
     file.close()
+
+def Subtitle(Anime_object,video_id):
+    PATH_TO_STATIC = "D:\programming\Tutorial_Django\AnimeBUFF-project\AnimeBUFF\static\SubtitlesForAnime.vtt"
+    video_NAME = Anime_object.AnimeEpisodes()[video_id]
+    print("VIDNAME::" , Anime_object.directory_address+"\\"+video_NAME+".mkv")
+    video_directory_address = Anime_object.directory_address+"\\"+video_NAME+".mkv"
+    commandEmulate = 'mkvmerge "'+video_directory_address+'" -i '
+    si = subprocess.STARTUPINFO()
+    si.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+    print(commandEmulate)
+    try:
+        proc = subprocess.check_output(f'{commandEmulate}', startupinfo=si)
+        proc=str(proc)
+        proc = proc.split(r'\r\n')
+        audio = 0
+        for i in proc:
+            if 'audio' in i:
+                audio+=1
+            if 'subtitles' in i:
+                k = i
+                break
+        if audio>=2:
+            return False
+        a = re.findall(r'[0-9]+', k)
+        mkvSubtitle = 'mkvextract tracks "'+video_directory_address+'" '+a[0]+':subs.ass && ass-to-vtt subs.ass > "'+PATH_TO_STATIC+'"'
+        #print(mkvSubtitle)
+        os.system(f'cmd /c "{mkvSubtitle}"')
+        subtitle_present = True
+    except:
+        subtitle_present = False
+    return subtitle_present
 
 # Create your views here.
 #################################    TESTING PAGES    #################################
@@ -263,13 +295,11 @@ def start(request):
             try:
                 recent_Anime.append(get_object_or_404(AnimeTitle, pk=i))
             except:
-                print("A recently watched anime was deleted replacing with next anime",recently_watched[recently_watched.index(i)+1] )
                 try:
                     #recent_Anime.append(get_object_or_404(AnimeTitle, pk=recently_watched[recently_watched.index(i)+1]))
                     recent_Anime.append(AnimeTitle(id= 0 , title="This Anime Has Been Removed from your device"))
                 except:
                     print("A recently watched anime was deleted replacing with previous anime",recently_watched[recently_watched.index(i)-2])
-                    recent_Anime.append(get_object_or_404(AnimeTitle, pk=recently_watched[recently_watched.index(i)-2]))
         #print(recent_Anime)
 
         context = {
@@ -354,6 +384,17 @@ def video(request, Anime_id, video_id):
     Anime_object.watchCurrEp = video_id
     Anime_object.save()
 
+    ##########################  TO Create SUBTITLES FOR THE VIDEO ##################################################
+    PATH_TO_STATIC = "D:\programming\Tutorial_Django\AnimeBUFF-project\AnimeBUFF\static\SubtitlesForAnime.vtt"
+    subtitle_present = False
+    if 'SubtitlesForAnime.vtt' in os.listdir(PATH_TO_STATIC[:-21]):
+        os.remove(PATH_TO_STATIC)
+    if '.mkv' in video_url:
+        subtitle_present = Subtitle(Anime_object, video_id)
+
+    ########################## END :::  TO Create SUBTITLES FOR THE VIDEO ##################################################
+
+
     #print("video_Public_Url +++++ ",video_Public_Url)
     context = {
     'EP_name': video_NAME,
@@ -362,6 +403,7 @@ def video(request, Anime_id, video_id):
     'video_Public_Url':video_Public_Url,
     'prev' : prev,
     'next' : next,
+    'subtitle_present':subtitle_present,
     }
     return render(request, "videoPlayer/videoPlayer.html", context)
 
