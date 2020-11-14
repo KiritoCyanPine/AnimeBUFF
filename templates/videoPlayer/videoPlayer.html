@@ -94,9 +94,7 @@
         height:450px;
         width:800px;
       }
-      ::cue(video){
-        font-size: 400%;
-      }
+
 
 
 </style>
@@ -170,7 +168,7 @@
 
       <div id="CustomPlayer" class="justify-content-center mx-auto">
 
-        <br><button id="btnColorChange" onclick="switchToHtml()" class="btn btn-warning mx-auto small-fonts">Switch to HTML5 Player</button><br><br>
+        <br><button id="btnColorChange" onclick="switchToHtml();javascript:document.getElementById('video_player').pause();" class="btn btn-warning mx-auto small-fonts">Switch to HTML5 Player</button><br><br>
 
             <div class="container mt-5 mb-5">
                 <div class="row">
@@ -210,13 +208,13 @@
 
       <div id="defaultHtmlPlayer" class="collapse justify-content-center mx-auto">
 
-                <br><button id="btnColorChange2" onclick="switchToCustom()" class="btn btn-warning mx-auto small-fonts">Switch to Custom Player</button><br><br>
+                <br><button id="btnColorChange2" onclick="switchToCustom();javascript:document.getElementById('html_video').pause();" class="btn btn-warning mx-auto small-fonts">Switch to Custom Player</button><br><br>
 
 
 
               <div class="container mt-5 mb-5">
                 <div class="row">
-                        <video class="videoSIZE" preload="auto" height="506.25" width="990" controls="true" preload="0">
+                        <video id="html_video" class="videoSIZE" preload="auto" height="506.25" width="990" controls="true" preload="0">
 
                               <source src="{{video}}" type="video/mp4">
                               <source src="{{video}}" type="video/x-matroska;">
