@@ -1,13 +1,51 @@
 from django.shortcuts import render, get_object_or_404, HttpResponse
 from .models import AnimeTitle
 from django.contrib import messages
-from .filters import indexFilter
 import random
 import os
+import cv2
 import re
 import subprocess
 import threading
 
+def generateOSTthumbnail():
+    OSTstorage = os.path.join(AnimeFileLocation(),"[]Anime_OST")
+    new_dir = os.path.join(OSTstorage, 'thumbnail')
+    try:
+        if not os.path.exists(new_dir):
+            os.mkdir(new_dir)
+            print("this created a dir")
+    except OSError:
+        print("that directory already exists..")
+
+    vid_list_url = [os.path.join(OSTstorage, i) for i in os.listdir(OSTstorage)
+                    if '.mkv' in i or '.mp4' in i or '.webm' in i]
+    vid_list = [i for i in os.listdir(OSTstorage) if '.mkv' in i or '.mp4' in i or '.webm' in i]
+    vid_list_plus_url = zip(vid_list, vid_list_url)
+
+    for i, j in vid_list_plus_url:
+        try:
+            currentframe = 0
+            pic_name = (os.path.join(os.path.join(OSTstorage, 'thumbnail'), i) + '.jpg')
+            if os.path.exists(pic_name):
+                continue
+            cam = cv2.VideoCapture(j)
+            f_p_s = cam.get(cv2.CAP_PROP_FPS)
+            cam.set(cv2.CAP_PROP_POS_FRAMES, f_p_s*5)
+            ret, frame = cam.read()
+            cv2.imwrite(pic_name, frame)
+            thumb_dir = os.listdir(new_dir)
+            for l in thumb_dir:
+                if l[:-4] not in vid_list:
+                    #print("l[:-4]", l[:-4])
+                    #print(os.path.join(new_dir, l))
+                    #print(pic_name)
+                    os.rename(os.path.join(new_dir, l), pic_name)
+            cam.release()
+            cv2.destroyAllWindows()
+        except FileExistsError:
+            print("+++++++++++++++++++ FILE EXISTS ERROR +++++++++++++++")
+            pass
 
 def AnimeFileLocation():
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -245,9 +283,13 @@ def main(request):
 
 
 def start(request):
+    OSTstorage = os.path.join(AnimeFileLocation(),"[]Anime_OST")
     try:
         t1 = threading.Thread(target=collectOST)
         t1.start()
+        if os.path.exists(OSTstorage):
+            t2 = threading.Thread(target=generateOSTthumbnail)
+            t2.start()
     except:
         print("THear is some problem in OST_LIST creation")
 
@@ -534,7 +576,7 @@ def notify(request,optional_parameter=''):
         Avoid_folder = csv_reader.split(",")
         if "album.css" in Avoid_folder:
             Avoid_folder = Avoid_folder.remove("album.css")
-    #print("AVOID FOLDER _____  ",Avoid_folder)
+    ##print("AVOID FOLDER _____  ",Avoid_folder)
     Unregistered = set(allDirs) - set(Registered)
     Unregistered = set(Unregistered) - set(Avoid_folder)
     Unregistered = list(Unregistered)
