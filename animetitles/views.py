@@ -107,6 +107,28 @@ def Subtitle(Anime_object,video_id):
 # Create your views here.
 #################################    TESTING PAGES    #################################
 def testing(request):
+    imagesUsed =[]
+    for i in AnimeTitle.objects.all():
+        if i.profile:
+            imagesUsed.append(i.profile.path)
+        if i.extrapick_1:
+            imagesUsed.append(i.extrapick_1.path)
+        if i.extrapick_2:
+            imagesUsed.append(i.extrapick_2.path)
+        if i.extrapick_3:
+            imagesUsed.append(i.extrapick_3.path)
+        if i.extrapick_4:
+            imagesUsed.append(i.extrapick_4.path)
+        if i.extrapick_5:
+            imagesUsed.append(i.extrapick_5.path)
+        if i.extrapick_6:
+            imagesUsed.append(i.extrapick_6.path)
+    pen = open("listOfImg.txt",'w',encode="utf-8")
+    pen.close()
+    pen = open("listOfImg.txt",'a',encode="utf-8")
+    for i in imagesUsed:
+        pen.write(i[62:]+"\n")
+    pen.close()
     return render(request, "testingPage.html")
 
 

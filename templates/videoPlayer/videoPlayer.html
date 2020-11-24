@@ -13,7 +13,7 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "dist\css\bootstrap.min.css" %}" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <!-- Favicons -->
 <link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
@@ -93,6 +93,34 @@
       .videoSIZE{
         height:450px;
         width:800px;
+      }
+      video::-webkit-media-text-track-display {
+        font-size: 90%;
+        font-family: cursive;
+        background: transparent;
+      }
+      ::cue{
+        background: rgba(0,0,0,0.1);
+        color: #fff;
+      }
+
+
+      /*       These two are for changing the text style of The CAPTIONS in the Custom Video PLayer           */
+      .mejs__captions-layer{
+        bottom:0;
+        color:#fff;
+        font-family:cursive;
+        font-size:20px;
+        left:0;
+        line-height:20px;
+        position:absolute;
+        text-align:center;
+      }
+      .mejs__captions-text,.mejs__captions-text *{
+        background:hsla(0,0%,8%,.1);
+        box-shadow:5px 0 0 hsla(0,0%,8%,.1),-5px 0 0 hsla(0,0%,8%,.1);
+        padding:0;
+        white-space:pre-wrap
       }
 
 
