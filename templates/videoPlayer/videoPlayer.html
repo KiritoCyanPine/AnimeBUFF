@@ -74,6 +74,7 @@
         /**/                        margin-right:0px !important;                     /**/
         /**/                                                                         /**/
         /* this piece of crap actually stopped shifting of page when models were opened*/
+        cursor: url("{% static 'mangakyo Sharingan (1).png' %}"), auto;
       }
 
       .lights-off {
@@ -123,7 +124,12 @@
         white-space:pre-wrap
       }
 
-
+      .mejs__container-keyboard-inactive,.mejs__mediaelement, .mejs__container, .mejs__video *{
+        cursor: url("{% static 'mangakyo Sharingan (1).png' %}"), auto;
+      }
+      .mejs__controls,.mejs__button,.mejs__play,.mejs__jump-forward-button,.mejs__skip-back-button,.mejs__volume-button,.mejs__mute,.mejs__speed-button,.mejs__fullscreen-button *{
+        cursor: url("{% static 'mangakyo Sharingan (1).png' %}"), auto;
+      }
 
 </style>
 
@@ -200,7 +206,7 @@
 
             <div class="container mt-5 mb-5">
                 <div class="row">
-                      <video id="video_player" preload="auto" height="506.25" width="900" controls="true" preload="0">
+                      <video id="video_player" class="" preload="auto" height="506.25" width="900" controls="true" preload="0" onmousemove="javascript:document.getElementById('video_player').classList.toggle('mouse-visible');document.getElementById('video_player').classList.toggle('mouse-invisible')">
 
                             <source src="{{video}}" type="video/mp4">
                             <source src="{{video}}" type="video/x-matroska;">
@@ -242,7 +248,7 @@
 
               <div class="container mt-5 mb-5">
                 <div class="row">
-                        <video id="html_video" class="videoSIZE" preload="auto" height="506.25" width="990" controls="true" preload="0">
+                        <video id="html_video" class="videoSIZE" preload="auto" height="506.25" width="990" controls="true" preload="0" onmousemove="javascript:document.getElementById('html_video').classList.toggle('mouse-visible');document.getElementById('html_video').classList.toggle('mouse-invisible')">
 
                               <source src="{{video}}" type="video/mp4">
                               <source src="{{video}}" type="video/x-matroska;">
@@ -358,9 +364,14 @@
       gte.classList.toggle("btn-dark");
       gte.classList.toggle("btn-info");
     }
+
+
+
 </script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<!--script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script-->
+<!--script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script-->
+<script src="{% static "dist\Jq\jquerry.min.js" %}"></script>
+<script src="{% static "dist\Jq\popper.min.js" %}"></script>
 <script src="{% static "dist\js\bootstrap.min.js" %}" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -227,6 +227,7 @@ def testing2(request):
         return render(request, "DatabaseEmpty.html")
 
 def testing3(request,anime_id):
+    deleteOldImages()
     Anime_object = get_object_or_404(AnimeTitle, pk=anime_id)
     return render(request,"animeTitle.html",{'Anime':Anime_object})
 
@@ -238,9 +239,43 @@ def testing4(request, video_id):
 
 #################################    OFFICIALLY USEABLE PAGES    #################################
 
+
+def deleteOldImages():
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    imagesInUse =[]
+    for i in AnimeTitle.objects.all():
+        if i.profile:
+            imagesInUse.append(i.profile.path)
+        if i.extrapick_1:
+            imagesInUse.append(i.extrapick_1.path)
+        if i.extrapick_2:
+            imagesInUse.append(i.extrapick_2.path)
+        if i.extrapick_3:
+            imagesInUse.append(i.extrapick_3.path)
+        if i.extrapick_4:
+            imagesInUse.append(i.extrapick_4.path)
+        if i.extrapick_5:
+            imagesInUse.append(i.extrapick_5.path)
+        if i.extrapick_6:
+            imagesInUse.append(i.extrapick_6.path)
+    allImages = ["D:\\programming\\Tutorial_Django\\AnimeBUFF-project\\media\\images\\"+i for i in os.listdir(BASE_DIR+"\media\images") if ".jpg" in i or ".png" in i or ".jpeg" in i or ".webp" in i ]
+    imagesInUse = set(imagesInUse)
+    allImages = set(allImages)
+    print("imagesInUse" ,"LENGTH  =  " ,len(imagesInUse))
+    print("allImages","LENGTH  =  ",len(allImages))
+    DBdeletedImages = allImages.difference(imagesInUse)
+    print("DBdeletedImages" , "LENGTH  =  ",len(DBdeletedImages))
+    dele = open("deletedimages.txt",'w',encoding='utf8')
+    dele.close()
+    dele = open("deletedimages.txt",'a',encoding='utf8')
+    for i in DBdeletedImages:
+        dele.write(i+"\n")
+    dele.close()
+    for i in DBdeletedImages:
+        os.remove(i)
+
 def welcomePage(request):
     return render(request, "DatabaseEmpty.html")
-
 
 def AnimeOST(request):
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
