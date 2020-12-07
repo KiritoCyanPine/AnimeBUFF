@@ -1,458 +1,450 @@
 ﻿[Script Info]
-Title: HorribleSubs
+Title: [Erai-raws] English (US)
+
 ScriptType: v4.00+
+Collisions: Normal
+PlayResX: 640
+PlayResY: 360
+Timer: 0.0000
 WrapStyle: 0
-PlayResX: 848
-PlayResY: 480
-ScaledBorderAndShadow: yes
 
 [V4+ Styles]
-Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Default,Cabin,36,&H00FFFFFF,&H000000FF,&H003F1613,&H00000000,-1,0,0,0,100,100,0,0,1,2,0,2,0,0,28,1
-Style: main,Cabin,36,&H00FFFFFF,&H000000FF,&H003F1613,&H00000000,-1,0,0,0,100,100,0,0,1,2,0,2,0,0,28,0
-Style: top,Cabin,36,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,1,8,13,13,24,0
-Style: italics,Cabin,36,&H00FFFFFF,&H000000FF,&H003F1613,&H00000000,-1,1,0,0,100,100,0,0,1,2,0,2,0,0,28,0
-Style: flashback,Cabin,36,&H00FFFFFF,&H000000FF,&H003F1613,&H00000000,-1,0,0,0,100,100,0,0,1,2,0,2,0,0,28,1
-Style: italicstop,Cabin,36,&H00FFFFFF,&H000000FF,&H003F1613,&H00000000,-1,1,0,0,100,100,0,0,1,2,0,8,0,0,28,0
-Style: flashbackitalics,Cabin,36,&H00FFFFFF,&H000000FF,&H003F1613,&H00000000,-1,1,0,0,100,100,0,0,1,2,0,2,0,0,28,0
-Style: flashbacktop,Cabin,36,&H00FFFFFF,&H000000FF,&H003F1613,&H00000000,-1,0,0,0,100,100,0,0,1,2,0,8,0,0,28,0
-Style: flashbackitalicstop,Cabin,36,&H00FFFFFF,&H000000FF,&H003F1613,&H00000000,-1,1,0,0,100,100,0,0,1,2,0,8,0,0,28,0
-Style: sign_1178_6___Three_years_ag,Cabin,36,&H00EDE4E5,&H000000FF,&H00251C1D,&H00000000,1,0,0,0,100,100,0,0,1,3,0,9,427,93,333,1
-Style: sign_1178_7_Japan,Cabin,36,&H00EDE4E5,&H000000FF,&H00251C1D,&H00000000,1,0,0,0,100,100,0,0,1,3,0,1,93,427,187,1
-Style: sign_2771_20_Episode_One,Cabin,24,&H0016151F,&H000000FF,&H00FFFFFF,&H00000000,1,0,0,0,100,100,0,15,1,3,0,2,40,680,247,1
-Style: sign_2771_21_Arrival_of_the_P,Cabin,45,&H00161622,&H000000FF,&H00FFFFFF,&H00000000,1,0,0,0,100,100,0,0,1,3,0,8,40,40,40,1
-Style: sign_5492_40_Combustible_garb,Cabin,18,&H00686487,&H000000FF,&H00B1B5B6,&H00000000,1,0,0,0,100,100,0,-10,1,3,0,2,253,487,220,1
-Style: sign_5492_41_Noncombustible_g,Cabin,18,&H006D6064,&H000000FF,&H00CBCCCC,&H00000000,1,0,0,0,100,100,0,-11,1,3,0,2,423,289,163,1
-Style: sign_7363_65_Today_s_News,Cabin,21,&H00FFFFFF,&H000000FF,&H003F1613,&H00000000,-1,0,0,0,100,100,0,0,1,2,0,7,0,0,28,1
-Style: sign_7363_66_Dismissed_on_Cha,Cabin,27,&H00E2E4E6,&H000000FF,&H00535353,&H00413E44,1,0,0,0,100,100,0,0,1,2,2,2,40,40,107,1
-Style: sign_8152_77_Mug,Cabin,24,&H00444545,&H000000FF,&H00DDDDE1,&H00000000,1,0,0,0,100,100,0,-17,1,3,0,2,447,367,140,1
-Style: sign_8152_78_Mug_2,Cabin,18,&H00858789,&H000000FF,&H00E0E3E5,&H00000000,1,0,0,0,100,100,0,-17,1,3,0,2,167,627,240,1
-Style: sign_9645_105_Mass_Food_Poison,Cabin,24,&H00BB694A,&H000000FF,&H00FFE1CE,&H00706D7A,1,0,0,0,100,100,0,0,1,2,2,8,0,408,172,1
-Style: sign_9645_105_Food_Poisoning_O,Cabin,24,&H00BB694A,&H000000FF,&H00FFE1CE,&H00706D7A,1,0,0,0,100,100,0,0,1,2,2,8,27,473,173,1
-Style: sign_9645_106_Outbreak_in_Toky,Cabin,33,&H00823F38,&H000000FF,&H00E4D2AB,&H00000000,1,0,0,0,100,100,0,0,1,3,0,2,40,40,120,1
-Style: sign_9949_113_5_Million_Yen_in,Cabin,27,&H00823F38,&H000000FF,&H00E4D2AB,&H00000000,1,0,0,0,100,100,0,0,1,3,0,2,40,40,120,1
-Style: sign_9949_112_Vice_Principal_E,Cabin,18,&H00BB694A,&H000000FF,&H00FFE1CE,&H00706D7A,1,0,0,0,100,100,0,0,1,2,2,8,40,480,227,1
-Style: sign_12295_147_Nitta_Hina,Cabin,18,&H00949982,&H000000FF,&H0062674F,&H00000000,1,0,0,0,100,100,0,0,1,3,0,8,153,40,27,1
-Style: sign_13308_166_She_looks_like_a,Cabin,24,&H00909699,&H000000FF,&H00F3F3F8,&H00000000,1,0,0,0,100,100,0,-5,1,3,0,2,67,40,320,1
-Style: sign_12680_157_Nitta_Hina,Cabin,24,&H009BA084,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,8,481,267,31,0
-Style: sign_14250_180_Namahage,Cabin,27,&H00E0EACD,&H000000FF,&H007A8263,&H00000000,1,0,0,0,100,100,0,0,1,3,0,7,27,703,20,0
-Style: sign_14250_181_Missing,Cabin,18,&H00E0EACD,&H000000FF,&H007A8263,&H00000000,1,0,0,0,100,100,0,0,1,3,0,7,24,480,73,0
-Style: sign_17192_221_Yoshizawa_Constr,Cabin,18,&H002A221F,&H000000FF,&H0069625C,&H00000000,0,0,0,0,100,100,0,-7,1,2,0,7,184,411,192,0
-Style: sign_17231_222_Do_No_Evil_,Cabin,36,&H00484045,&H000000FF,&H00EDE2E9,&H00000000,1,0,0,0,100,100,0,0,1,3,0,8,337,337,24,0
-Style: sign_17192_221_Yoshizawa_Taichi,Cabin,18,&H002A221F,&H000000FF,&H0069625C,&H00000000,0,0,0,0,100,100,0,-7,1,2,0,7,192,528,157,0
-Style: sign_17757_233_Yoshizawa_Taichi,Cabin,18,&H002A221F,&H000000FF,&H00F2F2F2,&H00000000,0,0,0,0,100,100,0,7,1,2,0,1,192,529,216,0
-Style: sign_17757_234_Yoshizawa_Constr,Cabin,18,&H002A221F,&H000000FF,&H00EFF1EE,&H00000000,0,0,0,0,100,100,0,8,1,2,0,1,211,384,164,0
-Style: sign_23533_302_Eliminate_all_en,Cabin,36,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,0,0,2,261,261,147,0
-Style: sign_27451_368_Seasonal_Fish_Cu,Cabin,18,&H0088969C,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,9,616,77,107,0
-Style: sign_33925_408_Episode_2,Cabin,24,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,1,0,0,0,100,100,0,15,1,3,0,8,163,589,44,1
-Style: sign_33925_409_This_Is_How_You_,Cabin,45,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,3,0,5,208,208,0,1
+Format: Name,Fontname,Fontsize,PrimaryColour,SecondaryColour,OutlineColour,BackColour,Bold,Italic,Underline,Strikeout,ScaleX,ScaleY,Spacing,Angle,BorderStyle,Outline,Shadow,Alignment,MarginL,MarginR,MarginV,Encoding
+Style: Default,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,0,2,0020,0020,0018,0
+Style: Default - italics,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,-1,0,0,100,100,0,0,1,2,0,2,0020,0020,0018,0
+Style: Default - flashback,Trebuchet MS,24,&H00F4ECEC,&H000000FF,&H00502300,&H00000000,0,0,0,0,100,100,0,0,1,2,0,2,0020,0020,0018,0
+Style: Default - margin,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,0,2,0020,0020,0008,0
+Style: Episode Title,Times New Roman,24,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,2,0,2,0010,0010,0250,0
+Style: SignA,Arial,24,&H00696ECC,&H000000FF,&H00060200,&H00000000,-1,0,0,0,100,100,0,0,1,2,0,8,0040,0040,0020,0
+Style: sign_83123_60_A_Moment_in_the_,Times New Roman,23,&H004636AF,&H000000FF,&H32000000,&H32000000,-1,0,0,0,100,100,0,0,1,2,2,3,0030,0030,0100,0
+Style: sign_36406_423_Missing,Arial,24,&H00F8F8F8,&H000000FF,&H00060200,&H004E4E4E,-1,0,0,0,100,100,0,0,1,2,4,8,0030,0030,0020,0
 
 [Events]
-Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 0,0:00:29.85,0:00:32.93,main,Bald,0000,0000,0000,,No wonder she's considered the \Ntop practitioner of Naika-ken.
-Dialogue: 0,0:00:33.39,0:00:34.89,main,Pink,0000,0000,0000,,Do you want more?
-Dialogue: 0,0:00:39.22,0:00:41.57,main,Bald,0000,0000,0000,,My smartphone!
-Dialogue: 0,0:00:43.52,0:00:46.03,main,Bald,0000,0000,0000,,It seems I didn't have to make a call.
-Dialogue: 0,0:00:46.03,0:00:48.48,italics,Pink,0000,0000,0000,,Hang on, Hina-chan.
-Dialogue: 0,0:00:49.14,0:00:53.28,sign_1178_6___Three_years_ag,Text,0000,0000,0000,,{\fad(750,1)}~ Three years ago ~
-Dialogue: 0,0:00:49.14,0:00:53.28,sign_1178_7_Japan,Text,0000,0000,0000,,{\fad(750,1)}Japan
-Dialogue: 0,0:00:53.29,0:00:54.74,main,Yakman,0000,0000,0000,,I see.
-Dialogue: 0,0:00:54.74,0:00:57.10,main,Yakman,0000,0000,0000,,That vase sold for two million.
-Dialogue: 0,0:00:57.69,0:00:59.53,main,Yakman,0000,0000,0000,,I'm glad we won it.
-Dialogue: 0,0:01:00.89,0:01:01.86,main,Yakman,0000,0000,0000,,Goodbye.
-Dialogue: 0,0:01:05.18,0:01:07.76,main,Yakman,0000,0000,0000,,That's one more for my collection.
-Dialogue: 0,0:01:07.76,0:01:10.00,main,Yakman,0000,0000,0000,,The organization is making good profit.
-Dialogue: 0,0:01:11.32,0:01:14.50,main,Yakman,0000,0000,0000,,No matter where you go, the winner \Nis the one who makes money.
-Dialogue: 0,0:01:25.12,0:01:26.51,main,Yakman,0000,0000,0000,,Ow!
-Dialogue: 0,0:01:26.51,0:01:27.82,main,Yakman,0000,0000,0000,,Owie!
-Dialogue: 0,0:01:31.06,0:01:33.20,italics,Yakman,0000,0000,0000,,Wh-What is that?
-Dialogue: 0,0:01:49.55,0:01:50.77,main,Yakman,0000,0000,0000,,Cool.
-Dialogue: 0,0:01:52.05,0:01:53.99,main,Yakman,0000,0000,0000,,I'll just pretend that I didn't see that.
-Dialogue: 0,0:01:55.58,0:01:59.55,sign_2771_20_Episode_One,Text,0000,0000,0000,,Episode One
-Dialogue: 0,0:01:55.58,0:01:59.55,sign_2771_21_Arrival_of_the_P,Text,0000,0000,0000,,Arrival of the Psychokinetic Girl!
-Dialogue: 0,0:02:22.02,0:02:23.58,main,Yakman,0000,0000,0000,,Yeah, it's still here.
-Dialogue: 0,0:02:23.58,0:02:24.68,main,Yakman,0000,0000,0000,,Why wouldn't it be?
-Dialogue: 0,0:02:25.83,0:02:26.89,main,Donburako,0000,0000,0000,,Hey...
-Dialogue: 0,0:02:27.66,0:02:31.32,main,Donburako,0000,0000,0000,,Would you mind undoing the restraints \Nby pressing the switch on the back?
-Dialogue: 0,0:02:33.43,0:02:35.11,main,Donburako,0000,0000,0000,,Hey, you there...
-Dialogue: 0,0:02:35.11,0:02:37.70,main,Yakman,0000,0000,0000,,Fine, I'll do it.
-Dialogue: 0,0:02:46.03,0:02:48.52,main,Yakman,0000,0000,0000,,Ow...
-Dialogue: 0,0:02:56.71,0:02:57.89,main,Donburako,0000,0000,0000,,Clothes, please.
-Dialogue: 0,0:02:59.55,0:03:00.96,main,Donburako,0000,0000,0000,,Clothes, please.
-Dialogue: 0,0:03:04.40,0:03:07.57,main,Yakman,0000,0000,0000,,Yo, don't be crazy.
-Dialogue: 0,0:03:07.57,0:03:09.80,main,Yakman,0000,0000,0000,,Don't expect me to let this slide\N just because you're a kid.
-Dialogue: 0,0:03:25.79,0:03:28.03,main,Yakman,0000,0000,0000,,My collection!
-Dialogue: 0,0:03:28.03,0:03:32.38,italicstop,Telebeejon,0000,0000,0000,,Celebrity A, who was recently \Narrested on suspicion of
-Dialogue: 0,0:03:32.38,0:03:35.52,italicstop,,0000,0000,0000,,illegal drug possession, continues to deny having consumed any drugs.
-Dialogue: 0,0:03:34.28,0:03:37.95,main,Yakman,0000,0000,0000,,Come on, dude, help me clean up.
-Dialogue: 0,0:03:37.95,0:03:40.09,main,Donburako,0000,0000,0000,,I'm not "dude." I'm Hina.
-Dialogue: 0,0:03:40.09,0:03:43.54,main,Yakman,0000,0000,0000,,Okay, Hina, do you have any idea \Nhow much this vase is worth?
-Dialogue: 0,0:03:49.07,0:03:51.12,sign_5492_40_Combustible_garb,Text,0000,0000,0000,,Combustible\Ngarbage
-Dialogue: 0,0:03:49.07,0:03:51.12,sign_5492_41_Noncombustible_g,Text,0000,0000,0000,,Noncombustible\Ngarbage
-Dialogue: 0,0:03:50.06,0:03:51.13,main,Yakman,0000,0000,0000,,Seriously...
-Dialogue: 0,0:03:51.52,0:03:55.86,main,Text,0000,0000,0000,,Listen, vases do {\i1}not{\i0} go \Nin combustible garbage!
-Dialogue: 0,0:03:55.86,0:03:57.96,main,Text,0000,0000,0000,,That's for garbage that can be burned!
-Dialogue: 0,0:03:59.33,0:04:03.46,italics,Yakman,0000,0000,0000,,She could kill me if she wanted to.
-Dialogue: 0,0:04:05.67,0:04:06.61,main,Yakman,0000,0000,0000,,Hina...
-Dialogue: 0,0:04:08.42,0:04:10.83,main,Yakman,0000,0000,0000,,Where did you come from?
-Dialogue: 0,0:04:11.36,0:04:12.83,main,Donburako,0000,0000,0000,,I can't tell you that.
-Dialogue: 0,0:04:13.62,0:04:15.87,main,Yakman,0000,0000,0000,,What was that power you just used?
-Dialogue: 0,0:04:15.87,0:04:17.40,main,Donburako,0000,0000,0000,,I can't tell you that, either.
-Dialogue: 0,0:04:17.78,0:04:22.71,main,Yakman,0000,0000,0000,,Then is there a reason that \Nyou showed up here?
-Dialogue: 0,0:04:22.71,0:04:23.73,main,Donburako,0000,0000,0000,,Not really.
-Dialogue: 0,0:04:23.73,0:04:24.61,main,Yakman,0000,0000,0000,,"Not really"?!
-Dialogue: 0,0:04:24.61,0:04:25.71,main,Yakman,0000,0000,0000,,Get out of here, then!
-Dialogue: 0,0:04:25.71,0:04:27.29,main,Donburako,0000,0000,0000,,I have nowhere to go.
-Dialogue: 0,0:04:27.29,0:04:29.58,main,Yakman,0000,0000,0000,,That's not my problem.
-Dialogue: 0,0:04:31.68,0:04:33.09,main,Yakman,0000,0000,0000,,Not that one!
-Dialogue: 0,0:04:33.09,0:04:34.68,main,Yakman,0000,0000,0000,,That one's {\i1}really{\i0} expensive!
-Dialogue: 0,0:04:37.14,0:04:41.07,main,Yakman,0000,0000,0000,,Oh, all right. You should \Nstay with me for a while.
-Dialogue: 0,0:04:44.35,0:04:45.06,main,Donburako,0000,0000,0000,,Hot!
-Dialogue: 0,0:04:45.51,0:04:47.61,main,Donburako,0000,0000,0000,,I burned my tongue.
-Dialogue: 0,0:04:48.78,0:04:50.32,main,Yakman,0000,0000,0000,,Lick some ice.
-Dialogue: 0,0:04:53.30,0:04:55.74,main,Donburako,0000,0000,0000,,Hey, go blow dry your hair.
-Dialogue: 0,0:04:56.16,0:04:57.45,main,Yakman,0000,0000,0000,,Dryer?
-Dialogue: 0,0:04:58.57,0:04:59.66,main,,0000,0000,0000,,For Pete's sake...
-Dialogue: 0,0:05:07.08,0:05:08.71,sign_7363_65_Today_s_News,Text,0000,0000,0000,,Today's News
-Dialogue: 0,0:05:07.08,0:05:08.71,sign_7363_66_Dismissed_on_Cha,Text,0000,0000,0000,,Dismissed on Charges of Sexual Harassment
-Dialogue: 0,0:05:07.08,0:05:08.71,italicstop,Telebeejon,0000,0000,0000,,A male executive's...
-Dialogue: 0,0:05:09.98,0:05:12.04,main,Yakman,0000,0000,0000,,Turn the damn TV off when \Nyou're going to bed.
-Dialogue: 0,0:05:13.99,0:05:15.72,italics,Yakman,0000,0000,0000,,Something's not right.
-Dialogue: 0,0:05:16.15,0:05:19.85,italics,Yakman,0000,0000,0000,,Why do I feel like a caregiver?
-Dialogue: 0,0:05:21.27,0:05:23.40,main,Donburako,0000,0000,0000,,Having no personal effects is inconvenient.
-Dialogue: 0,0:05:23.40,0:05:24.98,main,Donburako,0000,0000,0000,,This is a conundrum.
-Dialogue: 0,0:05:28.31,0:05:32.10,main,Yakman,0000,0000,0000,,Why does that mean I have to \Nbe the one to— Ow, ow, ow!
-Dialogue: 0,0:05:32.10,0:05:33.73,main,Yakman,0000,0000,0000,,All right, all right!
-Dialogue: 0,0:05:35.44,0:05:37.71,main,Donburako,0000,0000,0000,,I require a stuffed animal in order to sleep.
-Dialogue: 0,0:05:37.71,0:05:39.54,main,Yakman,0000,0000,0000,,You were sound asleep last night.
-Dialogue: 0,0:05:39.99,0:05:44.69,sign_8152_77_Mug,Text,0000,0000,0000,,Mug
-Dialogue: 0,0:05:39.99,0:05:44.69,sign_8152_78_Mug_2,Text,0000,0000,0000,,Mug
-Dialogue: 0,0:05:40.18,0:05:41.37,main,Donburako,0000,0000,0000,,I want this one.
-Dialogue: 0,0:05:41.37,0:05:43.09,main,Yakman,0000,0000,0000,,Why are you choosing the expensive one?
-Dialogue: 0,0:05:43.09,0:05:44.70,main,Donburako,0000,0000,0000,,The handle is cute.
-Dialogue: 0,0:05:45.19,0:05:46.89,main,Donburako,0000,0000,0000,,These clothes are cute.
-Dialogue: 0,0:05:46.89,0:05:48.48,main,Donburako,0000,0000,0000,,All of them.
-Dialogue: 0,0:05:49.15,0:05:50.80,main,Donburako,0000,0000,0000,,This place is amazing.
-Dialogue: 0,0:05:50.80,0:05:53.41,main,Donburako,0000,0000,0000,,There's so much that I want.
-Dialogue: 0,0:05:55.32,0:05:57.55,main,Money smile,0000,0000,0000,,That'll be 857,120 yen.
-Dialogue: 0,0:06:01.00,0:06:02.40,main,Yakman,0000,0000,0000,,Are you hungry?
-Dialogue: 0,0:06:02.40,0:06:03.21,main,Donburako,0000,0000,0000,,Yeah.
-Dialogue: 0,0:06:03.84,0:06:06.23,main,Yakman,0000,0000,0000,,Let's get something to eat, then.
-Dialogue: 0,0:06:06.82,0:06:08.87,main,Donburako,0000,0000,0000,,High-end sushi or Kobe beef.
-Dialogue: 0,0:06:08.87,0:06:10.59,main,Yakman,0000,0000,0000,,What are you, a Hollywood celebrity?
-Dialogue: 0,0:06:14.69,0:06:16.61,main,Donburako,0000,0000,0000,,So {\i1}this{\i0} is high-end sushi.
-Dialogue: 0,0:06:21.90,0:06:24.23,main,Yakman,0000,0000,0000,,What the hell am I doing?
-Dialogue: 0,0:06:24.23,0:06:26.16,main,Donburako,0000,0000,0000,,The ikura isn't coming.
-Dialogue: 0,0:06:26.16,0:06:27.40,main,Donburako,0000,0000,0000,,What should I do?
-Dialogue: 0,0:06:27.40,0:06:28.41,main,Yakman,0000,0000,0000,,Ask for it.
-Dialogue: 0,0:06:28.41,0:06:29.93,main,Donburako,0000,0000,0000,,Two plates of ikura.
-Dialogue: 0,0:06:29.93,0:06:30.91,main,Robosushi,0000,0000,0000,,On it.
-Dialogue: 0,0:06:30.91,0:06:32.52,main,Yakman,0000,0000,0000,,You like ikura, huh?
-Dialogue: 0,0:06:33.42,0:06:34.68,main,Donburako,0000,0000,0000,,Two plates of ikura.
-Dialogue: 0,0:06:34.68,0:06:35.50,main,Robosushi,0000,0000,0000,,On it.
-Dialogue: 0,0:06:35.50,0:06:36.55,main,Yakman,0000,0000,0000,,Oh, you.
-Dialogue: 0,0:06:36.55,0:06:37.75,main,Donburako,0000,0000,0000,,Two plates of ikura.
-Dialogue: 0,0:06:37.75,0:06:39.93,main,Yakman,0000,0000,0000,,Just how much do you love ikura?!
-Dialogue: 0,0:06:39.93,0:06:42.26,italicstop,Telebeejon,0000,0000,0000,,A string food poisonings has occurred.
-Dialogue: 0,0:06:42.26,0:06:44.64,sign_9645_105_Food_Poisoning_O,Text,0000,0000,0000,,Food Poisoning Outbreak
-Dialogue: 0,0:06:42.26,0:06:44.64,sign_9645_106_Outbreak_in_Toky,Text,0000,0000,0000,,Outbreak in Tokyo Elementary School
-Dialogue: 0,0:06:42.26,0:06:47.97,italicstop,Telebeejon,0000,0000,0000,,According to the municipal school board, \Na total of 36 students and staff
-Dialogue: 0,0:06:47.97,0:06:53.28,italicstop,,0000,0000,0000,,have reported vomiting and \Nstomach pain after eating lunch.
-Dialogue: 0,0:06:48.44,0:06:52.20,italics,Yakman,0000,0000,0000,,She's just your average brat \Nwhen she's staying put.
-Dialogue: 0,0:06:53.59,0:06:54.94,italicstop,Telebeejon,0000,0000,0000,,Moving on to the next story...
-Dialogue: 0,0:06:54.94,0:06:56.79,italicstop,Telebeejon,0000,0000,0000,,The Tokyo School Board has has issued
-Dialogue: 0,0:06:54.94,0:06:59.95,sign_9949_112_Vice_Principal_E,Text,0000,0000,0000,,Vice-Principal Embezzlement Scandal
-Dialogue: 0,0:06:54.94,0:06:59.95,sign_9949_113_5_Million_Yen_in,Text,0000,0000,0000,,5 Million Yen in PTA Membership Fees Embezzled?
-Dialogue: 0,0:06:56.79,0:07:01.38,italicstop,,0000,0000,0000,,a disciplinary dismissal of the\N vice principal of a public middle school,
-Dialogue: 0,0:07:01.38,0:07:06.68,italicstop,,0000,0000,0000,,charging that he had misappropriated \Nfive million yen in PTA fees.
-Dialogue: 0,0:07:05.32,0:07:06.68,main,Donburako,0000,0000,0000,,School...
-Dialogue: 0,0:07:07.29,0:07:08.85,main,Donburako,0000,0000,0000,,I want to try going to school.
-Dialogue: 0,0:07:08.85,0:07:10.91,main,Yakman,0000,0000,0000,,What about that made you want to go?
-Dialogue: 0,0:07:11.20,0:07:13.96,main,Yakman,0000,0000,0000,,I don't think it's going to work, kid.
-Dialogue: 0,0:07:14.66,0:07:15.57,main,Yakman,0000,0000,0000,,Okay!
-Dialogue: 0,0:07:15.57,0:07:17.16,main,Yakman,0000,0000,0000,,I got it.
-Dialogue: 0,0:07:19.67,0:07:21.30,main,Yakman,0000,0000,0000,,But let's set some ground rules.
-Dialogue: 0,0:07:21.30,0:07:22.62,main,Donburako,0000,0000,0000,,For what?
-Dialogue: 0,0:07:22.62,0:07:25.44,main,Yakman,0000,0000,0000,,For how we're going to live together.
-Dialogue: 0,0:07:27.53,0:07:29.35,main,Yakman,0000,0000,0000,,Don't use your powers.
-Dialogue: 0,0:07:30.07,0:07:32.83,main,Yakman,0000,0000,0000,,If you can do that, \NI'll let you go to school.
-Dialogue: 0,0:07:32.83,0:07:35.29,main,Yakman,0000,0000,0000,,There'd be chaos if people \Nfound out about your powers.
-Dialogue: 0,0:07:35.74,0:07:36.90,main,Yakman,0000,0000,0000,,Okay?
-Dialogue: 0,0:07:38.79,0:07:39.97,main,Donburako,0000,0000,0000,,Got it.
-Dialogue: 0,0:07:39.97,0:07:40.92,main,Donburako,0000,0000,0000,,I promise.
-Dialogue: 0,0:07:41.81,0:07:43.10,main,Donburako,0000,0000,0000,,Pinky swear.
-Dialogue: 0,0:07:43.10,0:07:44.37,main,Donburako,0000,0000,0000,,I saw it on TV.
-Dialogue: 0,0:07:48.41,0:07:50.82,main,Donburako,0000,0000,0000,,Pinky, pinky bow-bell
-Dialogue: 0,0:07:50.82,0:07:52.26,main,Donburako,0000,0000,0000,,Whoever tells a lie
-Dialogue: 0,0:07:52.26,0:07:54.11,main,Donburako,0000,0000,0000,,will commit seppuku and die.
-Dialogue: 0,0:07:54.11,0:07:55.54,main,Yakman,0000,0000,0000,,Were you watching a variety show?
-Dialogue: 0,0:08:01.64,0:08:03.64,main,Donburako,0000,0000,0000,,So this is a stuffed animal.
-Dialogue: 0,0:08:03.64,0:08:05.14,main,Donburako,0000,0000,0000,,It's so fluffy.
-Dialogue: 0,0:08:05.14,0:08:09.01,main,Donburako,0000,0000,0000,,That man's a grown-up, and yet \Nhe gives me no instructions.
-Dialogue: 0,0:08:09.48,0:08:11.67,main,Donburako,0000,0000,0000,,I don't need to fight.
-Dialogue: 0,0:08:11.67,0:08:14.02,main,Donburako,0000,0000,0000,,This is a strange world.
-Dialogue: 0,0:08:16.19,0:08:19.08,main,Yakman,0000,0000,0000,,Hey, did you brush your teeth before bedtime?
-Dialogue: 0,0:08:23.06,0:08:24.07,main,Yakman,0000,0000,0000,,Dude.
-Dialogue: 0,0:08:25.27,0:08:28.65,main,,0000,0000,0000,,You said you couldn't sleep \Nwithout a stuffed animal.
-Dialogue: 0,0:08:30.86,0:08:32.79,main,Sensei,0000,0000,0000,,I'm going to introduce a new student.
-Dialogue: 0,0:08:32.79,0:08:37.17,sign_12295_147_Nitta_Hina,Text,0000,0000,0000,,Nitta Hina
-Dialogue: 0,0:08:33.35,0:08:36.35,main,Sensei,0000,0000,0000,,This is Nitta. She's going to \Nbe in your class starting today.
-Dialogue: 0,0:08:36.35,0:08:37.17,main,Sensei,0000,0000,0000,,Be good to her.
-Dialogue: 0,0:08:37.17,0:08:40.36,main,Sensei,0000,0000,0000,,Okay, Nitta, introduce yourself to everyone.
-Dialogue: 0,0:08:41.66,0:08:42.77,main,Sensei,0000,0000,0000,,Nitta?
-Dialogue: 0,0:08:42.77,0:08:43.94,main,Sensei,0000,0000,0000,,Hey, Nitta.
-Dialogue: 0,0:08:43.94,0:08:45.13,main,Donburako,0000,0000,0000,,Instructor...
-Dialogue: 0,0:08:45.43,0:08:47.15,main,Donburako,0000,0000,0000,,Nitta's not here.
-Dialogue: 0,0:08:47.15,0:08:48.85,main,Sensei,0000,0000,0000,,A shocking comment!
-Dialogue: 0,0:08:48.85,0:08:49.81,main,Sensei,0000,0000,0000,,Huh?
-Dialogue: 0,0:08:48.85,0:08:53.35,sign_12680_157_Nitta_Hina,,0000,0000,0000,,Nitta Hina
-Dialogue: 0,0:08:50.19,0:08:51.57,main,Sensei,0000,0000,0000,,No, that's what it says.
-Dialogue: 0,0:08:51.57,0:08:52.71,main,Sensei,0000,0000,0000,,Nitta Hina.
-Dialogue: 0,0:08:53.81,0:08:55.97,flashback,Yakman,0000,0000,0000,,You're Nitta Hina from now on.
-Dialogue: 0,0:08:55.97,0:08:57.44,flashback,Yakman,0000,0000,0000,,That's what you're calling \Nyourself at school.
-Dialogue: 0,0:08:59.15,0:09:00.29,main,Donburako,0000,0000,0000,,Okay nari.
-Dialogue: 0,0:09:00.29,0:09:01.36,flashback,Yakman,0000,0000,0000,,Were you watching anime?
-Dialogue: 0,0:09:02.02,0:09:03.15,main,Donburako,0000,0000,0000,,Oh, right.
-Dialogue: 0,0:09:04.29,0:09:05.82,main,Donburako,0000,0000,0000,,I'm Nitta.
-Dialogue: 0,0:09:05.82,0:09:08.49,main,Class,0000,0000,0000,,This girl's got issues.
-Dialogue: 0,0:09:15.04,0:09:16.79,sign_13308_166_She_looks_like_a,Text,0000,0000,0000,,She looks like she's in grade school
-Dialogue: 0,0:09:18.27,0:09:21.73,italics,Bangs,0000,0000,0000,,We were in grade school until \Nlast year, too, though.
-Dialogue: 0,0:09:24.27,0:09:27.77,main,Big Glasses,0000,0000,0000,,So anyway, that's why we're arguing \Nwith the Shinozuka-gumi right now.
-Dialogue: 0,0:09:27.77,0:09:30.25,main,Big Glasses,0000,0000,0000,,You need to be careful, too, boss.
-Dialogue: 0,0:09:30.25,0:09:32.72,main,Boss,0000,0000,0000,,Calm down, damn it.
-Dialogue: 0,0:09:32.72,0:09:34.82,main,Boss,0000,0000,0000,,Take a look at Nitta.
-Dialogue: 0,0:09:36.13,0:09:38.23,main,Boss,0000,0000,0000,,He's keeping his cool.
-Dialogue: 0,0:09:38.92,0:09:42.48,italics,Yakman,0000,0000,0000,,I hope that kid's going to be okay at school.
-Dialogue: 0,0:09:42.90,0:09:43.88,italics,Big Glasses,0000,0000,0000,,Is he?
-Dialogue: 0,0:09:44.42,0:09:45.74,main,Yakman,0000,0000,0000,,All right.
-Dialogue: 0,0:09:45.74,0:09:48.82,main,Yakman,0000,0000,0000,,If it goes wrong, \NI'm going to have to go myself.
-Dialogue: 0,0:09:48.82,0:09:50.55,main,Boss,0000,0000,0000,,Hey, now.
-Dialogue: 0,0:09:50.55,0:09:51.99,main,Big Glasses,0000,0000,0000,,You're gung-ho.
-Dialogue: 0,0:09:52.77,0:09:59.22,main,Sensei,0000,0000,0000,,And thus, the namahage, from its \Nappearance, is often mistaken for an oni.
-Dialogue: 0,0:09:54.33,0:09:56.25,sign_14250_180_Namahage,Text,0000,0000,0000,,Namahage
-Dialogue: 0,0:09:59.22,0:10:01.09,italics,Bangs,0000,0000,0000,,She fell asleep all of a sudden.
-Dialogue: 0,0:10:01.09,0:10:02.98,main,Grandpa-sensei,0000,0000,0000,,And thus...
-Dialogue: 0,0:10:02.98,0:10:04.47,main,Glasses-sensei,0000,0000,0000,,And thus...
-Dialogue: 0,0:10:04.47,0:10:06.23,main,Posture-sensei,0000,0000,0000,,And thus...
-Dialogue: 0,0:10:07.23,0:10:09.24,main,Bald,0000,0000,0000,,Great, time for lunch!
-Dialogue: 0,0:10:10.43,0:10:13.97,italics,Bangs,0000,0000,0000,,I can't believe she's been \Nasleep since the first class.
-Dialogue: 0,0:10:15.21,0:10:17.58,main,Bangs,0000,0000,0000,,Hey, Nitta-san, wake up.
-Dialogue: 0,0:10:19.46,0:10:20.60,main,Bangs,0000,0000,0000,,Hey, Hina-chan.
-Dialogue: 0,0:10:23.69,0:10:25.69,main,Bangs,0000,0000,0000,,You're drooling.
-Dialogue: 0,0:10:26.40,0:10:29.18,main,Bangs,0000,0000,0000,,Wait, don't wipe it on your uniform.
-Dialogue: 0,0:10:29.18,0:10:30.23,main,Bangs,0000,0000,0000,,There.
-Dialogue: 0,0:10:33.38,0:10:34.29,italics,Bangs,0000,0000,0000,,Huh?
-Dialogue: 0,0:10:35.28,0:10:38.62,italics,Bangs,0000,0000,0000,,Why do I feel like I'm a caregiver?
-Dialogue: 0,0:10:39.30,0:10:43.88,italicstop,Weeeeeeeefit,0000,0000,0000,,Relax your body and bring \Nyour arms straight up.
-Dialogue: 0,0:10:44.44,0:10:47.50,italicstop,Weeeeeeeefit,0000,0000,0000,,Hold your posture there.
-Dialogue: 0,0:10:50.96,0:10:53.64,main,Donburako,0000,0000,0000,,Now, I can eat a big meal.
-Dialogue: 0,0:10:57.51,0:10:59.53,flashback,Yakman,0000,0000,0000,,Don't use your powers.
-Dialogue: 0,0:11:04.54,0:11:05.85,main,Donburako,0000,0000,0000,,Promise...
-Dialogue: 0,0:11:08.52,0:11:09.84,main,Yakman,0000,0000,0000,,I'm home.
-Dialogue: 0,0:11:09.84,0:11:11.56,main,Yakman,0000,0000,0000,,I bought a vase.
-Dialogue: 0,0:11:11.56,0:11:13.82,main,Yakman,0000,0000,0000,,Listen, Hina, don't you \Never break my vase again.
-Dialogue: 0,0:11:13.82,0:11:15.76,main,Yakman,0000,0000,0000,,Got it? Don't ever.
-Dialogue: 0,0:11:16.76,0:11:19.41,main,Yakman,0000,0000,0000,,Hey, hey, hey, Hina! What the?!
-Dialogue: 0,0:11:19.41,0:11:21.29,main,Yakman,0000,0000,0000,,What the hell is this?
-Dialogue: 0,0:11:21.29,0:11:24.04,main,Donburako,0000,0000,0000,,I have to keep using my powers,
-Dialogue: 0,0:11:24.04,0:11:25.79,main,Donburako,0000,0000,0000,,or I lose control.
-Dialogue: 0,0:11:25.79,0:11:29.54,main,Yakman,0000,0000,0000,,Y-You could have told me sooner!
-Dialogue: 0,0:11:32.39,0:11:34.72,main,Yakman,0000,0000,0000,,M-My vases...
-Dialogue: 0,0:11:35.25,0:11:37.92,main,Yakman,0000,0000,0000,,What are you doing to me, Hina?
-Dialogue: 0,0:11:38.38,0:11:41.08,main,Donburako,0000,0000,0000,,I tried to keep my promise.
-Dialogue: 0,0:11:41.08,0:11:44.73,main,Yakman,0000,0000,0000,,You could have told me you lose \Ncontrol if you don't use your powers.
-Dialogue: 0,0:11:44.73,0:11:46.61,main,Donburako,0000,0000,0000,,Hey, when is dinner?
-Dialogue: 0,0:11:46.61,0:11:48.32,main,Yakman,0000,0000,0000,,I'm not in the mood right now.
-Dialogue: 0,0:11:49.25,0:11:51.13,main,Yakman,0000,0000,0000,,Will you last for a while \Nafter that explosion?
-Dialogue: 0,0:11:51.13,0:11:53.35,main,Donburako,0000,0000,0000,,That wasn't enough.\N It'll happen again soon.
-Dialogue: 0,0:11:53.35,0:11:54.21,main,Yakman,0000,0000,0000,,What?
-Dialogue: 0,0:11:54.76,0:11:56.43,main,Yakman,0000,0000,0000,,What am I supposed to do?
-Dialogue: 0,0:11:57.03,0:11:58.54,sign_17192_221_Yoshizawa_Taichi,Text,0000,0000,0000,,Yoshizawa Taichi
-Dialogue: 0,0:11:57.03,0:11:58.54,sign_17192_221_Yoshizawa_Constr,Text,0000,0000,0000,,Yoshizawa Construction Company
-Dialogue: 0,0:11:58.68,0:12:01.41,sign_17231_222_Do_No_Evil_,Text,0000,0000,0000,,Do No Evil
-Dialogue: 0,0:11:58.79,0:12:01.41,flashback,Yakman,0000,0000,0000,,A hotel development in the \Nmountains in Yamanashi?
-Dialogue: 0,0:12:02.11,0:12:03.30,flashback,Yakman,0000,0000,0000,,Now?
-Dialogue: 0,0:12:03.30,0:12:04.20,flashback,Yakman,0000,0000,0000,,I don't think you shouldー
-Dialogue: 0,0:12:04.20,0:12:05.67,flashback,Boss,0000,0000,0000,,It's not for me.
-Dialogue: 0,0:12:05.67,0:12:10.40,flashback,Boss,0000,0000,0000,,The developers weren't able to reach \Na deal with the construction company.
-Dialogue: 0,0:12:10.40,0:12:12.72,flashback,Boss,0000,0000,0000,,That's why this fell into my lap.
-Dialogue: 0,0:12:12.72,0:12:15.40,flashback,Boss,0000,0000,0000,,They don't care who does it,\N as long as it's cheap.
-Dialogue: 0,0:12:15.40,0:12:17.18,flashback,Yakman,0000,0000,0000,,Are they legit?
-Dialogue: 0,0:12:17.18,0:12:21.63,flashback,Boss,0000,0000,0000,,If you can hook them up with \Ncheap developers, let them know.
-Dialogue: 0,0:12:20.60,0:12:22.85,sign_17757_233_Yoshizawa_Taichi,Text,0000,0000,0000,,{\fad(1,474)}Yoshizawa Taichi
-Dialogue: 0,0:12:20.60,0:12:22.85,sign_17757_234_Yoshizawa_Constr,Text,0000,0000,0000,,{\fad(1,474)}Yoshizawa Construction Company
-Dialogue: 0,0:12:23.21,0:12:24.49,main,Yakman,0000,0000,0000,,That's it!
-Dialogue: 0,0:12:25.80,0:12:26.90,main,Donburako,0000,0000,0000,,Where are we going?
-Dialogue: 0,0:12:26.90,0:12:30.15,main,Yakman,0000,0000,0000,,Somewhere you can use your \Npowers to your heart's content.
-Dialogue: 0,0:12:30.15,0:12:33.37,main,Yakman,0000,0000,0000,,I don't want any more\N incidents like yesterday.
-Dialogue: 0,0:12:33.37,0:12:35.69,main,Donburako,0000,0000,0000,,Aren't you going to scold me \Nabout what happened yesterday?
-Dialogue: 0,0:12:35.69,0:12:36.81,main,Yakman,0000,0000,0000,,It's fine.
-Dialogue: 0,0:12:39.48,0:12:42.16,italics,Donburako,0000,0000,0000,,I erred, yet I'm not being scolded.
-Dialogue: 0,0:12:44.58,0:12:46.07,main,Donburako,0000,0000,0000,,I wonder where we're going.
-Dialogue: 0,0:12:46.07,0:12:47.60,main,Donburako,0000,0000,0000,,I can't wait.
-Dialogue: 0,0:12:53.60,0:12:54.77,main,Yakman,0000,0000,0000,,We're here.
-Dialogue: 0,0:12:56.43,0:13:00.26,main,Yakman,0000,0000,0000,,The boss left me with a development job.
-Dialogue: 0,0:13:00.26,0:13:03.62,main,Yakman,0000,0000,0000,,Do you think you can use your \Npowers to uproot them, like this?
-Dialogue: 0,0:13:04.57,0:13:05.64,main,Donburako,0000,0000,0000,,I can.
-Dialogue: 0,0:13:05.64,0:13:09.24,main,Yakman,0000,0000,0000,,You can have at it, then, in this area.
-Dialogue: 0,0:13:10.63,0:13:11.86,main,Donburako,0000,0000,0000,,Okay.
-Dialogue: 0,0:13:24.68,0:13:26.99,main,Yakman,0000,0000,0000,,D-Damn!
-Dialogue: 0,0:13:30.70,0:13:31.93,main,Yakman,0000,0000,0000,,Okay, next...
-Dialogue: 0,0:13:31.93,0:13:33.01,main,Donburako,0000,0000,0000,,All right.
-Dialogue: 0,0:13:36.68,0:13:37.73,main,Donburako,0000,0000,0000,,Something like that?
-Dialogue: 0,0:13:37.73,0:13:39.43,main,Yakman,0000,0000,0000,,That's amazing, man!
-Dialogue: 0,0:13:39.43,0:13:40.68,main,Donburako,0000,0000,0000,,Are we done yet?
-Dialogue: 0,0:13:40.68,0:13:43.18,main,Yakman,0000,0000,0000,,Oh, if you don't mind...
-Dialogue: 0,0:13:43.50,0:13:45.18,main,Yakman,0000,0000,0000,,Could you make them like this?
-Dialogue: 0,0:13:50.73,0:13:52.88,main,Yakman,0000,0000,0000,,Oh, man!
-Dialogue: 0,0:13:56.03,0:13:59.16,main,Yakman,0000,0000,0000,,Oh, man, this is awesome.
-Dialogue: 0,0:14:03.80,0:14:05.91,main,Yakman,0000,0000,0000,,That took no time.
-Dialogue: 0,0:14:05.91,0:14:08.03,main,Yakman,0000,0000,0000,,We cleared the property\N and got lumber to boot!
-Dialogue: 0,0:14:08.03,0:14:09.42,main,Yakman,0000,0000,0000,,We made a killing.
-Dialogue: 0,0:14:09.42,0:14:14.25,main,Yakman,0000,0000,0000,,Damn, it would have been great if \Nthere was a development bubble.
-Dialogue: 0,0:14:14.25,0:14:17.57,main,Yakman,0000,0000,0000,,Your powers can be pretty useful, though.
-Dialogue: 0,0:14:18.44,0:14:19.60,main,Yakman,0000,0000,0000,,What's wrong?
-Dialogue: 0,0:14:20.16,0:14:21.66,main,Donburako,0000,0000,0000,,I've seen those eyes.
-Dialogue: 0,0:14:23.25,0:14:27.31,main,Donburako,0000,0000,0000,,I've seen those grown-up eyes.
-Dialogue: 0,0:14:28.33,0:14:29.64,main,Yakman,0000,0000,0000,,I get it.
-Dialogue: 0,0:14:30.14,0:14:33.38,main,Yakman,0000,0000,0000,,People were taking advantage of \Nyou because you're just a kid.
-Dialogue: 0,0:14:34.62,0:14:35.69,main,Yakman,0000,0000,0000,,In that case...
-Dialogue: 0,0:14:38.53,0:14:39.90,main,Yakman,0000,0000,0000,,Yeah, what's up?
-Dialogue: 0,0:14:41.09,0:14:41.94,main,Yakman,0000,0000,0000,,What?!
-Dialogue: 0,0:14:41.94,0:14:42.83,main,Yakman,0000,0000,0000,,Is that true?
-Dialogue: 0,0:14:43.93,0:14:45.66,main,Yakman,0000,0000,0000,,All right, I'll be right back.
-Dialogue: 0,0:14:45.66,0:14:46.77,main,Big Glasses,0000,0000,0000,,Nitta!
-Dialogue: 0,0:14:46.77,0:14:48.33,main,Big Glasses,0000,0000,0000,,Do you think this is funny?
-Dialogue: 0,0:14:48.33,0:14:52.25,main,Big Glasses,0000,0000,0000,,The boss just got shot, and you're out \Non a happy field trip with your brat?
-Dialogue: 0,0:14:53.77,0:14:55.46,main,Yakman,0000,0000,0000,,I'm sorry, Chief.
-Dialogue: 0,0:14:55.74,0:14:58.36,main,Yakman,0000,0000,0000,,I tried to get her to go home, \Nbut she didn't want to go alone.
-Dialogue: 0,0:14:58.36,0:15:00.09,main,Big Glasses,0000,0000,0000,,You're letting a kid boss you around?!
-Dialogue: 0,0:15:00.09,0:15:01.80,main,Yakman,0000,0000,0000,,No, she twisted my arm.
-Dialogue: 0,0:15:01.80,0:15:02.92,main,Donburako,0000,0000,0000,,Delicious.
-Dialogue: 0,0:15:02.92,0:15:04.74,main,Donburako,0000,0000,0000,,I expect no less of the \Nhighest-quality green tea.
-Dialogue: 0,0:15:04.74,0:15:06.10,main,Chimpilar,0000,0000,0000,,That's from the 100-yen shop.
-Dialogue: 0,0:15:06.10,0:15:10.11,main,Donburako,0000,0000,0000,,You're the boss's favorite, \Nand you can't even fight.
-Dialogue: 0,0:15:10.11,0:15:12.90,main,Donburako,0000,0000,0000,,I wanted to let someone else handle it, but...
-Dialogue: 0,0:15:16.11,0:15:17.86,main,Donburako,0000,0000,0000,,You do it.
-Dialogue: 0,0:15:20.67,0:15:21.86,main,Yakman,0000,0000,0000,,Yes, sir.
-Dialogue: 0,0:15:39.22,0:15:40.95,italics,Chimpilar,0000,0000,0000,,He's not at home.
-Dialogue: 0,0:15:40.95,0:15:43.14,italics,Chimpilar,0000,0000,0000,,President Shinozuka is at the office.
-Dialogue: 0,0:15:43.77,0:15:44.96,main,Yakman,0000,0000,0000,,All right.
-Dialogue: 0,0:15:48.38,0:15:51.12,main,Yakman,0000,0000,0000,,The place must be teeming with their men.
-Dialogue: 0,0:15:51.12,0:15:52.44,main,Yakman,0000,0000,0000,,Damn it.
-Dialogue: 0,0:15:52.93,0:15:55.44,main,Yakman,0000,0000,0000,,The chief was furious.
-Dialogue: 0,0:15:56.35,0:15:59.27,main,Yakman,0000,0000,0000,,My yakuza life is over.
-Dialogue: 0,0:16:02.55,0:16:06.94,main,Yakman,0000,0000,0000,,I need to think of something, \Nor I'm just a hired gun.
-Dialogue: 0,0:16:07.45,0:16:08.28,main,Donburako,0000,0000,0000,,Hey...
-Dialogue: 0,0:16:09.15,0:16:11.62,main,Yakman,0000,0000,0000,,Hina! What are you doing here?
-Dialogue: 0,0:16:12.26,0:16:14.56,main,Donburako,0000,0000,0000,,Is that person there an enemy?
-Dialogue: 0,0:16:15.64,0:16:16.79,main,Donburako,0000,0000,0000,,Enemy?
-Dialogue: 0,0:16:18.27,0:16:19.76,main,Yakman,0000,0000,0000,,Yeah, sure.
-Dialogue: 0,0:16:21.51,0:16:23.50,sign_23533_302_Eliminate_all_en,Text,0000,0000,0000,,{\fad(1,500)}Eliminate all enemies
-Dialogue: 0,0:16:25.00,0:16:26.82,main,Donburako,0000,0000,0000,,Aren't you going to give me orders?
-Dialogue: 0,0:16:29.77,0:16:32.70,flashback,Yakman,0000,0000,0000,,Your powers can be pretty useful, though.
-Dialogue: 0,0:16:33.54,0:16:36.65,main,Donburako,0000,0000,0000,,Aren't you going to order me to kill him?
-Dialogue: 0,0:16:41.66,0:16:43.61,main,Yakman,0000,0000,0000,,What are you, mental?
-Dialogue: 0,0:16:43.61,0:16:46.09,main,Yakman,0000,0000,0000,,Why should you have to do that?
-Dialogue: 0,0:16:46.09,0:16:47.57,main,Yakman,0000,0000,0000,,This isn't your problem.
-Dialogue: 0,0:16:59.14,0:17:00.13,main,Yakman,0000,0000,0000,,Hey...
-Dialogue: 0,0:17:01.71,0:17:03.23,main,Donburako,0000,0000,0000,,I'll do it.
-Dialogue: 0,0:17:04.76,0:17:09.02,main,Donburako,0000,0000,0000,,Where I come from, my only reason for \Nexisting was to carry out orders.
-Dialogue: 0,0:17:09.85,0:17:13.68,main,Donburako,0000,0000,0000,,You're nothing like the grown-ups I know.
-Dialogue: 0,0:17:14.81,0:17:17.04,main,Donburako,0000,0000,0000,,I like being with you, Nitta.
-Dialogue: 0,0:17:18.97,0:17:20.44,main,Yakman,0000,0000,0000,,Hey, wait!
-Dialogue: 0,0:17:21.09,0:17:22.31,main,Yakman,0000,0000,0000,,Ow!
-Dialogue: 0,0:17:22.84,0:17:25.84,italics,Yakman,0000,0000,0000,,You called me by my name for the first time.
-Dialogue: 0,0:17:25.84,0:17:28.74,italics,Yakman,0000,0000,0000,,No, that was disrespectful, you little twerp!
-Dialogue: 0,0:17:30.44,0:17:31.62,main,Yakman,0000,0000,0000,,Hina!
-Dialogue: 0,0:17:33.79,0:17:36.00,main,Yakman,0000,0000,0000,,Hina!
-Dialogue: 0,0:17:36.31,0:17:38.56,main,Dead,0000,0000,0000,,Huh? What do you want?
-Dialogue: 0,0:17:38.56,0:17:39.82,main,Dead,0000,0000,0000,,Ow!
-Dialogue: 0,0:17:39.82,0:17:41.65,main,Dead,0000,0000,0000,,Ouch...
-Dialogue: 0,0:17:42.00,0:17:43.63,main,Dead,0000,0000,0000,,Die, bitch!
-Dialogue: 0,0:17:43.63,0:17:44.44,main,Dead,0000,0000,0000,,Ouchy!
-Dialogue: 0,0:17:44.44,0:17:45.42,main,Dead,0000,0000,0000,,Ouchy!
-Dialogue: 0,0:17:45.42,0:17:46.21,main,Dead,0000,0000,0000,,Ouchy!
-Dialogue: 0,0:17:46.21,0:17:47.26,main,Dead,0000,0000,0000,,She went upstairs!
-Dialogue: 0,0:17:47.26,0:17:49.53,main,Dead,0000,0000,0000,,What do you want? I'll kill you!
-Dialogue: 0,0:17:49.53,0:17:50.34,main,Dead,0000,0000,0000,,Ouchy!
-Dialogue: 0,0:17:50.34,0:17:51.22,main,Dead,0000,0000,0000,,Ouchy!
-Dialogue: 0,0:17:51.22,0:17:52.12,main,Dead,0000,0000,0000,,Ouchy!
-Dialogue: 0,0:17:52.12,0:17:52.72,main,,0000,0000,0000,,Ouchy!
-Dialogue: 0,0:17:52.72,0:17:53.70,main,,0000,0000,0000,,Ouchy!
-Dialogue: 0,0:17:53.25,0:17:54.37,main,,0000,0000,0000,,Ouchy!
-Dialogue: 0,0:17:54.01,0:17:54.73,main,,0000,0000,0000,,Ouchy!
-Dialogue: 0,0:17:54.73,0:17:55.64,main,,0000,0000,0000,,Ouchy!
-Dialogue: 0,0:17:55.42,0:17:56.59,main,,0000,0000,0000,,Ouchy!
-Dialogue: 0,0:17:56.59,0:17:57.42,main,,0000,0000,0000,,Ouchy!
-Dialogue: 0,0:17:57.42,0:17:58.60,main,,0000,0000,0000,,Ouchy!
-Dialogue: 0,0:17:59.03,0:18:00.20,main,,0000,0000,0000,,Ouchy!
-Dialogue: 0,0:18:00.20,0:18:01.51,main,,0000,0000,0000,,Ouchy!
-Dialogue: 0,0:18:01.51,0:18:02.94,main,,0000,0000,0000,,Ouchy!
-Dialogue: 0,0:18:03.90,0:18:06.61,main,,0000,0000,0000,,Ouchy!
-Dialogue: 0,0:18:09.54,0:18:12.28,main,,0000,0000,0000,,Ouch...
-Dialogue: 0,0:18:12.28,0:18:14.40,main,Donburako,0000,0000,0000,,Is this one the boss?
-Dialogue: 0,0:18:14.40,0:18:15.30,main,Yakman,0000,0000,0000,,Yeah.
-Dialogue: 0,0:18:15.30,0:18:16.54,main,,0000,0000,0000,,Ouch!
-Dialogue: 0,0:18:16.54,0:18:18.42,main,Big Glasses,0000,0000,0000,,Not bad, Nitta.
-Dialogue: 0,0:18:18.81,0:18:22.39,main,Big Glasses,0000,0000,0000,,To think you would be the \None to end the Shinozuka-gumi...
-Dialogue: 0,0:18:23.30,0:18:24.35,main,Chimpilar,0000,0000,0000,,Damn!
-Dialogue: 0,0:18:24.03,0:18:25.45,top,Chimploo,0000,0000,0000,,Nitta-san's insane!
-Dialogue: 0,0:18:25.45,0:18:27.26,main,Chimchimcheroo,0000,0000,0000,,I'll follow you forever!
-Dialogue: 0,0:18:28.30,0:18:32.77,main,Big Glasses,0000,0000,0000,,I'm acknowledging you as the \Ntop soldier in the group,
-Dialogue: 0,0:18:32.77,0:18:35.28,main,,0000,0000,0000,,after what you just pulled off.
-Dialogue: 0,0:18:36.34,0:18:37.73,main,Yakman,0000,0000,0000,,What are you talking about, Chief?
-Dialogue: 0,0:18:38.17,0:18:39.18,main,Donburako,0000,0000,0000,,Delicious.
-Dialogue: 0,0:18:39.18,0:18:41.01,main,Donburako,0000,0000,0000,,I expect no less of the \Nhighest-quality green tea.
-Dialogue: 0,0:18:41.01,0:18:42.80,main,Chimpanjacket,0000,0000,0000,,I told you, that's from the 100-yen shop.
-Dialogue: 0,0:18:43.94,0:18:46.83,main,Yakman,0000,0000,0000,,Is there anything you want, Hina?
-Dialogue: 0,0:18:46.83,0:18:47.78,main,Donburako,0000,0000,0000,,Why?
-Dialogue: 0,0:18:48.15,0:18:49.96,main,Yakman,0000,0000,0000,,Because you helped me out.
-Dialogue: 0,0:18:49.96,0:18:51.91,main,Donburako,0000,0000,0000,,You've bought stuff for me today.
-Dialogue: 0,0:18:51.91,0:18:53.71,main,Yakman,0000,0000,0000,,We made a killing today.
-Dialogue: 0,0:18:53.71,0:18:56.41,main,Yakman,0000,0000,0000,,Besides, when someone helps you out, \Nyou do something in return.
-Dialogue: 0,0:18:58.42,0:19:00.33,main,Donburako,0000,0000,0000,,Th-Then...
-Dialogue: 0,0:19:01.37,0:19:02.38,main,Donburako,0000,0000,0000,,Ikura.
-Dialogue: 0,0:19:03.78,0:19:04.92,main,Yakman,0000,0000,0000,,All right.
-Dialogue: 0,0:19:04.92,0:19:07.05,sign_27451_368_Seasonal_Fish_Cu,Text,0000,0000,0000,,Seasonal Fish Cuisine\N{\fs24\b1}Gyou
-Dialogue: 0,0:19:07.50,0:19:08.51,main,Donburako,0000,0000,0000,,What...
-Dialogue: 0,0:19:08.84,0:19:10.00,main,,0000,0000,0000,,What is this?
-Dialogue: 0,0:19:10.78,0:19:12.63,main,Yakman,0000,0000,0000,,The highest-quality ikura bowl.
-Dialogue: 0,0:19:12.63,0:19:16.31,main,Donburako,0000,0000,0000,,I never knew there was a \Nway to eat so much ikura.
-Dialogue: 0,0:19:16.31,0:19:18.31,main,Donburako,0000,0000,0000,,What was the point of going for sushi?
-Dialogue: 0,0:19:20.77,0:19:21.87,main,Yakman,0000,0000,0000,,Say, Hina...
-Dialogue: 0,0:19:22.81,0:19:26.43,main,Yakman,0000,0000,0000,,I don't know how you've lived \Nyour life up until now,
-Dialogue: 0,0:19:26.43,0:19:28.18,main,,0000,0000,0000,,and I don't want to know.
-Dialogue: 0,0:19:28.81,0:19:33.03,main,Yakman,0000,0000,0000,,In the grown-up world, you earn a reward \Nthat's appropriate for the work you do.
-Dialogue: 0,0:19:36.47,0:19:39.27,main,Donburako,0000,0000,0000,,This is the grown-up world?
-Dialogue: 0,0:19:40.50,0:19:41.98,main,Donburako,0000,0000,0000,,Time to eat.
-Dialogue: 0,0:19:46.82,0:19:47.89,main,Yakman,0000,0000,0000,,How is it?
-Dialogue: 0,0:19:47.89,0:19:48.99,main,Yakman,0000,0000,0000,,Is it good?
-Dialogue: 0,0:19:48.99,0:19:51.17,main,Donburako,0000,0000,0000,,I can't describe it with words.
-Dialogue: 0,0:19:51.17,0:19:53.11,main,Donburako,0000,0000,0000,,If I had to, I would say it's very good.
-Dialogue: 0,0:19:53.11,0:19:55.30,main,Yakman,0000,0000,0000,,You're terrible at expressing yourself.
-Dialogue: 0,0:19:56.30,0:19:58.97,main,Donburako,0000,0000,0000,,Now, I have become a woman.
-Dialogue: 0,0:19:58.97,0:20:00.13,main,Yakman,0000,0000,0000,,No, you haven't.
-Dialogue: 0,0:20:08.65,0:20:11.90,main,Donburako,0000,0000,0000,,I hope you're using organic ingredients.
-Dialogue: 0,0:20:11.90,0:20:14.99,main,Yakman,0000,0000,0000,,Cheap food is good enough for your palate.
-Dialogue: 0,0:20:17.31,0:20:19.58,italics,Yakman,0000,0000,0000,,I told you not to use your powers.
-Dialogue: 0,0:20:21.38,0:20:23.11,main,Donburako,0000,0000,0000,,I'll see you later.
-Dialogue: 0,0:20:23.11,0:20:24.02,main,Yakman,0000,0000,0000,,Yeah.
-Dialogue: 0,0:22:05.59,0:22:09.18,main,Yakman,0000,0000,0000,,Is this from when Hina arrived?
-Dialogue: 0,0:22:12.45,0:22:14.65,main,Donburako,0000,0000,0000,,Hey, Nitta...
-Dialogue: 0,0:22:19.63,0:22:22.13,main,Donburako,0000,0000,0000,,G-Gross...
-Dialogue: 0,0:22:22.10,0:22:24.40,main,Yakman,0000,0000,0000,,This is how you got here, too, dude!
-Dialogue: 0,0:22:25.43,0:22:27.54,main,Yakman,0000,0000,0000,,Uh, hey, wait!
-Dialogue: 0,0:22:29.14,0:22:30.45,main,Yakman,0000,0000,0000,,Seriously, you're just leaving me here?!
-Dialogue: 0,0:22:30.45,0:22:32.27,main,Yakman,0000,0000,0000,,Hey, Hina!
-Dialogue: 0,0:22:39.18,0:22:46.02,italics,Yakman,0000,0000,0000,,I just need to hit the switch to get back!
-Dialogue: 0,0:22:47.38,0:22:50.06,main,Yakman,0000,0000,0000,,Here we go!
-Dialogue: 0,0:22:51.09,0:22:51.95,main,Yakman,0000,0000,0000,,Not that way!
-Dialogue: 0,0:22:51.95,0:22:52.84,main,Yakman,0000,0000,0000,,Ow!
-Dialogue: 0,0:22:56.01,0:22:57.25,main,Yakman,0000,0000,0000,,I'm finished.
-Dialogue: 0,0:23:13.99,0:23:15.61,main,Yakman,0000,0000,0000,,P-Please...
-Dialogue: 0,0:23:15.61,0:23:17.23,main,Yakman,0000,0000,0000,,Press the button.
-Dialogue: 0,0:23:18.16,0:23:20.56,main,Yakman,0000,0000,0000,,I'll make you breakfast.
-Dialogue: 0,0:23:34.96,0:23:40.61,sign_33925_408_Episode_2,Text,0000,0000,0000,,Episode 2
-Dialogue: 0,0:23:34.96,0:23:40.61,sign_33925_409_This_Is_How_You_,Text,0000,0000,0000,,This Is How You Have\Na Superpower Battle!
-Dialogue: 0,0:23:37.42,0:23:39.26,main,Yakman,0000,0000,0000,,{\i1}Termina*tor{\i0}.
+Format: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text
+Dialogue: 0,0:00:05.01,0:00:07.81,Default,Crusch,0000,0000,0000,,Emilia-sama and Natsuki Subaru-sama,
+Dialogue: 0,0:00:07.81,0:00:11.61,Default,Crusch,0000,0000,0000,,I would gladly host you two at \Nmy home for as long as you need.
+Dialogue: 0,0:00:12.04,0:00:13.67,Default,Emilia,0000,0000,0000,,We appreciate that,
+Dialogue: 0,0:00:13.67,0:00:17.69,Default,Emilia,0000,0000,0000,,but we do want to get the \Nvillagers back home.
+Dialogue: 0,0:00:17.69,0:00:19.60,Default,Subaru,0000,0000,0000,,We'll come back after we take them all home
+Dialogue: 0,0:00:19.60,0:00:22.50,Default,Subaru,0000,0000,0000,,and talk to her sponsor, Roswaal.
+Dialogue: 0,0:00:22.99,0:00:24.29,Default,Crusch,0000,0000,0000,,Very well.
+Dialogue: 0,0:00:24.29,0:00:28.29,Default,Crusch,0000,0000,0000,,When you do, I hope I can finally \Nrepay my great debt to you.
+Dialogue: 0,0:00:28.44,0:00:32.29,Default,Subaru,0000,0000,0000,,It's not that big a deal. \NYou helped us out, too.
+Dialogue: 0,0:00:32.29,0:00:35.59,Default,Subaru,0000,0000,0000,,We even got a reward. Right, Patrasche?
+Dialogue: 0,0:00:36.89,0:00:38.16,Default,Subaru,0000,0000,0000,,Ow!
+Dialogue: 0,0:00:38.16,0:00:39.35,Default,Emilia,0000,0000,0000,,Are you all right, Subaru?
+Dialogue: 0,0:00:39.64,0:00:41.88,Default,Subaru,0000,0000,0000,,Those scales hurt more than I expected!
+Dialogue: 0,0:00:41.88,0:00:44.75,Default,Subaru,0000,0000,0000,,Now I know how a daikon radish \Nfeels when it's being grated!
+Dialogue: 0,0:00:47.28,0:00:50.20,Default,Felis,0000,0000,0000,,Subaru-kyun, I've secured Rem-chan.
+Dialogue: 0,0:00:50.20,0:00:51.95,Default,Felis,0000,0000,0000,,Be sure to keep her still!
+Dialogue: 0,0:00:53.26,0:00:53.94,Default,Subaru,0000,0000,0000,,Okay.
+Dialogue: 0,0:00:53.94,0:00:58.59,Default,Felis,0000,0000,0000,,You'll need your rest when you \Nget back to the mansion, too.
+Dialogue: 0,0:00:58.59,0:00:59.35,Default,Subaru,0000,0000,0000,,Me?
+Dialogue: 0,0:00:59.78,0:01:03.37,Default,Felis,0000,0000,0000,,You've been working your gate overtime \Nsince you were going up against Sloth.
+Dialogue: 0,0:01:03.88,0:01:06.92,Default,Felis,0000,0000,0000,,I did clean up all the toxins in your gate,
+Dialogue: 0,0:01:06.92,0:01:09.04,Default,Felis,0000,0000,0000,,but you need to let it rest for two months.
+Dialogue: 0,0:01:09.30,0:01:10.78,Default,Subaru,0000,0000,0000,,Two months, huh?
+Dialogue: 0,0:01:11.17,0:01:14.57,Default,Subaru,0000,0000,0000,,Well, surely all this crazy stuff \Ncan't keep happening for {\i1}that{\i0} long...
+Dialogue: 0,0:01:15.20,0:01:16.93,Default,Subaru,0000,0000,0000,,Wait, did I just set a flag?!
+Dialogue: 0,0:01:17.27,0:01:20.83,Default,Felis,0000,0000,0000,,All right, it's time for you to get going.
+Dialogue: 0,0:01:20.83,0:01:22.24,Default,Felis,0000,0000,0000,,Go on, Crusch-sama.
+Dialogue: 0,0:01:22.24,0:01:25.17,Default,,0000,0000,0000,,Give them a few parting words.
+Dialogue: 0,0:01:25.78,0:01:28.64,Default,Crusch,0000,0000,0000,,Emilia-sama, I wish you good health.
+Dialogue: 0,0:01:29.02,0:01:32.07,Default,Crusch,0000,0000,0000,,I look forward to seeing you again very soon.
+Dialogue: 0,0:01:37.58,0:01:39.82,Default,Emilia,0000,0000,0000,,You, too, Crusch-san. Please be well.
+Dialogue: 0,0:01:40.48,0:01:43.68,Default,Emilia,0000,0000,0000,,Next time, I won't just be the \None who always needs saving.
+Dialogue: 0,0:01:43.68,0:01:46.37,Default,Emilia,0000,0000,0000,,I'll become someone who can help others.
+Dialogue: 0,0:01:48.92,0:01:50.60,Default,Crusch,0000,0000,0000,,Natsuki Subaru-sama,
+Dialogue: 0,0:01:50.60,0:01:53.67,Default,Crusch,0000,0000,0000,,I wish you all the best in the future, too.
+Dialogue: 0,0:02:09.00,0:02:11.98,Default,Crusch,0000,0000,0000,,I know we will meet again.
+Dialogue: 0,0:02:24.20,0:02:25.62,Default,Subaru,0000,0000,0000,,Right, then...
+Dialogue: 0,0:02:27.46,0:02:31.89,Default,Emilia,0000,0000,0000,,You know, Subaru, you always sit beside \Nme as if it's the obvious choice.
+Dialogue: 0,0:02:31.89,0:02:33.92,Default,Subaru,0000,0000,0000,,Oh, is there something weird about that?
+Dialogue: 0,0:02:34.40,0:02:37.42,Default,Emilia,0000,0000,0000,,No. I felt a little uncomfortable at first,
+Dialogue: 0,0:02:37.93,0:02:40.89,Default,Emilia,0000,0000,0000,,but now it feels strange if \Nyou don't, so it's fine.
+Dialogue: 0,0:02:42.12,0:02:45.33,Default,Subaru,0000,0000,0000,,My painstaking efforts have \Nfinally been rewarded!
+Dialogue: 0,0:02:45.33,0:02:46.58,Default,Subaru,0000,0000,0000,,I'm so moved!
+Dialogue: 0,0:02:46.58,0:02:48.23,Default,Emilia,0000,0000,0000,,You're teasing me again.
+Dialogue: 0,0:02:49.41,0:02:51.86,Default,Emilia,0000,0000,0000,,I know you're still worried about Rem.
+Dialogue: 0,0:02:52.45,0:02:54.98,Default,Emilia,0000,0000,0000,,There's no need for you to hide that.
+Dialogue: 0,0:02:56.62,0:02:59.05,Default,Emilia,0000,0000,0000,,She's important to you, isn't she?
+Dialogue: 0,0:02:59.05,0:03:00.68,Default,Subaru,0000,0000,0000,,She is! Super important!
+Dialogue: 0,0:03:00.68,0:03:02.57,Default,Subaru,0000,0000,0000,,As important to me as you are!
+Dialogue: 0,0:03:02.88,0:03:05.08,Default,Emilia,0000,0000,0000,,You're being very selfish.
+Dialogue: 0,0:03:05.53,0:03:06.91,Default,Emilia,0000,0000,0000,,Are you aware of that?
+Dialogue: 0,0:03:07.41,0:03:08.81,Default,Subaru,0000,0000,0000,,Sure, I am.
+Dialogue: 0,0:03:08.81,0:03:11.04,Default,Subaru,0000,0000,0000,,Frankly, I feel like such scum,\N I wish I could die.
+Dialogue: 0,0:03:11.53,0:03:13.67,Default,Subaru,0000,0000,0000,,But it's the absolute truth.
+Dialogue: 0,0:03:14.54,0:03:15.84,Default,Emilia,0000,0000,0000,,Subaru...
+Dialogue: 0,0:03:18.64,0:03:20.53,Default,Subaru,0000,0000,0000,,Did you just say my name?
+Dialogue: 0,0:03:21.48,0:03:23.23,Default,Subaru,0000,0000,0000,,No, I didn't!
+Dialogue: 0,0:03:23.23,0:03:24.99,Default,Subaru,0000,0000,0000,,Wait, have you been there all this time?
+Dialogue: 0,0:03:24.99,0:03:27.32,Default,Otto,0000,0000,0000,,Of course I've been here!
+Dialogue: 0,0:03:27.32,0:03:30.68,Default,Otto,0000,0000,0000,,Why do you think I decided \Nto work with you?!
+Dialogue: 0,0:03:30.95,0:03:32.30,Default,Subaru,0000,0000,0000,,I'm just kidding.
+Dialogue: 0,0:03:32.30,0:03:35.30,Default,Subaru,0000,0000,0000,,You want to negotiate with Roswaal in person.
+Dialogue: 0,0:03:35.30,0:03:36.46,Default,Subaru,0000,0000,0000,,I haven't forgotten that.
+Dialogue: 0,0:03:36.46,0:03:40.40,Default,otto,0000,0000,0000,,I'm begging you! My whole \Nlife is riding on this!
+Dialogue: 0,0:03:40.40,0:03:42.44,Default,Subaru,0000,0000,0000,,Yeah, yeah, I got it.
+Dialogue: 0,0:03:42.44,0:03:45.78,Default,Subaru,0000,0000,0000,,Time to say goodbye to you for now.
+Dialogue: 0,0:03:44.20,0:03:45.78,Default,Otto,0000,0000,0000,,{\an8}Oh, wai—
+Dialogue: 0,0:03:53.54,0:03:57.46,Default,Emilia,0000,0000,0000,,I'm sure you'll find a way to get her back.
+Dialogue: 0,0:03:58.90,0:04:00.17,Default,Subaru,0000,0000,0000,,Emilia-tan...
+Dialogue: 0,0:04:00.40,0:04:04.59,Default,Emilia,0000,0000,0000,,Also, I think you and I\N are the same in the sense
+Dialogue: 0,0:04:05.00,0:04:07.89,Default,Emilia,0000,0000,0000,,that we act for our own selfish reasons.
+Dialogue: 0,0:04:08.77,0:04:13.27,Default,Emilia,0000,0000,0000,,I realize that I'm participating in the \Nroyal selection for selfish reasons, too.
+Dialogue: 0,0:04:13.84,0:04:14.85,Default,Subaru,0000,0000,0000,,Selfish?
+Dialogue: 0,0:04:15.47,0:04:18.98,Default,Emilia,0000,0000,0000,,I'm sorry... I can't explain it very well.
+Dialogue: 0,0:04:19.60,0:04:22.40,Default,Emilia,0000,0000,0000,,I don't want to hide anything from you,
+Dialogue: 0,0:04:22.40,0:04:24.57,Default,Emilia,0000,0000,0000,,but I'm not sure how to put it into words.
+Dialogue: 0,0:04:28.40,0:04:32.93,Default,Subaru,0000,0000,0000,,We can talk everything out \Nafter we join up with Roswaal.
+Dialogue: 0,0:04:34.60,0:04:37.25,Default,Subaru,0000,0000,0000,,He might know something about \Nwhat happened to Rem, too!
+Dialogue: 0,0:04:38.77,0:04:39.44,Default,Emilia,0000,0000,0000,,Right.
+Dialogue: 0,0:04:41.32,0:04:45.06,Default,Otto,0000,0000,0000,,You two, we'll be reaching \Nour destination soon!
+Dialogue: 0,0:04:49.60,0:04:51.14,Default,Petra,0000,0000,0000,,No one's here.
+Dialogue: 0,0:04:53.29,0:04:55.03,Default,Guy,0000,0000,0000,,No one around here, either.
+Dialogue: 0,0:04:55.03,0:04:57.50,Default,Kids,0000,0000,0000,,What? Why?
+Dialogue: 0,0:04:57.85,0:05:00.76,Default,Emilia,0000,0000,0000,,So Ram and the others haven't \Nreturned from the Sanctuary?
+Dialogue: 0,0:05:00.76,0:05:02.24,Default,Subaru,0000,0000,0000,,Seems that way.
+Dialogue: 0,0:05:02.72,0:05:06.05,Default,Subaru,0000,0000,0000,,By the way, Emilia-tan, do you \Nknow where the Sanctuary is?
+Dialogue: 0,0:05:06.05,0:05:09.28,Default,Emilia,0000,0000,0000,,Huh? I thought {\i1}you{\i0} knew where it was.
+Dialogue: 0,0:05:09.28,0:05:09.91,Default,Subaru,0000,0000,0000,,Huh?
+Dialogue: 0,0:05:11.95,0:05:14.10,Default,Subaru,0000,0000,0000,,I know I'm late in asking,
+Dialogue: 0,0:05:14.10,0:05:16.58,Default,Subaru,0000,0000,0000,,but what kind of place is \Nthe Sanctuary, anyway?
+Dialogue: 0,0:05:16.97,0:05:18.49,Default,Emilia,0000,0000,0000,,I'm not sure, either.
+Dialogue: 0,0:05:18.49,0:05:22.67,Default,Emilia,0000,0000,0000,,Roswaal only said it was like \Na secret base... and...
+Dialogue: 0,0:05:22.67,0:05:23.54,Default,Subaru,0000,0000,0000,,And?
+Dialogue: 0,0:05:24.52,0:05:26.13,Default,Emilia,0000,0000,0000,,Nothing, never mind.
+Dialogue: 0,0:05:26.57,0:05:29.14,Default,Emilia,0000,0000,0000,,I'm sorry. I should have asked.
+Dialogue: 0,0:05:29.32,0:05:31.95,Default,Subaru,0000,0000,0000,,No, no! Even if we were in \Na hurry to get to safety,
+Dialogue: 0,0:05:31.95,0:05:34.40,Default,Subaru,0000,0000,0000,,I'm the one who was way too careless!
+Dialogue: 0,0:05:38.50,0:05:40.95,Default,Subaru,0000,0000,0000,,We'll just have to head to the mansion for now.
+Dialogue: 0,0:05:40.95,0:05:42.61,Default,Subaru,0000,0000,0000,,Maybe we'll find some clues there.
+Dialogue: 0,0:05:43.22,0:05:44.86,Default,Subaru,0000,0000,0000,,Otto, come with us!
+Dialogue: 0,0:05:45.43,0:05:47.24,Default,Otto,0000,0000,0000,,What? To the mansion?
+Dialogue: 0,0:05:47.48,0:05:49.85,Default,Subaru,0000,0000,0000,,Don't be so scared after \Nwe've come this far.
+Dialogue: 0,0:05:49.85,0:05:52.67,Default,Subaru,0000,0000,0000,,Take the carriage and the ground \Ndragons around back, okay?
+Dialogue: 0,0:05:52.67,0:05:54.50,Default,Otto,0000,0000,0000,,All right...
+Dialogue: 0,0:05:59.41,0:06:01.46,Default,Subaru,0000,0000,0000,,We're back, Rem.
+Dialogue: 0,0:06:02.17,0:06:03.44,Default,Emilia,0000,0000,0000,,Are you all right?
+Dialogue: 0,0:06:03.44,0:06:04.42,Default,Subaru,0000,0000,0000,,Yeah.
+Dialogue: 0,0:06:04.73,0:06:08.30,Default,Subaru,0000,0000,0000,,Come to think of it, I don't remember \Nlocking the door when we left.
+Dialogue: 0,0:06:08.30,0:06:09.55,Default,Subaru,0000,0000,0000,,You think we got robbed?
+Dialogue: 0,0:06:10.04,0:06:13.85,Default,Emilia,0000,0000,0000,,Beatrice stayed here, so I \Ndon't think we need to worry.
+Dialogue: 0,0:06:13.85,0:06:16.68,Default,Emilia,0000,0000,0000,,Maybe she'll come get the \Ndoor for us if we knock.
+Dialogue: 0,0:06:18.12,0:06:20.96,Default,Subaru,0000,0000,0000,,She might come flying through \Nit, looking for Puck.
+Dialogue: 0,0:06:20.96,0:06:21.69,Default,Emilia,0000,0000,0000,,That's true.
+Dialogue: 0,0:06:22.58,0:06:24.61,Default,Emilia,0000,0000,0000,,Puck? Puck?
+Dialogue: 0,0:06:24.94,0:06:27.60,Default,Emilia,0000,0000,0000,,Huh? He's not responding.
+Dialogue: 0,0:06:27.60,0:06:29.32,Default,Emilia,0000,0000,0000,,Maybe he's asleep.
+Dialogue: 0,0:06:29.32,0:06:30.36,Default,Subaru,0000,0000,0000,,How about in here?
+Dialogue: 0,0:06:34.52,0:06:36.57,Default,Frederica,0000,0000,0000,,Yes, one moment, please.
+Dialogue: 0,0:06:38.59,0:06:41.55,Default,Frederica,0000,0000,0000,,Welcome home, Emilia-sama.
+Dialogue: 0,0:06:41.55,0:06:44.50,Default,Frederica,0000,0000,0000,,I have awaited your return.
+Dialogue: 0,0:06:45.17,0:06:46.21,Default,Emilia,0000,0000,0000,,Frederica?
+Dialogue: 0,0:06:49.54,0:06:51.36,Default,Frederica,0000,0000,0000,,Yes, it is I, Frederi—
+Dialogue: 0,0:06:51.36,0:06:52.43,Default,Subaru,0000,0000,0000,,Those teeth are scary!
+Dialogue: 0,0:06:54.48,0:06:55.75,Default,Frederica,0000,0000,0000,,Allow me to introduce myself.
+Dialogue: 0,0:06:55.75,0:06:59.81,Default,Frederica,0000,0000,0000,,I am Frederica Baumann. I was \Nemployed here in the past.
+Dialogue: 0,0:07:01.29,0:07:02.62,Default,Subaru,0000,0000,0000,,Now that you mention it,
+Dialogue: 0,0:07:02.62,0:07:05.69,Default,Subaru,0000,0000,0000,,I was told there was another maid \Nwho quit just before I came here...
+Dialogue: 0,0:07:06.18,0:07:10.01,Default,Frederica,0000,0000,0000,,I merely took my leave for personal reasons.
+Dialogue: 0,0:07:10.48,0:07:14.91,Default,Frederica,0000,0000,0000,,Then I returned at Ram's request, \Nand found the mansion empty.
+Dialogue: 0,0:07:15.76,0:07:18.52,Default,Frederica,0000,0000,0000,,Fortunately, a letter I found \Nin the master's office
+Dialogue: 0,0:07:18.52,0:07:20.71,Default,Frederica,0000,0000,0000,,gave me an idea as to what had happened.
+Dialogue: 0,0:07:20.71,0:07:21.60,Default,Emilia,0000,0000,0000,,A letter?
+Dialogue: 0,0:07:22.04,0:07:24.17,Default,Subaru,0000,0000,0000,,And why did Ram ask you to come back?
+Dialogue: 0,0:07:24.75,0:07:26.49,Default,Frederica,0000,0000,0000,,When I returned,
+Dialogue: 0,0:07:26.86,0:07:29.56,Default,,0000,0000,0000,,the kitchen and the trees in the \Ngarden were in a desolate state.
+Dialogue: 0,0:07:29.56,0:07:31.01,Default,Frederica,0000,0000,0000,,It was quite awful.
+Dialogue: 0,0:07:33.33,0:07:34.97,Default,Subaru,0000,0000,0000,,That's a pretty serious reason!
+Dialogue: 0,0:07:36.34,0:07:38.27,Default,Emilia,0000,0000,0000,,It's strange, though.
+Dialogue: 0,0:07:38.27,0:07:42.75,Default,Emilia,0000,0000,0000,,Ram has always worked hard \Nfor us while you were away,
+Dialogue: 0,0:07:42.75,0:07:44.69,Default,Emilia,0000,0000,0000,,so why, in just the past few days...
+Dialogue: 0,0:07:47.67,0:07:50.94,Default,Subaru,0000,0000,0000,,With Rem gone, Ram couldn't \Nhandle the mansion herself,
+Dialogue: 0,0:07:51.22,0:07:53.66,Default,Subaru,0000,0000,0000,,so she asked Frederica to help?
+Dialogue: 0,0:07:54.87,0:07:58.37,Default,Frederica,0000,0000,0000,,Would you mind explaining \Nto me who this girl
+Dialogue: 0,0:07:58.37,0:07:59.87,Default,,0000,0000,0000,,who bears a striking resemblance to Ram is?
+Dialogue: 0,0:08:00.45,0:08:02.53,Default,Subaru,0000,0000,0000,,She's Ram's younger sister, Rem.
+Dialogue: 0,0:08:02.53,0:08:04.35,Default,Subaru,0000,0000,0000,,She's a really nice girl.
+Dialogue: 0,0:08:04.93,0:08:08.18,Default,Subaru,0000,0000,0000,,She's kind, strong, and a super-hard worker.
+Dialogue: 0,0:08:08.57,0:08:12.93,Default,Subaru,0000,0000,0000,,Even I could tell that she \Nand Ram were really close.
+Dialogue: 0,0:08:13.58,0:08:16.58,Default,Subaru,0000,0000,0000,,I'm sure you were a good friend to her, too.
+Dialogue: 0,0:08:18.40,0:08:21.35,Default,Subaru,0000,0000,0000,,You... probably don't remember, though, right?
+Dialogue: 0,0:08:22.25,0:08:23.91,Default,Frederica,0000,0000,0000,,Unfortunately, no.
+Dialogue: 0,0:08:23.91,0:08:28.07,Default,Frederica,0000,0000,0000,,I wonder how the master and Ram \Nwill react when they return...
+Dialogue: 0,0:08:28.53,0:08:30.66,Default,Subaru,0000,0000,0000,,I can't even guess what Roswaal will do.
+Dialogue: 0,0:08:31.31,0:08:34.28,Default,Subaru,0000,0000,0000,,And... I don't want to \Nimagine how Ram will react.
+Dialogue: 0,0:08:35.60,0:08:39.63,Default,Emilia,0000,0000,0000,,Hey, Frederica, have you \Nheard anything from Roswaal?
+Dialogue: 0,0:08:39.63,0:08:44.79,Default,Frederica,0000,0000,0000,,Sadly, I have no way of knowing all \Nthat goes on in the master's mind.
+Dialogue: 0,0:08:45.43,0:08:51.26,Default,Frederica,0000,0000,0000,,I believe there are only two people in \Nthis world he trusts enough for that.
+Dialogue: 0,0:08:51.76,0:08:52.80,Default,Subaru,0000,0000,0000,,Two?
+Dialogue: 0,0:08:52.80,0:08:56.68,Default,Frederica,0000,0000,0000,,Ram and the great spirit of this \Nmansion's forbidden library.
+Dialogue: 0,0:08:56.68,0:08:58.72,Default,Subaru,0000,0000,0000,,Great spirit of the forbidden library?
+Dialogue: 0,0:09:00.30,0:09:02.11,Default,Frederica,0000,0000,0000,,I refer to Beatrice-sama.
+Dialogue: 0,0:09:13.32,0:09:15.70,Default,Subaru,0000,0000,0000,,Hey, Beako! Long time no see!
+Dialogue: 0,0:09:16.50,0:09:20.46,Default,Beatrice,0000,0000,0000,,Now I see why the mansion \Nsuddenly seemed so noisy.
+Dialogue: 0,0:09:22.54,0:09:25.41,Default,Subaru,0000,0000,0000,,Everyone's been worried about you.
+Dialogue: 0,0:09:25.41,0:09:27.79,Default,Subaru,0000,0000,0000,,You should apologize, even if \Nit has to wait until later.
+Dialogue: 0,0:09:28.01,0:09:30.67,Default,Beatrice,0000,0000,0000,,Apologize? Me?
+Dialogue: 0,0:09:30.67,0:09:34.17,Default,Beatrice,0000,0000,0000,,I fail to comprehend why I \Nmust apologize, and to whom, I suppose.
+Dialogue: 0,0:09:34.69,0:09:37.26,Default,Subaru,0000,0000,0000,,I could go apologize for you, if you want.
+Dialogue: 0,0:09:37.26,0:09:40.93,Default,Subaru,0000,0000,0000,,I'll tell them you were thanking me with \Ntears and snot streaming down your face.
+Dialogue: 0,0:09:40.93,0:09:42.81,Default,Beatrice,0000,0000,0000,,Don't make up stories!
+Dialogue: 0,0:09:42.81,0:09:45.60,Default,Beatrice,0000,0000,0000,,I haven't shed tears in a \Nvery long time, I suppose.
+Dialogue: 0,0:09:45.60,0:09:48.25,Default,Subaru,0000,0000,0000,,It never hurts to have a good \Nwail every once in a while.
+Dialogue: 0,0:09:48.25,0:09:50.32,Default,Beatrice,0000,0000,0000,,Those words carry deep meaning,
+Dialogue: 0,0:09:50.32,0:09:53.78,Default,,0000,0000,0000,,coming from a man who bawled in \Nthe lap of the woman he loves.
+Dialogue: 0,0:09:53.78,0:09:56.55,Default,Subaru,0000,0000,0000,,Would you just forget about that already?
+Dialogue: 0,0:09:56.55,0:09:58.80,Default,Beatrice,0000,0000,0000,,Could you please get to the point, I suppose?
+Dialogue: 0,0:09:58.80,0:09:59.95,Default,Beatrice,0000,0000,0000,,You weakling.
+Dialogue: 0,0:10:00.28,0:10:01.18,Default,Subaru,0000,0000,0000,,Oh, yeah...
+Dialogue: 0,0:10:03.67,0:10:07.08,Default,Subaru,0000,0000,0000,,How well do you know what \NRoswaal's thinking?
+Dialogue: 0,0:10:08.98,0:10:13.80,Default,Subaru,0000,0000,0000,,Someone told me that you \Nknow how Roswaal thinks.
+Dialogue: 0,0:10:14.25,0:10:15.52,Default,Beatrice,0000,0000,0000,,Who said—
+Dialogue: 0,0:10:15.52,0:10:16.27,Default,Beatrice,0000,0000,0000,,Ah.
+Dialogue: 0,0:10:16.72,0:10:19.59,Default,Beatrice,0000,0000,0000,,It must have been the \Nhalf-beast girl who just came back.
+Dialogue: 0,0:10:20.24,0:10:24.28,Default,Beatrice,0000,0000,0000,,There is a bit of accuracy to \Nwhat she told you, I suppose.
+Dialogue: 0,0:10:24.28,0:10:28.73,Default,Beatrice,0000,0000,0000,,But my connection with Roswaal has nothing \Nto do with the current circumstances.
+Dialogue: 0,0:10:29.16,0:10:31.80,Default,Subaru,0000,0000,0000,,But you stayed here at the mansion by yourself,
+Dialogue: 0,0:10:32.19,0:10:34.07,Default,Subaru,0000,0000,0000,,even with no countermeasures in place.
+Dialogue: 0,0:10:34.34,0:10:36.99,Default,Beatrice,0000,0000,0000,,I'm capable of protecting myself.
+Dialogue: 0,0:10:36.99,0:10:39.16,Default,Beatrice,0000,0000,0000,,That's why I stayed, I suppose.
+Dialogue: 0,0:10:39.16,0:10:41.60,Default,Beatrice,0000,0000,0000,,Roswaal has nothing to do with that.
+Dialogue: 0,0:10:41.60,0:10:46.08,Default,Beatrice,0000,0000,0000,,That said, I don't believe he had \Nnothing on his mind at all, I suppose.
+Dialogue: 0,0:10:46.27,0:10:47.49,Default,Subaru,0000,0000,0000,,Hmm...
+Dialogue: 0,0:10:47.49,0:10:53.30,Default,Subaru,0000,0000,0000,,Were you and I and everyone else \Njust giving him too much credit,
+Dialogue: 0,0:10:53.30,0:10:56.23,Default,Subaru,0000,0000,0000,,thinking he wouldn't go up against \Nthe Witch's Cult with no plan?
+Dialogue: 0,0:10:57.26,0:10:58.46,Default,Subaru,0000,0000,0000,,Oh, that's right.
+Dialogue: 0,0:10:59.68,0:11:00.86,Default,Subaru,0000,0000,0000,,Take a look at this.
+Dialogue: 0,0:11:03.21,0:11:04.76,Default,Beatrice,0000,0000,0000,,A Gospel...
+Dialogue: 0,0:11:05.35,0:11:08.60,Default,Beatrice,0000,0000,0000,,Why do you, of all people, \Nhave one of those?!
+Dialogue: 0,0:11:09.11,0:11:11.22,Default,Subaru,0000,0000,0000,,I took it off the enemy after a battle.
+Dialogue: 0,0:11:11.22,0:11:14.98,Default,Subaru,0000,0000,0000,,It belonged to the guy in charge of the witch \Ncultists who surrounded the mansion.
+Dialogue: 0,0:11:15.72,0:11:17.69,Default,Beatrice,0000,0000,0000,,And what became of him?
+Dialogue: 0,0:11:18.01,0:11:19.11,Default,Subaru,0000,0000,0000,,He's dead.
+Dialogue: 0,0:11:19.46,0:11:21.28,Default,Subaru,0000,0000,0000,,I killed him.
+Dialogue: 0,0:11:24.00,0:11:26.93,Default,Beatrice,0000,0000,0000,,Then you've left me behind, too, I suppose...
+Dialogue: 0,0:11:28.07,0:11:29.16,Default,Beatrice,0000,0000,0000,,Geuse.
+Dialogue: 0,0:11:30.28,0:11:31.12,Default,Subaru,0000,0000,0000,,Who's that?
+Dialogue: 0,0:11:32.36,0:11:33.85,Default,Beatrice,0000,0000,0000,,None of your concern.
+Dialogue: 0,0:11:34.35,0:11:38.80,Default,Beatrice,0000,0000,0000,,Anyway, if you killed Sloth, a Sin Archbishop,
+Dialogue: 0,0:11:38.80,0:11:40.63,Default,Beatrice,0000,0000,0000,,what happened to his Witch Factor?
+Dialogue: 0,0:11:41.30,0:11:43.14,Default,Subaru,0000,0000,0000,,Witch... Factor?
+Dialogue: 0,0:11:43.75,0:11:46.51,Default,Beatrice,0000,0000,0000,,You don't know what it is? You really don't?
+Dialogue: 0,0:11:47.02,0:11:51.16,Default,Beatrice,0000,0000,0000,,If that's the case, then why \Ndid you bother to kill Sloth?
+Dialogue: 0,0:11:51.16,0:11:53.15,Default,Beatrice,0000,0000,0000,,And what is Roswaal...
+Dialogue: 0,0:11:53.15,0:11:56.93,Default,Subaru,0000,0000,0000,,I told you, remember? \NRoswaal is at the Sanctuary!
+Dialogue: 0,0:11:56.93,0:11:59.58,Default,Subaru,0000,0000,0000,,I'm the one who wants to \Nknow what he's thinking!
+Dialogue: 0,0:12:01.60,0:12:06.12,Default,Beatrice,0000,0000,0000,,All the answers you seek lie \Nin the Sanctuary, I suppose.
+Dialogue: 0,0:12:06.69,0:12:07.64,Default,Subaru,0000,0000,0000,,What?
+Dialogue: 0,0:12:07.64,0:12:10.93,Default,Beatrice,0000,0000,0000,,Roswaal's intentions, the meaning of the Gospel,
+Dialogue: 0,0:12:10.93,0:12:14.12,Default,Beatrice,0000,0000,0000,,answers about the Witch Factor...\NThey're all there.
+Dialogue: 0,0:12:14.97,0:12:16.67,Default,Beatrice,0000,0000,0000,,If you want them, go there.
+Dialogue: 0,0:12:17.57,0:12:20.76,Default,Beatrice,0000,0000,0000,,The half-beast girl can \Nlead you there, I suppose.
+Dialogue: 0,0:12:21.03,0:12:23.41,Default,Subaru,0000,0000,0000,,Hang on a second! What's up with you?
+Dialogue: 0,0:12:23.41,0:12:25.32,Default,Subaru,0000,0000,0000,,Why are you suddenly willing to talk to me?
+Dialogue: 0,0:12:25.32,0:12:27.48,Default,Subaru,0000,0000,0000,,Also, why do I have to go to \Nthe Sanctuary when you—
+Dialogue: 0,0:12:27.48,0:12:29.07,Default,Beatrice,0000,0000,0000,,I will not tell you.
+Dialogue: 0,0:12:29.64,0:12:32.77,Default,Beatrice,0000,0000,0000,,I have the right to refuse to tell you.
+Dialogue: 0,0:12:34.51,0:12:37.04,Default,Beatrice,0000,0000,0000,,I showed you the path that \Nleads to your answers.
+Dialogue: 0,0:12:37.04,0:12:39.56,Default,Beatrice,0000,0000,0000,,Do not expect me to indulge \Nyou any further, I suppose!
+Dialogue: 0,0:12:39.56,0:12:41.56,Default,Subaru,0000,0000,0000,,Beako... Beatrice!
+Dialogue: 0,0:12:41.56,0:12:45.20,Default,Beatrice,0000,0000,0000,,I am not a tool here for your convenience!
+Dialogue: 0,0:12:49.81,0:12:54.12,Default,Otto,0000,0000,0000,,{\an8}Wh-Why did you fly into me just \Nas I was leaving the bathroom?!
+Dialogue: 0,0:12:53.26,0:12:57.21,Default,Subaru,0000,0000,0000,,Why did you look like you \Nwere about to cry again?
+Dialogue: 0,0:12:57.21,0:12:59.09,Default,Otto,0000,0000,0000,,Excuse me! Could you please get off of—
+Dialogue: 0,0:13:01.60,0:13:05.13,Default,Frederica,0000,0000,0000,,So you really are allowed to enter \NBeatrice-sama's forbidden library?
+Dialogue: 0,0:13:05.36,0:13:07.51,Default,Subaru,0000,0000,0000,,What? You thought I wouldn't be?
+Dialogue: 0,0:13:07.84,0:13:12.81,Default,Frederica,0000,0000,0000,,Yes, but Emilia-sama has told me \Nwhat a reliable person you are,
+Dialogue: 0,0:13:12.81,0:13:15.51,Default,Frederica,0000,0000,0000,,and she was quite thorough \Nin explaining why,
+Dialogue: 0,0:13:15.99,0:13:18.56,Default,Frederica,0000,0000,0000,,so half of me had high\Nhopes that you would be.
+Dialogue: 0,0:13:18.56,0:13:18.98,Default,Subaru,0000,0000,0000,,Huh?
+Dialogue: 0,0:13:19.28,0:13:20.72,Default,Emilia,0000,0000,0000,,Hey! Frederica!
+Dialogue: 0,0:13:20.72,0:13:22.48,Default,Subaru,0000,0000,0000,,What? What did you tell her?
+Dialogue: 0,0:13:22.71,0:13:27.74,Default,Emilia,0000,0000,0000,,It's not like that! I did tell her \Nabout you, but she's exaggerating!
+Dialogue: 0,0:13:28.06,0:13:30.68,Default,Otto,0000,0000,0000,,No, I heard what you said, too.
+Dialogue: 0,0:13:30.68,0:13:33.37,Default,Otto,0000,0000,0000,,It made me think there must be more \Nto Natsuki-san than meets the eye.
+Dialogue: 0,0:13:33.66,0:13:34.90,Default,Emilia,0000,0000,0000,,Not you, too, Otto-kun!
+Dialogue: 0,0:13:34.90,0:13:38.54,Default,Subaru,0000,0000,0000,,Why wasn't I around to hear all this?!
+Dialogue: 0,0:13:38.54,0:13:40.42,Default,Emilia,0000,0000,0000,,I could never say it in front of you.
+Dialogue: 0,0:13:41.14,0:13:43.87,Default,Emilia,0000,0000,0000,,Now, Frederica, back to what you were saying!
+Dialogue: 0,0:13:43.87,0:13:46.09,Default,Frederica,0000,0000,0000,,Yes, of course. I know.
+Dialogue: 0,0:13:46.68,0:13:50.83,Default,Frederica,0000,0000,0000,,Let us talk it over so you don't \Nfind yourself at a dead end.
+Dialogue: 0,0:13:50.83,0:13:52.84,Default,Subaru,0000,0000,0000,,Dead end? What do you mean?
+Dialogue: 0,0:13:52.84,0:13:54.88,Default,Emilia,0000,0000,0000,,Even if you were able to see Beatrice,
+Dialogue: 0,0:13:54.88,0:13:58.03,Default,Emilia,0000,0000,0000,,whether or not she'd answer your \Nquestion was another matter.
+Dialogue: 0,0:13:58.03,0:14:01.73,Default,Emilia,0000,0000,0000,,Both you and Beatrice can be \Nvery stubborn, you know.
+Dialogue: 0,0:14:02.20,0:14:05.96,Default,Subaru,0000,0000,0000,,That description is way too cute,\N but you're right.
+Dialogue: 0,0:14:05.96,0:14:06.70,Default,Subaru,0000,0000,0000,,And?
+Dialogue: 0,0:14:07.21,0:14:10.46,Default,Emilia,0000,0000,0000,,There's a lot I want to talk \Nto Roswaal about, too.
+Dialogue: 0,0:14:10.88,0:14:12.70,Default,Emilia,0000,0000,0000,,So I asked Frederica
+Dialogue: 0,0:14:13.13,0:14:15.01,Default,Emilia,0000,0000,0000,,to tell me where the Sanctuary is.
+Dialogue: 0,0:14:16.27,0:14:19.54,Default - flashback,Beatrice,0000,0000,0000,,The half-beast girl can \Nlead you there, I suppose.
+Dialogue: 0,0:14:20.33,0:14:23.06,Default,Subaru,0000,0000,0000,,So you're going to tell us \Nwhere it is, Frederica?
+Dialogue: 0,0:14:23.06,0:14:25.77,Default,Frederica,0000,0000,0000,,I was no match for \NEmilia-sama's persistence,
+Dialogue: 0,0:14:25.77,0:14:29.62,Default,Frederica,0000,0000,0000,,even though I have been told not to \Ndisclose any more than necessary.
+Dialogue: 0,0:14:30.00,0:14:33.22,Default,Frederica,0000,0000,0000,,But I would like to ask \Nfor a bit of time to prepare.
+Dialogue: 0,0:14:33.92,0:14:35.39,Default,Frederica,0000,0000,0000,,Shall we say two days?
+Dialogue: 0,0:14:35.68,0:14:36.97,Default,Subaru,0000,0000,0000,,Prepare?
+Dialogue: 0,0:14:37.28,0:14:41.35,Default,Subaru,0000,0000,0000,,Oh, that's right. We'd all be \Nleaving the mansion, so that's—
+Dialogue: 0,0:14:41.52,0:14:44.28,Default,Frederica,0000,0000,0000,,No, I will be staying in the mansion.
+Dialogue: 0,0:14:44.28,0:14:45.44,Default,Frederica,0000,0000,0000,,I cannot accompany you.
+Dialogue: 0,0:14:45.96,0:14:47.80,Default,Subaru,0000,0000,0000,,What? You're not going with us?
+Dialogue: 0,0:14:47.80,0:14:49.54,Default,Subaru,0000,0000,0000,,How are we supposed to get there, then?
+Dialogue: 0,0:14:51.93,0:14:54.39,Default,Otto,0000,0000,0000,,You're rather slow on the uptake, Natsuki-san.
+Dialogue: 0,0:14:56.60,0:15:00.53,Default,Subaru,0000,0000,0000,,Oh! So Otto's gonna get us to the Sanctuary?
+Dialogue: 0,0:15:00.91,0:15:03.43,Default,Subaru,0000,0000,0000,,Because he thinks cooperating \Nwith Emilia in any way possible
+Dialogue: 0,0:15:03.43,0:15:07.71,Default,Subaru,0000,0000,0000,,will give Roswaal, her backer, \Na better impression of him?
+Dialogue: 0,0:15:05.53,0:15:07.05,Default,Otto,0000,0000,0000,,{\an8}No, er...
+Dialogue: 0,0:15:07.71,0:15:09.51,Default,Emilia,0000,0000,0000,,Otto-kun, is that true?
+Dialogue: 0,0:15:09.96,0:15:12.84,Default,Otto,0000,0000,0000,,Emilia-sama's pure, innocent \Neyes are killing me!
+Dialogue: 0,0:15:12.84,0:15:14.80,Default,Otto,0000,0000,0000,,I'm sorry! That's exactly right!
+Dialogue: 0,0:15:14.80,0:15:18.67,Default,Subaru,0000,0000,0000,,The way you wear your ulterior motive on your\N sleeve makes you all the more likable, Otto.
+Dialogue: 0,0:15:18.67,0:15:21.48,Default,Otto,0000,0000,0000,,That's not exactly comforting, \Ncoming from you!
+Dialogue: 0,0:15:21.77,0:15:23.29,Default,Subaru,0000,0000,0000,,I appreciate your help.
+Dialogue: 0,0:15:23.66,0:15:27.04,Default,Subaru,0000,0000,0000,,On that note, you can tell the \Nthree of us about the Sanctuary.
+Dialogue: 0,0:15:27.76,0:15:29.19,Default,Frederica,0000,0000,0000,,Very well.
+Dialogue: 0,0:15:30.34,0:15:32.43,Default,Frederica,0000,0000,0000,,What I am about to tell you
+Dialogue: 0,0:15:32.43,0:15:36.28,Default,Frederica,0000,0000,0000,,is the undisclosed location of the Sanctuary \Nof Clemaldy, and how to enter it.
+Dialogue: 0,0:15:36.99,0:15:42.08,Default,Frederica,0000,0000,0000,,And there is one name you must \Nnot forget as you travel there.
+Dialogue: 0,0:15:42.08,0:15:45.50,Default,Frederica,0000,0000,0000,,Beware of one by the name of "Garfiel."
+Dialogue: 0,0:15:46.02,0:15:47.25,Default,Frederica,0000,0000,0000,,At the Sanctuary,
+Dialogue: 0,0:15:47.52,0:15:53.42,Default,Frederica,0000,0000,0000,,he will be the one with whom you \Nmust exercise the most care.
+Dialogue: 0,0:16:00.20,0:16:00.98,Default,Subaru,0000,0000,0000,,Rem...
+Dialogue: 0,0:16:01.67,0:16:02.88,Default,Subaru,0000,0000,0000,,We're leaving now.
+Dialogue: 0,0:16:03.46,0:16:06.92,Default,Subaru,0000,0000,0000,,I told Frederica to take good care of you.
+Dialogue: 0,0:16:06.92,0:16:08.78,Default,Subaru,0000,0000,0000,,Be good and wait here for me, okay?
+Dialogue: 0,0:16:18.72,0:16:20.12,Default,Petra,0000,0000,0000,,You're ready?
+Dialogue: 0,0:16:20.12,0:16:21.45,Default,Subaru,0000,0000,0000,,Sure am, new recruit.
+Dialogue: 0,0:16:21.45,0:16:23.76,Default,Subaru,0000,0000,0000,,I see you're rocking the uniform already.
+Dialogue: 0,0:16:23.76,0:16:24.94,Default,Petra,0000,0000,0000,,Right?
+Dialogue: 0,0:16:27.07,0:16:29.94,Default,Petra,0000,0000,0000,,Did you say goodbye to Rem-san?
+Dialogue: 0,0:16:29.94,0:16:31.82,Default,Subaru,0000,0000,0000,,Yeah, something like that.
+Dialogue: 0,0:16:32.16,0:16:34.51,Default,Subaru,0000,0000,0000,,We're not planning to stay out there long,
+Dialogue: 0,0:16:34.51,0:16:35.89,Default,Subaru,0000,0000,0000,,but I wanted to see her first.
+Dialogue: 0,0:16:36.84,0:16:41.47,Default,Subaru,0000,0000,0000,,Could you take care of Rem for \Nme while I'm gone, Petra?
+Dialogue: 0,0:16:42.13,0:16:44.31,Default,Petra,0000,0000,0000,,Understood, Subaru-sama!
+Dialogue: 0,0:16:45.02,0:16:48.11,Default,Subaru,0000,0000,0000,,Still, we started advertising to \Nhire a new maid two days ago,
+Dialogue: 0,0:16:48.11,0:16:50.43,Default,Subaru,0000,0000,0000,,and this is your first day \Nactually being in the mansion.
+Dialogue: 0,0:16:50.43,0:16:52.90,Default,Subaru,0000,0000,0000,,I'm impressed you found the \Nplace without getting lost.
+Dialogue: 0,0:16:53.37,0:16:57.16,Default,Subaru,0000,0000,0000,,And I really admire your decision to \Nleave your parents at such a young age.
+Dialogue: 0,0:16:57.16,0:17:00.63,Default,Petra,0000,0000,0000,,I'm twelve years old! I'm old \Nenough to be a working grown-up!
+Dialogue: 0,0:17:00.63,0:17:02.29,Default,Petra,0000,0000,0000,,I mean... an adult!
+Dialogue: 0,0:17:02.81,0:17:06.24,Default,Petra,0000,0000,0000,,You need to treat me like \Nan adult, too, Subaru-sama!
+Dialogue: 0,0:17:06.24,0:17:09.77,Default,Subaru,0000,0000,0000,,Get better at speaking politely and \Nget Frederica to fully initiate you,
+Dialogue: 0,0:17:09.77,0:17:10.90,Default,,0000,0000,0000,,and I'll think about it.
+Dialogue: 0,0:17:10.90,0:17:11.64,Default,Petra,0000,0000,0000,,'Kay!
+Dialogue: 0,0:17:11.64,0:17:12.88,Default,Petra,0000,0000,0000,,I mean... yes, sir!
+Dialogue: 0,0:17:18.68,0:17:21.91,Default,Subaru,0000,0000,0000,,I forgot what a pain she can be \Nwhen she's serious about hiding.
+Dialogue: 0,0:17:22.46,0:17:24.89,Default,Petra,0000,0000,0000,,Is there really a mysterious room here?
+Dialogue: 0,0:17:25.24,0:17:27.06,Default,Subaru,0000,0000,0000,,Yeah... Beatrice.
+Dialogue: 0,0:17:27.06,0:17:30.70,Default,Subaru,0000,0000,0000,,You know her, right? \NTake care of her for me, too.
+Dialogue: 0,0:17:31.28,0:17:35.28,Default,Subaru,0000,0000,0000,,You might randomly encounter her \Nwhen opening a door somewhere.
+Dialogue: 0,0:17:35.72,0:17:38.87,Default,Petra,0000,0000,0000,,Wait, Subaru-sama! Aren't you \Nasking a bit much of me?
+Dialogue: 0,0:17:39.35,0:17:40.91,Default,Subaru,0000,0000,0000,,I know. Sorry.
+Dialogue: 0,0:17:41.30,0:17:43.32,Default,Subaru,0000,0000,0000,,But you're the only one I can ask.
+Dialogue: 0,0:17:43.32,0:17:44.58,Default,Subaru,0000,0000,0000,,I really am sorry.
+Dialogue: 0,0:17:48.01,0:17:49.44,Default,Petra,0000,0000,0000,,Oh, all right!
+Dialogue: 0,0:17:49.44,0:17:52.09,Default,Petra,0000,0000,0000,,If you insist, I'll just have to help you out!
+Dialogue: 0,0:17:52.09,0:17:54.01,Default,Subaru,0000,0000,0000,,Thanks. You're really a huge help.
+Dialogue: 0,0:17:55.43,0:17:57.56,Default,Emilia,0000,0000,0000,,Take care of the mansion for us.
+Dialogue: 0,0:17:57.56,0:18:00.22,Default,Emilia,0000,0000,0000,,And Rem, Petra, and Beatrice, too.
+Dialogue: 0,0:18:00.68,0:18:02.36,Default,Frederica,0000,0000,0000,,You can rely on me.
+Dialogue: 0,0:18:02.36,0:18:05.18,Default,Frederica,0000,0000,0000,,Take care during your travels, Emilia-sama.
+Dialogue: 0,0:18:05.99,0:18:07.55,Default,Frederica,0000,0000,0000,,And take this.
+Dialogue: 0,0:18:08.26,0:18:10.72,Default,Frederica,0000,0000,0000,,This will allow you to get past \Nthe barrier in the forest,
+Dialogue: 0,0:18:10.72,0:18:12.94,Default,Frederica,0000,0000,0000,,and enter the Sanctuary.
+Dialogue: 0,0:18:13.52,0:18:17.78,Default,Frederica,0000,0000,0000,,From there, the ground dragons should \Ntake you to the location I described.
+Dialogue: 0,0:18:18.34,0:18:22.06,Default,Subaru,0000,0000,0000,,So this stone is the requirement \Nto get through the barrier?
+Dialogue: 0,0:18:25.84,0:18:27.79,Default,Frederica,0000,0000,0000,,You have the location and the qualification.
+Dialogue: 0,0:18:28.44,0:18:31.11,Default,Frederica,0000,0000,0000,,Now you only need the \Nresolve and a strong will.
+Dialogue: 0,0:18:32.68,0:18:33.83,Default,Emilia,0000,0000,0000,,Frederica...
+Dialogue: 0,0:18:37.44,0:18:39.82,Default,Frederica,0000,0000,0000,,Take good care of the Sanctuary.
+Dialogue: 0,0:18:40.16,0:18:42.68,Default,Frederica,0000,0000,0000,,And do not forget what I said earlier.
+Dialogue: 0,0:18:43.12,0:18:45.87,Default,Emilia,0000,0000,0000,,Okay. We'll watch out for Garfiel.
+Dialogue: 0,0:18:46.24,0:18:47.11,Default,Emilia,0000,0000,0000,,I promise.
+Dialogue: 0,0:18:47.98,0:18:49.88,Default,Petra,0000,0000,0000,,Um, Subaru-sama...
+Dialogue: 0,0:18:50.71,0:18:53.32,Default,Petra,0000,0000,0000,,Would you please accept this?
+Dialogue: 0,0:18:53.32,0:18:54.23,Default,Subaru,0000,0000,0000,,Uh...
+Dialogue: 0,0:18:54.48,0:18:57.14,Default,Frederica,0000,0000,0000,,Lending a white handkerchief to a traveler,
+Dialogue: 0,0:18:57.14,0:19:00.28,Default,Frederica,0000,0000,0000,,who later returns it stained \Nand worn from the journey,
+Dialogue: 0,0:19:00.88,0:19:03.87,Default,Frederica,0000,0000,0000,,is an old custom performed as \Na prayer for safe travels.
+Dialogue: 0,0:19:04.16,0:19:06.26,Default,Subaru,0000,0000,0000,,Oh, it's one of those things?
+Dialogue: 0,0:19:06.84,0:19:09.06,Default,Subaru,0000,0000,0000,,Okay, got it. Thanks, Petra.
+Dialogue: 0,0:19:09.49,0:19:10.67,Default,Subaru,0000,0000,0000,,I promise I'll return it.
+Dialogue: 0,0:19:17.83,0:19:20.58,Default,Subaru,0000,0000,0000,,What? What brought that reaction on?
+Dialogue: 0,0:19:20.98,0:19:23.64,Default,Subaru,0000,0000,0000,,This sudden rebellious phase is making me sad.
+Dialogue: 0,0:19:25.64,0:19:27.76,Default,Frederica,0000,0000,0000,,Now, you should hurry.
+Dialogue: 0,0:19:28.22,0:19:32.85,Default,Frederica,0000,0000,0000,,The Lost Forest of Clemaldy grows \Nmore dangerous as night approaches.
+Dialogue: 0,0:19:36.00,0:19:38.26,Default,Frederica,0000,0000,0000,,I wish you a safe journey.
+Dialogue: 0,0:19:39.39,0:19:41.49,Default,Petra,0000,0000,0000,,Subaru-sama!
+Dialogue: 0,0:19:42.17,0:19:45.77,Default,Petra,0000,0000,0000,,You'd better protect the lady!
+Dialogue: 0,0:19:47.08,0:19:50.09,Default,Frederica,0000,0000,0000,,I have done exactly as Master directed.
+Dialogue: 0,0:19:51.38,0:19:56.63,Default,Frederica,0000,0000,0000,,Now everything depends on how \NEmilia-sama overcomes the Sanctuary.
+Dialogue: 0,0:19:57.11,0:19:59.12,Default,Frederica,0000,0000,0000,,There is nothing we can do but pray.
+Dialogue: 0,0:20:01.81,0:20:03.84,Default,Subaru,0000,0000,0000,,Puck isn't showing up?
+Dialogue: 0,0:20:04.28,0:20:05.35,Default,Emilia,0000,0000,0000,,Yeah.
+Dialogue: 0,0:20:05.35,0:20:07.04,Default,Emilia,0000,0000,0000,,I've called out to him several times,
+Dialogue: 0,0:20:07.04,0:20:09.43,Default,,0000,0000,0000,,and I can feel the link \Nfrom our contract, but...
+Dialogue: 0,0:20:09.98,0:20:12.18,Default,Subaru,0000,0000,0000,,Has anything like this happened before?
+Dialogue: 0,0:20:12.18,0:20:15.76,Default,Emilia,0000,0000,0000,,Not very often, but there \Nhave been a few times
+Dialogue: 0,0:20:15.76,0:20:18.15,Default,Emilia,0000,0000,0000,,when he didn't show up for a few days.
+Dialogue: 0,0:20:20.40,0:20:23.53,Default - flashback,Puck,0000,0000,0000,,I'm counting on you to take care of Lia.
+Dialogue: 0,0:20:24.13,0:20:25.14,Default,Subaru,0000,0000,0000,,Couldn't have been...
+Dialogue: 0,0:20:26.14,0:20:29.56,Default,Emilia,0000,0000,0000,,But I do have contracts \Nwith lesser spirits, too,
+Dialogue: 0,0:20:29.56,0:20:31.69,Default,Emilia,0000,0000,0000,,and I can also fight with them.
+Dialogue: 0,0:20:31.69,0:20:34.41,Default,Emilia,0000,0000,0000,,No matter what happens, I'll protect you!
+Dialogue: 0,0:20:34.41,0:20:36.36,Default,Subaru,0000,0000,0000,,Wow, you're so manly!
+Dialogue: 0,0:20:36.36,0:20:37.36,Default,Emilia,0000,0000,0000,,Hey!
+Dialogue: 0,0:20:38.87,0:20:43.34,Default,Subaru,0000,0000,0000,,Frederica did warn us that \Nsomething might happen.
+Dialogue: 0,0:20:43.34,0:20:45.94,Default,Emilia,0000,0000,0000,,Oh... Garfiel, right?
+Dialogue: 0,0:20:45.94,0:20:50.52,Default,Subaru,0000,0000,0000,,Yeah. Roswaal did mention a few times \Nthat he was going to see him...
+Dialogue: 0,0:20:50.52,0:20:51.72,Default,Otto,0000,0000,0000,,Excuse me!
+Dialogue: 0,0:20:52.01,0:20:53.62,Default,Otto,0000,0000,0000,,We're in the forest!
+Dialogue: 0,0:20:57.56,0:20:59.65,Default - flashback,Frederica,0000,0000,0000,,{\i1}The Lost Woods of Clemaldy.{\i0}
+Dialogue: 0,0:20:59.90,0:21:03.66,Default - flashback,Frederica,0000,0000,0000,,A special barrier there protects the Sanctuary.
+Dialogue: 0,0:21:04.08,0:21:07.41,Default - flashback,Frederica,0000,0000,0000,,It makes outsiders lose their way, \Nto prevent them from getting close.
+Dialogue: 0,0:21:07.91,0:21:11.12,Default - flashback,Frederica,0000,0000,0000,,That is why they call it the "Lost Woods."
+Dialogue: 0,0:21:11.77,0:21:14.19,Default,Subaru,0000,0000,0000,,So the Sanctuary is just ahead...
+Dialogue: 0,0:21:20.78,0:21:23.78,Default,Subaru,0000,0000,0000,,Emilia-tan, are you actually nervous?
+Dialogue: 0,0:21:23.78,0:21:25.93,Default,Emilia,0000,0000,0000,,Huh? How could you tell?
+Dialogue: 0,0:21:26.30,0:21:28.70,Default,Subaru,0000,0000,0000,,I know everything about you!
+Dialogue: 0,0:21:28.70,0:21:32.16,Default,Subaru,0000,0000,0000,,At least, that's what I'd like \Nto say, but anyone could tell.
+Dialogue: 0,0:21:36.55,0:21:37.94,Default,Emilia,0000,0000,0000,,You're right!
+Dialogue: 0,0:21:39.36,0:21:41.26,Default,Emilia,0000,0000,0000,,I'm sorry for worrying you.
+Dialogue: 0,0:21:41.68,0:21:43.49,Default,Emilia,0000,0000,0000,,When I think that we're about \Nto arrive at the Sanctuary,
+Dialogue: 0,0:21:43.49,0:21:45.90,Default,Emilia,0000,0000,0000,,a village where only demihumans live...
+Dialogue: 0,0:21:46.68,0:21:50.33,Default,Subaru,0000,0000,0000,,No, I should apologize. I wasn't \Nthinking that far ahead.
+Dialogue: 0,0:21:50.98,0:21:54.91,Default,Subaru,0000,0000,0000,,I guess there might be more \Nhalf-elves like you there, huh?
+Dialogue: 0,0:21:55.50,0:21:59.39,Default,Emilia,0000,0000,0000,,I've never seen any half-elves \Nother than myself.
+Dialogue: 0,0:21:59.99,0:22:02.63,Default,Emilia,0000,0000,0000,,But just maybe, in the Sanctuary...
+Dialogue: 0,0:22:03.34,0:22:05.97,Default,Subaru,0000,0000,0000,,Don't worry. I'll—
+Dialogue: 0,0:22:07.74,0:22:08.97,Default,Subaru,0000,0000,0000,,Emilia?!
+Dialogue: 0,0:22:09.44,0:22:10.97,Default,Emilia,0000,0000,0000,,Uh... Is this...
+Dialogue: 0,0:22:11.13,0:22:13.32,Default,Subaru,0000,0000,0000,,I suddenly have a really bad feeling!
+Dialogue: 0,0:22:13.32,0:22:14.43,Default,Subaru,0000,0000,0000,,I'm borrowing this, Emilia!
+Dialogue: 0,0:22:18.81,0:22:19.86,Default,Subaru,0000,0000,0000,,Emilia!
+Dialogue: 0,0:22:31.72,0:22:33.99,Default,Subaru,0000,0000,0000,,Where... am I?
+Dialogue: 0,0:22:42.84,0:22:44.15,Default,Subaru,0000,0000,0000,,Who are you?
+Dialogue: 0,0:22:45.44,0:22:46.69,Default,Subaru,0000,0000,0000,,Those ears...
+Dialogue: 0,0:22:46.69,0:22:48.13,Default,Subaru,0000,0000,0000,,Are you an elf?
+Dialogue: 0,0:22:49.30,0:22:51.91,Default,Subaru,0000,0000,0000,,No, wait! Wait a minute!
+Dialogue: 0,0:23:01.96,0:23:05.05,Default,Subaru,0000,0000,0000,,Hey! Is anyone here?
+Dialogue: 0,0:23:05.59,0:23:09.09,Default,Subaru,0000,0000,0000,,If this is the Sanctuary, \Nsomebody answer me!
+Dialogue: 0,0:23:13.20,0:23:14.57,Default,Subaru,0000,0000,0000,,This is...
+Dialogue: 0,0:23:29.39,0:23:30.34,Default,Echidna,0000,0000,0000,,I see.
+Dialogue: 0,0:23:31.20,0:23:33.88,Default,Echidna,0000,0000,0000,,So that is the root of your desire?
+Dialogue: 0,0:23:33.88,0:23:36.17,Default,Echidna,0000,0000,0000,,How very interesting.
+Dialogue: 0,0:23:45.88,0:23:48.60,Default,Echidna,0000,0000,0000,,Oh, did I startle you?
+Dialogue: 0,0:23:52.23,0:23:55.43,Default,Echidna,0000,0000,0000,,It has been quite a while \Nsince I spoke with anyone,
+Dialogue: 0,0:23:55.43,0:23:57.69,Default,Echidna,0000,0000,0000,,so perhaps I was too eager.
+Dialogue: 0,0:23:58.96,0:24:01.08,Default,Echidna,0000,0000,0000,,My name is Echidna...
+Dialogue: 0,0:24:01.68,0:24:06.31,Default,Echidna,0000,0000,0000,,Or perhaps you would know me \Nbetter as the Witch of Greed?
+Dialogue: 0,0:24:06.96,0:24:09.96,Episode Title,Title,0000,0000,0000,,{\fs24\t(1,3010,\fs30)\c&H000000&\bord0}The {\c&HCCCCCC&}Next {\c&H000000&}Location
+Dialogue: 0,0:24:09.96,0:24:19.96,Default,,0000,0000,0000,,
+Dialogue: 0,0:25:18.41,0:25:18.91,sign_36406_423_Missing,,0000,0000,0000,,If it's to save you
+Dialogue: 0,0:25:20.45,0:25:20.95,sign_36406_423_Missing,,0000,0000,0000,,to save you
+Dialogue: 0,0:25:21.74,0:25:22.16,sign_36406_423_Missing,,0000,0000,0000,,I don't care
+Dialogue: 0,0:25:23.16,0:25:23.66,sign_36406_423_Missing,,0000,0000,0000,,how many times
+Dialogue: 0,0:25:25.54,0:25:26.33,sign_36406_423_Missing,,0000,0000,0000,,{\c&H1300C5&\4c&H0C0084&}I {\alpha&FF&\t(441,442,\alpha&00&)}die

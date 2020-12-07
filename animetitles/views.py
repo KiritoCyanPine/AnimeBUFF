@@ -74,6 +74,9 @@ def collectOST():
     file.close()
 
 def Subtitle(Anime_object,video_id):
+    from distutils.spawn import find_executable
+    if find_executable('mkvextract') is None:
+        return "Package not found"
     PATH_TO_STATIC = "D:\programming\Tutorial_Django\AnimeBUFF-project\AnimeBUFF\static\SubtitlesForAnime.vtt"
     video_NAME = Anime_object.AnimeEpisodes()[video_id]
     print("VIDNAME::" , Anime_object.directory_address+"\\"+video_NAME+".mkv")
@@ -258,7 +261,9 @@ def deleteOldImages():
             imagesInUse.append(i.extrapick_5.path)
         if i.extrapick_6:
             imagesInUse.append(i.extrapick_6.path)
-    allImages = ["D:\\programming\\Tutorial_Django\\AnimeBUFF-project\\media\\images\\"+i for i in os.listdir(BASE_DIR+"\media\images") if ".jpg" in i or ".png" in i or ".jpeg" in i or ".webp" in i ]
+            
+    PATH_TO_MEDIA_IMAGES = "D:\\programming\\Tutorial_Django\\AnimeBUFF-project\\media\\images\\"
+    allImages = [PATH_TO_MEDIA_IMAGES+i for i in os.listdir(BASE_DIR+"\media\images") if ".jpg" in i or ".png" in i or ".jpeg" in i or ".webp" in i ]
     imagesInUse = set(imagesInUse)
     allImages = set(allImages)
     print("imagesInUse" ,"LENGTH  =  " ,len(imagesInUse))
@@ -490,6 +495,11 @@ def video(request, Anime_id, video_id):
         os.remove(PATH_TO_STATIC)
     if '.mkv' in video_url:
         subtitle_present = Subtitle(Anime_object, video_id)
+        if subtitle_present == "Package not found":
+            subtitle_present = False
+            MSG = "MKV NIX TOOLS is not found... you will not be able to view subtitles..."
+        else:
+            MSG = ''
 
     ########################## END :::  TO Create SUBTITLES FOR THE VIDEO ##################################################
 
@@ -503,6 +513,7 @@ def video(request, Anime_id, video_id):
     'prev' : prev,
     'next' : next,
     'subtitle_present':subtitle_present,
+    'MSG':MSG,
     }
     return render(request, "videoPlayer/videoPlayer.html", context)
 

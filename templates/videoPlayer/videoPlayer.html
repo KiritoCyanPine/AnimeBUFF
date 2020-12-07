@@ -74,7 +74,7 @@
         /**/                        margin-right:0px !important;                     /**/
         /**/                                                                         /**/
         /* this piece of crap actually stopped shifting of page when models were opened*/
-        cursor: url("{% static 'mangakyo Sharingan (1).png' %}"), auto;
+        /*cursor: url("{% static 'mangakyo Sharingan (1).png' %}"), auto;*/
       }
 
       .lights-off {
@@ -108,7 +108,7 @@
 
       /*       These two are for changing the text style of The CAPTIONS in the Custom Video PLayer           */
       .mejs__captions-layer{
-        bottom:0;
+        bottom:0px;
         color:#fff;
         font-family:cursive;
         font-size:20px;
@@ -124,12 +124,12 @@
         white-space:pre-wrap
       }
 
-      .mejs__container-keyboard-inactive,.mejs__mediaelement, .mejs__container, .mejs__video *{
+      /*.mejs__container-keyboard-inactive,.mejs__mediaelement, .mejs__container, .mejs__video *{
         cursor: url("{% static 'mangakyo Sharingan (1).png' %}"), auto;
       }
       .mejs__controls,.mejs__button,.mejs__play,.mejs__jump-forward-button,.mejs__skip-back-button,.mejs__volume-button,.mejs__mute,.mejs__speed-button,.mejs__fullscreen-button *{
         cursor: url("{% static 'mangakyo Sharingan (1).png' %}"), auto;
-      }
+      }*/
 
 </style>
 
@@ -146,6 +146,14 @@
     {% include '_navbar.html' %}
 
 <main role="main">
+  {% if MSG %}
+  <div id="NotificationOnError" class="card pt-1 pb-1" style="background: #FDD;">
+    <div class="float-right ml-3" style="font-size:120%;">
+      {{MSG}}
+      <button type="close" name="x" class="btn btn-light button-outline-secondary float-right mr-3" onclick="javascript:document.getElementById('NotificationOnError').classList.toggle('collapse');">&Cross;</button>
+    </div>
+  </div>
+  {% endif %}
 
   <section>
 
@@ -292,8 +300,10 @@
 
 
 <script src="{% static 'pip_script.js' %}"> </script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" ></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="{% static "dist\Jq\jquerry.min.js" %}"></script>
+<script src="{% static "dist\Jq\popper.min.js" %}"></script>
+<!--script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" ></script-->
+<!--script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script-->
 <script src="{% static "dist\js\bootstrap.min.js" %}"></script>
 <script src="{% static 'assets/mediaelement-and-player.min.js' %}"></script>
 <script src="{% static 'plugins/speed/speed.min.js' %}"></script>
