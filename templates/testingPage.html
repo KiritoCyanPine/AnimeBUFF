@@ -8,15 +8,16 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.0.1">
-    <title>Album example · Bootstrap</title>
+    <title>AnimeBUFF Notification</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="{% static "dist\css\bootstrap.min.css" %}" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <!-- Favicons -->
 <link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="shortcut icon" href='{% static "play-button.ico" %}'>
+<link rel="icon" href='{% static "play-button.ico" %}'>
 <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
 <link rel="manifest" href="/docs/4.5/assets/img/favicons/manifest.json">
@@ -25,108 +26,143 @@
 <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
 <meta name="theme-color" content="#563d7c">
 
-<link rel="stylesheet" href="{% static 'searchPageExtraCSS.css' %}">
-
-
 
 <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
+          .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+          }
 
-
-            @media screen and (prefers-reduced-motion: no-preference) {
-              html,
-              body {
-                scroll-behavior: smooth;
-              }
+          @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+              font-size: 3.5rem;
             }
+          }
 
-/*    SEARCH PAGE FUNCTIONALITY BUTTONS FOR BETTER UI*/
-      .darker {
-        background :linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
-      }
 
-      .darkerY {
-        background :linear-gradient(rgba(0, 255, 0, 0.5), rgba(0, 255, 0, 0.5));
-      }
+                @media screen and (prefers-reduced-motion: no-preference) {
+                  html,
+                  body {
+                    scroll-behavior: smooth;
+                  }
+                }
 
-      .darkerN {
-        background :linear-gradient(rgba(255, 0, 0, 0.5), rgba(255, 0, 0, 0.5));
-      }
+          .darker {
+            background :linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
+          }
+          .darkerL {
+            background :linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+          }
+          .model-grad {
+            background: linear-gradient(110deg, rgba(27,151,2360.9) 6%, rgba(78,255,196,0.9) 51%, rgba(100,90,80,0.91081936192445727) 100%);
+          }
 
-      .darkerB {
-        background :linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-      }
-/*    SEARCH PAGE FUNCTIONALITY ENDED AND REMODIFIED              */
+    /*----------------------- TABLE ROW DEAORATION IN IDLE & IN HOVERING -----------------------------------------------*/
+          tr{
+            transition: all 0.3s;
+          }
+          tr:hover a{
+            color: white;
+          }
+          tr:hover{
+            /*background: linear-gradient(210deg, rgba(27,151,236,0.15) 6%, rgba(78,255,196,0.15) 51%, rgba(100,90,80,0.15) 100%);*/
+            background: linear-gradient(90deg, rgba(61,98,231,1) 0%, rgba(206,161,240,0.7458333675266982) 51%, rgba(0,212,255,0.23322832550989148) 100%);
+            color: white;
+            transform: scale(1.02);
+          }
+    /*----------------------- TABLE ROW DEAORATION ENDS -----------------------------------------------*/
 
-/*   FOR BACKGROUND IMAGE OF THE WEBPAGE    */
+
+
+    /*___________________    FOR THE  CONSISTENCY IN THE LINK DECOR CHANGING     ___________________*/
+                      a:link {  text-decoration: none; color:white;  }
+                      a:visited {  text-decoration: none;  }
+                      a:hover {  text-decoration: none;; color:white;  }
+                      a:active {   text-decoration: none;   }
+    /*___________________     ENDING OF LINK DECORATION CHANGE                    ___________________*/
+
       body {
-        background: url({% static 'Anime Buff titlepick _ OPTION 2-BLUR.jpg'%}) no-repeat center center fixed;
+        background:  linear-gradient(220deg, rgba(2,0,36,1) 0%, rgba(212,212,250,1) 55%, rgba(0,212,255,1) 100%) no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
         margin: 0;
+        /* this piece of code actually stopped shifting of page when models were opened*/
+        /**/                                                                         /**/
+        /**/                        padding-right:0px !important;                    /**/
+        /**/                        margin-right:0px !important;                     /**/
+        /**/                                                                         /**/
+        /* this piece of crap actually stopped shifting of page when models were opened*/
       }
-/*    ENDING OF THE BACKGROUND IMAGE TRANSFORMATION AND ALIGNMENT     */
 
-
-
-/*    FOR THE  CONSISTENCY IN THE LINK DECOR CHANGING     */
-            a:link {  text-decoration: none;  }
-            a:visited {  text-decoration: none;  }
-            a:hover {  text-decoration: none;   }
-            a:active {   text-decoration: none;   }
-/*     ENDING OF LINK DECORATION CHANGE                    */
-
-
-/*   FOR THE SELECTION HIGHTLIGHT OF THE ANIME LIST    */
+      /*___________________   FOR THE SELECTION HIGHTLIGHT OF THE ANIME LIST    ___________________*/
       .linker {
-        transition: transform 0.3s;
+        background :linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85));
+        transition: transform 0.2s;
+      }
+
+      .addToDB a {
+        color: yellow;
+      }
+      .addToDB a:hover {
+        color: white;
       }
 
       .linker:hover {
-        background :linear-gradient(rgba(150, 150, 150, 0.5), rgba(150, 150, 150, 0.5));
+        background: -moz-linear-gradient(42deg, rgba(0,255,183,1) 0%, rgba(133,240,255,1) 57%, rgba(0,130,255,1) 100%);
+        background: -webkit-linear-gradient(42deg, rgba(0,255,183,1) 0%, rgba(133,240,255,1) 57%, rgba(0,130,255,1) 100%);
+        background: linear-gradient(42deg, rgba(0,255,183,1) 0%, rgba(133,240,255,1) 57%, rgba(0,130,255,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffb7",endColorstr="#0082ff",GradientType=1);
+        color:white;
         border: 0px;
         border-radius: 8px;
-        transform: scale(1.09);
-      }
-/*   ENDING OF THE SELECTION PROGRAM    */
-
-
-/*    FOR THE ZOOMING IN OF THE HOVERED IMAGE ON THE MOUSE OVER EVENT */
-      .img-resize {
-        border: 2px solid grey;
-        transition: transform 0.3s;
+        transform: scale(1.01);
       }
 
-      .img-resize:hover {
-        border: 2px solid white;
-        border-radius: 4px;
-        transform:scale(2.75);
-      }
-/*     ENDING OF THE IMG ZOOM EVENT ___________    */
-
-
-
-/*   FOR THE HORIZONTAL LINE BETWEEN DIFFERENT OPTIONS     */
-      hr {
-        border: 1px solid red;
-        margin:7px 0px;
+      .linker:hover a{
+        color: white;
       }
 
+      .linker a:hover{
+        color: #007bff;
+      }
+      /*___________________   ENDING OF THE SELECTION PROGRAM    ___________________*/
+      .notificationPanel{
+        background: rgb(44,226,255);
+        background: -moz-linear-gradient(54deg, rgba(44,226,255,1) 0%, rgba(69,233,195,1) 49%, rgba(210,95,255,1) 100%);
+        background: -webkit-linear-gradient(54deg, rgba(44,226,255,1) 0%, rgba(69,233,195,1) 49%, rgba(210,95,255,1) 100%);
+        background: linear-gradient(54deg, rgba(44,226,255,1) 0%, rgba(69,233,195,1) 49%, rgba(210,95,255,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2ce2ff",endColorstr="#d25fff",GradientType=1);
+      }
+
+
+       .small-fonts{
+         font-size: 90%;
+       }
+
+       /* FOR STOPPING SHIFTING OF THE PAGE TO LEFT */
+       .modal {
+         overflow-x: auto;
+        }
+
+        .modal-open {
+         overflow: auto;
+        }
+
+        .enlarge{
+          color: pink;
+          transition: all 0.3s linear;
+        }
+        .enlarge:hover{
+          color: pink;
+          font-size:101%;
+        }
 </style>
 
 
@@ -134,132 +170,209 @@
     <!-- Custom styles for this template -->
     <link href="album.css" rel="stylesheet">
   </head>
-  <body>
+  <!--script type="text/javascript">
+  {% comment %}
+      function startTime()
+      {
+        x = 1;
+        document.getElementById('txt').insertAdjacentHTML('beforeend', "~\\(≧▽≦)/~");
+        setTimeout(startTime, x*1000);
+        $.ajax({
+            type: 'GET',
+            url: "{% url 'validate_nickname' %}",
+            success: function (response) {
+                // if not valid user, alert the user
+                if(!response["valid"]){
+                    alert("You cannot create a friend with same nick name");
+                    var nickName = $("#id_nick_name");
+                    nickName.val("")
+                    nickName.focus()
+                }
+            },
+            error: function (response) {
+                console.log(response)
+            }
+        })
+      }
+      startTime();
+    {% endcomment %}
+  </script-->
+<body> <!--<body onload="startTime()">-->
   <!-- style="background-image: url({% static 'Anime Buff titlepick _ OPTION 2-BLUR.jpg'%});height = 100%;background-attachment: fixed;"-->
-
-
 
 
     {% include '_navbar.html' %}
 
 
 
-
-
 <main role="main">
+
+
 
   <section>
 
-            <!--THIS WILL TOGGLE FOR SEARCH RESULTS FOUND AND FOR NOT FOUND-->
+    <div class="container mt-3 pt-2 pb-2 bg-transparent text-center justify-content-center notificationPanel">
+    <h4  class="text-white text-center col-12"><span class="float-left small-fonts text-danger" style="visibility:hidden;">Registered -  <b>{{Registered|length}}</b></span> notification <span class="float-right small-fonts text-dark" style="overflow:visible;">Registered -  <b>{{Registered|length}}</b></span> </h4>
+    </div>
 
-            {% if animes|length > 0 %}
-                <div class="container mt-3 pt-2 pb-2 bg-transparent text-left darkerN">
-                    <h4  class="text-light">Sorry, No Results Found...  :(</h4>
-                </div>
-            {% else %}
-                    <div class="container mt-3 pt-2 pb-2 bg-transparent text-left darkerY">
-                        {% if animes|length == 1 %}
-                            <h4  class="text-white">Search Result</h4>
-                        {% else %}
-                            <h4  class="text-white">Search Results</h4>
-                            search count : {{animes|length}}
-                        {% endif %}
-                    </div>
-            {% endif %}
+  </section>
 
+          <!--____________________________________________________________________DESKTOP VIEW MODE__________________________________________________________________________-->
 
-    </section>
+  <div class="py-2 bg-transparent darker col-md-8 mt-5 container" style="margin: 0 auto">
+    <h4 class="text-center text-light pb-2">Untracked Anime</h4>
+    <div id="UNTRACKED">
 
+    </div>
+  </div>
 
-  <div class="album py-5 bg-transparent col-md-10mt-5" style="margin: 0 auto">
-    <div class="container">
-      <div class="row">
+  <div  class="py-2 bg-transparent darker col-md-8 mt-5 container" style="margin: 0 auto">
+    <h4 class="text-center text-light pb-2">Un-Registered Anime   <span class="float-right small-fonts text-warning"> <b id='UNREG_LEN'>{{Unregistered|length}}</b></span></h4>
+    <div id="UNREGISTERED">
 
+  </div>
+  </div>
 
-<!--
-        {% if animes|length == 0 %}
-          <p class="text-center text-white"> your search querry :  <b class="text-light"> "{{querry}}" </b> does not seem <br> to match any document... <br><br>
-            <a href="{% url 'admin:index' %}">  Register</a> an Anime with this keyword...
-          </p>
-        {% endif %}                     -->
+  <div id="desktopview" class="py-2 bg-transparent darker col-md-8 mt-5" style="margin: 0 auto">
+    <h4 class="text-center text-light pb-2">Avoid List</h4>
 
-
-<!-- LOOPING OVER THE ALL-ANIME-LIST I've GIVEN IN THE DATABASE -->
-
-
-
-
-        <div class="container">
-          <a href="#">
-          <div class="darker linker">
-            <img class="img-fluid img-resize justify-content-start my-2 mx-5" src="{% static 'Anime Buff titlepick _ OPTION 2-BLUR.jpg'%}" alt="Thumbnail" width="100" >
-            <b class="mx-5 px-5 text-light" >anime.title w efw fe wiN IFWF  WNIUNWDV WE VNWEVNW VEWE VNOWNDN</b>
+    <div class="card text-primary px-5 py-5 d-flex mx-auto row mt-1 container">
+      <div id="AvoidFileEditor" class="collapse text-center">
+            <a onclick="switchView()" class="btn btn-danger text-white px-5">
+               collapse and revert changes &emsp;
+               <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-back" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M0 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2z"/>
+                </svg>
+              </a> <br><br>
+        <form id="#thisPlace" class="row text-left" action="{% url 'notify' %}" method="get">
+          <div class="col-8">
+            <textarea rows="10" cols="80" name="avoidList" id="avoidList" aria-label="avoidList">{{Avoid_folder}}</textarea>
           </div>
-           </a>
-           <hr>
-        </div>
-
-
-
-        <div class="container">
-          <a href="#">
-          <div class="darker linker">
-            <img class="img-fluid img-resize justify-content-start my-2 mx-5" src="{% static 'Anime Buff titlepick _ OPTION 2-BLUR.jpg'%}" alt="Thumbnail" width="100" >
-            <b class="mx-5 px-5 text-light" >anime.title w efw fe wiN IFWF  WNIUNWDV WE VNWEVNW VEWE VNOWNDN</b>
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary mt-5">save changes</button>
+            <a href="{% url 'notify' %}openAFileInNotepad" class="btn btn-info mt-2">Open the file in Notepad</a>
+            <a href="{% url 'notify' %}clearTheWholeFrikinStuff_IwantItClean" class="btn btn-warning mt-2">Clear All Avoid Dirs</a>
           </div>
-           </a>
-           <hr>
-        </div>
-
-
-
-        <div class="container">
-          <a href="#">
-          <div class="darker linker">
-            <img class="img-fluid img-resize justify-content-start my-2 mx-5" src="{% static 'Anime Buff titlepick _ OPTION 2-BLUR.jpg'%}" alt="Thumbnail" width="100" >
-            <b class="mx-5 px-5 text-light" >anime.title w efw fe wiN IFWF  WNIUNWDV WE VNWEVNW VEWE VNOWNDN</b>
-          </div>
-           </a>
-           <hr>
-        </div>
-
-
-
-        <div class="container">
-          <a href="#">
-          <div class="darker linker">
-            <img class="img-fluid img-resize justify-content-start my-2 mx-5" src="{% static 'Anime Buff titlepick _ OPTION 2-BLUR.jpg'%}" alt="Thumbnail" width="100" >
-            <b class="mx-5 px-5 text-light" >anime.title w efw fe wiN IFWF  WNIUNWDV WE VNWEVNW VEWE VNOWNDN</b>
-          </div>
-           </a>
-           <hr>
-        </div>
-
-
-
-
-
-
-
-
-
-<!-- LOOPING OVER  -->
-
-
+        </form>
+    </div>
+      <div id="FileEditorHide" class="FileEditorHide text-center">
+        <a onclick="switchView()" class="btn btn-danger text-white px-5">
+          Edit This File Only if You a Sure &emsp;
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+          </svg>
+        </a>
       </div>
     </div>
+
+
+  </div>
+  <div id="txt">
+
   </div>
 
 </main>
 
 
-
 {% include '_footer.html' %}
+<script type="text/javascript">
+function switchView() {
+  var divClass1 = document.getElementById("FileEditorHide");
+  var divClass2 = document.getElementById("AvoidFileEditor");
+  divClass1.classList.toggle("collapse");
+  divClass2.classList.toggle("collapse");
+}
+</script>
 
 
-<!--script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script-->
-<!--script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script-->
-<script src="{% static "dist\Jq\jquerry.min.js" %}"></script>
-<script src="{% static "dist\Jq\popper.min.js" %}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<!--script src="{% static "dist\Jq\jquerry.min.js" %}"></script-->
+<!--script src="{% static "dist\Jq\popper.min.js" %}"></script-->
 <script src="{% static "dist\js\bootstrap.min.js" %}" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+<script  type="text/javascript">
+  $(document).ready(function(){
+    var first_Time = 0;
+
+    setInterval(function()
+    {
+      $.ajax({
+        type:'GET',
+        url: "{% url 'getRaws' %}",
+        success: function(response){
+          $("#UNREGISTERED").empty();
+          $("#UNTRACKED").empty();
+          $('#UNREG_LEN').empty();
+          if (typeof response.Unregistered !== 'undefined' && response.Unregistered.length > 0){
+              var i=0;
+              for (var key in response.Unregistered)
+              {
+                var temp = `<div id="addToDataBase" class="card text-primary px-3 py-2 justify-content-around row mt-1 linker" style="height:9vh">
+                    <div class="col-8">
+                     <span class="text-muted"> You haven't added </span>`+response.Unregistered[key]+`<span class="text-muted"> to your Database yet... </span>
+                    </div>
+                    <div class="col-3 py-4 container">
+                      <div class="row">
+                        <a href="{% url 'admin:index' %}animetitles/animetitle/add?directory_address=`+response.Unregistered_links[key]+`&title=`+response.Unregistered[key]+`" target="_blank"  class=" btn-primary rounded px-3 py-1 mx-1" style="color:#ffffff;">Add it Now</a>
+                        <a href="{% url 'testing' %}`+response.Unregistered[key]+`"  class=" btn-danger rounded px-3 py-1 mx-1" style="color:#ffffff;">Avoid</a>
+                      </div>
+                    </div>
+                  </div>`;
+                i=i+1;
+                if (first_Time == 0){$("#UNREGISTERED").append(temp).hide().slideDown('fast');}
+                else{$("#UNREGISTERED").append(temp);}
+
+              }
+              $("#UNREG_LEN").append(i);
+        }
+        else {
+            var temp = `<div class="card text-primary px-5 py-5 justify-content-around row mt-1">
+              <div>
+              Everything looks Alright... （￣︶￣）👍
+              </div>
+              <p>You can just have fun ...</p><p> We will keep track of your content and notify you.</p>
+            </div>`;
+
+            if (first_Time == 0){$("#UNREGISTERED").append(temp).hide().slideDown('fast');}
+            else{$("#UNREGISTERED").append(temp);}
+        }
+
+        if (typeof response.Deleted_Anime !== 'undefined' && response.Deleted_Anime.length > 0){
+            for (var key in response.Deleted_Anime)
+            {
+              var temp = `<div class="card text-primary px-5 py-2 justify-content-around row mt-1 linker" style="height:9vh">
+                <div class="col-8">
+                `+response.Deleted_Anime_Name[key]+` <span class="text-muted"> has been moved to a different directory or has been deleted.</span>
+                </div>
+                <div class="col-2 py-4">
+                  <a href="{% url 'admin:index' %}animetitles/animetitle/`+response.Deleted_Anime[key]+`/change/" class="btn-primary rounded px-1 py-1">Change</a>
+                  <a href="{% url 'admin:index' %}animetitles/animetitle/`+response.Deleted_Anime[key]+`/delete/" class="btn-danger rounded px-1 py-1">Delete</a>
+                </div>
+              </div>`;
+              if (first_Time == 0){$("#UNTRACKED").append(temp).hide().slideDown('fast');}
+              else{$("#UNTRACKED").append(temp);}
+
+            }
+      }
+      else {
+          var temp = `<div class="card text-primary px-5 py-5 justify-content-around row mt-1">
+            <div>
+            Everything looks Alright... （￣︶￣）👍
+            </div>
+            <p>You can just have fun ...</p><p> We will keep track of your content and notify you.</p>
+          </div>`;
+          if (first_Time == 0){$("#UNTRACKED").append(temp).hide().slideDown('fast');}
+          else{$("#UNTRACKED").append(temp);}
+      }
+       first_Time=first_Time+1;
+        },
+        error: function(response){
+          console.log("ERROR");
+        }
+      });
+    },1000);
+  });
+</script>
 </html>

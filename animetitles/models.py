@@ -4,8 +4,8 @@ import os
 import re
 
 
-# GLOBAL_server_root_Address = "http://192.168.137.1:8887/"
-# GLOBAL_server_root_Address = "http://localhost:8887/"
+#GLOBAL_server_root_Address = "http://192.168.137.1:11111/"
+#GLOBAL_server_root_Address = "http://192.168.43.220:11111/"
 GLOBAL_server_root_Address = "http://127.0.0.1:11111/"
 # GLOBAL_server_root_Address = "http://127.0.0.1:8887/"
 

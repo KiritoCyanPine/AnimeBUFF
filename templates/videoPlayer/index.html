@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link href="{% static 'assets/mediaelementplayer.min.css' %}" rel="stylesheet" />
     <link href="{% static 'plugins/speed/speed.min.css' %}" rel="stylesheet" />
-
+    <link rel="shortcut icon" href='{% static "play-button.ico" %}'>
+    <link rel="icon" href='{% static "play-button.ico" %}'>
     <link href="{% static 'plugins/airplay/airplay.min.css' %}" rel="stylesheet" />
     <link href="{% static 'plugins/jump-forward/jump-forward.min.css' %}" rel="stylesheet" />
     <link href="{% static 'plugins/skip-back/skip-back.min.css' %}" rel="stylesheet" />
@@ -30,14 +31,16 @@
             <div class="col-md-8">
                 <video id="video_player" width="728" height="410" autoplay controls="true" preload="0">
 
-                      <source src="{{video}}" type="video/mp4">
-                      <source src="{{video}}" type="video/x-matroska;">
-                      <source src="{{video}}" type='video/x-matroska; codecs="theora, vorbis"'>
-                      <source src="{{video}}" type="video/ogg">
-                      <source src="{{video}}" type="video/mkv">
-                      <source src="{{video}}" type='video/mp4; codecs="hvc1"'>
-                      <source src="{{video}}" type="video/webm">
-                      <source src="{{video}}" type='video/mp4; codecs="avc1"'>
+                      <source src="http://127.0.0.1:11111/Re.Zero%20S2/Re.Zero%20kara%20Hajimeru%20Isekai%20Seikatsu%202nd%20Season%20Ep%2001.mkv" type="video/mp4">
+                      <source src="http://127.0.0.1:11111/Re.Zero%20S2/Re.Zero%20kara%20Hajimeru%20Isekai%20Seikatsu%202nd%20Season%20Ep%2001.mkv" type="video/x-matroska;">
+                      <source src="http://127.0.0.1:11111/Re.Zero%20S2/Re.Zero%20kara%20Hajimeru%20Isekai%20Seikatsu%202nd%20Season%20Ep%2001.mkv" type='video/x-matroska; codecs="theora, vorbis"'>
+                      <source src="http://127.0.0.1:11111/Re.Zero%20S2/Re.Zero%20kara%20Hajimeru%20Isekai%20Seikatsu%202nd%20Season%20Ep%2001.mkv" type="video/ogg">
+                      <source src="http://127.0.0.1:11111/Re.Zero%20S2/Re.Zero%20kara%20Hajimeru%20Isekai%20Seikatsu%202nd%20Season%20Ep%2001.mkv" type="video/mkv">
+                      <source src="http://127.0.0.1:11111/Re.Zero%20S2/Re.Zero%20kara%20Hajimeru%20Isekai%20Seikatsu%202nd%20Season%20Ep%2001.mkv" type='video/mp4; codecs="hvc1"'>
+                      <source src="http://127.0.0.1:11111/Re.Zero%20S2/Re.Zero%20kara%20Hajimeru%20Isekai%20Seikatsu%202nd%20Season%20Ep%2001.mkv" type="video/webm">
+                      <source src="http://127.0.0.1:11111/Re.Zero%20S2/Re.Zero%20kara%20Hajimeru%20Isekai%20Seikatsu%202nd%20Season%20Ep%2001.mkv" type='video/mp4; codecs="avc1"'>
+                      <track src="{% static 'SubtitlesForAnime.vtt' %}" kind="captions" srclang="en" label="English" default>
+
                 </video>
             </div>
         </div>
@@ -65,7 +68,7 @@
     <script src="{% static 'plugins/skip-back/skip-back.min.js' %}"></script>
     <script src="{% static 'plugins/picture-in-picture/picture-in-picture.js' %}"></script>
     <script>
-      $('video').mediaelementplayer({
+      $('video_player').mediaelementplayer({
           features: ['playpause', 'jumpforward', 'skipback', 'current', 'progress', 'duration', 'volume', 'tracks', 'speed', 'fullscreen', 'pictureinpicture'],
           speeds: [
               {name: '0.25', value: '0.25'},

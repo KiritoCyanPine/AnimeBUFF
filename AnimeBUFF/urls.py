@@ -32,9 +32,11 @@ urlpatterns = [
     path('animetitle/notify/<str:optional_parameter>', animetitles.views.notify, name="notify_para"),
     path('welcomePage/', animetitles.views.welcomePage),
     path('OST/', animetitles.views.AnimeOST , name="OST"),
+    path('ajax/getRaws',animetitles.views.AJAX_folderManager, name="getRaws"),
 
 ###################################################    TESTING PAGES URLS ##############################
-    path('testing/', animetitles.views.testing, name="testing"),
+    path('animetitle/testing/', animetitles.views.testing, name="testing"),
+    path('animetitle/testing/<str:optional_parameter>', animetitles.views.testing, name="testing_para"),
     path('testing2/', animetitles.views.testing2, name="testing2"),
     path('testing3/<int:anime_id>/', animetitles.views.testing3, name="testing3"),
     path('testing4/<path:video_id>', animetitles.views.testing4, name="testing4"),

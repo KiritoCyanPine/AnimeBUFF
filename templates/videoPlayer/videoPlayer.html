@@ -17,6 +17,8 @@
 
     <!-- Favicons -->
 <link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="shortcut icon" href='{% static "play-button.ico" %}'>
+<link rel="icon" href='{% static "play-button.ico" %}'>
 <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
 <link rel="manifest" href="/docs/4.5/assets/img/favicons/manifest.json">
@@ -298,7 +300,12 @@
 
 {% include '_footer.html' %}
 
+<script>
+    document.getElementById('CustomPlayer').addEventListener('keyup', (event) => {
 
+        document.getElementsByClassName("mejs__captions-layer").style.bottom = "-100px";
+    });
+</script>
 <script src="{% static 'pip_script.js' %}"> </script>
 <script src="{% static "dist\Jq\jquerry.min.js" %}"></script>
 <script src="{% static "dist\Jq\popper.min.js" %}"></script>

@@ -5,20 +5,175 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="{% static "dist\css\bootstrap.min.css" %}">
+    <link rel="shortcut icon" href='{% static "play-button.ico" %}'>
+    <link rel="icon" href='{% static "play-button.ico" %}'>
     <link rel="stylesheet" href="https://cdn.plyr.io/3.5.6/plyr.min.css" />
     <title></title>
     <style media="screen">
 
-          @media screen and (prefers-reduced-motion: no-preference) {
-            html,
-            body {
-              scroll-behavior: smooth;
-            }
+              .bd-placeholder-img {
+                font-size: 1.125rem;
+                text-anchor: middle;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+              }
+
+              @media (min-width: 768px) {
+                .bd-placeholder-img-lg {
+                  font-size: 3.5rem;
+                }
+              }
+
+
+                    @media screen and (prefers-reduced-motion: no-preference) {
+                      html,
+                      body {
+                        scroll-behavior: smooth;
+                      }
+                    }
+
+              .darker {
+                background :linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
+              }
+              .darkerL {
+                background :linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+              }
+              .model-grad {
+                background: linear-gradient(110deg, rgba(27,151,2360.9) 6%, rgba(78,255,196,0.9) 51%, rgba(100,90,80,0.91081936192445727) 100%);
+              }
+
+        /*----------------------- TABLE ROW DEAORATION IN IDLE & IN HOVERING -----------------------------------------------*/
+              tr{
+                transition: all 0.3s;
+              }
+              tr:hover a{
+                color: white;
+              }
+              tr:hover{
+                /*background: linear-gradient(210deg, rgba(27,151,236,0.15) 6%, rgba(78,255,196,0.15) 51%, rgba(100,90,80,0.15) 100%);*/
+                background: linear-gradient(90deg, rgba(61,98,231,1) 0%, rgba(206,161,240,0.7458333675266982) 51%, rgba(0,212,255,0.23322832550989148) 100%);
+                color: white;
+                transform: scale(1.02);
+              }
+        /*----------------------- TABLE ROW DEAORATION ENDS -----------------------------------------------*/
+
+
+
+        /*___________________    FOR THE  CONSISTENCY IN THE LINK DECOR CHANGING     ___________________*/
+                          a:link {  text-decoration: none; color:white;  }
+                          a:visited {  text-decoration: none;  }
+                          a:hover {  text-decoration: none;; color:white;  }
+                          a:active {   text-decoration: none;   }
+        /*___________________     ENDING OF LINK DECORATION CHANGE                    ___________________*/
+
+          body {
+            background:  linear-gradient(220deg, rgba(2,0,36,1) 0%, rgba(212,212,250,1) 55%, rgba(0,212,255,1) 100%) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            margin: 0;
+            /* this piece of code actually stopped shifting of page when models were opened*/
+            /**/                                                                         /**/
+            /**/                        padding-right:0px !important;                    /**/
+            /**/                        margin-right:0px !important;                     /**/
+            /**/                                                                         /**/
+            /* this piece of crap actually stopped shifting of page when models were opened*/
           }
+
+          /*___________________   FOR THE SELECTION HIGHTLIGHT OF THE ANIME LIST    ___________________*/
+          .linker {
+            background :linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85));
+            transition: transform 0.2s;
+          }
+
+          .addToDB a {
+            color: yellow;
+          }
+          .addToDB a:hover {
+            color: white;
+          }
+
+          .linker:hover {
+            background: -moz-linear-gradient(42deg, rgba(0,255,183,1) 0%, rgba(133,240,255,1) 57%, rgba(0,130,255,1) 100%);
+            background: -webkit-linear-gradient(42deg, rgba(0,255,183,1) 0%, rgba(133,240,255,1) 57%, rgba(0,130,255,1) 100%);
+            background: linear-gradient(42deg, rgba(0,255,183,1) 0%, rgba(133,240,255,1) 57%, rgba(0,130,255,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffb7",endColorstr="#0082ff",GradientType=1);
+            color:white;
+            border: 0px;
+            border-radius: 8px;
+            transform: scale(1.01);
+          }
+
+          .linker:hover a{
+            color: white;
+          }
+
+          .linker a:hover{
+            color: #007bff;
+          }
+          /*___________________   ENDING OF THE SELECTION PROGRAM    ___________________*/
+          .notificationPanel{
+            background: rgb(44,226,255);
+            background: -moz-linear-gradient(54deg, rgba(44,226,255,1) 0%, rgba(69,233,195,1) 49%, rgba(210,95,255,1) 100%);
+            background: -webkit-linear-gradient(54deg, rgba(44,226,255,1) 0%, rgba(69,233,195,1) 49%, rgba(210,95,255,1) 100%);
+            background: linear-gradient(54deg, rgba(44,226,255,1) 0%, rgba(69,233,195,1) 49%, rgba(210,95,255,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2ce2ff",endColorstr="#d25fff",GradientType=1);
+          }
+
+
+           .small-fonts{
+             font-size: 90%;
+           }
+
+           /* FOR STOPPING SHIFTING OF THE PAGE TO LEFT */
+           .modal {
+             overflow-x: auto;
+            }
+
+            .modal-open {
+             overflow: auto;
+            }
+
+            .enlarge{
+              color: pink;
+              transition: all 0.3s linear;
+            }
+            .enlarge:hover{
+              color: pink;
+              font-size:101%;
+            }
     </style>
   </head>
+  <script type="text/javascript">
+      function startTime()
+      {
+        x = 1;
+        document.getElementById('txt').insertAdjacentHTML('beforeend', "~\\(≧▽≦)/~");
+        setTimeout(startTime, x*1000);
+        $.ajax({
+            type: 'GET',
+            url: "{% url 'validate_nickname' %}",
+            success: function (response) {
+                // if not valid user, alert the user
+                if(!response["valid"]){
+                    alert("You cannot create a friend with same nick name");
+                    var nickName = $("#id_nick_name");
+                    nickName.val("")
+                    nickName.focus()
+                }
+            },
+            error: function (response) {
+                console.log(response)
+            }
+        })
+      }
+      startTime();
 
-  <body>
+  </script>
+  <body onload="startTime()">
 
     <!--   BODY TAG STARTS AND ENDS IN THE SIMILAR LOOKING TAG  ________________________________________________________________________-->
 
@@ -43,26 +198,28 @@
             </div>
         </div>
       </div>                                                                    -->
-
-
-
-      <video id="player" playsinline controls data-poster="/path/to/poster.jpg">
-
-                              <source src="{{video}}" type="video/mp4">
-                              <source src="{{video}}" type="video/x-matroska;">
-                              <source src="{{video}}" type='video/x-matroska; codecs="theora, vorbis"'>
-                              <source src="{{video}}" type="video/ogg">
-                              <source src="{{video}}" type="video/mkv">
-                              <source src="{{video}}" type='video/mp4; codecs="hvc1"'>
-                              <source src="{{video}}" type="video/webm">
-                              <source src="{{video}}" type='video/mp4; codecs="avc1"'>
-
-
-</video>
-
-
-      <button id="togglePipButton">Toggle Picture-in-Picture Mode!</button>
-
+      <div id="desktopview" class="py-2 bg-transparent darker col-md-8 mt-5 container" style="margin: 0 auto">
+        <h4 class="text-center text-light pb-2">Untracked Anime</h4>
+        {% if Deleted_Anime|length == 0 %}
+        <div class="card text-primary px-5 py-5 justify-content-around row mt-1">
+          <div>
+          Everything looks Alright... （￣︶￣）👍
+          </div>
+          <p>You can just have fun ...</p><p> We will keep track of your content and notify you.</p>
+        </div>
+        {% else %}
+          {% for i in Deleted_Anime %}
+          <div class="card text-primary px-5 py-2 justify-content-around row mt-1 linker" style="height:9vh">
+            <div class="col-8">
+            {{i.title}} <span class="text-muted"> has been moved to a different directory or has been deleted.</span>
+            </div>
+            <div class="col-2 py-4">
+              <a href="{% url 'admin:index' %}animetitles/animetitle/{{i.id}}/change/" class="btn-primary rounded px-1 py-1">Change</a>
+              <a href="{% url 'admin:index' %}animetitles/animetitle/{{i.id}}/delete/" class="btn-danger rounded px-1 py-1">Delete</a>
+            </div>
+          </div>
+          {% endfor %}
+        {% endif %}
 
 
 
@@ -70,8 +227,6 @@
 
       <!--   BODY TAG ENDS IN THIS TAG ___________________________________________________________________________________________________ -->
 
-
-      <script src="https://cdn.plyr.io/3.5.6/plyr.min.js"></script>
        <script>
             document.addEventListener('DOMContentLoaded', () => {
                 const player = Plyr.setup('.js-player');
