@@ -139,7 +139,8 @@
     <!-- Custom styles for this template -->
     <link href="album.css" rel="stylesheet">
   </head>
-  <body id='pageID'>
+
+  <body id='pageID' onload="IdentifyBrowser()">
   <!-- style="background-image: url({% static 'Anime Buff titlepick _ OPTION 2-BLUR.jpg'%});height = 100%;background-attachment: fixed;"-->
 
 
@@ -319,11 +320,18 @@
 <script src="{% static 'plugins/skip-back/skip-back.min.js' %}"></script>
 <script src="{% static 'plugins/picture-in-picture/picture-in-picture.js' %}"></script>
 
-
+<script type="text/javascript">
+    // Edge 20+    Check If you are using Edge Legacy...
+    var isEdge = !isIE && !!window.StyleMedia;
+    if (isEdge){
+      var divClass1 = document.getElementById("CustomPlayer");
+      var divClass2 = document.getElementById("defaultHtmlPlayer");
+      divClass1.classList.toggle("collapse");
+      divClass2.classList.toggle("collapse");
+}
+</script>
 
 <script>
-
-
   $('#video_player').mediaelementplayer({
       features: ['playpause', 'jumpforward', 'skipback', 'current', 'progress', 'duration', 'volume', 'tracks', 'speed', 'fullscreen', 'pictureinpicture'],
       speeds: [
@@ -339,7 +347,6 @@
   });
 
   </script>
-
 
 
 <script type="text/javascript">
