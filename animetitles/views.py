@@ -637,8 +637,23 @@ def video(request, Anime_id, video_id):
         prev = video_id - 1
     if video_id == (int(Anime_object.noOfEPs())-1):
         next = -1
+        VideoPostroll = "-1"  #   Postroll dosent exist  --> this is the last video
     if video_id < (int(Anime_object.noOfEPs())-1):
-        next = video_id + 1
+        next = video_id + 1  # finding the next video ID
+
+        ##  finding out if next video Exists and Generating Url##
+        k = request.META['HTTP_REFERER']
+        k=k[::-1]
+        slashOut = 0
+        for i in k:
+            if i == "/":
+                if slashOut == 3:
+                    break
+                slashOut = slashOut + 1
+                k = k [2:]
+        k = k[::-1]    #  this will give the first part --> http://localhost:8123/video/
+        VideoPostroll = k+str(Anime_id)+"/"+str(next)   # this will give url like   http://localhost:8123/video/20/134
+        ##  Url generation ends
     video_NAME = Anime_object.AnimeEpisodes()[video_id]
     video_Public_Url = str(video_url)
     video_Public_Url = PC_IP+video_Public_Url[16:]
@@ -694,6 +709,7 @@ def video(request, Anime_id, video_id):
     'next' : next,
     'subtitle_present':subtitle_present,
     'MSG':MSG,
+    'VideoPostroll':VideoPostroll,
     }
     return render(request, "videoPlayer/videoPlayer.html", context)
 

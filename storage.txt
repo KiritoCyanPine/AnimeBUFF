@@ -169,3 +169,33 @@
       <div id="desktopview" class="album py-2 bg-transparent col-md-10 text-center justify-content-center mt-4 rounded model-grad" style="margin: 0 auto">
         erg
       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!--script type="text/javascript">
+        document.getElementById('video_player').addEventListener('ended',function(){
+
+             window.location.href = '{% url 'video' Anime_id next %}';
+
+         },false);
+      </script-->
+
+
+      
+        <!--script type="text/javascript">
+        document.getElementById('html_video').addEventListener('ended',function(){
+             window.location.href = '{% url 'video' Anime_id next %}';
+         },false);
+       </script-->
