@@ -389,22 +389,38 @@
     .tooltipHandel:hover .tooltipText{
       visibility: visible;
     }
-    /*TOOLTIPS visibility TOGGLE*/
-/* STOPPING SHIFTING OF THE PAGE TO THE LEFT SIDE */
+    .ratCont{
+      height: 100px;
+      width: 100px;
+      border-style: solid;
+      border-width: 10px;
+      border-color: white;
+    }
+
+    circle {
+      fill: transparent;
+      stroke: black;
+      stroke-width: 9;
+      stroke-dasharray: 100;
+      stroke-dashoffset: 600;
+      position: absolute;
+      z-index:10;
+
+    }
 
 </style>
 
 
     <!-- Custom styles for this template -->
-    <link href="album.css" rel="stylesheet">
   </head>
   <body>
   <!-- style="background-image: url({% static 'Anime Buff titlepick _ OPTION 2-BLUR.jpg'%});height = 100%;background-attachment: fixed;"-->
 
+  <svg height="100" width="100">
+    <circle id="qwerty" cx="50" cy="50" r="40" />
+    <text x="50%" y="50%" text-anchor="middle" stroke="#FFF" stroke-width="2px" dy=".3em" class="text-light">7.95</text>
+  </svg>
 
-
-
-    {% include '_navbar.html' %}
 
 <main role="main">
 
@@ -1016,7 +1032,6 @@
 
 
 
-
 <script type="text/javascript">
     function switchView() {
       var divClass1 = document.getElementById("desktopview");
@@ -1031,7 +1046,6 @@
     });
 
 </script>
-<!--script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script-->
 <!--script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script-->
 <script src="{% static "dist\Jq\jquerry.min.js" %}"></script>
 <script src="{% static "dist\Jq\popper.min.js" %}"></script>

@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{% static "dist\css\bootstrap.min.css" %}" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <!-- Favicons -->
+
 <link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
 <link rel="shortcut icon" href='{% static "play-button.ico" %}'>
 <link rel="icon" href='{% static "play-button.ico" %}'>
@@ -80,11 +81,14 @@
       }
 
       .lights-off {
-          background:  linear-gradient(rgba(40,40,40,1), rgba(0, 0, 0, 0.75)) no-repeat center center fixed;
+          background:  linear-gradient(rgba(10,10,10,1), rgba(0, 0, 0, 0.95)) no-repeat center center fixed;
       }
 
       .darker {
         background :linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
+      }
+      .darkerVD {
+        background :linear-gradient(rgba(255, 255, 255, 0.80), rgba(255, 255, 255, 0.80));
       }
       .darkerL {
         background :linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
@@ -132,12 +136,33 @@
       .mejs__controls,.mejs__button,.mejs__play,.mejs__jump-forward-button,.mejs__skip-back-button,.mejs__volume-button,.mejs__mute,.mejs__speed-button,.mejs__fullscreen-button *{
         cursor: url("{% static 'mangakyo Sharingan (1).png' %}"), auto;
       }*/
+      .hideIt{
+        visibility: hidden;
+        border: 2px;
+        border-radius: 20;
+      }
+
+      .progressColor{
+            color: red; /*Works only with edge. Not applied to webkit and mozilla*/
+            background-color: #EFF; /*not applied to webkit. Works with firefox and Edge*/
+            border: 0;
+            width: 200px;
+            height: 20px; /*works with all browsers*/
+            border-radius: 9px;
+      }
+      progress{
+        content: '80%';
+        background-color: #EFF; /*not applied to webkit. Works with firefox and Edge*/
+        border: 0;
+        width: 200px;
+        height: 20px; /*works with all browsers*/
+        border-radius: 9px;
+      }
 
 </style>
 
 
     <!-- Custom styles for this template -->
-    <link href="album.css" rel="stylesheet">
   </head>
 
   <body id='pageID'>
@@ -147,7 +172,7 @@
 
     {% include '_navbar.html' %}
 
-<main role="main">
+<main role="main" style="z-index:0;">
   {% if MSG %}
   <div id="NotificationOnError" class="card pt-1 pb-1" style="background: #FDD;">
     <div class="float-right ml-3" style="font-size:120%;">
@@ -168,6 +193,14 @@
 
   </section>
 
+  <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        ...
+      </div>
+    </div>
+  </div>
+
 
     <div class="d-flex mx-auto container row justify-content-between mt-3">
       {% if prev is -1 %}
@@ -177,7 +210,7 @@
 
       {% else %}
       <div class="col-2">
-        <a id="prev" href="{% url 'video' Anime_id prev %}" class="btn btn-primary text-light "><<< prev</a>
+        <a id="prev" href="{% url 'video' Anime_id prev %}" class="btn btn-primary text-light ">&lt;&lt;&lt; prev</a>
       </div>
       {% endif %}
 
@@ -192,7 +225,7 @@
       </div>
       {% else %}
       <div class="col-2">
-        <a id="next" href="{% url 'video' Anime_id next %}" class="btn btn-primary text-light">next >>></a>
+        <a id="next" href="{% url 'video' Anime_id next %}" class="btn btn-primary text-light">next &gt;&gt;&gt;</a>
       </div>
       {% endif %}
 
@@ -202,7 +235,7 @@
 
       <div id="mobileview" class="album py-5   model-grad col-md-10 text-center justify-content-between mt-3" style="margin: 0 auto">
         <div class="container">
-          <div class="row">
+          <div class="row text-center">
 
 
 
@@ -238,14 +271,6 @@
                             <track src="{% static 'SubtitlesForAnime.vtt' %}" kind="captions" srclang="en" label="English" default>
                             {% endif %}
                       </video>
-
-                      <script type="text/javascript">
-                        document.getElementById('video_player').addEventListener('ended',function(){
-                          if("{{VideoPostroll}}" !== "-1"){
-                             window.location.href = '{{VideoPostroll}}';
-                            }
-                         },false);
-                      </script>
 
                  </div>
             </div>
@@ -291,13 +316,6 @@
 
                         </video>
 
-                        <script type="text/javascript">
-                        document.getElementById('html_video').addEventListener('ended',function(){
-                          if("{{VideoPostroll}}"!== "-1"){
-                             window.location.href = '{{VideoPostroll}}';
-                             }
-                         },false);
-                        </script>
 
                 </div>
               </div>
@@ -305,12 +323,27 @@
       </div>
 
           <!--____________________________________________________________________HTML5 PLAYER ENDS__________________________________________________________________________-->
+<!-- VideoEND Postroll effect to next episode -->
+<div id="playnextBtn" class="hideIt card d-flex justify-content-center darkerVD" style="top:210px;left:350px;height:400px;width:600px;position:absolute;z-index:2000;">
+  <!--button onclick="javascript:document.getElementById('playnextBtn').classList.toggle('hideIt');" class="btn btn-light px-0 py-0 mx-4" style="left:250px;height:29px;width:29px;border: 2px black;border-radius: 90;">x</button-->
+  Playing Next Video in a few seconds...
+  <div id="secondsLeftBeforeChange" class=" text-dark" style="z-index:11;position:relative;top:18px;font-size:80%;"></div>
+  <progress class="mx-auto justify-content-center text-center" value="0" max="5" id="progressBar" style="z-index:-1; position:static;left:-200px;"></progress>
+
+  <progress class="mx-auto justify-content-center hideIt progressColor" value="5" max="5" id="progressBarFULL">ji </progress>
+  <button id="dontGoToNextPage" onclick="javascript:ccc='false';showAgain='false';document.getElementById('progressBar').classList.toggle('hideIt');document.getElementById('progressBarFULL').classList.toggle('hideIt');document.getElementById('dontGoToNextPage').classList.toggle('hideIt');document.getElementById('secondsLeftBeforeChange').classList.toggle('hideIt');" class="btn btn-secondary mx-auto small-fonts my-2">cancel</button>
+</div>
+<form id="autoPlayForm" action="index.html" method="post">{% csrf_token %}
+  <span class="text-light">autoplay</span>
+  <input type="image" class="" style="position:absolute;right:45px;" id="autoplaySwitch"  src="{% static 'switchOFF.svg' %}" alt="Submit" value="on" width="48" height="48">
+  <input type="image" class="" style="position:absolute;right:45px;" id="autoplaySwitch2"  src="{% static 'switchON.svg' %}" alt="Submit" value="on" width="48" height="48">
+</form>
+
 
 
         </div>
       </div>
     </div>
-
 </main>
 
 
@@ -337,10 +370,115 @@
 <script src="{% static 'plugins/skip-back/skip-back.min.js' %}"></script>
 <script src="{% static 'plugins/picture-in-picture/picture-in-picture.js' %}"></script>
 
+<script type="text/javascript">
+  $(document).on('submit','#autoPlayForm',function(e){
+      e.preventDefault();
+         $.ajax({
+           url:"{% url 'postAutoPlay' %}",
+           type:'POST',
+           data: {
+             autoplay_value: 1,
+             csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+           },
+           success: function(response){
+             document.getElementById('autoplaySwitch').classList.toggle("collapse");
+             document.getElementById('autoplaySwitch2').classList.toggle("collapse");
+             showAgain = response.changeShowAgainVar;
+             console.log("SHOW AGAIN VARIABLE SET TO : ",showAgain);
+           }
+         });
+
+
+  });
+
+
+
+</script>
+
+<!--PLAYER COSTOM POSTROLL NEXT VIDEO-->
+<script type="text/javascript">
+    var ccc = "true";
+    var showAgain = "true";
+    document.getElementById('video_player').addEventListener('ended',function(){
+      console.log({{autoplaySymbol}});
+      if("{{VideoPostroll}}"!== "-1" && showAgain === "true" && {{autoplaySymbol}} === 1){
+        console.log("entering the function");
+        document.getElementById('playnextBtn').classList.toggle("hideIt");
+        nxt1Video();
+         }
+     },false);
+     function nxt1Video() {
+       var timeleft = 5;
+       var downloadTimer = setInterval(function(){
+       if(timeleft <= 0){
+         clearInterval(downloadTimer);
+       }
+       document.getElementById("progressBar").value = 5 - timeleft;
+       document.getElementById("secondsLeftBeforeChange").innerHTML = Math.ceil(timeleft).toString()+" sec(s)...";
+       timeleft -= 0.05;
+       }, 50);
+
+       setTimeout(function () {
+         console.log("the ccc activates : "+ccc);
+         if (ccc==="true"){
+           console.log("the ccc activates : "+ccc);
+            window.location.href = '{{VideoPostroll}}';
+          }
+          else{
+
+
+            setTimeout(function () {
+              document.getElementById('playnextBtn').classList.toggle('hideIt');
+            },1000);
+          }
+       }, 5000);
+    }
+</script>
+
+<!--PLAYER HTML POSTROLL NEXT VIDEO-->
+<script type="text/javascript">
+      var ccc = "true";
+      document.getElementById('html_video').addEventListener('ended',function(){
+        if("{{VideoPostroll}}"!== "-1"  && showAgain === "true" && {{autoplaySymbol}} === 1){
+          console.log("entering the function");
+          document.getElementById('playnextBtn').classList.toggle("hideIt");
+          //document.querySelector('.bd-example-modal-sm').modal();
+          nxt2Video();
+           }
+
+
+       },false);
+       function nxt2Video() {
+         var timeleft = 5;
+         var downloadTimer = setInterval(function(){
+         if(timeleft <= 0){
+           clearInterval(downloadTimer);
+         }
+         document.getElementById("progressBar").value = 5 - timeleft;
+         document.getElementById("secondsLeftBeforeChange").innerHTML = Math.ceil(timeleft).toString()+" sec(s)...";
+         timeleft -= 0.05;
+       }, 50);
+
+          setTimeout(function () {
+            console.log("the ccc activates : "+ccc);
+            if (ccc==="true"){
+              console.log("the ccc activates : "+ccc);
+               window.location.href = '{{VideoPostroll}}';
+             }
+             else{
+               setTimeout(function () {
+                 document.getElementById('playnextBtn').classList.toggle('hideIt');
+               },1000);
+             }
+          }, 5000);
+      }
+</script>
+
 
   <script type="text/javascript">
       var isEdge = !window.isIE && !!window.StyleMedia;
       if (isEdge==true){
+
         var divClass1 = document.getElementById("CustomPlayer");
         var divClass2 = document.getElementById("defaultHtmlPlayer");
         divClass1.classList.toggle("collapse");
@@ -363,6 +501,21 @@
       muteOnPreviewMode: false
   });
 
+  </script>
+  <script type="text/javascript">
+  document.onkeydown = function (e) {
+    if (!document.getElementById('playnextBtn').classList.contains("hideIt")){
+      return false;
+    }
+}
+document.addEventListener('DOMContentLoaded', function() {
+    if({{autoplaySymbol}} === 1){
+      document.getElementById('autoplaySwitch').classList.toggle('collapse');
+    }
+    else {
+      document.getElementById('autoplaySwitch2').classList.toggle('collapse');
+    }
+}, false);
   </script>
 
 
@@ -411,6 +564,7 @@
 </script>
 <!--script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script-->
 <!--script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script-->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script src="{% static "dist\Jq\jquerry.min.js" %}"></script>
 <script src="{% static "dist\Jq\popper.min.js" %}"></script>
 <script src="{% static "dist\js\bootstrap.min.js" %}"></script>

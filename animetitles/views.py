@@ -7,7 +7,8 @@ import os
 import cv2
 import re
 import subprocess
-import threading
+import threading, socket
+from mal import Anime
 
 def generateOSTthumbnail():
     OSTstorage = os.path.join(AnimeFileLocation(),"[]Anime_OST")
@@ -108,6 +109,26 @@ def Subtitle(Anime_object,video_id):
         subtitle_present = False
     return subtitle_present
 
+def AJAX_autoPlay(request):
+    if request.is_ajax() and request.method == 'POST':
+        k=open("autoplay.ini", 'r')
+        ins = k.read()
+        k.close()
+        if ins == "1":
+            k=open("autoplay.ini", 'w')
+            k.write("0")
+            k.close()
+            return JsonResponse({"changeShowAgainVar":"false"})
+        else:
+            k=open("autoplay.ini", 'w')
+            k.write("1")
+            k.close()
+            return JsonResponse({"changeShowAgainVar":"true"})
+
+    else:
+        return JsonResponse({"message":"nothing changed"})
+
+
 def AJAX_folderManager(request):
 
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -191,6 +212,44 @@ def AJAX_folderManager(request):
     }
     return JsonResponse(context)
 
+
+def AJAX_getDataFromMal(request, animeId):
+    Anime_object = get_object_or_404(AnimeTitle, pk=animeId)
+    mal_id = Anime_object.mal_anime_link.split('/')
+    try:
+        for l in mal_id:
+            if l.isnumeric():
+                mal_id = l
+                break
+        mal_Anime = Anime(int(mal_id))
+        score = mal_Anime.score
+        scoreForPie = int((float(score)/10)*360)
+        scoreForPieALT = 360 - scoreForPie
+        if float(score) > 7.2:
+            score_color = ' 54 ,256 , 54'
+        else:
+            score_color = '256 ,256 , 256'
+        popularity = mal_Anime.popularity
+        status = mal_Anime.status
+        rating = mal_Anime.rating
+        studios = mal_Anime.studios
+        rank = mal_Anime.rank
+
+        print("###########\n",score, popularity,status,mal_Anime)
+        context = {
+        'score':score,
+        'popularity':popularity,
+        'status':status,
+        'rating':rating,
+        'studios':studios,
+        'scoreForPie':scoreForPie,
+        'scoreForPieALT':scoreForPieALT,
+        'score_color':score_color,
+        'rank':rank,
+        }
+    except Exception:
+        pass
+    return JsonResponse(context)
 
 # Create your views here.
 #################################    TESTING PAGES    #################################
@@ -627,7 +686,8 @@ def start(request):
         return render(request, "DatabaseEmpty.html")
 
 def video(request, Anime_id, video_id):
-    PC_IP = "http://192.168.43.20"
+    #PC_IP = str(socket.gethostbyname(socket.getfqdn()))
+    PC_IP = "localhost"
     Anime_object = get_object_or_404(AnimeTitle, pk=Anime_id)
     video_urls = Anime_object.AnimeEpisodesLink()
     video_url = video_urls[video_id]
@@ -642,17 +702,17 @@ def video(request, Anime_id, video_id):
         next = video_id + 1  # finding the next video ID
 
         ##  finding out if next video Exists and Generating Url##
-        k = request.META['HTTP_REFERER']
-        k=k[::-1]
-        slashOut = 0
-        for i in k:
-            if i == "/":
-                if slashOut == 3:
-                    break
-                slashOut = slashOut + 1
-                k = k [2:]
-        k = k[::-1]    #  this will give the first part --> http://localhost:8123/video/
-        VideoPostroll = k+str(Anime_id)+"/"+str(next)   # this will give url like   http://localhost:8123/video/20/134
+        #k = request.META['HTTP_REFERER']
+        #k=k[::-1]
+        #slashOut = 0
+        #for i in k:
+        #    if i == "/":
+        #        if slashOut == 3:
+        #            break
+        #        slashOut = slashOut + 1
+        #        k = k [1:]
+        #k = k[::-1]    #  this will give the first part --> http://localhost:8123/video/
+        VideoPostroll = "http://"+PC_IP+":8123"+"/video/"+str(Anime_id)+"/"+str(next)   # this will give url like   http://localhost:8123/video/20/134 ## "VideoPostroll = k+str(Anime_id)+"/"+str(next)"
         ##  Url generation ends
     video_NAME = Anime_object.AnimeEpisodes()[video_id]
     video_Public_Url = str(video_url)
@@ -697,9 +757,12 @@ def video(request, Anime_id, video_id):
         MSG = ''
 
     ########################## END :::  TO Create SUBTITLES FOR THE VIDEO ##################################################
-
+    k=open("autoplay.ini", 'r')
+    autoplaySymbol = k.read()
+    k.close()
 
     #print("video_Public_Url +++++ ",video_Public_Url)
+
     context = {
     'EP_name': video_NAME,
     'Anime_id': Anime_id,
@@ -710,6 +773,7 @@ def video(request, Anime_id, video_id):
     'subtitle_present':subtitle_present,
     'MSG':MSG,
     'VideoPostroll':VideoPostroll,
+    'autoplaySymbol':autoplaySymbol,
     }
     return render(request, "videoPlayer/videoPlayer.html", context)
 

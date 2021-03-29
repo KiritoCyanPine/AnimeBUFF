@@ -33,6 +33,8 @@ urlpatterns = [
     path('welcomePage/', animetitles.views.welcomePage),
     path('OST/', animetitles.views.AnimeOST , name="OST"),
     path('ajax/getRaws',animetitles.views.AJAX_folderManager, name="getRaws"),
+    path('ajax/getMAL/<int:animeId>/',animetitles.views.AJAX_getDataFromMal, name="getMAL"),
+    path('ajax/autoplay/',animetitles.views.AJAX_autoPlay, name="postAutoPlay"),
 
 ###################################################    TESTING PAGES URLS ##############################
     path('animetitle/testing/', animetitles.views.testing, name="testing"),

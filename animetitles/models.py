@@ -32,6 +32,8 @@ class AnimeTitle(models.Model):
     extrapick_6 = models.ImageField(upload_to = "images/",
                     blank = True)
 
+    mal_anime_link = models.CharField(max_length=250, blank = True, default = '')
+
     directory_address =  models.CharField(max_length=175)
     watchCurrEp = models.IntegerField(blank = True ,default = 0)
 

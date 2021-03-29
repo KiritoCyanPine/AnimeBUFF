@@ -1,3 +1,26 @@
+#####   getting only numbers from MAL links
+k = AnimeTitle.objects.all()
+for i in k:
+    j = i.mal_anime_link.split('/')
+    t=''
+    for l in j:
+        if l.isnumeric():
+            t = l
+            break
+    print(t)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="desktopview" class="">
 
@@ -193,7 +216,7 @@
       </script-->
 
 
-      
+
         <!--script type="text/javascript">
         document.getElementById('html_video').addEventListener('ended',function(){
              window.location.href = '{% url 'video' Anime_id next %}';

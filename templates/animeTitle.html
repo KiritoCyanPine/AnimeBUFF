@@ -138,13 +138,13 @@
 
       .scrollable{
 
-        height: 75vh;
+        height: 100%;
         overflow: auto;
         text-align: justify;
         padding: 20px;
       }
       .fixedHeight{
-        height: 110vh;
+        height: 100%;
       }
 
       .max-width{
@@ -160,11 +160,20 @@
               }
 /* STOPPING SHIFTING OF THE PAGE TO THE LEFT SIDE */
 
+.ratCont{
+  height: 100px;
+  width: 100px;
+  position:static;
+  border-style: solid;
+  border-width: 10px;
+  border-color: white;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#e73827',GradientType=1 );
+}
+
     </style>
 
 
     <!-- Custom styles for this template -->
-    <link href="album.css" rel="stylesheet">
 
 
   </head>
@@ -213,6 +222,18 @@
             {% if Anime.TrailerVideo %}
             <div class="form-group text-info">
                 make sure you are connected to Internet...
+                <div id="Studios" class="mt-4 mb-2 text-light">
+                </div>
+                <div id="Score" class="mt-2 mb-2 text-light">
+                </div>
+                <div id="Rank" class="mt-2 mb-2 text-light">
+                </div>
+                <div id="Popularity" class="mt-2 mb-2 text-light">
+                </div>
+                <div id="Status" class="mt-2 mb-2 text-light">
+                </div>
+                <div id="Rating" class="mt-2 mb-4 text-light">
+                </div>
                 <a for="collapseOne" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="btn btn-warning mx-auto small-fonts max-width text-light">Traier  <svg class="bi bi-arrow-down-up" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                       <path fill-rule="evenodd" d="M11 3.5a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z"/>
                       <path fill-rule="evenodd" d="M10.646 2.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L11 3.707 8.354 6.354a.5.5 0 1 1-.708-.708l3-3zm-9 7a.5.5 0 0 1 .708 0L5 12.293l2.646-2.647a.5.5 0 1 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z"/>
@@ -221,6 +242,11 @@
                 <div id="collapseOne" class="collapse embed-responsive embed-responsive-16by9 mt-5 mb-2 border rounded-right border-dark text-light">
                   <iframe width="956" height="538" src="{{Anime.TrailerVideo}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
+                <br>
+
+
+
+
             </div>
 
 
@@ -231,7 +257,7 @@
       </div>
 
     <!-- THE SECOND BLOCK CONTAINING DESCRIPTION AND ANIME_VIDEO_LIST-->
-      <div class="col-7 darker mx-1 rounded col">
+      <div class="col-7 darker mx-1 rounded col" style="height:100%;">
             <div class="row">
               <div class="col-1 mx-auto d-block px-2 my-2">
                 <span class="align-middle text-light"><h6><u>_Description_</u></h6></span>
@@ -424,5 +450,98 @@
       });
       $('.image-link').magnificPopup({type:'image'});
       });
+</script>
+<script type="text/javascript">
+    $.ajax({
+      type:'GET',
+      url: "{% url 'getMAL' Anime.id %}",
+      success: function(response){
+        $("#Rating").empty();
+        $("#Popularity").empty();
+        $('#Status').empty();
+        if (typeof response.score !== 'undefined'){
+
+          var isEdge = !window.isIE && !!window.StyleMedia;
+          if (isEdge==true){
+            var temp2 = `<u><b>MAL Score :</b></u>
+            <div id="rating_container" class="rating_container ratCont d-flex mx-auto text-center align-middle" style="border-radius:50%;position:static;">
+                <span class="text-center d-flex mx-auto text-warning" style="position:relative;top:25%;font-size:150%;">
+                  `+ response.score +`<div class="align-bottom" style="position:relative;font-size:70%;top:20%">/</div><div class="align-bottom" style="position:relative;font-size:50%;top:25%">10</div>
+                </span>
+            </div>`;
+            $("#Score").append(temp2);
+            var scorePie = `conic-gradient(rgba(`+ response.score_color +`, 0.38) `+ response.scoreForPie +`deg, transparent 0 `+ response.scoreForPieALT +`deg)`;
+            console.log("scorePie");
+            $("#rating_container").css("background-image", scorePie);
+          }
+          else
+          {
+            var temp = `<u><b>MAL Score :</b></u>
+          <div id="rating_container" class="rating_container ratCont d-flex mx-auto text-center align-middle" style="border-radius:50%;position:static;">
+              <span class="text-center d-flex mx-auto align-middle text-light" style="position:relative;top:25%;font-size:150%;">
+                `+ response.score +`
+              </span>
+          </div>`;
+          $("#Score").append(temp);
+          var scorePie = `conic-gradient(rgba(`+ response.score_color +`, 0.38) `+ response.scoreForPie +`deg, transparent 0 `+ response.scoreForPieALT +`deg)`;
+          console.log(scorePie);
+          $("#rating_container").css("background-image", scorePie);
+        }
+
+
+
+                }
+
+          else {
+              var temp = ``;
+              $("#Score").append(temp);
+          }
+
+        if (typeof response.popularity !== 'undefined'){
+                  var temp = `<u><b>Popularity :</b></u> <span name="Popularity">&nbsp;&nbsp;&nbsp;&nbsp;`+response.popularity+`</span>`;
+                  $("#Popularity").append(temp);
+          }
+          else {
+              var temp = ``;
+              $("#Popularity").append(temp);
+          }
+
+        if (typeof response.status !== 'undefined'){
+                  var temp = `<u><b>Status :</b></u> <span name="Status">&nbsp;&nbsp;&nbsp;&nbsp;`+response.status+`</span>`;
+                  $("#Status").append(temp);
+          }
+          else {
+              var temp = ``;
+              $("#Status").append(temp);
+          }
+        if (typeof response.rating !== 'undefined'){
+                  var temp = `<u><b>Rating :</b></u> <span name="Rating">&nbsp;&nbsp;&nbsp;&nbsp;`+response.rating+`</span>`;
+                  $("#Rating").append(temp);
+          }
+          else {
+              var temp = ``;
+              $("#Rating").append(temp);
+          }
+        if (typeof response.studios !== 'undefined'){
+                  var temp = `<u><b>Studios :</b></u> <span name="Studios">&nbsp;&nbsp;&nbsp;&nbsp;`+response.studios+`</span>`;
+                  $("#Studios").append(temp);
+          }
+          else {
+              var temp = ``;
+              $("#Studios").append(temp);
+          }
+        if (typeof response.rank !== 'undefined'){
+                  var temp = `<u><b>Rank :</b></u> <span name="Rank">&nbsp;&nbsp;&nbsp;&nbsp;`+response.rank+`</span>`;
+                  $("#Rank").append(temp);
+          }
+          else {
+              var temp = ``;
+              $("#Rank").append(temp);
+          }
+      },
+      error: function(response){
+        console.log("ERROR");
+      }
+    });
 </script>
 </html>
