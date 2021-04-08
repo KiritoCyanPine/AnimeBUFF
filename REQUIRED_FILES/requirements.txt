@@ -1,5 +1,5 @@
 ﻿asgiref==3.2.7
-Django==3.1.7
+Django==3.1.8
 numpy==1.18.4
 Pillow==8.1.1
 psycopg2-binary==2.8.5
