@@ -3,7 +3,7 @@
 <header>
 
 
-<div class="navbar navbar-light bg-light shadow-sm">
+<div id="NAVIGATIONBAR" class="navbar navbar-light bg-light shadow-sm">
   <div class="container d-flex justify-content-between">
     <a href="{% url 'start' %}" class="navbar-brand d-flex align-items-center pl-5">
       <img src="{% static 'animeBUFF_logo.png' %}"  width="180" class="img-fluid">
@@ -36,25 +36,25 @@
 
     <div class="container d-flex justify-content-between row">
 
-          <a href="{% url 'start' %}" class=" justify-content-center btn btn-light border-right" style="width:20%;color:black;">
+          <a id="nav1" href="{% url 'start' %}" class=" justify-content-center btn btn-light border-right" style="width:20%;color:black;">
             Home
           </a>
 
-          <a href="{% url 'main' %}" class=" justify-content-center btn btn-light border-right  border-left" style="width:20%;color:black;">
+          <a id="nav2" href="{% url 'main' %}" class=" justify-content-center btn btn-light border-right  border-left" style="width:20%;color:black;">
             Anime List
           </a>
 
-          <a href="{% url 'randomise' %}" class=" justify-content-center  btn btn-light border-right border-left" style="width:20%;color:black;">
+          <a id="nav3" href="{% url 'randomise' %}" class=" justify-content-center  btn btn-light border-right border-left" style="width:20%;color:black;">
             Select Random
           </a>
 
-          <a class=" justify-content-center  btn btn-light border-right border-left" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation" style="width:20%;color:black;">
+          <a id="nav4" class=" justify-content-center  btn btn-light border-right border-left" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation" style="width:20%;color:black;">
             Advanced search <svg class="bi bi-chevron-compact-down" width="0.5em" height="1em" viewBox="0 0 16 16" fill="blue" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67z"></path>
             </svg>
           </a>
 
-          <a href="{% url 'admin:index' %}animetitles/animetitle" class=" justify-content-center btn btn-light border-left" style="width:20%;color:black;" target="_blank">
+          <a id="nav5" href="{% url 'admin:index' %}animetitles/animetitle" class=" justify-content-center btn btn-light border-left" style="width:20%;color:black;" target="_blank">
             Register
           </a>
 

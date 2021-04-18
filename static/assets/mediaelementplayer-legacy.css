@@ -72,10 +72,12 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
 
 .mejs-fullscreen {
     overflow: hidden !important;
+    bottom:-4rem;
 }
 
 .mejs-container-fullscreen {
-    bottom: 0;
+
+    bottom:-4rem;
     left: 0;
     overflow: hidden;
     position: fixed;
@@ -86,6 +88,8 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
 
 .mejs-container-fullscreen .mejs-mediaelement,
 .mejs-container-fullscreen video {
+
+  bottom:-4rem;
     height: 100% !important;
     width: 100% !important;
 }

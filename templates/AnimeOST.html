@@ -21,7 +21,6 @@
 <link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
 <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-<link rel="manifest" href="/docs/4.5/assets/img/favicons/manifest.json">
 <link rel="mask-icon" href="/docs/4.5/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
 <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon.ico">
 <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
@@ -73,7 +72,7 @@
 
       body {
         /*background: linear-gradient(220deg, rgba(2,0,36,1) 0%, rgba(212,212,250,1) 55%, rgba(0,212,255,1) 100%) no-repeat center center fixed;*/
-        background: linear-gradient(220deg, rgba(255,44,44,0.6) 0%, rgba(69,233,198,0.6) 50%, rgba(210,95,255,0.6) 100%) no-repeat center center fixed;
+
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -191,7 +190,25 @@
     }
 
     .videoSIZE{
+      filter: opacity(40%);
       z-index: 1;
+    }
+    .videoSIZE2{
+      z-index: 1;
+    }
+
+    .overVideo{
+      position: relative;
+      z-index: 1;
+    }
+
+
+    .wallpaperVideo{
+      position: fixed;
+      left:0px;
+      top: 0px;
+      height: 100vh;
+      width: 100vh;
     }
 
     </style>
@@ -202,6 +219,7 @@
 
   </head>
 <body>
+  <script src="{% static "dist\Jq\jquerry.min.js" %}"></script>
 
 
 
@@ -211,14 +229,16 @@
 
 
 <main role="main">
-    <div class="headerback text-light py-2 mt-4 px-5 mx-5 rounded">
+    <div class="overVideo headerback text-light py-2 mt-4 px-5 mx-5 rounded">
         <h2>Anime OST's And MUSIC</h2>
     </div>
+    <div class="wallpaperVideo">
+      <video loop muted autoplay poster="posterimage.jpg" style="height: 100vh;position:fixed;">
+        <source src="{% static 'loadcat.mp4' %}" type="video/mp4">
+      </video>
+    </div>
 
-  <div class="album py-5 bg-transparent my-2 row text-alert mx-5" style="margin: 0 auto">
-
-
-
+  <div class="overVideo py-5 bg-transparent my-2 row text-alert mx-5" style="margin: 0 auto">
 
     <!-- THE BLOCK CONTAINING DESCRIPTION AND ANIME_VIDEO_LIST-->
       <div class="col-12 darker mx-auto rounded">
@@ -226,7 +246,7 @@
             <div class=" justify-content-around">
               <div class="d-flex mx-auto my-2 px-1 py-1 row justify-content-around">
                   {% for word ,video,num,thumbnail  in Ep_plus_Link %}
-                     <button type="button" class="card darkerL py-1 mb-1 mx-2 my-2 col-2" data-toggle="modal" data-target="#staticBackdrop{{num}}"  >
+                     <button type="button" class="card darkerL py-1 mb-1 mx-2 my-2 col-2" data-toggle="modal" data-target="#staticBackdrop{{num}}" onclick="removeElementsByClass('modal-backdrop')">
                        <!-- onmouseover="javascript:document.getElementById('myVideoPre{{num}}').play();document.getElementById('myVideoPre{{num}}').currentTime +=2;document.getElementById('myVideoPre{{num}}').pause(); if(document.getElementById('myVideoPre{{num}}').currentTime >= document.getElementById('myVideoPre{{num}}').duration){document.getElementById('myVideoPre{{num}}').currentTime=0;} " -->
                        <!-- if the above code is used we can use it to perform video-prequel on the page ,, but it takes ot alot of time and processing speed -->
                       <div class="" style="height:20vh; z-index:2;">
@@ -240,19 +260,19 @@
                       </div>
                      </button>
                       <!--this works just perfectly and silently as expected-->
-                      <div class="modal fade modal-open " id="staticBackdrop{{num}}" data-backdrop="static"  tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true" style="left:-20vh;">
+                      <div class="modal fade modal-open rounded" id="staticBackdrop{{num}}" data-backdrop="static"  tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true" style="left:-20vh;top:50px;">
                         <div class="modal-dialog">
                           <div class="modal-content model-grad"  style="height:80vh;width:120vh;">
                             <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">{{word}}</h5>
-                              <button type="button" class="close btn-danger rounded" data-dismiss="modal" aria-label="Close" onclick="javascript:document.getElementById('myVideo{{num}}').pause();">
-                                <span aria-hidden="true" style="top:13px;">&times;</span>
+                              <h5 class="modal-title text-light text-shadow-dark" id="exampleModalLabel" style="text-shadow: 1px 1px 5px #111;">{{word}}</h5>
+                              <button type="button" id="modalCloseButton{{num}}" class="close btn-danger px-0 py-0" style="border-bottom-left-radius:20%;right:17px; position:absolute;height:40px;width:40px;" data-dismiss="modal" aria-label="Close" onclick="javascript:document.getElementById('myVideo{{num}}').pause();">
+                                <span aria-hidden="true" style="top:13px;">&times;<br></span>
                               </button>
                             </div>
                             <div class="text-center ">
                                 <div class="justify-content-around">
-                                      <div class="justify-content-center"  style="height:60vh;width:119.7vh;">
-                                                  <video id="myVideo{{num}}" class="videoSIZE" preload="none" height="100%" width="100%" poster="{{thumbnail}}">
+                                      <div id="modalViewPlayerInsider{{num}}" class="justify-content-center"  style="height:60vh;width:119.6vh;">
+                                                  <video id="myVideo{{num}}" class="videoSIZE2" preload="none" height="100%" width="100%" poster="{{thumbnail}}">
                                                         <source src="{{video}}" type="video/mp4">
                                                         <source src="{{video}}" type="video/x-matroska;">
                                                         <source src="{{video}}" type='video/x-matroska; codecs="theora, vorbis"'>
@@ -266,6 +286,15 @@
 
 
                                       </div>
+                                            <script type="text/javascript">
+                                                $('#staticBackdrop{{num}}').appendTo("body");
+                                                var isEdge = !window.isIE && !!window.StyleMedia;
+                                                if (isEdge==true){
+                                                  document.getElementById("modalViewPlayerInsider{{num}}").style.height = "500px" ;
+                                                  document.getElementById("modalViewPlayerInsider{{num}}").style.width = "1016px";
+                                                  document.getElementById("modalCloseButton{{num}}").style.right = "33px";
+                                                  }
+                                            </script>
                                       <br>
                                       <div class="row justify-content-center">
                                         <div id="Play{{num}}" class="">
@@ -344,6 +373,22 @@
 <script src="{% static "dist\Jq\jquerry.min.js" %}"></script>
 <script src="{% static "dist\Jq\popper.min.js" %}"></script>
 <script src="{% static "dist\js\bootstrap.min.js" %}" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script type="text/javascript">
+  document.getElementById("NAVIGATIONBAR").classList.toggle("overVideo");
+  document.getElementById("FOOTERBAR").classList.toggle("overVideo");
+
+</script>
+<script type="text/javascript">
+function removeElementsByClass(className){
+
+      var elements = document.getElementsByClassName(className);
+      console.log(elements[0]);
+      while(elements.length > 0){
+          elements[0].parentNode.removeChild(elements[0]);
+      }
+  }
+  removeElementsByClass("modal-backdrop");
+</script>
 <script>
 
       $(document).ready(function() {

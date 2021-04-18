@@ -3,12 +3,12 @@
 <html lang="en">
 {% load static %}
   <head>
+    <title>{{Anime.title}}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.0.1">
-    <title>Album example · Bootstrap</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
 
@@ -21,7 +21,6 @@
 <link rel="icon" href='{% static "play-button.ico" %}'>
 <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-<link rel="manifest" href="/docs/4.5/assets/img/favicons/manifest.json">
 <link rel="mask-icon" href="/docs/4.5/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
 <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon.ico">
 <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
@@ -55,20 +54,129 @@
       .darker {
         background :linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
       }
+      .darkerL {
+        background :linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+      }
 
       body {
-        background: url({% static 'Anime Buff titlepick _ OPTION 2-BLUR.jpg'%}) no-repeat center center fixed;
+        /*background: linear-gradient(220deg, rgba(2,0,36,1) 0%, rgba(212,212,250,1) 55%, rgba(0,212,255,1) 100%) no-repeat center center fixed;*/
+        background: url("{{Anime.extrapick_1.url}}") no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
         margin: 0;
+        /* this piece of code actually stopped shifting of page when models were opened*/
+        /**/                                                                         /**/
+        /**/                        padding-right:0px !important;                    /**/
+        /**/                        margin-right:0px !important;                     /**/
+        /**/                                                                         /**/
+        /* this piece of crap actually stopped shifting of page when models were opened*/
       }
 
+      /*   FOR THE HORIZONTAL LINE BETWEEN DIFFERENT OPTIONS     */
+            hr {
+              border: 1px solid white;
+              margin:7px 0px;
+            }
+      /*   HORIZONTAL LINE BETWEEN DIFFERENT OPTIONS ENDS     */
+
+      /*    FOR THE ZOOMING IN OF THE HOVERED IMAGE ON THE MOUSE OVER EVENT */
+            .img-resize {
+              border: 2px solid grey;
+              transition: transform 0.3s;
+            }
+
+            .img-resize:hover {
+              border: 2px solid white;
+              border-radius: 4px;
+              transform:scale(3.1);
+            }
+      /*     ENDING OF THE IMG ZOOM EVENT ___________    */
+
+
+
+      /*    FOR THE  CONSISTENCY IN THE LINK DECOR CHANGING     */
+                  a:link {  text-decoration: none;  }
+                  a:visited {  text-decoration: none;  }
+                  a:hover {  text-decoration: none;   }
+                  a:active {   text-decoration: none;   }
+      /*     ENDING OF LINK DECORATION CHANGE                    */
+
+
+      /*   FOR THE SELECTION HIGHTLIGHT OF THE ANIME LIST    */
+            .linker p{
+              transition: all 0.3s;
+            }
+            .linker:hover{
+              background: linear-gradient(90deg, rgba(61,98,231,1) 0%, rgba(206,161,240,0.7458333675266982) 51%, rgba(0,212,255,0.23322832550989148) 100%);
+              border: 0px;
+              border-radius: 8px;
+            }
+            .linker:hover p{
+              transform: scale(1.09);
+            }
+      /*   ENDING OF THE SELECTION PROGRAM    */
+
+      /*    FOR THE ZOOMING IN OF THE HOVERED IMAGE ON THE MOUSE OVER EVENT */
+            .img-resize {
+              border: 2px solid grey;
+              transition: transform 0.3s;
+            }
+
+            .img-resize:active {
+              border: 2px solid white;
+              border-radius: 4px;
+              transform:scale(3.1);
+            }
+      /*     ENDING OF THE IMG ZOOM EVENT ___________    */
+
+      .small-fonts{
+        font-size: 90%;
+      }
+
+      .scrollable{
+
+        height: 100%;
+        overflow: auto;
+        text-align: justify;
+        padding: 20px;
+      }
+      .fixedHeight{
+        height: 100%;
+      }
+
+      .max-width{
+        width: 100%;
+      }
+/* FOR STOPPING SHIFTING OF THE PAGE TO LEFT */
+             .modal {
+               overflow-x: auto;
+              }
+
+              .modal-open {
+               overflow: auto;
+              }
+/* STOPPING SHIFTING OF THE PAGE TO THE LEFT SIDE */
+
+.ratCont{
+  height: 100px;
+  width: 100px;
+  position:static;
+  border-style: solid;
+  border-width: 10px;
+  border-color: white;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#e73827',GradientType=1 );
+}
+
     </style>
+
+
     <!-- Custom styles for this template -->
+
+
   </head>
-  <body>
+<body>
 
 
 
@@ -78,78 +186,248 @@
 
 
 <main role="main">
+    <div class="darker text-light py-2 mt-4 px-5 mx-5 rounded">
+        <h2>{{Anime.title}}</h2>
+    </div>
 
+  <div class="album py-5 bg-transparent my-2 justify-content-around row text-alert ml-5" style="margin: 0 auto">
+<!-- DIVIDING UP OF THE PAGE IN 3 PARTS AND DILIVERING CONTENT SAPERATELY FOR EACH ONE-->
 
+    <!-- THE FIRST BLOCK CONTAINING PROFILE_PIC, GENRE, OTHER_NAMES, TRAILER_VIDEO-->
+      <div class="col-2 darker rounded fixedHeight">
 
-  <div class="album py-5 bg-transparent darker col-md-10 my-5 justify-content-center text-alert" style="margin: 0 auto">
-    <div class="container">
-      <div class="row">
-            <div class="container text-light">
+            <img src="{{Anime.profile.url}}" class="img-fluid img-thumbnail rounded mx-auto d-block bg-dark col-10 my-3 ">
+            <hr>
+            <div class="row small-fonts">
+              <div class="col-3 mx-auto d-block px-2 my-2">
+                <span class="align-middle text-white"><u>_Other Names_</u></span>
+              </div>
+              <div class="col-8 darkerL mx-auto d-block text-light">
+                {{Anime.OTHER_NAMES}}
+              </div>
+            </div>
+            <hr>
 
-              {{Anime.title}}
-                <img src="{{Anime.profile.url}}" class="img-fluid img-thumbnail bg-dark" width="400">
+            <div class="row small-fonts">
+              <div class="col-3 mx-auto d-block px-2 my-2">
+                <span class="align-middle text-white"><u>_Genre_</u></span>
+              </div>
+              <div class="col-8 darkerL mx-auto d-block text-light">
+                {{Anime.genres}}
+              </div>
+            </div>
+            <hr>
+
+            {% if Anime.TrailerVideo %}
+            <div class="form-group text-info">
+                make sure you are connected to Internet...
+                <div id="Studios" class="mt-4 mb-2 text-light">
+                </div>
+                <div id="Score" class="mt-2 mb-2 text-light">
+                </div>
+                <div id="Rank" class="mt-2 mb-2 text-light">
+                </div>
+                <div id="Popularity" class="mt-2 mb-2 text-light">
+                </div>
+                <div id="Status" class="mt-2 mb-2 text-light">
+                </div>
+                <div id="Rating" class="mt-2 mb-4 text-light">
+                </div>
+                <a for="collapseOne" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="btn btn-warning mx-auto small-fonts max-width text-light">Traier  <svg class="bi bi-arrow-down-up" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M11 3.5a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z"/>
+                      <path fill-rule="evenodd" d="M10.646 2.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L11 3.707 8.354 6.354a.5.5 0 1 1-.708-.708l3-3zm-9 7a.5.5 0 0 1 .708 0L5 12.293l2.646-2.647a.5.5 0 1 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z"/>
+                      <path fill-rule="evenodd" d="M5 2.5a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-1 0V3a.5.5 0 0 1 .5-.5z"/>
+                    </svg></a>
+                <div id="collapseOne" class="collapse embed-responsive embed-responsive-16by9 mt-5 mb-2 border rounded-right border-dark text-light">
+                  <iframe width="956" height="538" src="{{Anime.TrailerVideo}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
                 <br>
-                {{Anime.summery}}
-                <br>
-                {{Anime.directory_address}}
-                <br>
-                {{Anime.DirLink}}
-                <br>
-                {% for word in Anime.FileList %}
 
-                {{word}} ::
+
+
+
+            </div>
+
+
+
+
+            {% endif %}
+
+      </div>
+
+    <!-- THE SECOND BLOCK CONTAINING DESCRIPTION AND ANIME_VIDEO_LIST-->
+      <div class="col-7 darker mx-1 rounded col" style="height:100%;">
+            <div class="row">
+              <div class="col-1 mx-auto d-block px-2 my-2">
+                <span class="align-middle text-light"><h6><u>_Description_</u></h6></span>
+              </div>
+              <div class="col-10 mx-auto mt-5 d-block text-white">
+                  {{Anime.summery|linebreaks}}
+                  <!--"""LINE BREAKES ONLY APPEAR IF AND ONLY IF WE MENTION '|linebreaks' """ -->
+              </div>
+              <div class="col-10 mx-auto mt-3 my-2 d-block text-white">
+                  <a href="{% url 'video' Anime.id Anime.watchCurrEp %}" class="btn btn-primary ml-5"> watch : 	&nbsp;&nbsp; {{currentEpName}}</a>
+              </div>
+            </div>
+            <hr>
+            <br>
+            <div class="mx-1 my-2 px-1 py-1">
+                <h6 class="text-white"><u>_Episode List :_</u></h6>
+                {% for word ,link  in Ep_plus_Link %}
+
+            <!--    <a href="{% url 'video' Anime.id link %}" target="_blank"> {{word}} </a> <br>  -->
+                <a href="{% url 'video' Anime.id link %}">
+                  <div class="darker linker py-1 mb-1">
+                    <p class="mx-5 px-5 text-light" > {{word}} </p>
+                  </div>
+                </a>
                 <!--this works just perfectly and silently as expected-->
 
                 {% endfor %}
-                <br>
-                {% for word in Anime.VidList %}
 
-                {{word}} :: ::
-                <!--this works just perfectly and silently as expected-->
-
-                {% endfor %}
-                <br>
-                {% for word in Anime.AnimeEpisodes %}
-
-                {{word}} ::
-                <!--this works just perfectly and silently as expected-->
-
-                {% endfor %}
-                <br><br><br>
-                {% for word in Anime.AnimeEpisodesLink %}
-                 $$$$
-                <a href="{% url 'video' word %}" target="_blank"> {{word}} </a>
-                <!--this works just perfectly and silently as expected-->
-
-                {% endfor %}
-
-                <iframe width="514" height="289" src="https://www.youtube.com/embed/MYkOQhHquVQ" frameborder="5"
-                allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen controls>
-              </iframe>
-
-
-                {% if Anime.extrapick_1 %}
-                    <img src="{{Anime.extrapick_1.url}}" class="img-fluid img-thumbnail bg-dark" width="400">
-                {% endif %}
-                {% if Anime.extrapick_2 %}
-                    <img src="{{Anime.extrapick_2.url}}" class="img-fluid img-thumbnail bg-dark" width="400">
-                {% endif %}
-                {% if Anime.extrapick_3 %}
-                    <img src="{{Anime.extrapick_3.url}}" class="img-fluid img-thumbnail bg-dark" width="400">
-                {% endif %}
-                {% if Anime.extrapick_4 %}
-                    <img src="{{Anime.extrapick_4.url}}" class="img-fluid img-thumbnail bg-dark" width="400">
-                {% endif %}
-                {% if Anime.extrapick_5 %}
-                    <img src="{{Anime.extrapick_5.url}}" class="img-fluid img-thumbnail bg-dark" width="400">
-                {% endif %}
-                {% if Anime.extrapick_6 %}
-                    <img src="{{Anime.extrapick_6.url}}" class="img-fluid img-thumbnail bg-dark" width="400">
-                {% endif %}
             </div>
       </div>
+      <!-- THE THIRD BLOCK CONTAINING EXTRA PICTURES-->
+      <div class="col-2 darker scrollable my-2 py-2">
+          <div class="py-1">
+              <div class="mx-auto d-block px-2 my-2">
+                <span class="align-middle text-light"><h6><u>_Extras..._</u></h6></span>
+              </div>
+              <br>
+              <hr>
+              <br>
+              {% if Anime.extrapick_1 %}
+                  <button type="button" class="btn" data-toggle="modal" data-target="#staticBackdrop">
+                    <img id="imageresource" src="{{Anime.extrapick_1.url}}" class="img-fluid img-thumbnail bg-dark" style="filter: blur(1px);">
+                  </button>
+              {% endif %}
+              {% if Anime.extrapick_2 %}
+                  <button type="button" class="btn" data-toggle="modal" data-target="#staticBackdrop1">
+                    <img id="imageresource" src="{{Anime.extrapick_2.url}}" class="img-fluid img-thumbnail bg-dark" style="filter: blur(1px);">
+                  </button>
+              {% endif %}
+              {% if Anime.extrapick_3 %}
+                  <button type="button" class="btn" data-toggle="modal" data-target="#staticBackdrop2">
+                    <img id="imageresource" src="{{Anime.extrapick_3.url}}" class="img-fluid img-thumbnail bg-dark" style="filter: blur(1px);">
+                  </button>
+              {% endif %}
+              {% if Anime.extrapick_4 %}
+                  <button type="button" class="btn" data-toggle="modal" data-target="#staticBackdrop3">
+                    <img id="imageresource" src="{{Anime.extrapick_4.url}}" class="img-fluid img-thumbnail bg-dark" style="filter: blur(1px);">
+                  </button>
+              {% endif %}
+              {% if Anime.extrapick_5 %}
+                  <button type="button" class="btn" data-toggle="modal" data-target="#staticBackdrop4">
+                    <img id="imageresource" src="{{Anime.extrapick_5.url}}" class="img-fluid img-thumbnail bg-dark" style="filter: blur(1px);">
+                  </button>
+              {% endif %}
+              {% if Anime.extrapick_6 %}
+                  <button type="button" class="btn" data-toggle="modal" data-target="#staticBackdrop5">
+                    <img id="imageresource" src="{{Anime.extrapick_6.url}}" class="img-fluid img-thumbnail bg-dark" style="filter: blur(1px);">
+                  </button>
+              {% endif %}
+
+        </div>
     </div>
   </div>
+  <div class="">
+    <!-- Modals - THE DATA_TARGET IN THE BUTTON WILL BE TRIGGERING THE MODEL'S "id" -->
+    {% if Anime.extrapick_1 %}
+    <div class="modal fade modal-open" id="staticBackdrop"  tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+            <img id="imageresource" src="{{Anime.extrapick_1.url}}" class="img-fluid img-thumbnail bg-dark" width="1000">
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% if Anime.extrapick_2 %}
+    <div class="modal fade modal-open" id="staticBackdrop1"  tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img id="imageresource" src="{{Anime.extrapick_2.url}}" class="img-fluid img-thumbnail bg-dark" width="1000">
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% if Anime.extrapick_3 %}
+    <div class="modal fade modal-open" id="staticBackdrop2"  tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img id="imageresource" src="{{Anime.extrapick_3.url}}" class="img-fluid img-thumbnail bg-dark" width="1000">
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% if Anime.extrapick_4 %}
+    <div class="modal fade modal-open" id="staticBackdrop3"  tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img id="imageresource" src="{{Anime.extrapick_4.url}}" class="img-fluid img-thumbnail bg-dark" width="1000">
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% if Anime.extrapick_5 %}
+    <div class="modal fade modal-open" id="staticBackdrop4"  tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img id="imageresource" src="{{Anime.extrapick_5.url}}" class="img-fluid img-thumbnail bg-dark" width="1000">
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% if Anime.extrapick_6 %}
+    <div class="modal fade modal-open" id="staticBackdrop5"  tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img id="imageresource" src="{{Anime.extrapick_6.url}}" class="img-fluid img-thumbnail bg-dark" width="1000">
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
 
 </main>
 
@@ -157,9 +435,112 @@
 {% include '_footer.html' %}
 
 
+
 <!--script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script-->
 <!--script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script-->
 <script src="{% static "dist\Jq\jquerry.min.js" %}"></script>
 <script src="{% static "dist\Jq\popper.min.js" %}"></script>
 <script src="{% static "dist\js\bootstrap.min.js" %}" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script>
+      $(document).ready(function() {
+      $('.template-article img').each(function() {
+      var currentImage = $(this);
+      currentImage.wrap("<a class='image-link' href='" + currentImage.attr("src") + "'</a>");
+      });
+      $('.image-link').magnificPopup({type:'image'});
+      });
+</script>
+<script type="text/javascript">
+    $.ajax({
+      type:'GET',
+      url: "{% url 'getMAL' Anime.id %}",
+      success: function(response){
+        $("#Rating").empty();
+        $("#Popularity").empty();
+        $('#Status').empty();
+        if (typeof response.score !== 'undefined'){
+
+          var isEdge = !window.isIE && !!window.StyleMedia;
+          if (isEdge==true){
+            var temp2 = `<u><b>MAL Score :</b></u>
+            <div id="rating_container" class="rating_container ratCont d-flex mx-auto text-center align-middle" style="border-radius:50%;position:static;">
+                <span class="text-center d-flex mx-auto text-warning" style="position:relative;top:25%;font-size:150%;">
+                  `+ response.score +`<div class="align-bottom" style="position:relative;font-size:70%;top:20%">/</div><div class="align-bottom" style="position:relative;font-size:50%;top:25%">10</div>
+                </span>
+            </div>`;
+            $("#Score").append(temp2);
+            var scorePie = `conic-gradient(rgba(`+ response.score_color +`, 0.38) `+ response.scoreForPie +`deg, transparent 0 `+ response.scoreForPieALT +`deg)`;
+            console.log("scorePie");
+            $("#rating_container").css("background-image", scorePie);
+          }
+          else
+          {
+            var temp = `<u><b>MAL Score :</b></u>
+          <div id="rating_container" class="rating_container ratCont d-flex mx-auto text-center align-middle" style="border-radius:50%;position:static;">
+              <span class="text-center d-flex mx-auto align-middle text-light" style="position:relative;top:25%;font-size:150%;">
+                `+ response.score +`
+              </span>
+          </div>`;
+          $("#Score").append(temp);
+          var scorePie = `conic-gradient(rgba(`+ response.score_color +`, 0.38) `+ response.scoreForPie +`deg, transparent 0 `+ response.scoreForPieALT +`deg)`;
+          console.log(scorePie);
+          $("#rating_container").css("background-image", scorePie);
+        }
+
+
+
+                }
+
+          else {
+              var temp = ``;
+              $("#Score").append(temp);
+          }
+
+        if (typeof response.popularity !== 'undefined'){
+                  var temp = `<u><b>Popularity :</b></u> <span name="Popularity">&nbsp;&nbsp;&nbsp;&nbsp;`+response.popularity+`</span>`;
+                  $("#Popularity").append(temp);
+          }
+          else {
+              var temp = ``;
+              $("#Popularity").append(temp);
+          }
+
+        if (typeof response.status !== 'undefined'){
+                  var temp = `<u><b>Status :</b></u> <span name="Status">&nbsp;&nbsp;&nbsp;&nbsp;`+response.status+`</span>`;
+                  $("#Status").append(temp);
+          }
+          else {
+              var temp = ``;
+              $("#Status").append(temp);
+          }
+        if (typeof response.rating !== 'undefined'){
+                  var temp = `<u><b>Rating :</b></u> <span name="Rating">&nbsp;&nbsp;&nbsp;&nbsp;`+response.rating+`</span>`;
+                  $("#Rating").append(temp);
+          }
+          else {
+              var temp = ``;
+              $("#Rating").append(temp);
+          }
+        if (typeof response.studios !== 'undefined'){
+                  var temp = `<u><b>Studios :</b></u> <span name="Studios">&nbsp;&nbsp;&nbsp;&nbsp;`+response.studios+`</span>`;
+                  $("#Studios").append(temp);
+          }
+          else {
+              var temp = ``;
+              $("#Studios").append(temp);
+          }
+        if (typeof response.rank !== 'undefined'){
+                  var temp = `<u><b>Rank :</b></u> <span name="Rank">&nbsp;&nbsp;&nbsp;&nbsp;`+response.rank+`</span>`;
+                  $("#Rank").append(temp);
+          }
+          else {
+              var temp = ``;
+              $("#Rank").append(temp);
+          }
+      },
+      error: function(response){
+        console.log("ERROR");
+      }
+    });
+</script>
 </html>

@@ -102,7 +102,7 @@ def Subtitle(Anime_object,video_id):
             return False
         a = re.findall(r'[0-9]+', k)
         mkvSubtitle = 'mkvextract tracks "'+video_directory_address+'" '+a[0]+':subs.ass && ass-to-vtt subs.ass > "'+PATH_TO_STATIC+'"'
-        #print(mkvSubtitle)
+        print(mkvSubtitle)
         os.system(f'cmd /c "{mkvSubtitle}"')
         subtitle_present = True
     except:
@@ -468,7 +468,7 @@ def testing2(request):
 def testing3(request,anime_id):
     deleteOldImages()
     Anime_object = get_object_or_404(AnimeTitle, pk=anime_id)
-    return render(request,"animeTitle.html",{'Anime':Anime_object})
+    return render(request,"testingPage3.html",{'Anime':Anime_object})
 
 def testing4(request, video_id):
     context = {

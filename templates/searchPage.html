@@ -21,7 +21,6 @@
 <link rel="icon" href='{% static "play-button.ico" %}'>
 <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-<link rel="manifest" href="/docs/4.5/assets/img/favicons/manifest.json">
 <link rel="mask-icon" href="/docs/4.5/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
 <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon.ico">
 <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
@@ -91,6 +90,7 @@
 
 
 /*----------------------- TABLE ROW DEAORATION IN IDLE & IN HOVERING -----------------------------------------------*/
+
       tr{
         transition: all 0.3s;
       }
@@ -103,6 +103,13 @@
         color: white;
         transform: scale(1.05);
       }
+
+      .tr-change:hover{
+        background: linear-gradient(180deg, rgba(61,98,231,1) 0%, rgba(206,161,240,0.7458333675266982) 51%, rgba(0,212,255,0.43322832550989148) 100%);
+        color: white;
+        transform: scale(1.05);
+      }
+
 /*----------------------- TABLE ROW DEAORATION ENDS -----------------------------------------------*/
 
 
@@ -142,6 +149,12 @@
         border: 0px;
         border-radius: 8px;
       }
+      .linker-edge:hover{
+        background: linear-gradient(180deg, rgba(61,98,231,0.9) 0%, rgba(206,161,240,0.7458333675266982) 51%, rgba(0,212,255,0.23322832550989148) 100%);
+        border: 0px;
+        border-radius: 8px;
+      }
+
       .linker:hover td{
         color: white;
         transform: scale(1.03);
@@ -270,7 +283,7 @@
 
                 <div class="card card-body">
                   <table class="table table-sm table-striped table-bordered small-fonts">
-                      <thead>
+                      <thead class="">
                         <th>Title</th>
                         <th>Genres</th>
                         <th>Episodes</th>
@@ -278,7 +291,7 @@
                       </thead>
                       <tbody>
                             {% for anime in animes.all %}
-                            <tr>
+                            <tr class="small-view">
                               {% if anime.noOfEPs == "Dir Deleted" %}
                               <td class="text-warning">[ {{anime.title}} ] - Anime moved</td>
                               {% else %}
@@ -442,6 +455,25 @@
 {% include '_footer.html' %}
 
 <script type="text/javascript">
+    var isEdge = !window.isIE && !!window.StyleMedia;
+    if(isEdge){
+      var x = document.getElementsByClassName("linker");
+      var y = document.getElementsByClassName("small-view");
+      var i;
+      console.log(x);
+      for (i = 0; i < x.length; i++) {
+      x[i].classList.toggle("linker-edge");
+      y[i].classList.toggle("tr-change");
+      console.log("LINKER_EDGE");
+      }
+      var x = document.getElementsByClassName("linker-edge");
+      for (i = 0; i < x.length; i++) {
+      x[i].classList.toggle("linker");
+      console.log("LINKER_EDGE");
+      }
+    }
+</script>
+<script type="text/javascript">
     function switchView() {
       var divClass1 = document.getElementById("desktopview");
       var divClass2 = document.getElementById("mobileview");
@@ -455,6 +487,7 @@
     });
 });
 </script>
+
 <!--script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script-->
 <!--script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script-->
 <script src="{% static "dist\Jq\jquerry.min.js" %}"></script>
