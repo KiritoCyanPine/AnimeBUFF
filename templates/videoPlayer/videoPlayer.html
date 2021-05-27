@@ -95,6 +95,21 @@
       .model-grad {
         background: linear-gradient(90deg, rgba(58,79,180,0.8830882694874825) 0%, rgba(253,29,71,0.7234244039412641) 50%, rgba(252,176,69,0.7654412106639531) 100%);
       }
+      .btn-orange {
+        background-color: #F38249;
+      }
+      .btn-orange:hover {
+        background-color: #E06D33 ;
+      }
+      .bg-orange{
+        background-color: #F38249;
+      }
+      .text-rose{
+        color: #fcb7ff;
+      }
+      .text-rose:hover{
+        color: #feb7ff;
+      }
 
       .videoSIZE{
         height:450px;
@@ -154,7 +169,7 @@
 
     {% include '_navbar.html' %}
 
-<main role="main" style="z-index:0;">
+<main role="main" style="z-index:0;position:sticky;;">
   {% if MSG %}
   <div id="NotificationOnError" class="card pt-1 pb-1" style="background: #FDD;">
     <div class="float-right ml-3" style="font-size:120%;">
@@ -215,9 +230,12 @@
 
 
 
-      <div id="mobileview" class="album py-5   model-grad col-md-10 text-center justify-content-between mt-3" style="margin: 0 auto">
+      <div id="mobileview" class="album py-5  model-grad col-md-10 text-center justify-content-between mt-3" style="margin: 0 auto">
         <div class="container">
-          <div class="row text-center">
+          <div id="VLCisPlaying" class="card bg-orange rounded text-light px-5 py-5 collapse">
+            <span class="mx-5 my-5">Playing in vlc...<br><a class="text-rose" style="color:#fcb7ff;" onclick="javascript:$('#VLCisPlaying').hide(400);$('#playerWindow').delay(400).show('slow');">Click here</a> to get Web View back...</span>
+          </div>
+          <div id="playerWindow" class="row text-center">
 
 
 
@@ -225,12 +243,12 @@
       <!--____________________________________________________________________CUSTOM PLAYER__________________________________________________________________________-->
 
 
-      <div id="CustomPlayer" class="justify-content-center mx-auto">
+      <div id="CustomPlayer" class="justify-content-center mx-auto row" >
 
         <br><button id="btnColorChange" onclick="switchToHtml();javascript:document.getElementById('video_player').pause();" class="btn btn-warning mx-auto small-fonts">Switch to HTML5 Player</button><br><br>
 
-            <div class="container mt-5 mb-5">
-                <div class="row">
+            <div class="mt-5 mb-5 px-5 d-flex mx-auto">
+                <div class="row col">
                       <video id="video_player" class="" preload="auto" height="506.25" width="900" controls="true" preload="0" onmousemove="javascript:document.getElementById('video_player').classList.toggle('mouse-visible');document.getElementById('video_player').classList.toggle('mouse-invisible')">
 
                             <source src="{{video}}" type="video/mp4">
@@ -256,8 +274,16 @@
 
                  </div>
             </div>
-            <button onclick="LightsToggle()" class="btn btn-dark mx-auto small-fonts">Switch Lights</button>
-            <button id="togglePipButton" class="btn btn-dark mx-auto small-fonts">Toggle Picture-in-Picture Mode!</button>
+            <div class="row">
+              <button onclick="LightsToggle()" class="btn btn-dark mx-1 small-fonts">Switch Lights</button>
+              {% if vlc_available %}
+              <form id="playinVLC1" method = "get">
+                  <button id="VLC1" class="btn btn-orange mx-1 small-fonts">play in <img src="{% static 'vlcicon.ico' %}" height=24px> vlc</button>
+              </form>
+              {% endif %}
+              <button id="togglePipButton" class="btn btn-dark mx-1 small-fonts">Toggle Picture-in-Picture Mode!</button>
+            </div>
+
       </div>
 
 
@@ -272,8 +298,8 @@
 
 
 
-              <div class="container mt-5 mb-5">
-                <div class="row">
+              <div class="mt-5 mb-5 px-5 d-flex mx-auto">
+                <div class="row col">
                         <video id="html_video" class="videoSIZE" preload="auto" height="506.25" width="990" controls="true" preload="0" onmousemove="javascript:document.getElementById('html_video').classList.toggle('mouse-visible');document.getElementById('html_video').classList.toggle('mouse-invisible')">
 
                               <source src="{{video}}" type="video/mp4">
@@ -301,7 +327,15 @@
 
                 </div>
               </div>
-              <button onclick="LightsToggle()" class="btn btn-dark mx-auto small-fonts">Switch Lights</button>
+              <div class="row float-right" style="right:10rem;">
+                <button onclick="LightsToggle()" class="btn btn-dark mx-1 small-fonts">Switch Lights</button>
+                {% if vlc_available %}
+                <form id="playinVLC2" method = "get">
+                    <button id="VLC2" class="btn btn-orange mx-1 small-fonts">play in <img src="{% static 'vlcicon.ico' %}" height=24px> vlc</button>
+                </form>
+                {% endif %}
+              </div>
+
       </div>
 
           <!--____________________________________________________________________HTML5 PLAYER ENDS__________________________________________________________________________-->
@@ -326,14 +360,14 @@
 
         </div>
         {% if subtitle_present %}
-        <div class="float-left justify-content-left container row">
+        <!--div class="float-left justify-content-left container row">
           <div class="col-1">
             <button class="btn btn-secondary" type="button" name="button"  style="font-size:75%;" onclick="javascript:document.getElementById('hint').classList.toggle('collapse');">?</button>
           </div>
           <div id="hint" class="collapse col-3"  style="left:0rem;">
             <span>*press number 2 and 8 to adjust subtitles height</span>
           </div>
-        </div>
+        </div-->
 
         {% endif %}
       </div>
@@ -385,7 +419,9 @@
 <script src="{% static 'plugins/jump-forward/jump-forward.min.js' %}"></script>
 <script src="{% static 'plugins/skip-back/skip-back.min.js' %}"></script>
 <script src="{% static 'plugins/picture-in-picture/picture-in-picture.js' %}"></script>
+<script type="text/javascript">
 
+</script>
 <script type="text/javascript">
   $(document).on('submit','#autoPlayForm',function(e){
       e.preventDefault();
@@ -403,12 +439,45 @@
              console.log("SHOW AGAIN VARIABLE SET TO : ",showAgain);
            }
          });
-
-
   });
-
-
-
+</script>
+<script type="text/javascript">
+    $(document).on('submit','#playinVLC1',function(e){
+      e.preventDefault();
+         $.ajax({
+           url:"{% url 'playInVLC' %}",
+           type:'GET',
+           data: {
+             animeID: {{Anime_id}},
+             videoID:{{video_id}},
+           },
+           success: function(response){
+             console.log("MESSAGE FROM VLC PLAY : ",response.message);
+             document.getElementById('html_video').pause();
+             document.getElementById('video_player').pause();
+             $("#playerWindow").hide(400);
+             $("#VLCisPlaying").delay(400).show('slow');
+           }
+         });
+    });
+    $(document).on('submit','#playinVLC2',function(e){
+      e.preventDefault();
+         $.ajax({
+           url:"{% url 'playInVLC' %}",
+           type:'GET',
+           data: {
+             animeID: {{Anime_id}},
+             videoID:{{video_id}},
+           },
+           success: function(response){
+             console.log("MESSAGE FROM VLC PLAY : ",response.message);
+             document.getElementById('html_video').pause();
+             document.getElementById('video_player').pause();
+             $("#playerWindow").hide(400);
+             $("#VLCisPlaying").delay(400).show('slow');
+           }
+         });
+    });
 </script>
 
 <!--PLAYER COSTOM POSTROLL NEXT VIDEO-->
@@ -451,7 +520,7 @@
          console.log("the ccc activates : "+ccc);
          if (ccc==="true"){
            console.log("the ccc activates : "+ccc);
-            window.location.href = '{{VideoPostroll}}';
+            window.location.href = '{{VideoPostroll}}'+'#CustomPlayer';
           }
           else{
 
@@ -505,7 +574,7 @@
             console.log("the ccc activates : "+ccc);
             if (ccc==="true"){
               console.log("the ccc activates : "+ccc);
-               window.location.href = '{{VideoPostroll}}';
+               window.location.href = '{{VideoPostroll}}'+'#CustomPlayer';
              }
              else{
                setTimeout(function () {
@@ -577,6 +646,16 @@
 </script>
 
 <script type="text/javascript">
+    var isCustom = 1;
+    if(window.location.href.endsWith("#CustomPlayer") && isCustom===1)
+    {
+      document.getElementById('video_player').play();
+      isCustom = 0;
+    }
+</script>
+
+<script type="text/javascript">
+var dark = false;
     function switchToHtml() {
       var divClass1 = document.getElementById("CustomPlayer");
       var divClass2 = document.getElementById("defaultHtmlPlayer");
@@ -602,6 +681,8 @@
       var next =  document.getElementById("next");
       var gte =  document.getElementById("gte");
       var nav = document.getElementById("NAVIGATIONBAR");
+      var vlc1 = document.getElementById("VLC1");
+      var vlc2 = document.getElementById("VLC2");
       button.classList.toggle("btn-dark");
       button.classList.toggle("btn-warning");
       button2.classList.toggle("btn-dark");
@@ -619,6 +700,10 @@
       nav.classList.toggle("bg-dark");
       nav.classList.toggle("navbar-light");
       nav.classList.toggle("bg-light");
+      vlc1.classList.toggle("btn-orange");
+      vlc1.classList.toggle("btn-dark");
+      vlc2.classList.toggle("btn-orange");
+      vlc2.classList.toggle("btn-dark");
       document.getElementById("nav1").classList.toggle("btn-dark");
       document.getElementById("nav1").classList.toggle("btn-light");
       document.getElementById("nav2").classList.toggle("btn-dark");
@@ -626,6 +711,15 @@
       document.getElementById("nav3").classList.toggle("btn-dark");
       document.getElementById("nav3").classList.toggle("btn-light");
       document.getElementById("nav4").classList.toggle("btn-dark");
+      if(dark === false){
+        document.getElementById("nav4").style.color = "#FFF";
+        dark = true;
+      }
+      else{
+        document.getElementById("nav4").style.color = "#000";
+        dark = false;
+      }
+
       document.getElementById("nav4").classList.toggle("btn-light");
       document.getElementById("nav5").classList.toggle("btn-dark");
       document.getElementById("nav5").classList.toggle("btn-light");

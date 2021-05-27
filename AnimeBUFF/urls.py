@@ -35,6 +35,7 @@ urlpatterns = [
     path('ajax/getRaws',animetitles.views.AJAX_folderManager, name="getRaws"),
     path('ajax/getMAL/<int:animeId>/',animetitles.views.AJAX_getDataFromMal, name="getMAL"),
     path('ajax/autoplay/',animetitles.views.AJAX_autoPlay, name="postAutoPlay"),
+    path('ajax/playInVLC',animetitles.views.AJAX_playInVLC, name="playInVLC"),
 
 ###################################################    TESTING PAGES URLS ##############################
     path('animetitle/testing/', animetitles.views.testing, name="testing"),

@@ -9,6 +9,8 @@ import re
 import subprocess
 import threading, socket
 from mal import Anime
+from shutil import which
+
 
 def generateOSTthumbnail():
     OSTstorage = os.path.join(AnimeFileLocation(),"[]Anime_OST")
@@ -108,6 +110,26 @@ def Subtitle(Anime_object,video_id):
     except:
         subtitle_present = False
     return subtitle_present
+
+def AJAX_playInVLC(request):
+    def play_VLC(video_address):
+        os.system(f'cmd /c "vlc -Iskins {video_address}"')
+    try:
+        anime_id = request.GET["animeID"]
+        video_id = request.GET["videoID"]
+        Anime_object = get_object_or_404(AnimeTitle, pk=int(anime_id))
+        video_NAME = Anime_object.VidList()[int(video_id)]
+        video_address = '"'+Anime_object.directory_address+"\\"+video_NAME+'"'
+        try:
+            t1 = threading.Thread(target=play_VLC, args=(video_address,))
+            t1.start()
+        except:
+            print("**VLC THREAD NOT ANSWERING**")
+        #play_VLC(video_address)
+        return JsonResponse({"message":"opening VLC Media Player..."})
+    except:
+        return JsonResponse({"message":"video could not be played in VLC"})
+
 
 def AJAX_autoPlay(request):
     if request.is_ajax() and request.method == 'POST':
@@ -740,6 +762,7 @@ def video(request, Anime_id, video_id):
         sN.close()
     Anime_object.watchCurrEp = video_id
     Anime_object.save()
+    print("######  ::  ",video_id)
 
     ##########################  TO Create SUBTITLES FOR THE VIDEO ##################################################
     PATH_TO_STATIC = "D:\programming\Tutorial_Django\AnimeBUFF-project\AnimeBUFF\static\SubtitlesForAnime.vtt"
@@ -760,10 +783,12 @@ def video(request, Anime_id, video_id):
     k=open("autoplay.ini", 'r')
     autoplaySymbol = k.read()
     k.close()
+    vlc_available = which("vlc") is not None
 
     #print("video_Public_Url +++++ ",video_Public_Url)
 
     context = {
+    'video_id':video_id,
     'EP_name': video_NAME,
     'Anime_id': Anime_id,
     'video':video_url,
@@ -774,6 +799,7 @@ def video(request, Anime_id, video_id):
     'MSG':MSG,
     'VideoPostroll':VideoPostroll,
     'autoplaySymbol':autoplaySymbol,
+    'vlc_available':vlc_available,
     }
     return render(request, "videoPlayer/videoPlayer.html", context)
 
