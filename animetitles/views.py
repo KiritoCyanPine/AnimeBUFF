@@ -626,9 +626,9 @@ def start(request):
                 return render(request, "DatabaseEmpty.html")
         #print("RandomAnimeList    :",RandomAnimeList)
 
-        courasel_1 = AnimeTitle.objects.filter(id=RandomAnimeList[0])
-        courasel_2 = AnimeTitle.objects.filter(id=RandomAnimeList[1])
-        courasel_3 = AnimeTitle.objects.filter(id=RandomAnimeList[2])
+        courasel_1 = AnimeTitle.objects.filter(id=RandomAnimeList[0]) #  14
+        courasel_2 = AnimeTitle.objects.filter(id=RandomAnimeList[1]) #  316
+        courasel_3 = AnimeTitle.objects.filter(id=RandomAnimeList[2]) #  315
         LatestAnimeIndex = lastInsertedAnimeId
         LatestObjests = []
         ListOfLatestAnimes = []

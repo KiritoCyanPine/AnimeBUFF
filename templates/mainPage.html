@@ -222,6 +222,15 @@
          overflow: auto;
         }
 /* STOPPING SHIFTING OF THE PAGE TO THE LEFT SIDE */
+/*  ADDING YELLOTAIL FONT TO OUR PAGE */
+@font-face {
+  font-family: 'Yellowtail';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url({% static "OZpGg_pnoDtINPfRIlLohlvHwQ.woff2" %}) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 </style>
 
@@ -243,7 +252,8 @@
   <section>
 
           <div class="container mt-3 pt-2 pb-2 bg-transparent text-center justify-content-center notificationPanel">
-            <h4  class="text-white">Anime List</h4></div>
+            <h3  class="text-dark navi pl-5" style="font-family: 'Yellowtail', cursive;font-size:250%;possition:relative;z-index:20;"><b>Anime<span class="text-light">Buff...</span></b></h3>
+</div>
 
       </section>
 
