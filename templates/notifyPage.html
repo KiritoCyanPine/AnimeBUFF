@@ -14,155 +14,155 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="{% static "dist\css\bootstrap.min.css" %}" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <!-- Favicons -->
-<link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-<link rel="shortcut icon" href='{% static "play-button.ico" %}'>
-<link rel="icon" href='{% static "play-button.ico" %}'>
-<link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-<link rel="mask-icon" href="/docs/4.5/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
-<link rel="icon" href="/docs/4.5/assets/img/favicons/favicon.ico">
-<meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
-<meta name="theme-color" content="#563d7c">
+        <!-- Favicons -->
+    <link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="shortcut icon" href='{% static "play-button.ico" %}'>
+    <link rel="icon" href='{% static "play-button.ico" %}'>
+    <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="mask-icon" href="/docs/4.5/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+    <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon.ico">
+    <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#563d7c">
 
 
-<style>
+    <style>
 
-          .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-          }
+              .bd-placeholder-img {
+                font-size: 1.125rem;
+                text-anchor: middle;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+              }
 
-          @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-              font-size: 3.5rem;
-            }
-          }
-
-
-                @media screen and (prefers-reduced-motion: no-preference) {
-                  html,
-                  body {
-                    scroll-behavior: smooth;
-                  }
+              @media (min-width: 768px) {
+                .bd-placeholder-img-lg {
+                  font-size: 3.5rem;
                 }
+              }
 
-          .darker {
-            background :linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
-          }
-          .darkerL {
-            background :linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
-          }
-          .model-grad {
-            background: linear-gradient(110deg, rgba(27,151,2360.9) 6%, rgba(78,255,196,0.9) 51%, rgba(100,90,80,0.91081936192445727) 100%);
+
+                    @media screen and (prefers-reduced-motion: no-preference) {
+                      html,
+                      body {
+                        scroll-behavior: smooth;
+                      }
+                    }
+
+              .darker {
+                background :linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
+              }
+              .darkerL {
+                background :linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+              }
+              .model-grad {
+                background: linear-gradient(110deg, rgba(27,151,2360.9) 6%, rgba(78,255,196,0.9) 51%, rgba(100,90,80,0.91081936192445727) 100%);
+              }
+
+        /*----------------------- TABLE ROW DEAORATION IN IDLE & IN HOVERING -----------------------------------------------*/
+              tr{
+                transition: all 0.3s;
+              }
+              tr:hover a{
+                color: white;
+              }
+              tr:hover{
+                /*background: linear-gradient(210deg, rgba(27,151,236,0.15) 6%, rgba(78,255,196,0.15) 51%, rgba(100,90,80,0.15) 100%);*/
+                background: linear-gradient(90deg, rgba(61,98,231,1) 0%, rgba(206,161,240,0.7458333675266982) 51%, rgba(0,212,255,0.23322832550989148) 100%);
+                color: white;
+                transform: scale(1.02);
+              }
+        /*----------------------- TABLE ROW DEAORATION ENDS -----------------------------------------------*/
+
+
+
+        /*___________________    FOR THE  CONSISTENCY IN THE LINK DECOR CHANGING     ___________________*/
+                          a:link {  text-decoration: none; color:white;  }
+                          a:visited {  text-decoration: none;  }
+                          a:hover {  text-decoration: none;; color:white;  }
+                          a:active {   text-decoration: none;   }
+        /*___________________     ENDING OF LINK DECORATION CHANGE                    ___________________*/
+
+          body {
+            background:  linear-gradient(220deg, rgba(2,0,36,1) 0%, rgba(212,212,250,1) 55%, rgba(0,212,255,1) 100%) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            margin: 0;
+            /* this piece of code actually stopped shifting of page when models were opened*/
+            /**/                                                                         /**/
+            /**/                        padding-right:0px !important;                    /**/
+            /**/                        margin-right:0px !important;                     /**/
+            /**/                                                                         /**/
+            /* this piece of crap actually stopped shifting of page when models were opened*/
           }
 
-    /*----------------------- TABLE ROW DEAORATION IN IDLE & IN HOVERING -----------------------------------------------*/
-          tr{
-            transition: all 0.3s;
+          /*___________________   FOR THE SELECTION HIGHTLIGHT OF THE ANIME LIST    ___________________*/
+          .linker {
+            background :linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85));
+            transition: transform 0.2s;
           }
-          tr:hover a{
+
+          .addToDB a {
+            color: yellow;
+          }
+          .addToDB a:hover {
             color: white;
           }
-          tr:hover{
-            /*background: linear-gradient(210deg, rgba(27,151,236,0.15) 6%, rgba(78,255,196,0.15) 51%, rgba(100,90,80,0.15) 100%);*/
-            background: linear-gradient(90deg, rgba(61,98,231,1) 0%, rgba(206,161,240,0.7458333675266982) 51%, rgba(0,212,255,0.23322832550989148) 100%);
-            color: white;
-            transform: scale(1.02);
+
+          .linker:hover {
+            background: -moz-linear-gradient(42deg, rgba(0,255,183,1) 0%, rgba(133,240,255,1) 57%, rgba(0,130,255,1) 100%);
+            background: -webkit-linear-gradient(42deg, rgba(0,255,183,1) 0%, rgba(133,240,255,1) 57%, rgba(0,130,255,1) 100%);
+            background: linear-gradient(42deg, rgba(0,255,183,1) 0%, rgba(133,240,255,1) 57%, rgba(0,130,255,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffb7",endColorstr="#0082ff",GradientType=1);
+            color:white;
+            border: 0px;
+            border-radius: 8px;
+            transform: scale(1.01);
           }
-    /*----------------------- TABLE ROW DEAORATION ENDS -----------------------------------------------*/
+
+          .linker:hover a{
+            color: white;
+          }
+
+          .linker a:hover{
+            color: #007bff;
+          }
+          /*___________________   ENDING OF THE SELECTION PROGRAM    ___________________*/
+          .notificationPanel{
+            background: rgb(44,226,255);
+            background: -moz-linear-gradient(54deg, rgba(44,226,255,1) 0%, rgba(69,233,195,1) 49%, rgba(210,95,255,1) 100%);
+            background: -webkit-linear-gradient(54deg, rgba(44,226,255,1) 0%, rgba(69,233,195,1) 49%, rgba(210,95,255,1) 100%);
+            background: linear-gradient(54deg, rgba(44,226,255,1) 0%, rgba(69,233,195,1) 49%, rgba(210,95,255,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2ce2ff",endColorstr="#d25fff",GradientType=1);
+          }
 
 
+           .small-fonts{
+             font-size: 90%;
+           }
 
-    /*___________________    FOR THE  CONSISTENCY IN THE LINK DECOR CHANGING     ___________________*/
-                      a:link {  text-decoration: none; color:white;  }
-                      a:visited {  text-decoration: none;  }
-                      a:hover {  text-decoration: none;; color:white;  }
-                      a:active {   text-decoration: none;   }
-    /*___________________     ENDING OF LINK DECORATION CHANGE                    ___________________*/
+           /* FOR STOPPING SHIFTING OF THE PAGE TO LEFT */
+           .modal {
+             overflow-x: auto;
+            }
 
-      body {
-        background:  linear-gradient(220deg, rgba(2,0,36,1) 0%, rgba(212,212,250,1) 55%, rgba(0,212,255,1) 100%) no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-        margin: 0;
-        /* this piece of code actually stopped shifting of page when models were opened*/
-        /**/                                                                         /**/
-        /**/                        padding-right:0px !important;                    /**/
-        /**/                        margin-right:0px !important;                     /**/
-        /**/                                                                         /**/
-        /* this piece of crap actually stopped shifting of page when models were opened*/
-      }
+            .modal-open {
+             overflow: auto;
+            }
 
-      /*___________________   FOR THE SELECTION HIGHTLIGHT OF THE ANIME LIST    ___________________*/
-      .linker {
-        background :linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85));
-        transition: transform 0.2s;
-      }
-
-      .addToDB a {
-        color: yellow;
-      }
-      .addToDB a:hover {
-        color: white;
-      }
-
-      .linker:hover {
-        background: -moz-linear-gradient(42deg, rgba(0,255,183,1) 0%, rgba(133,240,255,1) 57%, rgba(0,130,255,1) 100%);
-        background: -webkit-linear-gradient(42deg, rgba(0,255,183,1) 0%, rgba(133,240,255,1) 57%, rgba(0,130,255,1) 100%);
-        background: linear-gradient(42deg, rgba(0,255,183,1) 0%, rgba(133,240,255,1) 57%, rgba(0,130,255,1) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffb7",endColorstr="#0082ff",GradientType=1);
-        color:white;
-        border: 0px;
-        border-radius: 8px;
-        transform: scale(1.01);
-      }
-
-      .linker:hover a{
-        color: white;
-      }
-
-      .linker a:hover{
-        color: #007bff;
-      }
-      /*___________________   ENDING OF THE SELECTION PROGRAM    ___________________*/
-      .notificationPanel{
-        background: rgb(44,226,255);
-        background: -moz-linear-gradient(54deg, rgba(44,226,255,1) 0%, rgba(69,233,195,1) 49%, rgba(210,95,255,1) 100%);
-        background: -webkit-linear-gradient(54deg, rgba(44,226,255,1) 0%, rgba(69,233,195,1) 49%, rgba(210,95,255,1) 100%);
-        background: linear-gradient(54deg, rgba(44,226,255,1) 0%, rgba(69,233,195,1) 49%, rgba(210,95,255,1) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2ce2ff",endColorstr="#d25fff",GradientType=1);
-      }
-
-
-       .small-fonts{
-         font-size: 90%;
-       }
-
-       /* FOR STOPPING SHIFTING OF THE PAGE TO LEFT */
-       .modal {
-         overflow-x: auto;
-        }
-
-        .modal-open {
-         overflow: auto;
-        }
-
-        .enlarge{
-          color: pink;
-          transition: all 0.3s linear;
-        }
-        .enlarge:hover{
-          color: pink;
-          font-size:101%;
-        }
-</style>
+            .enlarge{
+              color: pink;
+              transition: all 0.3s linear;
+            }
+            .enlarge:hover{
+              color: pink;
+              font-size:101%;
+            }
+    </style>
 
 
 
@@ -210,7 +210,7 @@
   <section>
 
     <div class="container mt-3 pt-2 pb-2 bg-transparent text-center justify-content-center notificationPanel">
-    <h4  class="text-white text-center col-12"><span class="float-left small-fonts text-danger" style="visibility:hidden;">Registered -  <b>{{Registered|length}}</b></span> notification <span class="float-right small-fonts text-dark" style="overflow:visible;">Registered -  <b>{{Registered|length}}</b></span> </h4>
+    <h4  class="text-white text-center col-12"><span class="float-left small-fonts text-danger" style="visibility:hidden;">Registered -  <b>{{Registered|length}}</b></span> notification <span class="float-right small-fonts text-dark" style="overflow:visible;">Registered -  <b><span  id="noOfRegisteredAnime"></span></b></span> </h4>
     </div>
 
   </section>
@@ -246,7 +246,7 @@
           <div class="col-8">
             <textarea rows="10" cols="80" name="avoidList" id="avoidList" aria-label="avoidList">{{Avoid_folder}}</textarea>
           </div>
-          <div class="col-4">
+          <div class="col-4 pl-5">
             <button type="submit" class="btn btn-primary mt-5">save changes</button>
             <a href="{% url 'notify' %}openAFileInNotepad" class="btn btn-info mt-2">Open the file in Notepad</a>
             <a href="{% url 'notify' %}clearTheWholeFrikinStuff_IwantItClean" class="btn btn-warning mt-2">Clear All Avoid Dirs</a>
@@ -303,6 +303,7 @@ function switchView() {
           $("#UNREGISTERED").empty();
           $("#UNTRACKED").empty();
           $('#UNREG_LEN').empty();
+          $('#noOfRegisteredAnime').empty().append(response.Registered.length);
           if (typeof response.Unregistered !== 'undefined' && response.Unregistered.length > 0){
               var i=0;
               for (var key in response.Unregistered)
@@ -336,7 +337,6 @@ function switchView() {
             if (first_Time == 0){$("#UNREGISTERED").append(temp).hide().slideDown('fast');}
             else{$("#UNREGISTERED").append(temp);}
         }
-
         if (typeof response.Deleted_Anime !== 'undefined' && response.Deleted_Anime.length > 0){
             for (var key in response.Deleted_Anime)
             {

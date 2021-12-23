@@ -79,7 +79,9 @@ def collectOST():
 
 def Subtitle(Anime_object,video_id):
     from distutils.spawn import find_executable
-    if find_executable('mkvextract') is None:
+
+    # replace 'and' with 'or' if you want to avoid Subtitle Extraction and you have both VLC and MKV-NIX
+    if find_executable('mkvextract') is None and find_executable('vlc') is not None:
         return "Package not found"
     PATH_TO_STATIC = "D:\programming\Tutorial_Django\AnimeBUFF-project\AnimeBUFF\static\SubtitlesForAnime.vtt"
     video_NAME = Anime_object.AnimeEpisodes()[video_id]
@@ -269,8 +271,8 @@ def AJAX_getDataFromMal(request, animeId):
         'score_color':score_color,
         'rank':rank,
         }
-    except Exception:
-        pass
+    except Exception(e):
+        print(e)
     return JsonResponse(context)
 
 # Create your views here.
@@ -627,8 +629,11 @@ def start(request):
         #print("RandomAnimeList    :",RandomAnimeList)
 
         courasel_1 = AnimeTitle.objects.filter(id=RandomAnimeList[0]) #  14
+        #courasel_1 = AnimeTitle.objects.filter(id=14) #  14
         courasel_2 = AnimeTitle.objects.filter(id=RandomAnimeList[1]) #  316
+        #courasel_2 = AnimeTitle.objects.filter(id=316) #  316
         courasel_3 = AnimeTitle.objects.filter(id=RandomAnimeList[2]) #  315
+        #courasel_3 = AnimeTitle.objects.filter(id=315) #  315
         LatestAnimeIndex = lastInsertedAnimeId
         LatestObjests = []
         ListOfLatestAnimes = []
@@ -708,8 +713,7 @@ def start(request):
         return render(request, "DatabaseEmpty.html")
 
 def video(request, Anime_id, video_id):
-    #PC_IP = str(socket.gethostbyname(socket.getfqdn()))
-    PC_IP = "localhost"
+    PC_IP = str(socket.gethostbyname(socket.getfqdn()))
     Anime_object = get_object_or_404(AnimeTitle, pk=Anime_id)
     video_urls = Anime_object.AnimeEpisodesLink()
     video_url = video_urls[video_id]
@@ -738,7 +742,7 @@ def video(request, Anime_id, video_id):
         ##  Url generation ends
     video_NAME = Anime_object.AnimeEpisodes()[video_id]
     video_Public_Url = str(video_url)
-    video_Public_Url = PC_IP+video_Public_Url[16:]
+    video_Public_Url = r"http://"+PC_IP+video_Public_Url[16:]
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     sN = open(BASE_DIR+"\\recentlyWatched.qaw",'r')
     recently_watched = sN.readline()
@@ -773,7 +777,11 @@ def video(request, Anime_id, video_id):
         subtitle_present = Subtitle(Anime_object, video_id)
         if subtitle_present == "Package not found":
             subtitle_present = False
-            MSG = "MKV NIX TOOLS is not found... you will not be able to view subtitles..."
+            from distutils.spawn import find_executable
+            if find_executable('vlc') is None:
+                MSG = "MKV NIX TOOLS is not found... you will not be able to view subtitles..."
+            else:
+                MSG = ""
         else:
             MSG = ''
     else:
@@ -786,7 +794,6 @@ def video(request, Anime_id, video_id):
     vlc_available = which("vlc") is not None
 
     #print("video_Public_Url +++++ ",video_Public_Url)
-
     context = {
     'video_id':video_id,
     'EP_name': video_NAME,
@@ -878,79 +885,79 @@ def notify(request,optional_parameter=''):
     ##### NEW way of tracking REGISTERED Anime  --> Faster  O(i*j)
 
     # LIST of all the anime that are registered ....
-    registeredDirectoryAddresses = [j.directory_address for j in AnimeTitle.objects.all()]
-    Registered = []
-    for i in allDirs:
-        #print("if DIr name  :",Anime_dir+i)
-        if Anime_dir+i in registeredDirectoryAddresses:
-            Registered.append(i)
-
-    Deleted_Anime = []
-
-    Avoid_folder = []
-    csv_reader = ""
-    try:
-        with open(BASE_DIR+"\\Dir_Avoid.qaw", 'r') as csv_file:
-            csv_reader = csv_file.read()
-            Avoid_folder = csv_reader.split(",")
-            if "album.css" in Avoid_folder:
-                Avoid_folder = Avoid_folder.remove("album.css")
-    except:
-        c = open(BASE_DIR+"\\Dir_Avoid.qaw", 'w')
-        c.close()
-        with open(BASE_DIR+"\\Dir_Avoid.qaw", 'r') as csv_file:
-            csv_reader = csv_file.read()
-            Avoid_folder = csv_reader.split(",")
-            if "album.css" in Avoid_folder:
-                Avoid_folder = Avoid_folder.remove("album.css")
-    #print(Avoid_folder)
-    if optional_parameter == '':
-        pass
-        #print("DoinNothin")
-    elif optional_parameter == 'openAFileInNotepad':
-        pass
-        #print("DoinNothin")
-    elif optional_parameter == 'clearTheWholeFrikinStuff_IwantItClean':
-        fileOpen = open(BASE_DIR+"\\Dir_Avoid.qaw",'w')
-        fileOpen.close()
-    elif optional_parameter in Avoid_folder:
-        pass
-        #print("DoinNothin")
-    elif optional_parameter == "album.css":
-        pass
-        #print("DoinNothin")
-    else:
-        #print("=======",optional_parameter)
-        fileOpen = open(BASE_DIR+"\\Dir_Avoid.qaw",'a')
-        fileOpen.write(optional_parameter+",")
-        fileOpen.close()
-        Avoid_folder.append(optional_parameter)
-    with open(BASE_DIR+"\\Dir_Avoid.qaw", 'r') as csv_file:
-        csv_reader = csv_file.read()
-        Avoid_folder = csv_reader.split(",")
-        if "album.css" in Avoid_folder:
-            Avoid_folder = Avoid_folder.remove("album.css")
-    ##print("AVOID FOLDER _____  ",Avoid_folder)
-    Unregistered = set(allDirs) - set(Registered)
-    Unregistered = set(Unregistered) - set(Avoid_folder)
-    Unregistered = list(Unregistered)
-    Unregistered.sort()
-    Unregistered_add = [Anime_dir+i for i in Unregistered ]
-    Unregistered_links = zip(Unregistered,Unregistered_add)
-
-    for j in AnimeTitle.objects.all():
-        if j.noOfEPs() == 0:
-            Deleted_Anime.append(get_object_or_404(AnimeTitle, pk=j.id))
-        if j.noOfEPs() == "Dir Deleted":
-            Deleted_Anime.append(get_object_or_404(AnimeTitle, pk=j.id))
+    # registeredDirectoryAddresses = [j.directory_address for j in AnimeTitle.objects.all()]
+    # Registered = []
+    # for i in allDirs:
+    #     #print("if DIr name  :",Anime_dir+i)
+    #     if Anime_dir+i in registeredDirectoryAddresses:
+    #         Registered.append(i)
+    #
+    # Deleted_Anime = []
+    #
+    # Avoid_folder = []
+    # csv_reader = ""
+    # try:
+    #     with open(BASE_DIR+"\\Dir_Avoid.qaw", 'r') as csv_file:
+    #         csv_reader = csv_file.read()
+    #         Avoid_folder = csv_reader.split(",")
+    #         if "album.css" in Avoid_folder:
+    #             Avoid_folder = Avoid_folder.remove("album.css")
+    # except:
+    #     c = open(BASE_DIR+"\\Dir_Avoid.qaw", 'w')
+    #     c.close()
+    #     with open(BASE_DIR+"\\Dir_Avoid.qaw", 'r') as csv_file:
+    #         csv_reader = csv_file.read()
+    #         Avoid_folder = csv_reader.split(",")
+    #         if "album.css" in Avoid_folder:
+    #             Avoid_folder = Avoid_folder.remove("album.css")
+    # #print(Avoid_folder)
+    # if optional_parameter == '':
+    #     pass
+    #     #print("DoinNothin")
+    # elif optional_parameter == 'openAFileInNotepad':
+    #     pass
+    #     #print("DoinNothin")
+    # elif optional_parameter == 'clearTheWholeFrikinStuff_IwantItClean':
+    #     fileOpen = open(BASE_DIR+"\\Dir_Avoid.qaw",'w')
+    #     fileOpen.close()
+    # elif optional_parameter in Avoid_folder:
+    #     pass
+    #     #print("DoinNothin")
+    # elif optional_parameter == "album.css":
+    #     pass
+    #     #print("DoinNothin")
+    # else:
+    #     #print("=======",optional_parameter)
+    #     fileOpen = open(BASE_DIR+"\\Dir_Avoid.qaw",'a')
+    #     fileOpen.write(optional_parameter+",")
+    #     fileOpen.close()
+    #     Avoid_folder.append(optional_parameter)
+    # with open(BASE_DIR+"\\Dir_Avoid.qaw", 'r') as csv_file:
+    #     csv_reader = csv_file.read()
+    #     Avoid_folder = csv_reader.split(",")
+    #     if "album.css" in Avoid_folder:
+    #         Avoid_folder = Avoid_folder.remove("album.css")
+    # ##print("AVOID FOLDER _____  ",Avoid_folder)
+    # Unregistered = set(allDirs) - set(Registered)
+    # Unregistered = set(Unregistered) - set(Avoid_folder)
+    # Unregistered = list(Unregistered)
+    # Unregistered.sort()
+    # Unregistered_add = [Anime_dir+i for i in Unregistered ]
+    # Unregistered_links = zip(Unregistered,Unregistered_add)
+    #
+    # for j in AnimeTitle.objects.all():
+    #     if j.noOfEPs() == 0:
+    #         Deleted_Anime.append(get_object_or_404(AnimeTitle, pk=j.id))
+    #     if j.noOfEPs() == "Dir Deleted":
+    #         Deleted_Anime.append(get_object_or_404(AnimeTitle, pk=j.id))
     with open(BASE_DIR+"\\Dir_Avoid.qaw", 'r') as csv_file:
         csv_reader = csv_file.read()
     csv_reader = csv_reader.replace(",","\n")
     context = {
-    'Deleted_Anime':Deleted_Anime,
-    'Unregistered':Unregistered,
-    'Registered':Registered,
-    'Unregistered_links':Unregistered_links,
+    # 'Deleted_Anime':Deleted_Anime,
+    # 'Unregistered':Unregistered,
+    # 'Registered':Registered,
+    # 'Unregistered_links':Unregistered_links,
     'Avoid_folder':csv_reader,
     'AvoidFile':BASE_DIR+"\\Dir_Avoid.qaw",
     }
